@@ -239,6 +239,9 @@ const URI_DEFAULT_PORTS = [
 	'ldap'   => 389,
 ];
 
+/**
+ * Checks whether the URI has a port set and if that port is one of the default ports for the given scheme
+ */
 function uriIsDefaultPort(UriInterface $uri):bool{
 	$port   = $uri->getPort();
 	$scheme = $uri->getScheme();
@@ -292,7 +295,6 @@ function uriIsAbsolutePathReference(UriInterface $uri):bool{
  *
  * A relative reference that does not begin with a slash character is termed a relative-path reference.
  *
- * @return bool
  * @link https://tools.ietf.org/html/rfc3986#section-4.2
  */
 function uriIsRelativePathReference(UriInterface $uri):bool{

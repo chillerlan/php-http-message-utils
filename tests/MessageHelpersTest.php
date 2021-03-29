@@ -13,10 +13,12 @@ namespace chillerlan\HTTPTest\Utils;
 use TypeError;
 
 use function chillerlan\HTTP\Utils\{
-	decompress_content, get_json, get_xml, message_to_string, r_rawurlencode,
-	uriIsAbsolute, uriIsAbsolutePathReference, uriIsNetworkPathReference,
+	decompress_content, get_json, get_xml, message_to_string, parseUrl, r_rawurlencode,
+	uriIsAbsolute, uriIsAbsolutePathReference, uriIsDefaultPort, uriIsNetworkPathReference,
 	uriIsRelativePathReference, uriWithoutQueryValue, uriWithQueryValue
 };
+
+use const chillerlan\HTTP\Utils\URI_DEFAULT_PORTS;
 
 class MessageHelpersTest extends TestAbstract{
 
@@ -220,6 +222,43 @@ class MessageHelpersTest extends TestAbstract{
 
 		$uri = uriWithoutQueryValue(uriWithoutQueryValue($uri, 'foo'), ''); // coverage
 		$this::assertSame('', $uri->getQuery());
+	}
+
+	public function testUriIsDefaultPort():void{
+
+		foreach(URI_DEFAULT_PORTS as $scheme => $port){
+			$uri = $this->uriFactory->createUri($scheme.'://localhost:'.$port);
+
+			$this::assertTrue(uriIsDefaultPort($uri));
+			$this->assertSame($scheme.'://localhost', (string)$uri);
+		}
+
+		$uri = $this->uriFactory->createUri('https://localhost:42');
+		$this->assertSame('https://localhost:42', (string)$uri);
+
+	}
+
+	public function parseUrlProvider():array{
+		return [
+			['http://', null],
+			['https://яндекAс.рф', [
+				'scheme' => 'https',
+				'host'   => 'яндекAс.рф'
+			]],
+			['http://[2a00:f48:1008::212:183:10]:56?foo=bar', [
+				'scheme' => 'http',
+				'host'   => '[2a00:f48:1008::212:183:10]',
+				'port'   => '56',
+				'query'  => 'foo=bar',
+			]]
+		];
+	}
+
+	/**
+	 * @dataProvider parseUrlProvider
+	 */
+	public function testParseUrl($url, $expected):void{
+		$this::assertSame($expected, parseUrl($url));
 	}
 
 }

@@ -11,10 +11,10 @@
 namespace chillerlan\HTTPTest\Utils;
 
 use chillerlan\HTTP\Utils\Server;
+use InvalidArgumentException;
 
 use function time;
-use const UPLOAD_ERR_OK;
-use const UPLOAD_ERR_PARTIAL;
+use const UPLOAD_ERR_OK, UPLOAD_ERR_PARTIAL;
 
 class FactoryHelpersTest extends TestAbstract{
 
@@ -234,6 +234,12 @@ class FactoryHelpersTest extends TestAbstract{
 		$this::assertSame('MyFile3.txt', $normalized[2]->getClientFilename());
 
 		$this::assertSame(UPLOAD_ERR_PARTIAL, $normalized[1]->getError());
+	}
+
+	public function testNormalizeFilesInvalidValueException():void{
+		$this->expectException(InvalidArgumentException::class);
+		$this->expectExceptionMessage('Invalid value in files specification');
+		$this->server->normalizeFiles(['files' => 'foo']);
 	}
 
 }
