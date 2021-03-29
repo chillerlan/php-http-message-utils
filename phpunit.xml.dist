@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.5/phpunit.xsd"
+		 bootstrap="vendor/autoload.php"
+		 cacheResultFile=".build/phpunit.result.cache"
+		 colors="true"
+		 verbose="true"
+>
+	<coverage>
+		<include>
+			<directory suffix=".php">./src</directory>
+		</include>
+		<report>
+			<clover outputFile=".build/coverage/clover.xml"/>
+			<xml outputDirectory=".build/coverage/coverage-xml"/>
+		</report>
+	</coverage>
+	<testsuites>
+		<testsuite name="php-http-message-utils test suite">
+			<directory>./tests</directory>
+		</testsuite>
+	</testsuites>
+	<logging>
+		<junit outputFile=".build/logs/junit.xml"/>
+	</logging>
+	<php>
+		<const name="REQUEST_FACTORY" value="GuzzleHttp\Psr7\HttpFactory"/>
+		<const name="RESPONSE_FACTORY" value="GuzzleHttp\Psr7\HttpFactory"/>
+		<const name="SERVER_REQUEST_FACTORY" value="GuzzleHttp\Psr7\HttpFactory"/>
+		<const name="STREAM_FACTORY" value="GuzzleHttp\Psr7\HttpFactory"/>
+		<const name="UPLOADED_FILE_FACTORY" value="GuzzleHttp\Psr7\HttpFactory"/>
+		<const name="URI_FACTORY" value="GuzzleHttp\Psr7\HttpFactory"/>
+	</php>
+</phpunit>
