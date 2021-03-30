@@ -82,15 +82,16 @@ class Server{
 
 		$uri = $this->uriFactory
 			->createUri()
-			->withScheme(!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http');
+			->withScheme(!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http')
+		;
 
 		if(isset($_SERVER['HTTP_HOST'])){
 			$hostHeaderParts = explode(':', $_SERVER['HTTP_HOST']);
-			$uri = $uri->withHost($hostHeaderParts[0]);
+			$uri             = $uri->withHost($hostHeaderParts[0]);
 
 			if(isset($hostHeaderParts[1])){
-				$hasPort       = true;
-				$uri = $uri->withPort((int)$hostHeaderParts[1]);
+				$hasPort = true;
+				$uri     = $uri->withPort((int)$hostHeaderParts[1]);
 			}
 		}
 		elseif(isset($_SERVER['SERVER_NAME'])){
@@ -106,11 +107,11 @@ class Server{
 
 		if(isset($_SERVER['REQUEST_URI'])){
 			$requestUriParts = explode('?', $_SERVER['REQUEST_URI']);
-			$uri = $uri->withPath($requestUriParts[0]);
+			$uri             = $uri->withPath($requestUriParts[0]);
 
 			if(isset($requestUriParts[1])){
-				$hasQuery       = true;
-				$uri = $uri->withQuery($requestUriParts[1]);
+				$hasQuery = true;
+				$uri      = $uri->withQuery($requestUriParts[1]);
 			}
 		}
 
@@ -206,6 +207,5 @@ class Server{
 
 		return $normalized;
 	}
-
 
 }

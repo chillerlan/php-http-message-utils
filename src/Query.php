@@ -10,8 +10,8 @@
 
 namespace chillerlan\HTTP\Utils;
 
-use function array_merge, explode, implode, is_array, is_bool, is_string, parse_url, rawurldecode, sort, str_replace, uksort;
-use const PHP_QUERY_RFC1738, PHP_QUERY_RFC3986, PHP_URL_QUERY, SORT_STRING;
+use function array_merge, explode, implode, is_array, is_bool, is_string, rawurldecode, sort, str_replace, uksort;
+use const PHP_QUERY_RFC1738, PHP_QUERY_RFC3986, SORT_STRING;
 
 /**
  *
@@ -166,7 +166,7 @@ final class Query{
 	 * @return string
 	 */
 	public static function merge(string $uri, array $query):string{
-		$parsedquery = self::parse(parse_url($uri, PHP_URL_QUERY) ?: '');
+		$parsedquery = self::parse(parseUrl($uri)['query'] ?? '');
 		$requestURI  = explode('?', $uri)[0];
 		$params      = array_merge($parsedquery, $query);
 

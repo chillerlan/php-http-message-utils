@@ -165,7 +165,7 @@ function r_rawurlencode($data){
  * @return \stdClass|array|bool
  */
 function get_json(MessageInterface $message, bool $assoc = null){
-	$data = json_decode($message->getBody()->__toString(), $assoc);
+	$data = json_decode((string)$message->getBody(), $assoc);
 
 	$message->getBody()->rewind();
 
@@ -179,7 +179,7 @@ function get_json(MessageInterface $message, bool $assoc = null){
  * @return \SimpleXMLElement|array|bool
  */
 function get_xml(MessageInterface $message, bool $assoc = null){
-	$data = simplexml_load_string($message->getBody()->__toString());
+	$data = simplexml_load_string((string)$message->getBody());
 
 	$message->getBody()->rewind();
 
@@ -214,7 +214,7 @@ function message_to_string(MessageInterface $message):string{
 		$msg .= "\r\n".$name.': '.implode(', ', $values);
 	}
 
-	$data = $message->getBody()->__toString();
+	$data = (string)$message->getBody();
 	$message->getBody()->rewind();
 
 	return $msg."\r\n\r\n".$data;

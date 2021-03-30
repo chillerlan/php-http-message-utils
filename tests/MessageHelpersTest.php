@@ -49,10 +49,9 @@ class MessageHelpersTest extends TestAbstract{
 	}
 
 	public function testRawurlencodeTypeErrorException():void{
-		$this::expectException(TypeError::class);
+		$this->expectException(TypeError::class);
 
-		/** @noinspection PhpParamsInspection */
-		r_rawurlencode(new \stdClass());
+		r_rawurlencode((object)[]);
 	}
 
 	public function testGetJSON():void{
