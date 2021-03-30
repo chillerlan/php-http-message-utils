@@ -16,7 +16,7 @@ use Psr\Http\Message\{
 	UploadedFileFactoryInterface, UploadedFileInterface, UriFactoryInterface, UriInterface
 };
 
-use function array_keys, explode, function_exists, is_array, substr;
+use function array_keys, explode, function_exists, is_array, is_file, substr;
 
 /**
  *
@@ -170,13 +170,13 @@ class Server{
 			return self::normalizeNestedFileSpec($value);
 		}
 
-		return $this->uploadedFileFactory->createUploadedFile(
-			$this->streamFactory->createStreamFromFile($value['tmp_name']),
-			(int)$value['size'],
-			(int)$value['error'],
-			$value['name'],
-			$value['type']
-		);
+		// not sure if dumb or genius
+		$stream = is_file($value['tmp_name'])
+			? $this->streamFactory->createStreamFromFile($value['tmp_name'])
+			: $this->streamFactory->createStream($value['tmp_name']);
+
+		return $this->uploadedFileFactory
+			->createUploadedFile($stream, (int)$value['size'], (int)$value['error'], $value['name'], $value['type']);
 	}
 
 	/**
