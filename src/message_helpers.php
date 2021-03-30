@@ -8,12 +8,12 @@
 
 namespace chillerlan\HTTP\Utils;
 
-use TypeError;
+use RuntimeException, TypeError;
 use Psr\Http\Message\{MessageInterface, RequestInterface, ResponseInterface, UriInterface};
 
-use function array_filter, array_map, explode, gzdecode, gzinflate, gzuncompress, implode,
+use function array_filter, array_map, explode, extension_loaded, function_exists, gzdecode, gzinflate, gzuncompress, implode,
 	is_array, is_scalar, json_decode, json_encode, parse_url, preg_match, preg_replace_callback, rawurldecode,
-	rawurlencode, simplexml_load_string, trim, urlencode;
+	rawurlencode, simplexml_load_string, strtolower, trim, urlencode;
 
 const CHILLERLAN_PSR7_UTIL_INCLUDES = true;
 
@@ -210,19 +210,32 @@ function message_to_string(MessageInterface $message):string{
  * @param \Psr\Http\Message\MessageInterface $message
  *
  * @return string
+ * @throws \RuntimeException
  */
 function decompress_content(MessageInterface $message):string{
-	$data = $message->getBody()->__toString();
+	$data     = (string)$message->getBody();
+	$encoding = strtolower($message->getHeaderLine('content-encoding'));
 	$message->getBody()->rewind();
 
-	switch($message->getHeaderLine('content-encoding')){
-#		case 'br'      : return brotli_uncompress($data); // @todo: https://github.com/kjdev/php-ext-brotli
-		case 'compress': return gzuncompress($data);
-		case 'deflate' : return gzinflate($data);
-		case 'gzip'    : return gzdecode($data);
-		default: return $data;
+	if($encoding === 'br'){
+		// https://github.com/kjdev/php-ext-brotli
+		if(extension_loaded('brotli') && function_exists('brotli_uncompress')){
+			return brotli_uncompress($data); // @codeCoverageIgnore
+		}
+
+		throw new RuntimeException('cannot decompress brotli compressed message body');
+	}
+	elseif($encoding === 'compress'){
+		return gzuncompress($data);
+	}
+	elseif($encoding === 'deflate'){
+		return gzinflate($data);
+	}
+	elseif($encoding === 'gzip' || $encoding === 'x-gzip'){
+		return gzdecode($data);
 	}
 
+	return $data;
 }
 
 const URI_DEFAULT_PORTS = [

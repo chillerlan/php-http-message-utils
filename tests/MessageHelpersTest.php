@@ -10,7 +10,7 @@
 
 namespace chillerlan\HTTPTest\Utils;
 
-use TypeError;
+use RuntimeException, TypeError;
 
 use function chillerlan\HTTP\Utils\{
 	decompress_content, get_json, get_xml, message_to_string, parseUrl, r_rawurlencode,
@@ -18,6 +18,7 @@ use function chillerlan\HTTP\Utils\{
 	uriIsRelativePathReference, uriWithoutQueryValue, uriWithQueryValue
 };
 
+use function extension_loaded, function_exists;
 use const chillerlan\HTTP\Utils\URI_DEFAULT_PORTS;
 
 class MessageHelpersTest extends TestAbstract{
@@ -106,6 +107,7 @@ class MessageHelpersTest extends TestAbstract{
 
 	public function decompressDataProvider():array{
 		return [
+			'br'       => ['brotli_compress', 'br'],
 			'compress' => ['gzcompress', 'compress'],
 			'deflate'  => ['gzdeflate', 'deflate'],
 			'gzip'     => ['gzencode', 'gzip'],
@@ -117,7 +119,14 @@ class MessageHelpersTest extends TestAbstract{
 	 * @dataProvider decompressDataProvider
 	 */
 	public function testDecompressContent(string $fn, string $encoding):void{
-		$data = $expected = str_repeat('compressed string ', 100);
+
+		// https://github.com/kjdev/php-ext-brotli
+		if($encoding === 'br' && (!extension_loaded('brotli') || !function_exists('brotli_compress'))){
+			$this::markTestSkipped('N/A (ext-brotli not isntalled)');
+		}
+
+		$data     = str_repeat('compressed string ', 100);
+		$expected = $data;
 		$response = $this->responseFactory->createResponse();
 
 		if($fn){
@@ -128,6 +137,22 @@ class MessageHelpersTest extends TestAbstract{
 		$response = $response->withBody($this->streamFactory->createStream($data));
 
 		$this::assertSame($expected, decompress_content($response));
+	}
+
+	public function testDecompressContentUnableToDecompressBrotliException():void{
+
+		if(extension_loaded('brotli') && function_exists('brotli_uncompress')){
+			$this::markTestSkipped('N/A (ext-brotli isntalled)');
+		}
+
+		$this->expectException(RuntimeException::class);
+		$this->expectExceptionMessage('cannot decompress brotli compressed message body');
+
+		$response = $this->responseFactory
+			->createResponse()
+			->withHeader('Content-Encoding', 'br');
+
+		decompress_content($response);
 	}
 
 	public function testUriIsAbsolute():void{
