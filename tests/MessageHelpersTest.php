@@ -13,8 +13,8 @@ namespace chillerlan\HTTPTest\Utils;
 use RuntimeException, TypeError;
 
 use function chillerlan\HTTP\Utils\{
-	decompress_content, get_json, get_xml, message_to_string, parseUrl, r_rawurlencode,
-	uriIsAbsolute, uriIsAbsolutePathReference, uriIsDefaultPort, uriIsNetworkPathReference,
+	decompress_content, get_json, get_xml, getMimetypeFromExtension, getMimetypeFromFilename, message_to_string,
+	parseUrl, r_rawurlencode, uriIsAbsolute, uriIsAbsolutePathReference, uriIsDefaultPort, uriIsNetworkPathReference,
 	uriIsRelativePathReference, uriWithoutQueryValue, uriWithQueryValue
 };
 
@@ -284,6 +284,12 @@ class MessageHelpersTest extends TestAbstract{
 	 */
 	public function testParseUrl($url, $expected):void{
 		$this::assertSame($expected, parseUrl($url));
+	}
+
+	public function testGetMimetype():void{
+		$this::assertSame('application/json', getMimetypeFromExtension('json'));
+		$this::assertSame('application/json', getMimetypeFromFilename('/path/to/some/file.json'));
+		$this::assertNull(getMimetypeFromExtension('whatever'));
 	}
 
 }

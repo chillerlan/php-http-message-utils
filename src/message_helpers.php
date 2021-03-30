@@ -12,8 +12,10 @@ use RuntimeException, TypeError;
 use Psr\Http\Message\{MessageInterface, RequestInterface, ResponseInterface, UriInterface};
 
 use function array_filter, array_map, explode, extension_loaded, function_exists, gzdecode, gzinflate, gzuncompress, implode,
-	is_array, is_scalar, json_decode, json_encode, parse_url, preg_match, preg_replace_callback, rawurldecode,
+	is_array, is_scalar, json_decode, json_encode, parse_url, pathinfo, preg_match, preg_replace_callback, rawurldecode,
 	rawurlencode, simplexml_load_string, strtolower, trim, urlencode;
+
+use const PATHINFO_EXTENSION;
 
 const CHILLERLAN_PSR7_UTIL_INCLUDES = true;
 
@@ -122,6 +124,20 @@ const MIMETYPES = [
 	'yml'     => 'text/yaml',
 	'zip'     => 'application/zip',
 ];
+
+/**
+ * Get the mime type for the given file extension
+ */
+function getMimetypeFromExtension(string $extension):?string{
+	return MIMETYPES[strtolower($extension)] ?? null;
+}
+
+/**
+ * Get the mime type from a file name
+ */
+function getMimetypeFromFilename(string $filename):?string{
+	return getMimetypeFromExtension(pathinfo($filename, PATHINFO_EXTENSION));
+}
 
 /**
  * @param string|string[] $data
