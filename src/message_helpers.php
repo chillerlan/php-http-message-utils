@@ -236,6 +236,7 @@ function decompress_content(MessageInterface $message):string{
 	if($encoding === 'br'){
 		// https://github.com/kjdev/php-ext-brotli
 		if(extension_loaded('brotli') && function_exists('brotli_uncompress')){
+			/** @phan-suppress-next-line PhanUndeclaredFunction */
 			return brotli_uncompress($data); // @codeCoverageIgnore
 		}
 
