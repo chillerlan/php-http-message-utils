@@ -140,6 +140,8 @@ function getMimetypeFromFilename(string $filename):?string{
 }
 
 /**
+ * Recursive rawurlencode
+ *
  * @param string|string[] $data
  *
  * @return string|string[]
@@ -159,9 +161,6 @@ function r_rawurlencode($data){
 }
 
 /**
- * @param \Psr\Http\Message\MessageInterface $message
- * @param bool|null                          $assoc
- *
  * @return \stdClass|array|bool
  */
 function get_json(MessageInterface $message, bool $assoc = null){
@@ -173,9 +172,6 @@ function get_json(MessageInterface $message, bool $assoc = null){
 }
 
 /**
- * @param \Psr\Http\Message\MessageInterface $message
- * @param bool|null                          $assoc
- *
  * @return \SimpleXMLElement|array|bool
  */
 function get_xml(MessageInterface $message, bool $assoc = null){
@@ -190,10 +186,6 @@ function get_xml(MessageInterface $message, bool $assoc = null){
 
 /**
  * Returns the string representation of an HTTP message. (from Guzzle)
- *
- * @param \Psr\Http\Message\MessageInterface $message Message to convert to a string.
- *
- * @return string
  */
 function message_to_string(MessageInterface $message):string{
 	$msg = '';
@@ -223,9 +215,6 @@ function message_to_string(MessageInterface $message):string{
 /**
  * Decompresses the message content according to the Content-Encoding header and returns the decompressed data
  *
- * @param \Psr\Http\Message\MessageInterface $message
- *
- * @return string
  * @throws \RuntimeException
  */
 function decompress_content(MessageInterface $message):string{
@@ -270,7 +259,7 @@ const URI_DEFAULT_PORTS = [
 ];
 
 /**
- * Checks whether the URI has a port set and if that port is one of the default ports for the given scheme
+ * Checks whether the UriInterface has a port set and if that port is one of the default ports for the given scheme
  */
 function uriIsDefaultPort(UriInterface $uri):bool{
 	$port   = $uri->getPort();
@@ -280,7 +269,7 @@ function uriIsDefaultPort(UriInterface $uri):bool{
 }
 
 /**
- * Whether the URI is absolute, i.e. it has a scheme.
+ * Checks Whether the URI is absolute, i.e. it has a scheme.
  *
  * An instance of UriInterface can either be an absolute URI or a relative reference. This method returns true
  * if it is the former. An absolute URI has a scheme. A relative reference is used to express a URI relative
@@ -299,7 +288,7 @@ function uriIsAbsolute(UriInterface $uri):bool{
 }
 
 /**
- * Whether the URI is a network-path reference.
+ * Checks Whether the URI is a network-path reference.
  *
  * A relative reference that begins with two slash characters is termed an network-path reference.
  *
@@ -310,7 +299,7 @@ function uriIsNetworkPathReference(UriInterface $uri):bool{
 }
 
 /**
- * Whether the URI is a absolute-path reference.
+ * Checks Whether the URI is a absolute-path reference.
  *
  * A relative reference that begins with a single slash character is termed an absolute-path reference.
  *
@@ -321,7 +310,7 @@ function uriIsAbsolutePathReference(UriInterface $uri):bool{
 }
 
 /**
- * Whether the URI is a relative-path reference.
+ * Checks Whether the URI is a relative-path reference.
  *
  * A relative reference that does not begin with a slash character is termed a relative-path reference.
  *
@@ -332,12 +321,9 @@ function uriIsRelativePathReference(UriInterface $uri):bool{
 }
 
 /**
- * removes a specific query string value.
+ * Removes a specific query string value.
  *
- * Any existing query string values that exactly match the provided key are
- * removed.
- *
- * @param string $key Query string key to remove.
+ * Any existing query string values that exactly match the provided $key are removed.
  */
 function uriWithoutQueryValue(UriInterface $uri, string $key):UriInterface{
 	$current = $uri->getQuery();
@@ -356,16 +342,12 @@ function uriWithoutQueryValue(UriInterface $uri, string $key):UriInterface{
 }
 
 /**
- * adds a specific query string value.
+ * Adds a specific query string value.
  *
- * Any existing query string values that exactly match the provided key are
- * removed and replaced with the given key value pair.
+ * Any existing query string values that exactly match the provided $key are
+ * removed and replaced with the given $key $value pair.
  *
- * A value of null will set the query string key without a value, e.g. "key"
- * instead of "key=value".
- *
- * @param string      $key   Key to set.
- * @param string|null $value Value to set
+ * A value of null will set the query string key without a value, e.g. "key" instead of "key=value".
  */
 function uriWithQueryValue(UriInterface $uri, string $key, string $value = null):UriInterface{
 	$current = $uri->getQuery();

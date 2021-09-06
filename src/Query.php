@@ -10,7 +10,8 @@
 
 namespace chillerlan\HTTP\Utils;
 
-use function array_merge, explode, implode, is_array, is_bool, is_string, rawurldecode, sort, str_replace, uksort;
+use function array_merge, call_user_func_array, explode, implode, is_array, is_bool, is_iterable,
+	is_numeric, is_string, rawurldecode, sort, str_replace, trim, uksort;
 use const PHP_QUERY_RFC1738, PHP_QUERY_RFC3986, SORT_STRING;
 
 /**
@@ -26,6 +27,10 @@ final class Query{
 	public const NO_ENCODING = -1;
 
 	/**
+	 * Cleans/normalizes an array of query parameters, booleans will be converted according to the given $bool_cast constant.
+	 * By default, booleans will be left as-is (BOOLEANS_AS_BOOL) and may result in empty values.
+	 * If $remove_empty is set to true, empty and null values will be removed from the array.
+	 *
 	 * @param iterable  $params
 	 * @param int|null  $bool_cast    converts booleans to a type determined like following:
 	 *                                BOOLEANS_AS_BOOL      : unchanged boolean value (default)
@@ -76,7 +81,7 @@ final class Query{
 			}
 			else{
 
-				if($remove_empty && ($value === null || (!is_numeric($value) && empty($value)))){
+				if($remove_empty && (!is_numeric($value) && empty($value))){
 					continue;
 				}
 
@@ -88,7 +93,7 @@ final class Query{
 	}
 
 	/**
-	 * Build a query string from an array of key value pairs.
+	 * Builds a query string from an array of key value pairs.
 	 *
 	 * Valid values for $encoding are PHP_QUERY_RFC3986 (default) and PHP_QUERY_RFC1738,
 	 * any other integer value will be interpreted as "no encoding".
@@ -158,12 +163,7 @@ final class Query{
 	}
 
 	/**
-	 * merges additional query parameters into an existing query string
-	 *
-	 * @param string $uri
-	 * @param array  $query
-	 *
-	 * @return string
+	 * Merges additional query parameters into an existing query string
 	 */
 	public static function merge(string $uri, array $query):string{
 		$parsedquery = self::parse(parseUrl($uri)['query'] ?? '');
@@ -171,14 +171,14 @@ final class Query{
 		$params      = array_merge($parsedquery, $query);
 
 		if(!empty($params)){
-			$requestURI .= '?'.Query::build($params);
+			$requestURI .= '?'.self::build($params);
 		}
 
 		return $requestURI;
 	}
 
 	/**
-	 * Parse a query string into an associative array.
+	 * Parses a query string into an associative array.
 	 *
 	 * @link https://github.com/guzzle/psr7/blob/c0dcda9f54d145bd4d062a6d15f54931a67732f9/src/Query.php#L9-L57
 	 */

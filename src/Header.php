@@ -22,10 +22,6 @@ class Header{
 	 * Normalizes an array of header lines to format ["Name" => "Value (, Value2, Value3, ...)", ...]
 	 * An exception is being made for Set-Cookie, which holds an array of values for each cookie.
 	 * For multiple cookies with the same name, only the last value will be kept.
-	 *
-	 * @param array $headers
-	 *
-	 * @return array
 	 */
 	public static function normalize(array $headers):array{
 		$normalized = [];

@@ -41,7 +41,7 @@ class Server{
 	}
 
 	/**
-	 * Return a ServerRequest populated with superglobals:
+	 * Returns a ServerRequest populated with superglobals:
 	 *  - $_GET
 	 *  - $_POST
 	 *  - $_COOKIE
@@ -74,7 +74,7 @@ class Server{
 	}
 
 	/**
-	 * Create a Uri populated with values from $_SERVER.
+	 * Creates an Uri populated with values from $_SERVER.
 	 */
 	public function createUriFromGlobals():UriInterface{
 		$hasPort  = false;
@@ -124,11 +124,11 @@ class Server{
 
 
 	/**
-	 * Return an UploadedFile instance array.
+	 * Returns an UploadedFile instance array.
 	 *
-	 * @param array $files A array which respect $_FILES structure
+	 * @param array $files An array which respect $_FILES structure
 	 *
-	 * @return array
+	 * @return \Psr\Http\Message\UploadedFileInterface[]
 	 * @throws \InvalidArgumentException for unrecognized values
 	 */
 	public function normalizeFiles(array $files):array{
@@ -156,7 +156,7 @@ class Server{
 	}
 
 	/**
-	 * Create and return an UploadedFile instance from a $_FILES specification.
+	 * Creates an UploadedFile instance from a $_FILES specification.
 	 *
 	 * If the specification represents an array of values, this method will
 	 * delegate to normalizeNestedFileSpec() and return that return value.
@@ -181,7 +181,7 @@ class Server{
 	}
 
 	/**
-	 * Normalize an array of file specifications.
+	 * Normalizes an array of file specifications.
 	 *
 	 * Loops through all nested files and returns a normalized array of
 	 * UploadedFileInterface instances.
