@@ -20,5 +20,5 @@
 [scrutinizer]: https://scrutinizer-ci.com/g/chillerlan/php-http-message-utils
 [downloads-badge]: https://img.shields.io/packagist/dt/chillerlan/php-http-message-utils?logo=packagist
 [downloads]: https://packagist.org/packages/chillerlan/php-http-message-utils/stats
-[gh-action-badge]: https://github.com/chillerlan/php-http-message-utils/workflows/Continuous%20Integration/badge.svg
-[gh-action]: https://github.com/chillerlan/php-http-message-utils/actions
+[gh-action-badge]: https://github.com/chillerlan/php-http-message-utils/workflows/CI/badge.svg
+[gh-action]: https://github.com/chillerlan/php-http-message-utils/actions/workflows/ci.yml
