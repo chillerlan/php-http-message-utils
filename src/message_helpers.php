@@ -164,7 +164,7 @@ function r_rawurlencode($data){
  * @return \stdClass|array|bool
  */
 function get_json(MessageInterface $message, bool $assoc = null){
-	$data = json_decode((string)$message->getBody(), $assoc);
+	$data = json_decode((string)$message->getBody(), $assoc ?? false);
 
 	$message->getBody()->rewind();
 
