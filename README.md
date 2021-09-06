@@ -3,7 +3,6 @@
 [![PHP Version Support][php-badge]][php]
 [![version][packagist-badge]][packagist]
 [![license][license-badge]][license]
-[![Travis][travis-badge]][travis]
 [![Coverage][coverage-badge]][coverage]
 [![Scrunitizer][scrutinizer-badge]][scrutinizer]
 [![Packagist downloads][downloads-badge]][downloads]<br/>
@@ -15,8 +14,6 @@
 [packagist]: https://packagist.org/packages/chillerlan/php-http-message-utils
 [license-badge]: https://img.shields.io/github/license/chillerlan/php-http-message-utils
 [license]: https://github.com/chillerlan/php-http-message-utils/blob/main/LICENSE
-[travis-badge]: https://img.shields.io/travis/com/chillerlan/php-http-message-utils/main?logo=travis
-[travis]: https://travis-ci.com/github/chillerlan/php-http-message-utils
 [coverage-badge]: https://img.shields.io/codecov/c/github/chillerlan/php-http-message-utils?logo=codecov
 [coverage]: https://codecov.io/github/chillerlan/php-http-message-utils
 [scrutinizer-badge]: https://img.shields.io/scrutinizer/g/chillerlan/php-http-message-utils?logo=scrutinizer
