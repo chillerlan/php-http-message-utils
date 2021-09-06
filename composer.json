@@ -20,13 +20,13 @@
 	},
 	"require": {
 		"php": "^7.4 || ^8.0",
-		"psr/http-factory":"^1.0",
 		"ext-json": "*",
 		"ext-simplexml": "*",
-		"ext-zlib": "*"
+		"ext-zlib": "*",
+		"psr/http-factory":"^1.0"
 	},
 	"require-dev": {
-		"guzzlehttp/psr7": "2.0.0-beta1",
+		"guzzlehttp/psr7": "^2.0",
 		"phan/phan": "^4.0",
 		"phpunit/phpunit": "^9.5"
 	},
