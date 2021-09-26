@@ -177,4 +177,7 @@ class QueryTest extends TestCase{
 		);
 	}
 
+	public function testParseDoesTrimQuestionMark():void{
+		$this::assertSame(Query::parse('?q=a'), ['q' => 'a']);
+	}
 }
