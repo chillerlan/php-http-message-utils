@@ -121,7 +121,7 @@ class MessageHelpersTest extends TestAbstract{
 
 		// https://github.com/kjdev/php-ext-brotli
 		if($encoding === 'br' && (!extension_loaded('brotli') || !function_exists('brotli_compress'))){
-			$this::markTestSkipped('N/A (ext-brotli not isntalled)');
+			$this::markTestSkipped('N/A (ext-brotli not installed)');
 		}
 
 		$data     = str_repeat('compressed string ', 100);
