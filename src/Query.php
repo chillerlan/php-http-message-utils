@@ -183,6 +183,7 @@ final class Query{
 	 * @link https://github.com/guzzle/psr7/blob/c0dcda9f54d145bd4d062a6d15f54931a67732f9/src/Query.php#L9-L57
 	 */
 	public static function parse(string $querystring, int $urlEncoding = null):array{
+		$querystring = trim($querystring, '?'); // handle leftover question marks (e.g. Twitter API "next_results")
 
 		if($querystring === ''){
 			return [];
