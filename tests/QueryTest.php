@@ -120,7 +120,7 @@ class QueryTest extends TestCase{
 			'Can decode %20 to " "'                                      => ['q%20a=a%20b', ['q a' => 'a b']],
 			'Can parse strings with no values by assigning each to null' => ['a&q', ['a' => null, 'q' => null]],
 			'Does not strip trailing equal signs'                        => ['data=abc=', ['data' => 'abc=']],
-			'Can store duplicates without affecting other values'        => ['?µ=c&foo=a&foo=b', ['?µ' => 'c', 'foo' => ['a', 'b']]],
+			'Can store duplicates without affecting other values'        => ['foo=a&foo=b&µ=c', ['foo' => ['a', 'b'], 'µ' => 'c']],
 			'Sets value to null when no "=" is present'                  => ['foo', ['foo' => null]],
 			'Preserves "0" keys'                                         => ['0', ['0' => null]],
 			'Sets the value to an empty string when "=" is present'      => ['0=', ['0' => '']],
