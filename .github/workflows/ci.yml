@@ -2,8 +2,12 @@
 # https://github.com/sebastianbergmann/phpunit/blob/master/.github/workflows/ci.yml
 
 on:
-  - pull_request
-  - push
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 name: "CI"
 
@@ -20,7 +24,7 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: "Install PHP"
         uses: shivammathur/setup-php@v2
@@ -31,10 +35,37 @@ jobs:
           extensions: ast, curl, json, simplexml, zlib
 
       - name: "Update dependencies with composer"
-        run: composer update --no-interaction --no-ansi --no-progress --no-suggest
+        run: composer update --no-interaction --no-ansi --no-progress
 
       - name: "Run phan"
         run: php vendor/bin/phan
+
+  build-docs:
+    name: "Build and publish Docs"
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout sources"
+        uses: actions/checkout@v3
+
+      - name: "Install PHP"
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "7.4"
+          coverage: none
+          tools: phpDocumentor
+          extensions: gd, imagick, json, mbstring
+
+      - name: "Build Docs"
+        run: phpdoc --config=phpdoc.xml
+
+      - name: "Publish Docs to gh-pages"
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          BRANCH: gh-pages
+          FOLDER: docs
+          CLEAN: true
 
   tests:
     name: "Unit Tests"
@@ -50,15 +81,12 @@ jobs:
         php-version:
           - "7.4"
           - "8.0"
-#          - "8.1"
+          - "8.1"
+          - "8.2"
 
     steps:
-      - name: "Configure git to avoid issues with line endings"
-        if: ${{ runner.os == 'Windows' }}
-        run: git config --global core.autocrlf false
-
       - name: "Checkout"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: "Fetch cacert.pem from curl.haxx.se"
         run: curl -o tests/cacert.pem https://curl.haxx.se/ca/cacert.pem
@@ -71,12 +99,10 @@ jobs:
           extensions: curl, json, simplexml, zlib
 
       - name: "Install dependencies with composer"
-        run: composer update --no-ansi --no-interaction --no-progress --no-suggest
+        run: composer update --no-ansi --no-interaction --no-progress
 
       - name: "Run tests with phpunit"
         run: php vendor/phpunit/phpunit/phpunit --configuration=phpunit.xml.dist
 
       - name: "Send code coverage report to Codecov.io"
-        uses: codecov/codecov-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+        uses: codecov/codecov-action@v3
