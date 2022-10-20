@@ -26,8 +26,8 @@
 		"psr/http-factory":"^1.0"
 	},
 	"require-dev": {
-		"guzzlehttp/psr7": "^2.0",
-		"phan/phan": "^4.0",
+		"guzzlehttp/psr7": "^2.4",
+		"phan/phan": "^5.4",
 		"phpunit/phpunit": "^9.5"
 	},
 	"autoload": {
@@ -42,5 +42,14 @@
 		"psr-4": {
 			"chillerlan\\HTTPTest\\Utils\\": "tests/"
 		}
+	},
+	"scripts": {
+		"phpunit": "@php vendor/bin/phpunit",
+		"phan": "@php vendor/bin/phan"
+	},
+	"config": {
+		"lock": false,
+		"sort-packages": true,
+		"platform-check": true
 	}
 }
