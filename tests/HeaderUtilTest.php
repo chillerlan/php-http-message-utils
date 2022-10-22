@@ -10,12 +10,12 @@
 
 namespace chillerlan\HTTPTest\Utils;
 
-use chillerlan\HTTP\Utils\Header;
+use chillerlan\HTTP\Utils\HeaderUtil;
 
 /**
  *
  */
-class HeaderTest extends TestAbstract{
+class HeaderUtilTest extends TestAbstract{
 
 	public function headerDataProvider():array{
 		return [
@@ -40,7 +40,7 @@ class HeaderTest extends TestAbstract{
 	 * @param array $normalized
 	 */
 	public function testNormalizeHeaders(array $headers, array $normalized):void{
-		$this::assertSame($normalized, Header::normalize($headers));
+		$this::assertSame($normalized, HeaderUtil::normalize($headers));
 	}
 
 	public function testCombineHeaderFields():void{
@@ -60,11 +60,11 @@ class HeaderTest extends TestAbstract{
 			'Accept'     => 'foo, bar',
 			'X-Whatever' => 'nope',
 			'X-Foo'      => 'bar, baz, what, nope'
-		], Header::normalize($headers));
+		], HeaderUtil::normalize($headers));
 
 		$r = $this->responseFactory->createResponse();
 
-		foreach(Header::normalize($headers) as $k => $v){
+		foreach(HeaderUtil::normalize($headers) as $k => $v){
 			$r = $r->withAddedHeader($k, $v);
 		}
 
@@ -89,7 +89,7 @@ class HeaderTest extends TestAbstract{
 				'foo'      => 'foo=baz',
 				'whatever' => 'whatever=nope; HttpOnly'
 			]
-		], Header::normalize($headers));
+		], HeaderUtil::normalize($headers));
 	}
 
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Header
+ * Class HeaderUtil
  *
  * @created      28.03.2021
  * @author       smiley <smiley@chillerlan.net>
@@ -16,7 +16,7 @@ use function array_keys, array_map, array_values, count, explode, implode,
 /**
  *
  */
-class Header{
+class HeaderUtil{
 
 	/**
 	 * Normalizes an array of header lines to format ["Name" => "Value (, Value2, Value3, ...)", ...]
