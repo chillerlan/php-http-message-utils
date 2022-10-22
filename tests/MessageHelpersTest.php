@@ -14,7 +14,7 @@ use RuntimeException, TypeError;
 
 use function chillerlan\HTTP\Utils\{
 	decompress_content, get_json, get_xml, getMimetypeFromExtension, getMimetypeFromFilename, message_to_string,
-	parseUrl, r_rawurlencode, uriIsAbsolute, uriIsAbsolutePathReference, uriIsDefaultPort, uriIsNetworkPathReference,
+	r_rawurlencode, uriIsAbsolute, uriIsAbsolutePathReference, uriIsDefaultPort, uriIsNetworkPathReference,
 	uriIsRelativePathReference, uriWithoutQueryValue, uriWithQueryValue
 };
 
@@ -260,29 +260,6 @@ class MessageHelpersTest extends TestAbstract{
 		$uri = $this->uriFactory->createUri('https://localhost:42');
 		$this->assertSame('https://localhost:42', (string)$uri);
 
-	}
-
-	public function parseUrlProvider():array{
-		return [
-			['http://', null],
-			['https://яндекAс.рф', [
-				'scheme' => 'https',
-				'host'   => 'яндекAс.рф'
-			]],
-			['http://[2a00:f48:1008::212:183:10]:56?foo=bar', [
-				'scheme' => 'http',
-				'host'   => '[2a00:f48:1008::212:183:10]',
-				'port'   => '56',
-				'query'  => 'foo=bar',
-			]]
-		];
-	}
-
-	/**
-	 * @dataProvider parseUrlProvider
-	 */
-	public function testParseUrl($url, $expected):void{
-		$this::assertSame($expected, parseUrl($url));
 	}
 
 	public function testGetMimetype():void{
