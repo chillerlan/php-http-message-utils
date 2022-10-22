@@ -42,26 +42,43 @@ A collection of utilities for use with [PSR-7 Message implementations](https://w
 Profit!
 
 ## API
+The following classes contain static methods for use with PSR-7 http message objects.
 
-### `Header`
-The `Header` class contains static methods for use with http request and response headers.
-
+### `HeaderUtil`
 method | return | info
 ------ | ------ | ----
 `normalize(array $headers)` | `array` | Normalizes an array of header lines to format `["Name" => "Value (, Value2, Value3, ...)", ...]` An exception is being made for `Set-Cookie`, which holds an array of values for each cookie. For multiple cookies with the same name, only the last value will be kept.
 
-### `Query`
-The `Query` class contains static methods for use with http query strings.
-
+### `QueryUtil`
 method | return | info
 ------ | ------ | ----
 `cleanParams(iterable $params, int $bool_cast = null, bool $remove_empty = null)` | `array` | Cleans/normalizes an array of query parameters, booleans will be converted according to the given `$bool_cast` constant. By default, booleans will be left as-is (`Query::BOOLEANS_AS_BOOL`) and may result in empty values. If `$remove_empty` is set to true, empty non-boolean and null values will be removed from the array. The `Query` class provides the following constants for `$bool_cast`:<br>`BOOLEANS_AS_BOOL`: unchanged boolean value (default)<br>`BOOLEANS_AS_INT`: integer values 0 or 1<br>`BOOLEANS_AS_STRING`: "true"/"false" strings<br>`BOOLEANS_AS_INT_STRING`: "0"/"1" strings
 `build(array $params, int $encoding = null, string $delimiter = null, string $enclosure = null)` | `string` | Builds a query string from an array of key value pairs, similar to [`http_build_query`](https://www.php.net/manual/en/function.http-build-query). Valid values for `$encoding` are `PHP_QUERY_RFC3986` (default) and `PHP_QUERY_RFC1738`, any other integer value will be interpreted as "no encoding" (`Query::NO_ENCODING`).
 `merge(string $uri, array $query)` | `string` | Merges additional query parameters into an existing query string.
 `parse(string $querystring, int $urlEncoding = null)` | `array` | Parses a query string into an associative array, similar to [`parse_str`](https://www.php.net/manual/en/function.parse-str) (without the inconvenient usage of a by-reference result variable).
+`parseUrl(string $url)` | `?array` | UTF-8 aware `\parse_url()` replacement.
 
-### `Server`
-The `Server` object requires a set of [PSR-17 factories](https://www.php-fig.org/psr/psr-17/) on invocation, namely `ServerRequestFactoryInterface`, `UriFactoryInterface`, `UploadedFileFactoryInterface` and `StreamFactoryInterface`.
+### `MessageUtil`
+method | return | info
+------ | ------ | ----
+`decodeJSON(MessageInterface $message, bool $assoc = null)` | mixed | fetches the body of a `MessageInterface` and converts it to a JSON object (`stdClass`) or an associative array if `$assoc` is set to `true` and returns the result.
+`decodeXML(MessageInterface $message, bool $assoc = null)` | mixed | fetches the body of a `MessageInterface` and converts it to a `SimpleXMLElement` or an associative array if `$assoc` is set to `true` and returns the result.
+`toString(MessageInterface $message)` | `string` | Returns the string representation of an HTTP message.
+`decompress(MessageInterface $message)` | `string` | Decompresses the message content according to the `Content-Encoding` header (`compress`, `deflate`, `gzip`, `br`) and returns the decompressed data. For a [`br` (Brotli)](https://en.wikipedia.org/wiki/Brotli) extension see: https://github.com/kjdev/php-ext-brotli
+
+### `UriUtil`
+method | return | info
+------ | ------ | ----
+`isDefaultPort(UriInterface $uri)` | `bool` | Checks whether the `UriInterface` has a port set and if that port is one of the default ports for the given scheme.
+`isAbsolute(UriInterface $uri)` | `bool` | Checks Whether the URI is absolute, i.e. it has a scheme.
+`isNetworkPathReference(UriInterface $uri)` | `bool` | Checks Whether the URI is a network-path reference.
+`isAbsolutePathReference(UriInterface $uri)` | `bool` | Checks Whether the URI is a absolute-path reference.
+`isRelativePathReference(UriInterface $uri)` | `bool` | Checks Whether the URI is a relative-path reference.
+`withoutQueryValue(UriInterface $uri, string $key)` | `UriInterface` | Removes a specific query string value. Any existing query string values that exactly match the provided `$key` are removed.
+`withQueryValue(UriInterface $uri, string $key, string $value = null)` | `UriInterface` | Adds a specific query string value. Any existing query string values that exactly match the provided `$key` are removed and replaced with the given `$key`-`$value` pair. A value of null will set the query string key without a value, e.g. "key" instead of "key=value".
+
+### `ServerUtil`
+The `ServerUtil` object requires a set of [PSR-17 factories](https://www.php-fig.org/psr/psr-17/) on invocation, namely `ServerRequestFactoryInterface`, `UriFactoryInterface`, `UploadedFileFactoryInterface` and `StreamFactoryInterface`.
 It provides convenience methods to create server requests, URIs and uploaded files from the [superglobals](https://www.php.net/manual/en/language.variables.superglobals.php).
 
 method | return | info
@@ -80,15 +97,3 @@ function | return | info
 `getMimetypeFromExtension(string $extension)` | `?string` | Get the mime type for the given file extension (checks against the constant `chillerlan\HTTP\Utils\MIMETYPES`, a list of mime types from the [apache default config](http://svn.apache.org/repos/asf/httpd/httpd/branches/1.3.x/conf/mime.types))
 `getMimetypeFromFilename(string $filename)` | `?string` | Get the mime type from a file name
 `r_rawurlencode($data)` | mixed | Recursive [`rawurlencode`](https://www.php.net/manual/en/function.rawurlencode)
-`get_json(MessageInterface $message, bool $assoc = null)` | mixed | fetches the body of a `MessageInterface` and converts it to a JSON object (`stdClass`) or an associative array if `$assoc` is set to `true` and returns the result.
-`get_xml(MessageInterface $message, bool $assoc = null)` | mixed | fetches the body of a `MessageInterface` and converts it to a `SimpleXMLElement` or an associative array if `$assoc` is set to `true` and returns the result.
-`message_to_string(MessageInterface $message)` | `string` | Returns the string representation of an HTTP message.
-`decompress_content(MessageInterface $message)` | `string` | Decompresses the message content according to the `Content-Encoding` header (`compress`, `deflate`, `gzip`, `br`) and returns the decompressed data. For a [`br` (Brotli)](https://en.wikipedia.org/wiki/Brotli) extension see: https://github.com/kjdev/php-ext-brotli
-`uriIsDefaultPort(UriInterface $uri)` | `bool` | Checks whether the `UriInterface` has a port set and if that port is one of the default ports for the given scheme.
-`uriIsAbsolute(UriInterface $uri)` | `bool` | Checks Whether the URI is absolute, i.e. it has a scheme.
-`uriIsNetworkPathReference(UriInterface $uri)` | `bool` | Checks Whether the URI is a network-path reference.
-`uriIsAbsolutePathReference(UriInterface $uri)` | `bool` | Checks Whether the URI is a absolute-path reference.
-`uriIsRelativePathReference(UriInterface $uri)` | `bool` | Checks Whether the URI is a relative-path reference.
-`uriWithoutQueryValue(UriInterface $uri, string $key)` | `UriInterface` | Removes a specific query string value. Any existing query string values that exactly match the provided `$key` are removed.
-`uriWithQueryValue(UriInterface $uri, string $key, string $value = null)` | `UriInterface` | Adds a specific query string value. Any existing query string values that exactly match the provided `$key` are removed and replaced with the given `$key`-`$value` pair. A value of null will set the query string key without a value, e.g. "key" instead of "key=value".
-`parseUrl(string $url)` | `?array` | UTF-8 aware \parse_url() replacement.
