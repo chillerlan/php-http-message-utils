@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Query
+ * Class QueryUtil
  *
  * @created      27.03.2021
  * @author       smiley <smiley@chillerlan.net>
@@ -17,7 +17,7 @@ use const PHP_QUERY_RFC1738, PHP_QUERY_RFC3986, SORT_STRING;
 /**
  *
  */
-final class Query{
+final class QueryUtil{
 
 	public const BOOLEANS_AS_BOOL       = 0;
 	public const BOOLEANS_AS_INT        = 1;

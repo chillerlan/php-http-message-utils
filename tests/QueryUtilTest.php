@@ -1,6 +1,6 @@
 <?php
 /**
- * Class QueryTest
+ * Class QueryUtilTest
  *
  * @link https://github.com/guzzle/psr7/blob/c0dcda9f54d145bd4d062a6d15f54931a67732f9/tests/QueryTest.php
  *
@@ -12,41 +12,41 @@
 
 namespace chillerlan\HTTPTest\Utils;
 
-use chillerlan\HTTP\Utils\Query;
+use chillerlan\HTTP\Utils\QueryUtil;
 use PHPUnit\Framework\TestCase;
 use const PHP_QUERY_RFC1738, PHP_QUERY_RFC3986;
 
 /**
  *
  */
-class QueryTest extends TestCase{
+class QueryUtilTest extends TestCase{
 
 	public function queryParamDataProvider():array{
 		return [
 			// don't remove empty values
 			'BOOLEANS_AS_BOOL (no remove)' => [
-				Query::BOOLEANS_AS_BOOL,
+				QueryUtil::BOOLEANS_AS_BOOL,
 				false,
 				['whatever' => null, 'nope' => '', 'true' => true, 'false' => false, 'array' => ['value' => false]],
 			],
 			// bool cast to types
 			'BOOLEANS_AS_BOOL' => [
-				Query::BOOLEANS_AS_BOOL,
+				QueryUtil::BOOLEANS_AS_BOOL,
 				true,
 				['true' => true, 'false' => false, 'array' => ['value' => false]],
 			],
 			'BOOLEANS_AS_INT' => [
-				Query::BOOLEANS_AS_INT,
+				QueryUtil::BOOLEANS_AS_INT,
 				true,
 				['true' => 1, 'false' => 0, 'array' => ['value' => 0]],
 			],
 			'BOOLEANS_AS_INT_STRING' => [
-				Query::BOOLEANS_AS_INT_STRING,
+				QueryUtil::BOOLEANS_AS_INT_STRING,
 				true,
 				['true' => '1', 'false' => '0', 'array' => ['value' => '0']],
 			],
 			'BOOLEANS_AS_STRING' => [
-				Query::BOOLEANS_AS_STRING,
+				QueryUtil::BOOLEANS_AS_STRING,
 				true,
 				['true' => 'true', 'false' => 'false', 'array' => ['value' => 'false']],
 			],
@@ -63,7 +63,7 @@ class QueryTest extends TestCase{
 	public function testCleanQueryParams(int $bool_cast, bool $remove_empty, array $expected):void{
 		$data = ['whatever' => null, 'nope' => '   ', 'true' => true, 'false' => false, 'array' => ['value' => false]];
 
-		$this::assertSame($expected, Query::cleanParams($data, $bool_cast, $remove_empty));
+		$this::assertSame($expected, QueryUtil::cleanParams($data, $bool_cast, $remove_empty));
 	}
 
 	public function mergeQueryDataProvider():array{
@@ -86,27 +86,27 @@ class QueryTest extends TestCase{
 	 * @param string $expected
 	 */
 	public function testMergeQuery(string $uri, array $params, string $expected):void{
-		$merged = Query::merge($uri, $params);
+		$merged = QueryUtil::merge($uri, $params);
 		$this::assertSame($expected, $merged);
 	}
 
 	public function testBuildQuery():void{
 		$data = ['foo' => 'bar', 'whatever?' => 'nope!'];
 
-		$this::assertSame('foo=bar&whatever%3F=nope%21', Query::build($data));
-		$this::assertSame('foo=bar&whatever?=nope!', Query::build($data, Query::NO_ENCODING));
-		$this::assertSame('foo=bar, whatever?=nope!', Query::build($data, Query::NO_ENCODING, ', '));
-		$this::assertSame('foo="bar", whatever?="nope!"', Query::build($data, Query::NO_ENCODING, ', ', '"'));
+		$this::assertSame('foo=bar&whatever%3F=nope%21', QueryUtil::build($data));
+		$this::assertSame('foo=bar&whatever?=nope!', QueryUtil::build($data, QueryUtil::NO_ENCODING));
+		$this::assertSame('foo=bar, whatever?=nope!', QueryUtil::build($data, QueryUtil::NO_ENCODING, ', '));
+		$this::assertSame('foo="bar", whatever?="nope!"', QueryUtil::build($data, QueryUtil::NO_ENCODING, ', ', '"'));
 
 		$data['florps'] = ['nope', 'nope', 'nah'];
 		$this::assertSame(
 			'florps="nah", florps="nope", florps="nope", foo="bar", whatever?="nope!"',
-			Query::build($data, Query::NO_ENCODING, ', ', '"')
+			QueryUtil::build($data, QueryUtil::NO_ENCODING, ', ', '"')
 		);
 	}
 
 	public function testBuildQuerySort():void{
-		$this::assertSame('a=2&b=1&b=2&b=3&c=1&d=4', Query::build(['c' => 1, 'a' => 2, 'b' => [3, 1, 2], 'd' => 4]));
+		$this::assertSame('a=2&b=1&b=2&b=3&c=1&d=4', QueryUtil::build(['c' => 1, 'a' => 2, 'b' => [3, 1, 2], 'd' => 4]));
 	}
 
 	public function parseQueryProvider():array{
@@ -135,49 +135,49 @@ class QueryTest extends TestCase{
 	 * @dataProvider parseQueryProvider
 	 */
 	public function testParsesQueries(string $input, array $output):void{
-		$this::assertSame($output, Query::parse($input));
+		$this::assertSame($output, QueryUtil::parse($input));
 	}
 
 	/**
 	 * @dataProvider parseQueryProvider
 	 */
 	public function testParsesAndBuildsQueries(string $input): void{
-		$result = Query::parse($input, Query::NO_ENCODING);
+		$result = QueryUtil::parse($input, QueryUtil::NO_ENCODING);
 
-		$this::assertSame($input, Query::build($result, Query::NO_ENCODING));
+		$this::assertSame($input, QueryUtil::build($result, QueryUtil::NO_ENCODING));
 	}
 
 	public function testDoesNotDecode():void{
-		$this::assertSame(['foo%20' => 'bar'], Query::parse('foo%20=bar', Query::NO_ENCODING));
+		$this::assertSame(['foo%20' => 'bar'], QueryUtil::parse('foo%20=bar', QueryUtil::NO_ENCODING));
 	}
 
 	public function testEncodesWithRfc1738():void{
-		$this::assertSame('foo+bar=baz%2B', Query::build(['foo bar' => 'baz+'], PHP_QUERY_RFC1738));
+		$this::assertSame('foo+bar=baz%2B', QueryUtil::build(['foo bar' => 'baz+'], PHP_QUERY_RFC1738));
 	}
 
 	public function testEncodesWithRfc3986():void{
-		$this::assertSame('foo%20bar=baz%2B', Query::build(['foo bar' => 'baz+'], PHP_QUERY_RFC3986));
+		$this::assertSame('foo%20bar=baz%2B', QueryUtil::build(['foo bar' => 'baz+'], PHP_QUERY_RFC3986));
 	}
 
 	public function testDoesNotEncode():void{
-		$this::assertSame('foo bar=baz+', Query::build(['foo bar' => 'baz+'], Query::NO_ENCODING));
+		$this::assertSame('foo bar=baz+', QueryUtil::build(['foo bar' => 'baz+'], QueryUtil::NO_ENCODING));
 	}
 
 	public function testCanControlDecodingType():void{
-		$this::assertSame('foo+bar', Query::parse('var=foo+bar', PHP_QUERY_RFC3986)['var']);
-		$this::assertSame('foo bar', Query::parse('var=foo+bar', PHP_QUERY_RFC1738)['var']);
+		$this::assertSame('foo+bar', QueryUtil::parse('var=foo+bar', PHP_QUERY_RFC3986)['var']);
+		$this::assertSame('foo bar', QueryUtil::parse('var=foo+bar', PHP_QUERY_RFC1738)['var']);
 	}
 
 	public function testBuildBooleans():void{
-		$this::assertSame('false=0&true=1', Query::build(['true'  => true, 'false' => false]));
+		$this::assertSame('false=0&true=1', QueryUtil::build(['true' => true, 'false' => false]));
 
 		$this::assertSame(
 			'bar=0&bar=false&foo=1&foo=true',
-			Query::build(['foo' => [true, 'true'], 'bar' => [false, 'false']], PHP_QUERY_RFC1738)
+			QueryUtil::build(['foo' => [true, 'true'], 'bar' => [false, 'false']], PHP_QUERY_RFC1738)
 		);
 	}
 
 	public function testParseDoesTrimQuestionMark():void{
-		$this::assertSame(Query::parse('?q=a'), ['q' => 'a']);
+		$this::assertSame(QueryUtil::parse('?q=a'), ['q' => 'a']);
 	}
 }
