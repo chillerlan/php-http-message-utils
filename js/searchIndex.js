@@ -1,15 +1,15 @@
 Search.appendIndex(
     [
                 {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\Header",
-            "name": "Header",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\HeaderUtil",
+            "name": "HeaderUtil",
             "summary": "",
-            "url": "classes/chillerlan-HTTP-Utils-Header.html"
+            "url": "classes/chillerlan-HTTP-Utils-HeaderUtil.html"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\Header\u003A\u003Anormalize\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\HeaderUtil\u003A\u003Anormalize\u0028\u0029",
             "name": "normalize",
             "summary": "Normalizes\u0020an\u0020array\u0020of\u0020header\u0020lines\u0020to\u0020format\u0020\u005B\u0022Name\u0022\u0020\u003D\u003E\u0020\u0022Value\u0020\u0028,\u0020Value2,\u0020Value3,\u0020...\u0029\u0022,\u0020...\u005D\nAn\u0020exception\u0020is\u0020being\u0020made\u0020for\u0020Set\u002DCookie,\u0020which\u0020holds\u0020an\u0020array\u0020of\u0020values\u0020for\u0020each\u0020cookie.",
-            "url": "classes/chillerlan-HTTP-Utils-Header.html#method_normalize"
+            "url": "classes/chillerlan-HTTP-Utils-HeaderUtil.html#method_normalize"
         },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\CHILLERLAN_PSR7_UTIL_INCLUDES",
             "name": "CHILLERLAN_PSR7_UTIL_INCLUDES",
@@ -20,11 +20,6 @@ Search.appendIndex(
             "name": "MIMETYPES",
             "summary": "",
             "url": "namespaces/chillerlan-http-utils.html#constant_MIMETYPES"
-        },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\URI_DEFAULT_PORTS",
-            "name": "URI_DEFAULT_PORTS",
-            "summary": "",
-            "url": "namespaces/chillerlan-http-utils.html#constant_URI_DEFAULT_PORTS"
         },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\getMimetypeFromExtension\u0028\u0029",
             "name": "getMimetypeFromExtension",
@@ -41,235 +36,210 @@ Search.appendIndex(
             "summary": "Recursive\u0020rawurlencode",
             "url": "namespaces/chillerlan-http-utils.html#function_r_rawurlencode"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\get_json\u0028\u0029",
-            "name": "get_json",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\MessageUtil",
+            "name": "MessageUtil",
             "summary": "",
-            "url": "namespaces/chillerlan-http-utils.html#function_get_json"
+            "url": "classes/chillerlan-HTTP-Utils-MessageUtil.html"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\get_xml\u0028\u0029",
-            "name": "get_xml",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\MessageUtil\u003A\u003AdecodeJSON\u0028\u0029",
+            "name": "decodeJSON",
             "summary": "",
-            "url": "namespaces/chillerlan-http-utils.html#function_get_xml"
+            "url": "classes/chillerlan-HTTP-Utils-MessageUtil.html#method_decodeJSON"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\message_to_string\u0028\u0029",
-            "name": "message_to_string",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\MessageUtil\u003A\u003AdecodeXML\u0028\u0029",
+            "name": "decodeXML",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-MessageUtil.html#method_decodeXML"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\MessageUtil\u003A\u003AtoString\u0028\u0029",
+            "name": "toString",
             "summary": "Returns\u0020the\u0020string\u0020representation\u0020of\u0020an\u0020HTTP\u0020message.\u0020\u0028from\u0020Guzzle\u0029",
-            "url": "namespaces/chillerlan-http-utils.html#function_message_to_string"
+            "url": "classes/chillerlan-HTTP-Utils-MessageUtil.html#method_toString"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\decompress_content\u0028\u0029",
-            "name": "decompress_content",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\MessageUtil\u003A\u003Adecompress\u0028\u0029",
+            "name": "decompress",
             "summary": "Decompresses\u0020the\u0020message\u0020content\u0020according\u0020to\u0020the\u0020Content\u002DEncoding\u0020header\u0020and\u0020returns\u0020the\u0020decompressed\u0020data",
-            "url": "namespaces/chillerlan-http-utils.html#function_decompress_content"
+            "url": "classes/chillerlan-HTTP-Utils-MessageUtil.html#method_decompress"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\uriIsDefaultPort\u0028\u0029",
-            "name": "uriIsDefaultPort",
-            "summary": "Checks\u0020whether\u0020the\u0020UriInterface\u0020has\u0020a\u0020port\u0020set\u0020and\u0020if\u0020that\u0020port\u0020is\u0020one\u0020of\u0020the\u0020default\u0020ports\u0020for\u0020the\u0020given\u0020scheme",
-            "url": "namespaces/chillerlan-http-utils.html#function_uriIsDefaultPort"
-        },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\uriIsAbsolute\u0028\u0029",
-            "name": "uriIsAbsolute",
-            "summary": "Checks\u0020Whether\u0020the\u0020URI\u0020is\u0020absolute,\u0020i.e.\u0020it\u0020has\u0020a\u0020scheme.",
-            "url": "namespaces/chillerlan-http-utils.html#function_uriIsAbsolute"
-        },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\uriIsNetworkPathReference\u0028\u0029",
-            "name": "uriIsNetworkPathReference",
-            "summary": "Checks\u0020Whether\u0020the\u0020URI\u0020is\u0020a\u0020network\u002Dpath\u0020reference.",
-            "url": "namespaces/chillerlan-http-utils.html#function_uriIsNetworkPathReference"
-        },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\uriIsAbsolutePathReference\u0028\u0029",
-            "name": "uriIsAbsolutePathReference",
-            "summary": "Checks\u0020Whether\u0020the\u0020URI\u0020is\u0020a\u0020absolute\u002Dpath\u0020reference.",
-            "url": "namespaces/chillerlan-http-utils.html#function_uriIsAbsolutePathReference"
-        },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\uriIsRelativePathReference\u0028\u0029",
-            "name": "uriIsRelativePathReference",
-            "summary": "Checks\u0020Whether\u0020the\u0020URI\u0020is\u0020a\u0020relative\u002Dpath\u0020reference.",
-            "url": "namespaces/chillerlan-http-utils.html#function_uriIsRelativePathReference"
-        },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\uriWithoutQueryValue\u0028\u0029",
-            "name": "uriWithoutQueryValue",
-            "summary": "Removes\u0020a\u0020specific\u0020query\u0020string\u0020value.",
-            "url": "namespaces/chillerlan-http-utils.html#function_uriWithoutQueryValue"
-        },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\uriWithQueryValue\u0028\u0029",
-            "name": "uriWithQueryValue",
-            "summary": "Adds\u0020a\u0020specific\u0020query\u0020string\u0020value.",
-            "url": "namespaces/chillerlan-http-utils.html#function_uriWithQueryValue"
-        },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\parseUrl\u0028\u0029",
-            "name": "parseUrl",
-            "summary": "UTF\u002D8\u0020aware\u0020\\parse_url\u0028\u0029\u0020replacement.",
-            "url": "namespaces/chillerlan-http-utils.html#function_parseUrl"
-        },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\Query",
-            "name": "Query",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\QueryUtil",
+            "name": "QueryUtil",
             "summary": "",
-            "url": "classes/chillerlan-HTTP-Utils-Query.html"
+            "url": "classes/chillerlan-HTTP-Utils-QueryUtil.html"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\Query\u003A\u003AcleanParams\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\QueryUtil\u003A\u003AcleanParams\u0028\u0029",
             "name": "cleanParams",
             "summary": "Cleans\/normalizes\u0020an\u0020array\u0020of\u0020query\u0020parameters,\u0020booleans\u0020will\u0020be\u0020converted\u0020according\u0020to\u0020the\u0020given\u0020\u0024bool_cast\u0020constant.",
-            "url": "classes/chillerlan-HTTP-Utils-Query.html#method_cleanParams"
+            "url": "classes/chillerlan-HTTP-Utils-QueryUtil.html#method_cleanParams"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\Query\u003A\u003Abuild\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\QueryUtil\u003A\u003Abuild\u0028\u0029",
             "name": "build",
             "summary": "Builds\u0020a\u0020query\u0020string\u0020from\u0020an\u0020array\u0020of\u0020key\u0020value\u0020pairs.",
-            "url": "classes/chillerlan-HTTP-Utils-Query.html#method_build"
+            "url": "classes/chillerlan-HTTP-Utils-QueryUtil.html#method_build"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\Query\u003A\u003Amerge\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\QueryUtil\u003A\u003Amerge\u0028\u0029",
             "name": "merge",
             "summary": "Merges\u0020additional\u0020query\u0020parameters\u0020into\u0020an\u0020existing\u0020query\u0020string",
-            "url": "classes/chillerlan-HTTP-Utils-Query.html#method_merge"
+            "url": "classes/chillerlan-HTTP-Utils-QueryUtil.html#method_merge"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\Query\u003A\u003Aparse\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\QueryUtil\u003A\u003Aparse\u0028\u0029",
             "name": "parse",
             "summary": "Parses\u0020a\u0020query\u0020string\u0020into\u0020an\u0020associative\u0020array.",
-            "url": "classes/chillerlan-HTTP-Utils-Query.html#method_parse"
+            "url": "classes/chillerlan-HTTP-Utils-QueryUtil.html#method_parse"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\Query\u003A\u003ABOOLEANS_AS_BOOL",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\QueryUtil\u003A\u003AparseUrl\u0028\u0029",
+            "name": "parseUrl",
+            "summary": "UTF\u002D8\u0020aware\u0020\\parse_url\u0028\u0029\u0020replacement.",
+            "url": "classes/chillerlan-HTTP-Utils-QueryUtil.html#method_parseUrl"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\QueryUtil\u003A\u003ABOOLEANS_AS_BOOL",
             "name": "BOOLEANS_AS_BOOL",
             "summary": "",
-            "url": "classes/chillerlan-HTTP-Utils-Query.html#constant_BOOLEANS_AS_BOOL"
+            "url": "classes/chillerlan-HTTP-Utils-QueryUtil.html#constant_BOOLEANS_AS_BOOL"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\Query\u003A\u003ABOOLEANS_AS_INT",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\QueryUtil\u003A\u003ABOOLEANS_AS_INT",
             "name": "BOOLEANS_AS_INT",
             "summary": "",
-            "url": "classes/chillerlan-HTTP-Utils-Query.html#constant_BOOLEANS_AS_INT"
+            "url": "classes/chillerlan-HTTP-Utils-QueryUtil.html#constant_BOOLEANS_AS_INT"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\Query\u003A\u003ABOOLEANS_AS_STRING",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\QueryUtil\u003A\u003ABOOLEANS_AS_STRING",
             "name": "BOOLEANS_AS_STRING",
             "summary": "",
-            "url": "classes/chillerlan-HTTP-Utils-Query.html#constant_BOOLEANS_AS_STRING"
+            "url": "classes/chillerlan-HTTP-Utils-QueryUtil.html#constant_BOOLEANS_AS_STRING"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\Query\u003A\u003ABOOLEANS_AS_INT_STRING",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\QueryUtil\u003A\u003ABOOLEANS_AS_INT_STRING",
             "name": "BOOLEANS_AS_INT_STRING",
             "summary": "",
-            "url": "classes/chillerlan-HTTP-Utils-Query.html#constant_BOOLEANS_AS_INT_STRING"
+            "url": "classes/chillerlan-HTTP-Utils-QueryUtil.html#constant_BOOLEANS_AS_INT_STRING"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\Query\u003A\u003ANO_ENCODING",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\QueryUtil\u003A\u003ANO_ENCODING",
             "name": "NO_ENCODING",
             "summary": "",
-            "url": "classes/chillerlan-HTTP-Utils-Query.html#constant_NO_ENCODING"
+            "url": "classes/chillerlan-HTTP-Utils-QueryUtil.html#constant_NO_ENCODING"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\Server",
-            "name": "Server",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\ServerUtil",
+            "name": "ServerUtil",
             "summary": "",
-            "url": "classes/chillerlan-HTTP-Utils-Server.html"
+            "url": "classes/chillerlan-HTTP-Utils-ServerUtil.html"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\Server\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\ServerUtil\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/chillerlan-HTTP-Utils-Server.html#method___construct"
+            "url": "classes/chillerlan-HTTP-Utils-ServerUtil.html#method___construct"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\Server\u003A\u003AcreateServerRequestFromGlobals\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\ServerUtil\u003A\u003AcreateServerRequestFromGlobals\u0028\u0029",
             "name": "createServerRequestFromGlobals",
             "summary": "Returns\u0020a\u0020ServerRequest\u0020populated\u0020with\u0020superglobals\u003A\n\u0020\u002D\u0020\u0024_GET\n\u0020\u002D\u0020\u0024_POST\n\u0020\u002D\u0020\u0024_COOKIE\n\u0020\u002D\u0020\u0024_FILES\n\u0020\u002D\u0020\u0024_SERVER",
-            "url": "classes/chillerlan-HTTP-Utils-Server.html#method_createServerRequestFromGlobals"
+            "url": "classes/chillerlan-HTTP-Utils-ServerUtil.html#method_createServerRequestFromGlobals"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\Server\u003A\u003AcreateUriFromGlobals\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\ServerUtil\u003A\u003AcreateUriFromGlobals\u0028\u0029",
             "name": "createUriFromGlobals",
             "summary": "Creates\u0020an\u0020Uri\u0020populated\u0020with\u0020values\u0020from\u0020\u0024_SERVER.",
-            "url": "classes/chillerlan-HTTP-Utils-Server.html#method_createUriFromGlobals"
+            "url": "classes/chillerlan-HTTP-Utils-ServerUtil.html#method_createUriFromGlobals"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\Server\u003A\u003AnormalizeFiles\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\ServerUtil\u003A\u003AnormalizeFiles\u0028\u0029",
             "name": "normalizeFiles",
             "summary": "Returns\u0020an\u0020UploadedFile\u0020instance\u0020array.",
-            "url": "classes/chillerlan-HTTP-Utils-Server.html#method_normalizeFiles"
+            "url": "classes/chillerlan-HTTP-Utils-ServerUtil.html#method_normalizeFiles"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\Server\u003A\u003AcreateUploadedFileFromSpec\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\ServerUtil\u003A\u003AcreateUploadedFileFromSpec\u0028\u0029",
             "name": "createUploadedFileFromSpec",
             "summary": "Creates\u0020an\u0020UploadedFile\u0020instance\u0020from\u0020a\u0020\u0024_FILES\u0020specification.",
-            "url": "classes/chillerlan-HTTP-Utils-Server.html#method_createUploadedFileFromSpec"
+            "url": "classes/chillerlan-HTTP-Utils-ServerUtil.html#method_createUploadedFileFromSpec"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\Server\u003A\u003AnormalizeNestedFileSpec\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\ServerUtil\u003A\u003AnormalizeNestedFileSpec\u0028\u0029",
             "name": "normalizeNestedFileSpec",
             "summary": "Normalizes\u0020an\u0020array\u0020of\u0020file\u0020specifications.",
-            "url": "classes/chillerlan-HTTP-Utils-Server.html#method_normalizeNestedFileSpec"
+            "url": "classes/chillerlan-HTTP-Utils-ServerUtil.html#method_normalizeNestedFileSpec"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\Server\u003A\u003A\u0024serverRequestFactory",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\ServerUtil\u003A\u003A\u0024serverRequestFactory",
             "name": "serverRequestFactory",
             "summary": "",
-            "url": "classes/chillerlan-HTTP-Utils-Server.html#property_serverRequestFactory"
+            "url": "classes/chillerlan-HTTP-Utils-ServerUtil.html#property_serverRequestFactory"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\Server\u003A\u003A\u0024uriFactory",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\ServerUtil\u003A\u003A\u0024uriFactory",
             "name": "uriFactory",
             "summary": "",
-            "url": "classes/chillerlan-HTTP-Utils-Server.html#property_uriFactory"
+            "url": "classes/chillerlan-HTTP-Utils-ServerUtil.html#property_uriFactory"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\Server\u003A\u003A\u0024uploadedFileFactory",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\ServerUtil\u003A\u003A\u0024uploadedFileFactory",
             "name": "uploadedFileFactory",
             "summary": "",
-            "url": "classes/chillerlan-HTTP-Utils-Server.html#property_uploadedFileFactory"
+            "url": "classes/chillerlan-HTTP-Utils-ServerUtil.html#property_uploadedFileFactory"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\Server\u003A\u003A\u0024streamFactory",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\ServerUtil\u003A\u003A\u0024streamFactory",
             "name": "streamFactory",
             "summary": "",
-            "url": "classes/chillerlan-HTTP-Utils-Server.html#property_streamFactory"
+            "url": "classes/chillerlan-HTTP-Utils-ServerUtil.html#property_streamFactory"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\FactoryHelpersTest",
-            "name": "FactoryHelpersTest",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\UriUtil",
+            "name": "UriUtil",
             "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-FactoryHelpersTest.html"
+            "url": "classes/chillerlan-HTTP-Utils-UriUtil.html"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\FactoryHelpersTest\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\UriUtil\u003A\u003AisDefaultPort\u0028\u0029",
+            "name": "isDefaultPort",
+            "summary": "Checks\u0020whether\u0020the\u0020UriInterface\u0020has\u0020a\u0020port\u0020set\u0020and\u0020if\u0020that\u0020port\u0020is\u0020one\u0020of\u0020the\u0020default\u0020ports\u0020for\u0020the\u0020given\u0020scheme",
+            "url": "classes/chillerlan-HTTP-Utils-UriUtil.html#method_isDefaultPort"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\UriUtil\u003A\u003AisAbsolute\u0028\u0029",
+            "name": "isAbsolute",
+            "summary": "Checks\u0020Whether\u0020the\u0020URI\u0020is\u0020absolute,\u0020i.e.\u0020it\u0020has\u0020a\u0020scheme.",
+            "url": "classes/chillerlan-HTTP-Utils-UriUtil.html#method_isAbsolute"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\UriUtil\u003A\u003AisNetworkPathReference\u0028\u0029",
+            "name": "isNetworkPathReference",
+            "summary": "Checks\u0020Whether\u0020the\u0020URI\u0020is\u0020a\u0020network\u002Dpath\u0020reference.",
+            "url": "classes/chillerlan-HTTP-Utils-UriUtil.html#method_isNetworkPathReference"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\UriUtil\u003A\u003AisAbsolutePathReference\u0028\u0029",
+            "name": "isAbsolutePathReference",
+            "summary": "Checks\u0020Whether\u0020the\u0020URI\u0020is\u0020a\u0020absolute\u002Dpath\u0020reference.",
+            "url": "classes/chillerlan-HTTP-Utils-UriUtil.html#method_isAbsolutePathReference"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\UriUtil\u003A\u003AisRelativePathReference\u0028\u0029",
+            "name": "isRelativePathReference",
+            "summary": "Checks\u0020Whether\u0020the\u0020URI\u0020is\u0020a\u0020relative\u002Dpath\u0020reference.",
+            "url": "classes/chillerlan-HTTP-Utils-UriUtil.html#method_isRelativePathReference"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\UriUtil\u003A\u003AwithoutQueryValue\u0028\u0029",
+            "name": "withoutQueryValue",
+            "summary": "Removes\u0020a\u0020specific\u0020query\u0020string\u0020value.",
+            "url": "classes/chillerlan-HTTP-Utils-UriUtil.html#method_withoutQueryValue"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\UriUtil\u003A\u003AwithQueryValue\u0028\u0029",
+            "name": "withQueryValue",
+            "summary": "Adds\u0020a\u0020specific\u0020query\u0020string\u0020value.",
+            "url": "classes/chillerlan-HTTP-Utils-UriUtil.html#method_withQueryValue"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\UriUtil\u003A\u003AURI_DEFAULT_PORTS",
+            "name": "URI_DEFAULT_PORTS",
             "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-FactoryHelpersTest.html#method_setUp"
+            "url": "classes/chillerlan-HTTP-Utils-UriUtil.html#constant_URI_DEFAULT_PORTS"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\FactoryHelpersTest\u003A\u003AdataGetUriFromGlobals\u0028\u0029",
-            "name": "dataGetUriFromGlobals",
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\HeaderUtilTest",
+            "name": "HeaderUtilTest",
             "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-FactoryHelpersTest.html#method_dataGetUriFromGlobals"
+            "url": "classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\FactoryHelpersTest\u003A\u003AtestCreateUriFromGlobals\u0028\u0029",
-            "name": "testCreateUriFromGlobals",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-FactoryHelpersTest.html#method_testCreateUriFromGlobals"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\FactoryHelpersTest\u003A\u003AtestCreateServerRequestFromGlobals\u0028\u0029",
-            "name": "testCreateServerRequestFromGlobals",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-FactoryHelpersTest.html#method_testCreateServerRequestFromGlobals"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\FactoryHelpersTest\u003A\u003AtestNormalizeMultipleFiles\u0028\u0029",
-            "name": "testNormalizeMultipleFiles",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-FactoryHelpersTest.html#method_testNormalizeMultipleFiles"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\FactoryHelpersTest\u003A\u003AtestNormalizeFilesInvalidValueException\u0028\u0029",
-            "name": "testNormalizeFilesInvalidValueException",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-FactoryHelpersTest.html#method_testNormalizeFilesInvalidValueException"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\FactoryHelpersTest\u003A\u003A\u0024server",
-            "name": "server",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-FactoryHelpersTest.html#property_server"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\HeaderTest",
-            "name": "HeaderTest",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-HeaderTest.html"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\HeaderTest\u003A\u003AheaderDataProvider\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\HeaderUtilTest\u003A\u003AheaderDataProvider\u0028\u0029",
             "name": "headerDataProvider",
             "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-HeaderTest.html#method_headerDataProvider"
+            "url": "classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_headerDataProvider"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\HeaderTest\u003A\u003AtestNormalizeHeaders\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\HeaderUtilTest\u003A\u003AtestNormalizeHeaders\u0028\u0029",
             "name": "testNormalizeHeaders",
             "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-HeaderTest.html#method_testNormalizeHeaders"
+            "url": "classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_testNormalizeHeaders"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\HeaderTest\u003A\u003AtestCombineHeaderFields\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\HeaderUtilTest\u003A\u003AtestCombineHeaderFields\u0028\u0029",
             "name": "testCombineHeaderFields",
             "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-HeaderTest.html#method_testCombineHeaderFields"
+            "url": "classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_testCombineHeaderFields"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\HeaderTest\u003A\u003AtestCombinedCookieHeaders\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\HeaderUtilTest\u003A\u003AtestCombinedCookieHeaders\u0028\u0029",
             "name": "testCombinedCookieHeaders",
             "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-HeaderTest.html#method_testCombinedCookieHeaders"
+            "url": "classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_testCombinedCookieHeaders"
         },                {
             "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageHelpersTest",
             "name": "MessageHelpersTest",
@@ -291,190 +261,190 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-HTTPTest-Utils-MessageHelpersTest.html#method_testRawurlencodeTypeErrorException"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageHelpersTest\u003A\u003AtestGetJSON\u0028\u0029",
-            "name": "testGetJSON",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-MessageHelpersTest.html#method_testGetJSON"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageHelpersTest\u003A\u003AtestGetXML\u0028\u0029",
-            "name": "testGetXML",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-MessageHelpersTest.html#method_testGetXML"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageHelpersTest\u003A\u003AtestMessageToString\u0028\u0029",
-            "name": "testMessageToString",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-MessageHelpersTest.html#method_testMessageToString"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageHelpersTest\u003A\u003AdecompressDataProvider\u0028\u0029",
-            "name": "decompressDataProvider",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-MessageHelpersTest.html#method_decompressDataProvider"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageHelpersTest\u003A\u003AtestDecompressContent\u0028\u0029",
-            "name": "testDecompressContent",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-MessageHelpersTest.html#method_testDecompressContent"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageHelpersTest\u003A\u003AtestDecompressContentUnableToDecompressBrotliException\u0028\u0029",
-            "name": "testDecompressContentUnableToDecompressBrotliException",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-MessageHelpersTest.html#method_testDecompressContentUnableToDecompressBrotliException"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageHelpersTest\u003A\u003AtestUriIsAbsolute\u0028\u0029",
-            "name": "testUriIsAbsolute",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-MessageHelpersTest.html#method_testUriIsAbsolute"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageHelpersTest\u003A\u003AtestUriIsNetworkPathReference\u0028\u0029",
-            "name": "testUriIsNetworkPathReference",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-MessageHelpersTest.html#method_testUriIsNetworkPathReference"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageHelpersTest\u003A\u003AtestUriIsAbsolutePathReference\u0028\u0029",
-            "name": "testUriIsAbsolutePathReference",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-MessageHelpersTest.html#method_testUriIsAbsolutePathReference"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageHelpersTest\u003A\u003AtestUriIsRelativePathReference\u0028\u0029",
-            "name": "testUriIsRelativePathReference",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-MessageHelpersTest.html#method_testUriIsRelativePathReference"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageHelpersTest\u003A\u003AtestUriAddAndRemoveQueryValues\u0028\u0029",
-            "name": "testUriAddAndRemoveQueryValues",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-MessageHelpersTest.html#method_testUriAddAndRemoveQueryValues"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageHelpersTest\u003A\u003AtestUriWithQueryValueReplacesSameKeys\u0028\u0029",
-            "name": "testUriWithQueryValueReplacesSameKeys",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-MessageHelpersTest.html#method_testUriWithQueryValueReplacesSameKeys"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageHelpersTest\u003A\u003AtestUriWithoutQueryValueRemovesAllSameKeys\u0028\u0029",
-            "name": "testUriWithoutQueryValueRemovesAllSameKeys",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-MessageHelpersTest.html#method_testUriWithoutQueryValueRemovesAllSameKeys"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageHelpersTest\u003A\u003AtestUriRemoveNonExistingQueryValue\u0028\u0029",
-            "name": "testUriRemoveNonExistingQueryValue",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-MessageHelpersTest.html#method_testUriRemoveNonExistingQueryValue"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageHelpersTest\u003A\u003AtestUriWithQueryValueHandlesEncoding\u0028\u0029",
-            "name": "testUriWithQueryValueHandlesEncoding",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-MessageHelpersTest.html#method_testUriWithQueryValueHandlesEncoding"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageHelpersTest\u003A\u003AtestUriWithoutQueryValueHandlesEncoding\u0028\u0029",
-            "name": "testUriWithoutQueryValueHandlesEncoding",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-MessageHelpersTest.html#method_testUriWithoutQueryValueHandlesEncoding"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageHelpersTest\u003A\u003AtestUriIsDefaultPort\u0028\u0029",
-            "name": "testUriIsDefaultPort",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-MessageHelpersTest.html#method_testUriIsDefaultPort"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageHelpersTest\u003A\u003AparseUrlProvider\u0028\u0029",
-            "name": "parseUrlProvider",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-MessageHelpersTest.html#method_parseUrlProvider"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageHelpersTest\u003A\u003AtestParseUrl\u0028\u0029",
-            "name": "testParseUrl",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-MessageHelpersTest.html#method_testParseUrl"
-        },                {
             "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageHelpersTest\u003A\u003AtestGetMimetype\u0028\u0029",
             "name": "testGetMimetype",
             "summary": "",
             "url": "classes/chillerlan-HTTPTest-Utils-MessageHelpersTest.html#method_testGetMimetype"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryTest",
-            "name": "QueryTest",
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageUtilTest",
+            "name": "MessageUtilTest",
             "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-QueryTest.html"
+            "url": "classes/chillerlan-HTTPTest-Utils-MessageUtilTest.html"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryTest\u003A\u003AqueryParamDataProvider\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageUtilTest\u003A\u003AtestGetJSON\u0028\u0029",
+            "name": "testGetJSON",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-MessageUtilTest.html#method_testGetJSON"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageUtilTest\u003A\u003AtestGetXML\u0028\u0029",
+            "name": "testGetXML",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-MessageUtilTest.html#method_testGetXML"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageUtilTest\u003A\u003AtestMessageToString\u0028\u0029",
+            "name": "testMessageToString",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-MessageUtilTest.html#method_testMessageToString"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageUtilTest\u003A\u003AdecompressDataProvider\u0028\u0029",
+            "name": "decompressDataProvider",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-MessageUtilTest.html#method_decompressDataProvider"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageUtilTest\u003A\u003AtestDecompressContent\u0028\u0029",
+            "name": "testDecompressContent",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-MessageUtilTest.html#method_testDecompressContent"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageUtilTest\u003A\u003AtestDecompressContentUnknownHeaderValueException\u0028\u0029",
+            "name": "testDecompressContentUnknownHeaderValueException",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-MessageUtilTest.html#method_testDecompressContentUnknownHeaderValueException"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageUtilTest\u003A\u003AtestDecompressContentUnableToDecompressBrotliException\u0028\u0029",
+            "name": "testDecompressContentUnableToDecompressBrotliException",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-MessageUtilTest.html#method_testDecompressContentUnableToDecompressBrotliException"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageUtilTest\u003A\u003AtestDecompressContentUnableToDecompressZstdException\u0028\u0029",
+            "name": "testDecompressContentUnableToDecompressZstdException",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-MessageUtilTest.html#method_testDecompressContentUnableToDecompressZstdException"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryUtilTest",
+            "name": "QueryUtilTest",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-QueryUtilTest.html"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryUtilTest\u003A\u003AqueryParamDataProvider\u0028\u0029",
             "name": "queryParamDataProvider",
             "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-QueryTest.html#method_queryParamDataProvider"
+            "url": "classes/chillerlan-HTTPTest-Utils-QueryUtilTest.html#method_queryParamDataProvider"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryTest\u003A\u003AtestCleanQueryParams\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryUtilTest\u003A\u003AtestCleanQueryParams\u0028\u0029",
             "name": "testCleanQueryParams",
             "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-QueryTest.html#method_testCleanQueryParams"
+            "url": "classes/chillerlan-HTTPTest-Utils-QueryUtilTest.html#method_testCleanQueryParams"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryTest\u003A\u003AmergeQueryDataProvider\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryUtilTest\u003A\u003AmergeQueryDataProvider\u0028\u0029",
             "name": "mergeQueryDataProvider",
             "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-QueryTest.html#method_mergeQueryDataProvider"
+            "url": "classes/chillerlan-HTTPTest-Utils-QueryUtilTest.html#method_mergeQueryDataProvider"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryTest\u003A\u003AtestMergeQuery\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryUtilTest\u003A\u003AtestMergeQuery\u0028\u0029",
             "name": "testMergeQuery",
             "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-QueryTest.html#method_testMergeQuery"
+            "url": "classes/chillerlan-HTTPTest-Utils-QueryUtilTest.html#method_testMergeQuery"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryTest\u003A\u003AtestBuildQuery\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryUtilTest\u003A\u003AtestBuildQuery\u0028\u0029",
             "name": "testBuildQuery",
             "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-QueryTest.html#method_testBuildQuery"
+            "url": "classes/chillerlan-HTTPTest-Utils-QueryUtilTest.html#method_testBuildQuery"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryTest\u003A\u003AtestBuildQuerySort\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryUtilTest\u003A\u003AtestBuildQuerySort\u0028\u0029",
             "name": "testBuildQuerySort",
             "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-QueryTest.html#method_testBuildQuerySort"
+            "url": "classes/chillerlan-HTTPTest-Utils-QueryUtilTest.html#method_testBuildQuerySort"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryTest\u003A\u003AparseQueryProvider\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryUtilTest\u003A\u003AparseQueryProvider\u0028\u0029",
             "name": "parseQueryProvider",
             "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-QueryTest.html#method_parseQueryProvider"
+            "url": "classes/chillerlan-HTTPTest-Utils-QueryUtilTest.html#method_parseQueryProvider"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryTest\u003A\u003AtestParsesQueries\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryUtilTest\u003A\u003AtestParsesQueries\u0028\u0029",
             "name": "testParsesQueries",
             "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-QueryTest.html#method_testParsesQueries"
+            "url": "classes/chillerlan-HTTPTest-Utils-QueryUtilTest.html#method_testParsesQueries"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryTest\u003A\u003AtestParsesAndBuildsQueries\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryUtilTest\u003A\u003AtestParsesAndBuildsQueries\u0028\u0029",
             "name": "testParsesAndBuildsQueries",
             "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-QueryTest.html#method_testParsesAndBuildsQueries"
+            "url": "classes/chillerlan-HTTPTest-Utils-QueryUtilTest.html#method_testParsesAndBuildsQueries"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryTest\u003A\u003AtestDoesNotDecode\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryUtilTest\u003A\u003AtestDoesNotDecode\u0028\u0029",
             "name": "testDoesNotDecode",
             "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-QueryTest.html#method_testDoesNotDecode"
+            "url": "classes/chillerlan-HTTPTest-Utils-QueryUtilTest.html#method_testDoesNotDecode"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryTest\u003A\u003AtestEncodesWithRfc1738\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryUtilTest\u003A\u003AtestEncodesWithRfc1738\u0028\u0029",
             "name": "testEncodesWithRfc1738",
             "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-QueryTest.html#method_testEncodesWithRfc1738"
+            "url": "classes/chillerlan-HTTPTest-Utils-QueryUtilTest.html#method_testEncodesWithRfc1738"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryTest\u003A\u003AtestEncodesWithRfc3986\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryUtilTest\u003A\u003AtestEncodesWithRfc3986\u0028\u0029",
             "name": "testEncodesWithRfc3986",
             "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-QueryTest.html#method_testEncodesWithRfc3986"
+            "url": "classes/chillerlan-HTTPTest-Utils-QueryUtilTest.html#method_testEncodesWithRfc3986"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryTest\u003A\u003AtestDoesNotEncode\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryUtilTest\u003A\u003AtestDoesNotEncode\u0028\u0029",
             "name": "testDoesNotEncode",
             "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-QueryTest.html#method_testDoesNotEncode"
+            "url": "classes/chillerlan-HTTPTest-Utils-QueryUtilTest.html#method_testDoesNotEncode"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryTest\u003A\u003AtestCanControlDecodingType\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryUtilTest\u003A\u003AtestCanControlDecodingType\u0028\u0029",
             "name": "testCanControlDecodingType",
             "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-QueryTest.html#method_testCanControlDecodingType"
+            "url": "classes/chillerlan-HTTPTest-Utils-QueryUtilTest.html#method_testCanControlDecodingType"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryTest\u003A\u003AtestBuildBooleans\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryUtilTest\u003A\u003AtestBuildBooleans\u0028\u0029",
             "name": "testBuildBooleans",
             "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-QueryTest.html#method_testBuildBooleans"
+            "url": "classes/chillerlan-HTTPTest-Utils-QueryUtilTest.html#method_testBuildBooleans"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryTest\u003A\u003AtestParseDoesTrimQuestionMark\u0028\u0029",
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryUtilTest\u003A\u003AtestParseDoesTrimQuestionMark\u0028\u0029",
             "name": "testParseDoesTrimQuestionMark",
             "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-QueryTest.html#method_testParseDoesTrimQuestionMark"
+            "url": "classes/chillerlan-HTTPTest-Utils-QueryUtilTest.html#method_testParseDoesTrimQuestionMark"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryUtilTest\u003A\u003AparseUrlProvider\u0028\u0029",
+            "name": "parseUrlProvider",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-QueryUtilTest.html#method_parseUrlProvider"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryUtilTest\u003A\u003AtestParseUrl\u0028\u0029",
+            "name": "testParseUrl",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-QueryUtilTest.html#method_testParseUrl"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\ServerUtilTest",
+            "name": "ServerUtilTest",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\ServerUtilTest\u003A\u003AsetUp\u0028\u0029",
+            "name": "setUp",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#method_setUp"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\ServerUtilTest\u003A\u003AdataGetUriFromGlobals\u0028\u0029",
+            "name": "dataGetUriFromGlobals",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#method_dataGetUriFromGlobals"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\ServerUtilTest\u003A\u003AtestCreateUriFromGlobals\u0028\u0029",
+            "name": "testCreateUriFromGlobals",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#method_testCreateUriFromGlobals"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\ServerUtilTest\u003A\u003AtestCreateServerRequestFromGlobals\u0028\u0029",
+            "name": "testCreateServerRequestFromGlobals",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#method_testCreateServerRequestFromGlobals"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\ServerUtilTest\u003A\u003AtestNormalizeMultipleFiles\u0028\u0029",
+            "name": "testNormalizeMultipleFiles",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#method_testNormalizeMultipleFiles"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\ServerUtilTest\u003A\u003AtestNormalizeFilesInvalidValueException\u0028\u0029",
+            "name": "testNormalizeFilesInvalidValueException",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#method_testNormalizeFilesInvalidValueException"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\ServerUtilTest\u003A\u003A\u0024server",
+            "name": "server",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#property_server"
         },                {
             "fqsen": "\\chillerlan\\HTTPTest\\Utils\\TestAbstract",
             "name": "TestAbstract",
@@ -520,6 +490,66 @@ Search.appendIndex(
             "name": "uriFactory",
             "summary": "",
             "url": "classes/chillerlan-HTTPTest-Utils-TestAbstract.html#property_uriFactory"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\UriUtilTest",
+            "name": "UriUtilTest",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-UriUtilTest.html"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\UriUtilTest\u003A\u003AtestUriIsAbsolute\u0028\u0029",
+            "name": "testUriIsAbsolute",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-UriUtilTest.html#method_testUriIsAbsolute"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\UriUtilTest\u003A\u003AtestUriIsNetworkPathReference\u0028\u0029",
+            "name": "testUriIsNetworkPathReference",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-UriUtilTest.html#method_testUriIsNetworkPathReference"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\UriUtilTest\u003A\u003AtestUriIsAbsolutePathReference\u0028\u0029",
+            "name": "testUriIsAbsolutePathReference",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-UriUtilTest.html#method_testUriIsAbsolutePathReference"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\UriUtilTest\u003A\u003AtestUriIsRelativePathReference\u0028\u0029",
+            "name": "testUriIsRelativePathReference",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-UriUtilTest.html#method_testUriIsRelativePathReference"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\UriUtilTest\u003A\u003AtestUriAddAndRemoveQueryValues\u0028\u0029",
+            "name": "testUriAddAndRemoveQueryValues",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-UriUtilTest.html#method_testUriAddAndRemoveQueryValues"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\UriUtilTest\u003A\u003AtestUriWithQueryValueReplacesSameKeys\u0028\u0029",
+            "name": "testUriWithQueryValueReplacesSameKeys",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-UriUtilTest.html#method_testUriWithQueryValueReplacesSameKeys"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\UriUtilTest\u003A\u003AtestUriWithoutQueryValueRemovesAllSameKeys\u0028\u0029",
+            "name": "testUriWithoutQueryValueRemovesAllSameKeys",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-UriUtilTest.html#method_testUriWithoutQueryValueRemovesAllSameKeys"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\UriUtilTest\u003A\u003AtestUriRemoveNonExistingQueryValue\u0028\u0029",
+            "name": "testUriRemoveNonExistingQueryValue",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-UriUtilTest.html#method_testUriRemoveNonExistingQueryValue"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\UriUtilTest\u003A\u003AtestUriWithQueryValueHandlesEncoding\u0028\u0029",
+            "name": "testUriWithQueryValueHandlesEncoding",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-UriUtilTest.html#method_testUriWithQueryValueHandlesEncoding"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\UriUtilTest\u003A\u003AtestUriWithoutQueryValueHandlesEncoding\u0028\u0029",
+            "name": "testUriWithoutQueryValueHandlesEncoding",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-UriUtilTest.html#method_testUriWithoutQueryValueHandlesEncoding"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\UriUtilTest\u003A\u003AtestUriIsDefaultPort\u0028\u0029",
+            "name": "testUriIsDefaultPort",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-UriUtilTest.html#method_testUriIsDefaultPort"
         },                {
             "fqsen": "\\",
             "name": "\\",
