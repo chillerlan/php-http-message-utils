@@ -191,6 +191,7 @@ class ServerUtilTest extends TestAbstract{
 			]
 		];
 
+		/** @var array $normalized */
 		$normalized = $this->server->normalizeFiles($files)['files'];
 
 		$this::assertCount(3, $normalized);
@@ -226,6 +227,7 @@ class ServerUtilTest extends TestAbstract{
 			]
 		];
 
+		/** @var array $normalized */
 		$normalized = $this->server->normalizeFiles($files)['files'];
 
 		$this::assertCount(3, $normalized);
