@@ -1,6 +1,6 @@
 <?php
 /**
- * Class FactoryHelpersTest
+ * Class ServerUtilTest
  *
  * @created      31.01.2019
  * @author       smiley <smiley@chillerlan.net>
@@ -10,20 +10,20 @@
 
 namespace chillerlan\HTTPTest\Utils;
 
-use chillerlan\HTTP\Utils\Server;
+use chillerlan\HTTP\Utils\ServerUtil;
 use InvalidArgumentException;
 
 use function time;
 use const UPLOAD_ERR_OK, UPLOAD_ERR_PARTIAL;
 
-class FactoryHelpersTest extends TestAbstract{
+class ServerUtilTest extends TestAbstract{
 
-	protected Server $server;
+	protected ServerUtil $server;
 
 	protected function setUp():void{
 		parent::setUp();
 
-		$this->server = new Server(
+		$this->server = new ServerUtil(
 			$this->serverRequestFactory,
 			$this->uriFactory,
 			$this->uploadedFileFactory,

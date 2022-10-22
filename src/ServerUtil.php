@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Server
+ * Class ServerUtil
  *
  * @created      29.03.2021
  * @author       smiley <smiley@chillerlan.net>
@@ -21,7 +21,7 @@ use function array_keys, explode, function_exists, is_array, is_file, substr;
 /**
  *
  */
-class Server{
+class ServerUtil{
 
 	protected ServerRequestFactoryInterface $serverRequestFactory;
 	protected UriFactoryInterface $uriFactory;
