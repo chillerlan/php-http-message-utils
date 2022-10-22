@@ -8,12 +8,10 @@
 
 namespace chillerlan\HTTP\Utils;
 
-use RuntimeException, TypeError;
-use Psr\Http\Message\{MessageInterface, RequestInterface, ResponseInterface, UriInterface};
+use TypeError;
+use Psr\Http\Message\UriInterface;
 
-use function array_filter, array_map, explode, extension_loaded, function_exists, gzdecode, gzinflate, gzuncompress, implode,
-	is_array, is_scalar, json_decode, json_encode, parse_url, pathinfo, preg_match, preg_replace_callback, rawurldecode,
-	rawurlencode, simplexml_load_string, strtolower, trim, urlencode;
+use function array_filter, array_map, explode, implode, is_array, is_scalar, pathinfo, rawurldecode, rawurlencode, strtolower;
 
 use const PATHINFO_EXTENSION;
 
@@ -158,90 +156,6 @@ function r_rawurlencode($data){
 	}
 
 	return rawurlencode((string)$data);
-}
-
-/**
- * @return \stdClass|array|bool
- */
-function get_json(MessageInterface $message, bool $assoc = null){
-	$data = json_decode((string)$message->getBody(), $assoc ?? false);
-
-	$message->getBody()->rewind();
-
-	return $data;
-}
-
-/**
- * @return \SimpleXMLElement|array|bool
- */
-function get_xml(MessageInterface $message, bool $assoc = null){
-	$data = simplexml_load_string((string)$message->getBody());
-
-	$message->getBody()->rewind();
-
-	return $assoc === true
-		? json_decode(json_encode($data), true) // cruel
-		: $data;
-}
-
-/**
- * Returns the string representation of an HTTP message. (from Guzzle)
- */
-function message_to_string(MessageInterface $message):string{
-	$msg = '';
-
-	if($message instanceof RequestInterface){
-		$msg = trim($message->getMethod().' '.$message->getRequestTarget()).' HTTP/'.$message->getProtocolVersion();
-
-		if(!$message->hasHeader('host')){
-			$msg .= "\r\nHost: ".$message->getUri()->getHost();
-		}
-
-	}
-	elseif($message instanceof ResponseInterface){
-		$msg = 'HTTP/'.$message->getProtocolVersion().' '.$message->getStatusCode().' '.$message->getReasonPhrase();
-	}
-
-	foreach($message->getHeaders() as $name => $values){
-		$msg .= "\r\n".$name.': '.implode(', ', $values);
-	}
-
-	$data = (string)$message->getBody();
-	$message->getBody()->rewind();
-
-	return $msg."\r\n\r\n".$data;
-}
-
-/**
- * Decompresses the message content according to the Content-Encoding header and returns the decompressed data
- *
- * @throws \RuntimeException
- */
-function decompress_content(MessageInterface $message):string{
-	$data     = (string)$message->getBody();
-	$encoding = strtolower($message->getHeaderLine('content-encoding'));
-	$message->getBody()->rewind();
-
-	if($encoding === 'br'){
-		// https://github.com/kjdev/php-ext-brotli
-		if(extension_loaded('brotli') && function_exists('brotli_uncompress')){
-			/** @phan-suppress-next-line PhanUndeclaredFunction */
-			return brotli_uncompress($data); // @codeCoverageIgnore
-		}
-
-		throw new RuntimeException('cannot decompress brotli compressed message body');
-	}
-	elseif($encoding === 'compress'){
-		return gzuncompress($data);
-	}
-	elseif($encoding === 'deflate'){
-		return gzinflate($data);
-	}
-	elseif($encoding === 'gzip' || $encoding === 'x-gzip'){
-		return gzdecode($data);
-	}
-
-	return $data;
 }
 
 const URI_DEFAULT_PORTS = [
