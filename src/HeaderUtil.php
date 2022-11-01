@@ -84,4 +84,22 @@ class HeaderUtil{
 		return $normalized;
 	}
 
+	/**
+	 * Trims whitespace from the header values.
+	 *
+	 * Spaces and tabs ought to be excluded by parsers when extracting the field value from a header field.
+	 *
+	 * header-field = field-name ":" OWS field-value OWS
+	 * OWS          = *( SP / HTAB )
+	 *
+	 * @param string[] $values header values
+	 *
+	 * @return string[] Trimmed header values
+	 *
+	 * @see https://tools.ietf.org/html/rfc7230#section-3.2.4
+	 */
+	public static function trimHeaderValues(array $values):array{
+		return array_map(fn(string $value):string => trim($value, " \t"), $values);
+	}
+
 }
