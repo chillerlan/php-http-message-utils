@@ -11,6 +11,11 @@ Search.appendIndex(
             "summary": "Normalizes\u0020an\u0020array\u0020of\u0020header\u0020lines\u0020to\u0020format\u0020\u005B\u0022Name\u0022\u0020\u003D\u003E\u0020\u0022Value\u0020\u0028,\u0020Value2,\u0020Value3,\u0020...\u0029\u0022,\u0020...\u005D\nAn\u0020exception\u0020is\u0020being\u0020made\u0020for\u0020Set\u002DCookie,\u0020which\u0020holds\u0020an\u0020array\u0020of\u0020values\u0020for\u0020each\u0020cookie.",
             "url": "classes/chillerlan-HTTP-Utils-HeaderUtil.html#method_normalize"
         },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\HeaderUtil\u003A\u003AtrimHeaderValues\u0028\u0029",
+            "name": "trimHeaderValues",
+            "summary": "Trims\u0020whitespace\u0020from\u0020the\u0020header\u0020values.",
+            "url": "classes/chillerlan-HTTP-Utils-HeaderUtil.html#method_trimHeaderValues"
+        },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\CHILLERLAN_PSR7_UTIL_INCLUDES",
             "name": "CHILLERLAN_PSR7_UTIL_INCLUDES",
             "summary": "",
