@@ -98,7 +98,7 @@ class HeaderUtil{
 	 *
 	 * @see https://tools.ietf.org/html/rfc7230#section-3.2.4
 	 */
-	public static function trimHeaderValues(array $values):array{
+	public static function trimValues(array $values):array{
 		return array_map(fn(string $value):string => trim($value, " \t"), $values);
 	}
 
