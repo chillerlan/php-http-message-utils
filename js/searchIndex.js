@@ -46,6 +46,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-HTTP-Utils-MessageUtil.html"
         },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\MessageUtil\u003A\u003AgetContents\u0028\u0029",
+            "name": "getContents",
+            "summary": "Read\u0020the\u0020message\u0020body\u0027s\u0020content\u0020and\u0020make\u0020sure\u0020we\u0020rewind",
+            "url": "classes/chillerlan-HTTP-Utils-MessageUtil.html#method_getContents"
+        },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\MessageUtil\u003A\u003AdecodeJSON\u0028\u0029",
             "name": "decodeJSON",
             "summary": "",
