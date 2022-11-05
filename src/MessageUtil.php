@@ -21,23 +21,29 @@ use function extension_loaded, function_exists, gzdecode, gzinflate, gzuncompres
 class MessageUtil{
 
 	/**
+	 * Read the message body's content and make sure we rewind
+	 */
+	protected static function getContents(MessageInterface $message):string{
+		$body = $message->getBody();
+		$body->rewind(); //rewind before read...
+		$data = $body->getContents();
+		$body->rewind(); // ...and after
+
+		return $data;
+	}
+
+	/**
 	 * @return \stdClass|array|bool
 	 */
 	public static function decodeJSON(MessageInterface $message, bool $assoc = null){
-		$data = json_decode((string)$message->getBody(), $assoc ?? false);
-
-		$message->getBody()->rewind();
-
-		return $data;
+		return json_decode(self::getContents($message), $assoc ?? false);
 	}
 
 	/**
 	 * @return \SimpleXMLElement|array|bool
 	 */
 	public static function decodeXML(MessageInterface $message, bool $assoc = null){
-		$data = simplexml_load_string((string)$message->getBody());
-
-		$message->getBody()->rewind();
+		$data = simplexml_load_string(self::getContents($message));
 
 		return $assoc === true
 			? json_decode(json_encode($data), true) // cruel
@@ -68,10 +74,7 @@ class MessageUtil{
 
 		// appending the body might cause issues in some cases, e.g. with large responses or file streams
 		if($appendBody){
-			$data = $message->getBody()->getContents();
-			$message->getBody()->rewind();
-
-			$msg .= "\r\n\r\n".$data;
+			$msg .= "\r\n\r\n".self::getContents($message);
 		}
 
 		return $msg;
@@ -87,9 +90,8 @@ class MessageUtil{
 	 * @throws \RuntimeException
 	 */
 	public static function decompress(MessageInterface $message):string{
-		$data     = $message->getBody()->getContents();
+		$data     = self::getContents($message);
 		$encoding = strtolower($message->getHeaderLine('content-encoding'));
-		$message->getBody()->rewind();
 
 		if($encoding === '' || $encoding === 'identity'){
 			return $data;
