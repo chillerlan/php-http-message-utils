@@ -1,6 +1,6 @@
 {
 	"name": "chillerlan/php-http-message-utils",
-	"description": "PSR-7/17/18 utils. PHP7.4+",
+	"description": "PSR-7/17/18 utils",
 	"license": "MIT",
 	"type": "library",
 	"keywords": [
@@ -19,7 +19,7 @@
 		"source": "https://github.com/chillerlan/php-http-message-utils"
 	},
 	"require": {
-		"php": "^7.4 || ^8.0",
+		"php": "^8.1",
 		"ext-json": "*",
 		"ext-simplexml": "*",
 		"ext-zlib": "*",

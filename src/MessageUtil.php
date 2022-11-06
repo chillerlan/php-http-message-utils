@@ -14,6 +14,7 @@ use Psr\Http\Message\{MessageInterface, RequestInterface, ResponseInterface};
 use RuntimeException;
 use function extension_loaded, function_exists, gzdecode, gzinflate, gzuncompress, implode, json_decode, json_encode,
 	simplexml_load_string, strtolower, trim;
+use const JSON_THROW_ON_ERROR;
 
 /**
  *
@@ -33,16 +34,18 @@ class MessageUtil{
 	}
 
 	/**
-	 * @return \stdClass|array|bool
+	 * @return \stdClass|mixed
+	 *
+	 * @throws \JsonException
 	 */
-	public static function decodeJSON(MessageInterface $message, bool $assoc = null){
-		return json_decode(self::getContents($message), $assoc ?? false);
+	public static function decodeJSON(MessageInterface $message, bool $assoc = null):mixed{
+		return json_decode(self::getContents($message), $assoc ?? false, 512, JSON_THROW_ON_ERROR);
 	}
 
 	/**
-	 * @return \SimpleXMLElement|array|bool
+	 * @return \SimpleXMLElement|mixed
 	 */
-	public static function decodeXML(MessageInterface $message, bool $assoc = null){
+	public static function decodeXML(MessageInterface $message, bool $assoc = null):mixed{
 		$data = simplexml_load_string(self::getContents($message));
 
 		return $assoc === true

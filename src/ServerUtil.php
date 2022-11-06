@@ -165,7 +165,7 @@ class ServerUtil{
 	 *
 	 * @return \Psr\Http\Message\UploadedFileInterface|\Psr\Http\Message\UploadedFileInterface[]
 	 */
-	public function createUploadedFileFromSpec(array $value){
+	public function createUploadedFileFromSpec(array $value):UploadedFileInterface|array{
 
 		if(is_array($value['tmp_name'])){
 			return self::normalizeNestedFileSpec($value);

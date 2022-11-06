@@ -58,18 +58,12 @@ final class QueryUtil{
 			}
 			elseif(is_bool($value)){
 
-				if($bool_cast === self::BOOLEANS_AS_BOOL){
-					$cleaned[$key] = $value;
-				}
-				elseif($bool_cast === self::BOOLEANS_AS_INT){
-					$cleaned[$key] = (int)$value;
-				}
-				elseif($bool_cast === self::BOOLEANS_AS_STRING){
-					$cleaned[$key] = $value ? 'true' : 'false';
-				}
-				elseif($bool_cast === self::BOOLEANS_AS_INT_STRING){
-					$cleaned[$key] = (string)(int)$value;
-				}
+				$cleaned[$key] = match($bool_cast){
+					self::BOOLEANS_AS_BOOL       => $value,
+					self::BOOLEANS_AS_INT        => (int)$value,
+					self::BOOLEANS_AS_STRING     => $value ? 'true' : 'false',
+					self::BOOLEANS_AS_INT_STRING => (string)(int)$value,
+				};
 
 			}
 			elseif(is_string($value)){
