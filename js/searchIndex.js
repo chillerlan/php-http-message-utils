@@ -71,6 +71,11 @@ Search.appendIndex(
             "summary": "Decompresses\u0020the\u0020message\u0020content\u0020according\u0020to\u0020the\u0020Content\u002DEncoding\u0020header\u0020and\u0020returns\u0020the\u0020decompressed\u0020data",
             "url": "classes/chillerlan-HTTP-Utils-MessageUtil.html#method_decompress"
         },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\MessageUtil\u003A\u003Acall_decompress_func\u0028\u0029",
+            "name": "call_decompress_func",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-MessageUtil.html#method_call_decompress_func"
+        },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\QueryUtil",
             "name": "QueryUtil",
             "summary": "",
@@ -296,10 +301,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-HTTPTest-Utils-MessageUtilTest.html#method_testMessageToString"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageUtilTest\u003A\u003AdecompressDataProvider\u0028\u0029",
-            "name": "decompressDataProvider",
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageUtilTest\u003A\u003AdecompressFnProvider\u0028\u0029",
+            "name": "decompressFnProvider",
             "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-MessageUtilTest.html#method_decompressDataProvider"
+            "url": "classes/chillerlan-HTTPTest-Utils-MessageUtilTest.html#method_decompressFnProvider"
         },                {
             "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageUtilTest\u003A\u003AtestDecompressContent\u0028\u0029",
             "name": "testDecompressContent",
@@ -311,15 +316,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-HTTPTest-Utils-MessageUtilTest.html#method_testDecompressContentUnknownHeaderValueException"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageUtilTest\u003A\u003AtestDecompressContentUnableToDecompressBrotliException\u0028\u0029",
-            "name": "testDecompressContentUnableToDecompressBrotliException",
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageUtilTest\u003A\u003AdecompressExceptionFnProvider\u0028\u0029",
+            "name": "decompressExceptionFnProvider",
             "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-MessageUtilTest.html#method_testDecompressContentUnableToDecompressBrotliException"
+            "url": "classes/chillerlan-HTTPTest-Utils-MessageUtilTest.html#method_decompressExceptionFnProvider"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageUtilTest\u003A\u003AtestDecompressContentUnableToDecompressZstdException\u0028\u0029",
-            "name": "testDecompressContentUnableToDecompressZstdException",
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageUtilTest\u003A\u003AtestDecompressContentUnableToDecompressException\u0028\u0029",
+            "name": "testDecompressContentUnableToDecompressException",
             "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-MessageUtilTest.html#method_testDecompressContentUnableToDecompressZstdException"
+            "url": "classes/chillerlan-HTTPTest-Utils-MessageUtilTest.html#method_testDecompressContentUnableToDecompressException"
         },                {
             "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryUtilTest",
             "name": "QueryUtilTest",
