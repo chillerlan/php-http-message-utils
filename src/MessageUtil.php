@@ -11,9 +11,9 @@
 namespace chillerlan\HTTP\Utils;
 
 use Psr\Http\Message\{MessageInterface, RequestInterface, ResponseInterface};
-use RuntimeException;
-use function extension_loaded, function_exists, gzdecode, gzinflate, gzuncompress, implode, json_decode, json_encode,
-	simplexml_load_string, strtolower, trim;
+use RuntimeException, Throwable;
+use function call_user_func, extension_loaded, function_exists, gzdecode, gzinflate, gzuncompress, implode,
+	in_array, json_decode, json_encode, simplexml_load_string, sprintf, strtolower, trim;
 use const JSON_THROW_ON_ERROR;
 
 /**
@@ -43,7 +43,7 @@ class MessageUtil{
 	}
 
 	/**
-	 * @return \SimpleXMLElement|mixed
+	 * @return \SimpleXMLElement|\stdClass|mixed
 	 */
 	public static function decodeXML(MessageInterface $message, bool $assoc = null):mixed{
 		$data = simplexml_load_string(self::getContents($message));
@@ -96,43 +96,37 @@ class MessageUtil{
 		$data     = self::getContents($message);
 		$encoding = strtolower($message->getHeaderLine('content-encoding'));
 
-		if($encoding === '' || $encoding === 'identity'){
-			return $data;
+		try{
+			return match($encoding){
+				'', 'identity'   => $data,
+				'gzip', 'x-gzip' => gzdecode($data),
+				'compress'       => gzuncompress($data),
+				'deflate'        => gzinflate($data),
+				'br'             => self::call_decompress_func('brotli', $data),
+				'zstd'           => self::call_decompress_func('zstd', $data),
+			};
 		}
-
-		if($encoding === 'gzip' || $encoding === 'x-gzip'){
-			return gzdecode($data);
-		}
-
-		if($encoding === 'compress'){
-			return gzuncompress($data);
-		}
-
-		if($encoding === 'deflate'){
-			return gzinflate($data);
-		}
-
-		if($encoding === 'br'){
-
-			if(extension_loaded('brotli') && function_exists('brotli_uncompress')){
-				/** @phan-suppress-next-line PhanUndeclaredFunction */
-				return \brotli_uncompress($data); // @codeCoverageIgnore
+		catch(Throwable $e){
+			if(in_array($encoding, ['br', 'zstd'])){
+				/** @var \RuntimeException $e */
+				throw $e;
 			}
-
-			throw new RuntimeException('cannot decompress brotli compressed message body');
-		}
-
-		if($encoding === 'zstd'){
-
-			if(extension_loaded('zstd') && function_exists('zstd_uncompress')){
-				/** @phan-suppress-next-line PhanUndeclaredFunction */
-				return \zstd_uncompress($data); // @codeCoverageIgnore
-			}
-
-			throw new RuntimeException('cannot decompress zstd compressed message body');
 		}
 
 		throw new RuntimeException('unknown content-encoding value: '.$encoding);
+	}
+
+	/**
+	 *
+	 */
+	protected static function call_decompress_func(string $func, string $data):string{
+		$fn = $func.'_uncompress';
+
+		if(!extension_loaded($func) || !function_exists($fn)){
+			throw new RuntimeException(sprintf('cannot decompress %s compressed message body', $func));
+		}
+
+		return call_user_func($fn, $data);
 	}
 
 }

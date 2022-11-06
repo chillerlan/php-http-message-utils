@@ -12,7 +12,7 @@ namespace chillerlan\HTTPTest\Utils;
 
 use chillerlan\HTTP\Utils\MessageUtil;
 use RuntimeException;
-use function extension_loaded, function_exists, str_repeat;
+use function extension_loaded, function_exists, sprintf, str_repeat;
 
 /**
  *
@@ -69,28 +69,25 @@ class MessageUtilTest extends TestAbstract{
 		);
 	}
 
-	public function decompressDataProvider():array{
+	public function decompressFnProvider():array{
 		return [
 			'br'       => ['brotli_compress', 'br'],
 			'zstd'     => ['zstd_compress', 'zstd'],
 			'compress' => ['gzcompress', 'compress'],
 			'deflate'  => ['gzdeflate', 'deflate'],
 			'gzip'     => ['gzencode', 'gzip'],
+			'x-gzip'   => ['gzencode', 'x-gzip'],
 			'none'     => ['', ''],
 		];
 	}
 
 	/**
-	 * @dataProvider decompressDataProvider
+	 * @dataProvider decompressFnProvider
 	 */
 	public function testDecompressContent(string $fn, string $encoding):void{
 
-		if($encoding === 'br' && (!extension_loaded('brotli') || !function_exists('brotli_compress'))){
-			$this::markTestSkipped('N/A (ext-brotli not installed)');
-		}
-
-		if($encoding === 'zstd' && (!extension_loaded('zstd') || !function_exists('zstd_compress'))){
-			$this::markTestSkipped('N/A (ext-zstd not installed)');
+		if(!empty($fn) && !function_exists($fn)){
+			$this::markTestSkipped(sprintf('N/A function "%s" does not exist (extension not installed?)', $fn));
 		}
 
 		$data     = str_repeat('compressed string ', 100);
@@ -118,34 +115,28 @@ class MessageUtilTest extends TestAbstract{
 		MessageUtil::decompress($response);
 	}
 
-	public function testDecompressContentUnableToDecompressBrotliException():void{
-
-		if(extension_loaded('brotli') && function_exists('brotli_uncompress')){
-			$this::markTestSkipped('N/A (ext-brotli isntalled)');
-		}
-
-		$this->expectException(RuntimeException::class);
-		$this->expectExceptionMessage('cannot decompress brotli compressed message body');
-
-		$response = $this->responseFactory
-			->createResponse()
-			->withHeader('Content-Encoding', 'br');
-
-		MessageUtil::decompress($response);
+	public function decompressExceptionFnProvider():array{
+		return [
+			'br'       => ['brotli', 'brotli_compress', 'br'],
+			'zstd'     => ['zstd', 'zstd_compress', 'zstd'],
+		];
 	}
 
-	public function testDecompressContentUnableToDecompressZstdException():void{
+	/**
+	 * @dataProvider decompressExceptionFnProvider
+	 */
+	public function testDecompressContentUnableToDecompressException(string $ext, string $fn, string $encoding):void{
 
-		if(extension_loaded('zstd') && function_exists('zstd_uncompress')){
-			$this::markTestSkipped('N/A (ext-zstd isntalled)');
+		if(extension_loaded($ext) && function_exists($fn)){
+			$this::markTestSkipped(sprintf('N/A (ext-%s installed)', $ext));
 		}
 
 		$this->expectException(RuntimeException::class);
-		$this->expectExceptionMessage('cannot decompress zstd compressed message body');
+		$this->expectExceptionMessage(sprintf('cannot decompress %s compressed message body', $ext));
 
 		$response = $this->responseFactory
 			->createResponse()
-			->withHeader('Content-Encoding', 'zstd');
+			->withHeader('Content-Encoding', $encoding);
 
 		MessageUtil::decompress($response);
 	}
