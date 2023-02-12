@@ -28,7 +28,7 @@
 	"require-dev": {
 		"guzzlehttp/psr7": "^2.4",
 		"phan/phan": "^5.4",
-		"phpunit/phpunit": "^9.5"
+		"phpunit/phpunit": "^10.0"
 	},
 	"autoload": {
 		"files": [
