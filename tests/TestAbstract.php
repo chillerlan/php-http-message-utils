@@ -18,6 +18,7 @@ use Psr\Http\Message\{
 };
 
 use function constant, defined;
+use function microtime;
 
 abstract class TestAbstract extends TestCase{
 
@@ -41,6 +42,8 @@ abstract class TestAbstract extends TestCase{
 	 * @throws \Exception
 	 */
 	protected function setUp():void{
+		// phpunit "fix"
+		$_SERVER['REQUEST_TIME_FLOAT'] = microtime(true);
 
 		foreach($this::FACTORIES as $property => $const){
 
