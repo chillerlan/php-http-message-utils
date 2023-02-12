@@ -17,7 +17,7 @@ use chillerlan\HTTP\Utils\HeaderUtil;
  */
 class HeaderUtilTest extends TestAbstract{
 
-	public function headerDataProvider():array{
+	public static function headerDataProvider():array{
 		return [
 			'content-Type'  => [['Content-Type' => 'application/x-www-form-urlencoded'], ['Content-Type' => 'application/x-www-form-urlencoded']],
 			'lowercasekey'  => [['lowercasekey' => 'lowercasevalue'], ['Lowercasekey' => 'lowercasevalue']],

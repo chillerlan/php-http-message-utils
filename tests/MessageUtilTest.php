@@ -69,7 +69,7 @@ class MessageUtilTest extends TestAbstract{
 		);
 	}
 
-	public function decompressFnProvider():array{
+	public static function decompressFnProvider():array{
 		return [
 			'br'       => ['brotli_compress', 'br'],
 			'zstd'     => ['zstd_compress', 'zstd'],
@@ -115,7 +115,7 @@ class MessageUtilTest extends TestAbstract{
 		MessageUtil::decompress($response);
 	}
 
-	public function decompressExceptionFnProvider():array{
+	public static function decompressExceptionFnProvider():array{
 		return [
 			'br'       => ['brotli', 'brotli_compress', 'br'],
 			'zstd'     => ['zstd', 'zstd_compress', 'zstd'],

@@ -21,7 +21,7 @@ use const PHP_QUERY_RFC1738, PHP_QUERY_RFC3986;
  */
 class QueryUtilTest extends TestCase{
 
-	public function queryParamDataProvider():array{
+	public static function queryParamDataProvider():array{
 		return [
 			// don't remove empty values
 			'BOOLEANS_AS_BOOL (no remove)' => [
@@ -66,7 +66,7 @@ class QueryUtilTest extends TestCase{
 		$this::assertSame($expected, QueryUtil::cleanParams($data, $bool_cast, $remove_empty));
 	}
 
-	public function mergeQueryDataProvider():array{
+	public static function mergeQueryDataProvider():array{
 		$uri    = 'http://localhost/whatever/';
 		$params = ['foo' => 'bar'];
 
@@ -109,7 +109,7 @@ class QueryUtilTest extends TestCase{
 		$this::assertSame('a=2&b=1&b=2&b=3&c=1&d=4', QueryUtil::build(['c' => 1, 'a' => 2, 'b' => [3, 1, 2], 'd' => 4]));
 	}
 
-	public function parseQueryProvider():array{
+	public static function parseQueryProvider():array{
 		return [
 			'Does not need to parse when the string is empty'            => ['', []],
 			'Can parse mult-values items'                                => ['q=a&q=b', ['q' => ['a', 'b']]],
@@ -181,7 +181,7 @@ class QueryUtilTest extends TestCase{
 		$this::assertSame(QueryUtil::parse('?q=a'), ['q' => 'a']);
 	}
 
-	public function parseUrlProvider():array{
+	public static function parseUrlProvider():array{
 		return [
 			['http://', null],
 			['https://яндекAс.рф', [

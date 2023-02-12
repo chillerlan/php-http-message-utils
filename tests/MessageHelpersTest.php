@@ -15,7 +15,7 @@ use function chillerlan\HTTP\Utils\{getMimetypeFromExtension, getMimetypeFromFil
 
 class MessageHelpersTest extends TestAbstract{
 
-	public function rawurlencodeDataProvider():array{
+	public static function rawurlencodeDataProvider():array{
 		return [
 			'null'         => [null, ''],
 			'bool (false)' => [false, ''],

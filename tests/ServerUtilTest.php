@@ -13,6 +13,7 @@ namespace chillerlan\HTTPTest\Utils;
 use chillerlan\HTTP\Utils\ServerUtil;
 use InvalidArgumentException;
 
+use function microtime;
 use function time;
 use const UPLOAD_ERR_OK, UPLOAD_ERR_PARTIAL;
 
@@ -23,6 +24,9 @@ class ServerUtilTest extends TestAbstract{
 	protected function setUp():void{
 		parent::setUp();
 
+		// phpunit "fix"
+		$_SERVER['REQUEST_TIME_FLOAT'] = microtime(true);
+
 		$this->server = new ServerUtil(
 			$this->serverRequestFactory,
 			$this->uriFactory,
@@ -31,7 +35,7 @@ class ServerUtilTest extends TestAbstract{
 		);
 	}
 
-	public function dataGetUriFromGlobals():array{
+	public static function dataGetUriFromGlobals():array{
 
 		$server = [
 			'REQUEST_URI'     => '/blog/article.php?id=10&user=foo',
