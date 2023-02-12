@@ -22,8 +22,6 @@ A collection of utilities for use with [PSR-7 Message implementations](https://w
 [scrutinizer]: https://scrutinizer-ci.com/g/chillerlan/php-http-message-utils
 [downloads-badge]: https://img.shields.io/packagist/dt/chillerlan/php-http-message-utils?logo=packagist
 [downloads]: https://packagist.org/packages/chillerlan/php-http-message-utils/stats
-[gh-action-badge]: https://img.shields.io/github/workflow/status/chillerlan/php-http-message-utils/CI?logo=github
-[gh-action]: https://github.com/chillerlan/php-http-message-utils/actions/workflows/ci.yml
 [gh-action-badge]: https://img.shields.io/github/actions/workflow/status/chillerlan/php-http-message-utils/ci.yml?branch=main&logo=github
 [gh-action]: https://github.com/chillerlan/php-http-message-utils/actions/workflows/ci.yml?query=branch%3Amain
 
