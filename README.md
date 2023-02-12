@@ -15,27 +15,27 @@ A collection of utilities for use with [PSR-7 Message implementations](https://w
 [packagist-badge]: https://img.shields.io/packagist/v/chillerlan/php-http-message-utils?logo=packagist
 [packagist]: https://packagist.org/packages/chillerlan/php-http-message-utils
 [license-badge]: https://img.shields.io/github/license/chillerlan/php-http-message-utils
-[license]: https://github.com/chillerlan/php-http-message-utils/blob/main/LICENSE
+[license]: https://github.com/chillerlan/php-http-message-utils/blob/v1.x-php7.4/LICENSE
 [coverage-badge]: https://img.shields.io/codecov/c/github/chillerlan/php-http-message-utils?logo=codecov
 [coverage]: https://codecov.io/github/chillerlan/php-http-message-utils
 [scrutinizer-badge]: https://img.shields.io/scrutinizer/g/chillerlan/php-http-message-utils?logo=scrutinizer
 [scrutinizer]: https://scrutinizer-ci.com/g/chillerlan/php-http-message-utils
 [downloads-badge]: https://img.shields.io/packagist/dt/chillerlan/php-http-message-utils?logo=packagist
 [downloads]: https://packagist.org/packages/chillerlan/php-http-message-utils/stats
-[gh-action-badge]: https://github.com/chillerlan/php-http-message-utils/workflows/CI/badge.svg
-[gh-action]: https://github.com/chillerlan/php-http-message-utils/actions/workflows/ci.yml
+[gh-action-badge]: https://img.shields.io/github/actions/workflow/status/chillerlan/php-http-message-utils/ci.yml?branch=v1.x-php7.4&logo=github
+[gh-action]: https://github.com/chillerlan/php-http-message-utils/actions/workflows/ci.yml?query=branch%3Av1.x-php7.4
 
 # Documentation
 
 ## Installation
 **requires [composer](https://getcomposer.org)**
 
-`composer.json` (note: replace `dev-main` with a [version boundary](https://getcomposer.org/doc/articles/versions.md))
+`composer.json` (note: replace `v1.x-php7.4` with a [version boundary](https://getcomposer.org/doc/articles/versions.md))
 ```json
 {
 	"require": {
 		"php": "^7.4 || ^8.0",
-		"chillerlan/php-http-message-utils": "dev-main"
+		"chillerlan/php-http-message-utils": "v1.x-php7.4"
 	}
 }
 ```
