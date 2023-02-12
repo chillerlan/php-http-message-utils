@@ -23,7 +23,7 @@ class MessageUtil{
 	/**
 	 * Read the message body's content and make sure we rewind
 	 */
-	protected static function getContents(MessageInterface $message):string{
+	public static function getContents(MessageInterface $message):string{
 		$body = $message->getBody();
 		$body->rewind(); //rewind before read...
 		$data = $body->getContents();
