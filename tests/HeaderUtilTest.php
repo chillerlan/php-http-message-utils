@@ -11,6 +11,7 @@
 namespace chillerlan\HTTPTest\Utils;
 
 use chillerlan\HTTP\Utils\HeaderUtil;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  *
@@ -33,12 +34,7 @@ class HeaderUtilTest extends TestAbstract{
 		];
 	}
 
-	/**
-	 * @dataProvider headerDataProvider
-	 *
-	 * @param array $headers
-	 * @param array $normalized
-	 */
+	#[DataProvider('headerDataProvider')]
 	public function testNormalizeHeaders(array $headers, array $normalized):void{
 		$this::assertSame($normalized, HeaderUtil::normalize($headers));
 	}

@@ -19,7 +19,7 @@ use const JSON_THROW_ON_ERROR;
 /**
  *
  */
-class MessageUtil{
+final class MessageUtil{
 
 	/**
 	 * Read the message body's content and make sure we rewind

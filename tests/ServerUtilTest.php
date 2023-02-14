@@ -6,16 +6,19 @@
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley
  * @license      MIT
+ *
+ * @noinspection PhpArrayWriteIsNotUsedInspection
  */
 
 namespace chillerlan\HTTPTest\Utils;
 
 use chillerlan\HTTP\Utils\ServerUtil;
 use InvalidArgumentException;
-
+use PHPUnit\Framework\Attributes\DataProvider;
 use function microtime;
 use function time;
-use const UPLOAD_ERR_OK, UPLOAD_ERR_PARTIAL;
+use const UPLOAD_ERR_OK;
+use const UPLOAD_ERR_PARTIAL;
 
 class ServerUtilTest extends TestAbstract{
 
@@ -23,9 +26,6 @@ class ServerUtilTest extends TestAbstract{
 
 	protected function setUp():void{
 		parent::setUp();
-
-		// phpunit "fix"
-		$_SERVER['REQUEST_TIME_FLOAT'] = microtime(true);
 
 		$this->server = new ServerUtil(
 			$this->serverRequestFactory,
@@ -38,22 +38,23 @@ class ServerUtilTest extends TestAbstract{
 	public static function dataGetUriFromGlobals():array{
 
 		$server = [
-			'REQUEST_URI'     => '/blog/article.php?id=10&user=foo',
-			'SERVER_PORT'     => '443',
-			'SERVER_ADDR'     => '217.112.82.20',
-			'SERVER_NAME'     => 'www.example.org',
-			'SERVER_PROTOCOL' => 'HTTP/1.1',
-			'REQUEST_METHOD'  => 'POST',
-			'QUERY_STRING'    => 'id=10&user=foo',
-			'DOCUMENT_ROOT'   => '/path/to/your/server/root/',
-			'HTTP_HOST'       => 'www.example.org',
-			'HTTPS'           => 'on',
-			'REMOTE_ADDR'     => '193.60.168.69',
-			'REMOTE_PORT'     => '5390',
-			'SCRIPT_NAME'     => '/blog/article.php',
-			'SCRIPT_FILENAME' => '/path/to/your/server/root/blog/article.php',
-			'PHP_SELF'        => '/blog/article.php',
-			'REQUEST_TIME'    => time(), // phpunit fix
+			'REQUEST_URI'        => '/blog/article.php?id=10&user=foo',
+			'SERVER_PORT'        => '443',
+			'SERVER_ADDR'        => '217.112.82.20',
+			'SERVER_NAME'        => 'www.example.org',
+			'SERVER_PROTOCOL'    => 'HTTP/1.1',
+			'REQUEST_METHOD'     => 'POST',
+			'QUERY_STRING'       => 'id=10&user=foo',
+			'DOCUMENT_ROOT'      => '/path/to/your/server/root/',
+			'HTTP_HOST'          => 'www.example.org',
+			'HTTPS'              => 'on',
+			'REMOTE_ADDR'        => '193.60.168.69',
+			'REMOTE_PORT'        => '5390',
+			'SCRIPT_NAME'        => '/blog/article.php',
+			'SCRIPT_FILENAME'    => '/path/to/your/server/root/blog/article.php',
+			'PHP_SELF'           => '/blog/article.php',
+			'REQUEST_TIME'       => time(), // phpunit fix
+			'REQUEST_TIME_FLOAT' => microtime(true), // phpunit fix
 		];
 
 		return [
@@ -100,12 +101,7 @@ class ServerUtilTest extends TestAbstract{
 		];
 	}
 
-	/**
-	 * @dataProvider dataGetUriFromGlobals
-	 *
-	 * @param string $expected
-	 * @param array  $serverParams
-	 */
+	#[DataProvider('dataGetUriFromGlobals')]
 	public function testCreateUriFromGlobals(string $expected, array $serverParams){
 		$_SERVER = $serverParams;
 
@@ -115,22 +111,23 @@ class ServerUtilTest extends TestAbstract{
 	public function testCreateServerRequestFromGlobals():void{
 
 		$_SERVER = [
-			'REQUEST_URI'     => '/blog/article.php?id=10&user=foo',
-			'SERVER_PORT'     => '443',
-			'SERVER_ADDR'     => '217.112.82.20',
-			'SERVER_NAME'     => 'www.example.org',
-			'SERVER_PROTOCOL' => 'HTTP/1.1',
-			'REQUEST_METHOD'  => 'POST',
-			'QUERY_STRING'    => 'id=10&user=foo',
-			'DOCUMENT_ROOT'   => '/path/to/your/server/root/',
-			'HTTP_HOST'       => 'www.example.org',
-			'HTTPS'           => 'on',
-			'REMOTE_ADDR'     => '193.60.168.69',
-			'REMOTE_PORT'     => '5390',
-			'SCRIPT_NAME'     => '/blog/article.php',
-			'SCRIPT_FILENAME' => '/path/to/your/server/root/blog/article.php',
-			'PHP_SELF'        => '/blog/article.php',
-			'REQUEST_TIME'    => time(), // phpunit fix
+			'REQUEST_URI'        => '/blog/article.php?id=10&user=foo',
+			'SERVER_PORT'        => '443',
+			'SERVER_ADDR'        => '217.112.82.20',
+			'SERVER_NAME'        => 'www.example.org',
+			'SERVER_PROTOCOL'    => 'HTTP/1.1',
+			'REQUEST_METHOD'     => 'POST',
+			'QUERY_STRING'       => 'id=10&user=foo',
+			'DOCUMENT_ROOT'      => '/path/to/your/server/root/',
+			'HTTP_HOST'          => 'www.example.org',
+			'HTTPS'              => 'on',
+			'REMOTE_ADDR'        => '193.60.168.69',
+			'REMOTE_PORT'        => '5390',
+			'SCRIPT_NAME'        => '/blog/article.php',
+			'SCRIPT_FILENAME'    => '/path/to/your/server/root/blog/article.php',
+			'PHP_SELF'           => '/blog/article.php',
+			'REQUEST_TIME'       => time(), // phpunit fix
+			'REQUEST_TIME_FLOAT' => microtime(true), // phpunit fix
 		];
 
 		$_COOKIE = [

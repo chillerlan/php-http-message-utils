@@ -52,10 +52,10 @@ final class UriUtil{
 	 * - absolute-path references, e.g. '/path'
 	 * - relative-path references, e.g. 'subpath'
 	 *
-	 * @see  Uri::isNetworkPathReference
-	 * @see  Uri::isAbsolutePathReference
-	 * @see  Uri::isRelativePathReference
-	 * @link https://tools.ietf.org/html/rfc3986#section-4
+	 * @see self::isNetworkPathReference
+	 * @see self::isAbsolutePathReference
+	 * @see self::isRelativePathReference
+	 * @see https://tools.ietf.org/html/rfc3986#section-4
 	 */
 	public static function isAbsolute(UriInterface $uri):bool{
 		return $uri->getScheme() !== '';
@@ -64,7 +64,7 @@ final class UriUtil{
 	/**
 	 * Checks Whether the URI is a network-path reference.
 	 *
-	 * A relative reference that begins with two slash characters is termed an network-path reference.
+	 * A relative reference that begins with two slash characters is termed a network-path reference.
 	 *
 	 * @link https://tools.ietf.org/html/rfc3986#section-4.2
 	 */
@@ -73,7 +73,7 @@ final class UriUtil{
 	}
 
 	/**
-	 * Checks Whether the URI is a absolute-path reference.
+	 * Checks Whether the URI is an absolute-path reference.
 	 *
 	 * A relative reference that begins with a single slash character is termed an absolute-path reference.
 	 *
@@ -106,11 +106,7 @@ final class UriUtil{
 			return $uri;
 		}
 
-		$decodedKey = rawurldecode($key);
-
-		$result = array_filter(explode('&', $current), function($part) use ($decodedKey){
-			return rawurldecode(explode('=', $part)[0]) !== $decodedKey;
-		});
+		$result = array_filter(explode('&', $current), fn($part) => rawurldecode(explode('=', $part)[0]) !== rawurldecode($key));
 
 		return $uri->withQuery(implode('&', $result));
 	}
@@ -126,15 +122,9 @@ final class UriUtil{
 	public static function withQueryValue(UriInterface $uri, string $key, string $value = null):UriInterface{
 		$current = $uri->getQuery();
 
-		if($current === ''){
-			$result = [];
-		}
-		else{
-			$decodedKey = rawurldecode($key);
-			$result     = array_filter(explode('&', $current), function($part) use ($decodedKey){
-				return rawurldecode(explode('=', $part)[0]) !== $decodedKey;
-			});
-		}
+		$result = $current !== ''
+			? array_filter(explode('&', $current), fn($part) => rawurldecode(explode('=', $part)[0]) !== rawurldecode($key))
+			: [];
 
 		// Query string separators ("=", "&") within the key or value need to be encoded
 		// (while preventing double-encoding) before setting the query string. All other

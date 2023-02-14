@@ -11,8 +11,12 @@
 namespace chillerlan\HTTPTest\Utils;
 
 use chillerlan\HTTP\Utils\MessageUtil;
+use PHPUnit\Framework\Attributes\DataProvider;
 use RuntimeException;
-use function extension_loaded, function_exists, sprintf, str_repeat;
+use function extension_loaded;
+use function function_exists;
+use function sprintf;
+use function str_repeat;
 
 /**
  *
@@ -21,7 +25,10 @@ class MessageUtilTest extends TestAbstract{
 
 	public function testGetJSON():void{
 
-		$r = $this->responseFactory->createResponse()->withBody($this->streamFactory->createStream('{"foo":"bar"}'));
+		$r = $this->responseFactory
+			->createResponse()
+			->withBody($this->streamFactory->createStream('{"foo":"bar"}'))
+		;
 
 		$this::assertSame('bar', MessageUtil::decodeJSON($r)->foo);
 
@@ -34,7 +41,8 @@ class MessageUtilTest extends TestAbstract{
 
 		$r = $this->responseFactory
 			->createResponse()
-			->withBody($this->streamFactory->createStream('<?xml version="1.0" encoding="UTF-8"?><root><foo>bar</foo></root>'));
+			->withBody($this->streamFactory->createStream('<?xml version="1.0" encoding="UTF-8"?><root><foo>bar</foo></root>'))
+		;
 
 		$this::assertSame('bar', MessageUtil::decodeXML($r)->foo->__toString());
 
@@ -81,9 +89,7 @@ class MessageUtilTest extends TestAbstract{
 		];
 	}
 
-	/**
-	 * @dataProvider decompressFnProvider
-	 */
+	#[DataProvider('decompressFnProvider')]
 	public function testDecompressContent(string $fn, string $encoding):void{
 
 		if(!empty($fn) && !function_exists($fn)){
@@ -122,9 +128,7 @@ class MessageUtilTest extends TestAbstract{
 		];
 	}
 
-	/**
-	 * @dataProvider decompressExceptionFnProvider
-	 */
+	#[DataProvider('decompressExceptionFnProvider')]
 	public function testDecompressContentUnableToDecompressException(string $ext, string $fn, string $encoding):void{
 
 		if(extension_loaded($ext) && function_exists($fn)){

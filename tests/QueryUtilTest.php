@@ -13,8 +13,10 @@
 namespace chillerlan\HTTPTest\Utils;
 
 use chillerlan\HTTP\Utils\QueryUtil;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
-use const PHP_QUERY_RFC1738, PHP_QUERY_RFC3986;
+use const PHP_QUERY_RFC1738;
+use const PHP_QUERY_RFC3986;
 
 /**
  *
@@ -53,13 +55,7 @@ class QueryUtilTest extends TestCase{
 		];
 	}
 
-	/**
-	 * @dataProvider queryParamDataProvider
-	 *
-	 * @param array $expected
-	 * @param int   $bool_cast
-	 * @param bool  $remove_empty
-	 */
+	#[DataProvider('queryParamDataProvider')]
 	public function testCleanQueryParams(int $bool_cast, bool $remove_empty, array $expected):void{
 		$data = ['whatever' => null, 'nope' => '   ', 'true' => true, 'false' => false, 'array' => ['value' => false]];
 
@@ -78,13 +74,7 @@ class QueryUtilTest extends TestCase{
 		];
 	}
 
-	/**
-	 * @dataProvider mergeQueryDataProvider
-	 *
-	 * @param string $uri
-	 * @param array  $params
-	 * @param string $expected
-	 */
+	#[DataProvider('mergeQueryDataProvider')]
 	public function testMergeQuery(string $uri, array $params, string $expected):void{
 		$merged = QueryUtil::merge($uri, $params);
 		$this::assertSame($expected, $merged);
@@ -131,16 +121,12 @@ class QueryUtilTest extends TestCase{
 		];
 	}
 
-	/**
-	 * @dataProvider parseQueryProvider
-	 */
+	#[DataProvider('parseQueryProvider')]
 	public function testParsesQueries(string $input, array $output):void{
 		$this::assertSame($output, QueryUtil::parse($input));
 	}
 
-	/**
-	 * @dataProvider parseQueryProvider
-	 */
+	#[DataProvider('parseQueryProvider')]
 	public function testParsesAndBuildsQueries(string $input): void{
 		$result = QueryUtil::parse($input, QueryUtil::NO_ENCODING);
 
@@ -197,9 +183,7 @@ class QueryUtilTest extends TestCase{
 		];
 	}
 
-	/**
-	 * @dataProvider parseUrlProvider
-	 */
+	#[DataProvider('parseUrlProvider')]
 	public function testParseUrl($url, $expected):void{
 		$this::assertSame($expected, QueryUtil::parseUrl($url));
 	}

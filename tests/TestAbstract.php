@@ -16,8 +16,8 @@ use Psr\Http\Message\{
 	RequestFactoryInterface, ResponseFactoryInterface, ServerRequestFactoryInterface,
 	StreamFactoryInterface, UploadedFileFactoryInterface, UriFactoryInterface
 };
-
-use function constant, defined;
+use function constant;
+use function defined;
 
 abstract class TestAbstract extends TestCase{
 
@@ -30,12 +30,12 @@ abstract class TestAbstract extends TestCase{
 		'uriFactory'           => 'URI_FACTORY',
 	];
 
-	protected RequestFactoryInterface $requestFactory;
-	protected ResponseFactoryInterface $responseFactory;
+	protected RequestFactoryInterface       $requestFactory;
+	protected ResponseFactoryInterface      $responseFactory;
 	protected ServerRequestFactoryInterface $serverRequestFactory;
-	protected StreamFactoryInterface $streamFactory;
-	protected UploadedFileFactoryInterface $uploadedFileFactory;
-	protected UriFactoryInterface $uriFactory;
+	protected StreamFactoryInterface        $streamFactory;
+	protected UploadedFileFactoryInterface  $uploadedFileFactory;
+	protected UriFactoryInterface           $uriFactory;
 
 	/**
 	 * @throws \Exception

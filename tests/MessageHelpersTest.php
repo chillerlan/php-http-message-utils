@@ -10,6 +10,7 @@
 
 namespace chillerlan\HTTPTest\Utils;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use TypeError;
 use function chillerlan\HTTP\Utils\{getMimetypeFromExtension, getMimetypeFromFilename, r_rawurlencode};
 
@@ -30,13 +31,8 @@ class MessageHelpersTest extends TestAbstract{
 		];
 	}
 
-	/**
-	 * @dataProvider rawurlencodeDataProvider
-	 *
-	 * @param $data
-	 * @param $expected
-	 */
-	public function testRawurlencode($data, $expected):void{
+	#[DataProvider('rawurlencodeDataProvider')]
+	public function testRawurlencode(mixed $data, string|array $expected):void{
 		$this::assertSame($expected, r_rawurlencode($data));
 	}
 

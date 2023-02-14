@@ -21,24 +21,14 @@ use function array_keys, explode, function_exists, is_array, is_file, substr;
 /**
  *
  */
-class ServerUtil{
-
-	protected ServerRequestFactoryInterface $serverRequestFactory;
-	protected UriFactoryInterface $uriFactory;
-	protected UploadedFileFactoryInterface $uploadedFileFactory;
-	protected StreamFactoryInterface $streamFactory;
+final class ServerUtil{
 
 	public function __construct(
-		ServerRequestFactoryInterface $serverRequestFactory,
-		UriFactoryInterface $uriFactory,
-		UploadedFileFactoryInterface $uploadedFileFactory,
-		StreamFactoryInterface $streamFactory
-	){
-		$this->serverRequestFactory = $serverRequestFactory;
-		$this->uriFactory = $uriFactory;
-		$this->uploadedFileFactory = $uploadedFileFactory;
-		$this->streamFactory = $streamFactory;
-	}
+		protected ServerRequestFactoryInterface $serverRequestFactory,
+		protected UriFactoryInterface           $uriFactory,
+		protected UploadedFileFactoryInterface  $uploadedFileFactory,
+		protected StreamFactoryInterface        $streamFactory
+	){}
 
 	/**
 	 * Returns a ServerRequest populated with superglobals:
