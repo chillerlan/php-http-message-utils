@@ -208,7 +208,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\UriUtil\u003A\u003AisAbsolutePathReference\u0028\u0029",
             "name": "isAbsolutePathReference",
-            "summary": "Checks\u0020Whether\u0020the\u0020URI\u0020is\u0020a\u0020absolute\u002Dpath\u0020reference.",
+            "summary": "Checks\u0020Whether\u0020the\u0020URI\u0020is\u0020an\u0020absolute\u002Dpath\u0020reference.",
             "url": "classes/chillerlan-HTTP-Utils-UriUtil.html#method_isAbsolutePathReference"
         },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\UriUtil\u003A\u003AisRelativePathReference\u0028\u0029",
