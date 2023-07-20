@@ -32,9 +32,6 @@
 		"phpunit/phpunit": "^10.2"
 	},
 	"autoload": {
-		"files": [
-			"src/includes.php"
-		],
 		"psr-4": {
 			"chillerlan\\HTTP\\Utils\\": "src/"
 		}
