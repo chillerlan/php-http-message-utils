@@ -145,4 +145,19 @@ class MessageUtilTest extends TestAbstract{
 		MessageUtil::decompress($response);
 	}
 
+	public function testSetContentLengthHeader():void{
+		$message = $this->requestFactory->createRequest('GET', 'https://example.com');
+		$message->getBody()->write('foo');
+
+		$this::assertFalse($message->hasHeader('Content-Length'));
+
+		$message = MessageUtil::setContentLengthHeader($message);
+
+		$this::assertTrue($message->hasHeader('Content-Length'));
+		$this->assertSame(
+			(string)$message->getBody()->getSize(),
+			$message->getHeaderLine('Content-Length')
+		);
+	}
+
 }

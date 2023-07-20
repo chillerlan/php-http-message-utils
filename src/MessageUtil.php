@@ -34,8 +34,6 @@ final class MessageUtil{
 	}
 
 	/**
-	 * @return \stdClass|mixed
-	 *
 	 * @throws \JsonException
 	 */
 	public static function decodeJSON(MessageInterface $message, bool $assoc = null):mixed{
@@ -127,6 +125,19 @@ final class MessageUtil{
 		}
 
 		return call_user_func($fn, $data);
+	}
+
+	/**
+	 * Sets a Content-Length header in the given message in case it does not exist and body size is not null
+	 */
+	public static function setContentLengthHeader(MessageInterface $message):MessageInterface{
+		$bodySize = $message->getBody()->getSize();
+
+		if(!$message->hasHeader('Content-Length') && $bodySize !== null){
+			$message = $message->withHeader('Content-Length', (string)$bodySize);
+		}
+
+		return $message;
 	}
 
 }
