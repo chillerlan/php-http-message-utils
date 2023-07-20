@@ -88,5 +88,20 @@ class HeaderUtilTest extends TestAbstract{
 		], HeaderUtil::normalize($headers));
 	}
 
+	public static function headerNameProvider():array{
+		return [
+			'content-Type' => ['content-Type', 'Content-Type'],
+			'x-spaCE -keY' => ['x-spaCE -keY', 'X-Space-Key' ],
+			'lowercasekey' => ['lowercasekey', 'Lowercasekey'],
+			'UPPERCASEKEY' => ['UPPERCASEKEY', 'Uppercasekey'],
+			'mIxEdCaSeKey' => ['mIxEdCaSeKey', 'Mixedcasekey'],
+			'31i71casekey' => ['31i71casekey', '31i71casekey'],
+		];
+	}
+
+	#[DataProvider('headerNameProvider')]
+	public function testNormalizeHeaderName(string $name, string $expected):void{
+		$this::assertSame($expected, HeaderUtil::normalizeHeaderName($name));
+	}
 
 }

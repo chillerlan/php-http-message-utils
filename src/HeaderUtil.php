@@ -58,7 +58,7 @@ class HeaderUtil{
 				}
 			}
 
-			$key = implode('-', array_map(fn(string $v):string => ucfirst(strtolower(trim($v))), explode('-', $key)));
+			$key = self::normalizeHeaderName($key);
 			$val = trim($val);
 
 			// skip if the header already exists but the current value is empty
@@ -100,6 +100,13 @@ class HeaderUtil{
 	 */
 	public static function trimValues(array $values):array{
 		return array_map(fn(string $value):string => trim($value, " \t"), $values);
+	}
+
+	/**
+	 * Normalizes a header name, e.g. "conTENT- lenGTh" -> "Content-Length"
+	 */
+	public static function normalizeHeaderName(string $name):string{
+		return implode('-', array_map(fn(string $v):string => ucfirst(strtolower(trim($v))), explode('-', $name)));
 	}
 
 }
