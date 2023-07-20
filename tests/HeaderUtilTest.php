@@ -86,7 +86,7 @@ class HeaderUtilTest extends TestCase{
 			'Set-Cookie' => [
 				'foo'      => 'foo=baz',
 				'whatever' => 'whatever=nope; HttpOnly',
-			]
+			],
 		], HeaderUtil::normalize($headers));
 	}
 

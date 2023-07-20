@@ -28,9 +28,9 @@ A collection of utilities for use with [PSR-7 Message implementations](https://w
 # Documentation
 
 ## Requirements
-- PHP 8.1+
-  - `ext-fileinfo`, `ext-json`, `ext-simplexml`, `ext-zlib`
-  - for `MessageUtil::decompress()`: `ext-br` [kjdev/php-ext-brotli](https://github.com/kjdev/php-ext-brotli) and `ext-zstd` [kjdev/php-ext-zstd](https://github.com/kjdev/php-ext-zstd)
+  - PHP 8.1+
+    - `ext-fileinfo`, `ext-json`, `ext-simplexml`, `ext-zlib`
+    - for `MessageUtil::decompress()`: `ext-br` [kjdev/php-ext-brotli](https://github.com/kjdev/php-ext-brotli) and `ext-zstd` [kjdev/php-ext-zstd](https://github.com/kjdev/php-ext-zstd)
 
 ## Installation
 **requires [composer](https://getcomposer.org)**

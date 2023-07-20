@@ -61,7 +61,7 @@ final class QueryUtil{
 				$cleaned[$key] = match($bool_cast){
 					self::BOOLEANS_AS_BOOL       => $value,
 					self::BOOLEANS_AS_INT        => (int)$value,
-					self::BOOLEANS_AS_STRING     => $value ? 'true' : 'false',
+					self::BOOLEANS_AS_STRING     => ($value) ? 'true' : 'false',
 					self::BOOLEANS_AS_INT_STRING => (string)(int)$value,
 				};
 
