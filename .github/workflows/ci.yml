@@ -18,6 +18,14 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    strategy:
+      fail-fast: true
+      matrix:
+        php-version:
+          - "8.1"
+          - "8.2"
+          - "8.3"
+
     env:
       PHAN_ALLOW_XDEBUG: 0
       PHAN_DISABLE_XDEBUG_WARN: 1
@@ -29,7 +37,7 @@ jobs:
       - name: "Install PHP"
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "8.1"
+          php-version: ${{ matrix.php-version }}
           tools: pecl
           coverage: none
           extensions: ast, curl, json, simplexml, zlib
@@ -38,7 +46,8 @@ jobs:
         uses: ramsey/composer-install@v2
 
       - name: "Run phan"
-        run: php vendor/bin/phan
+        run: php vendor/bin/phan --target-php-version=${{ matrix.php-version }}
+
 
   build-docs:
     name: "Build and publish Docs"
@@ -58,7 +67,7 @@ jobs:
           extensions: gd, imagick, json, mbstring
 
       - name: "Build Docs"
-        run: phpdoc --config=phpdoc.xml
+        run: phpdoc --config=phpdoc.xml.dist
 
       - name: "Publish Docs to gh-pages"
         uses: JamesIves/github-pages-deploy-action@v4
@@ -67,9 +76,10 @@ jobs:
           FOLDER: docs
           CLEAN: true
 
+
   tests:
     name: "Unit Tests"
-
+    needs: static-code-analysis
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -81,6 +91,7 @@ jobs:
         php-version:
           - "8.1"
           - "8.2"
+          - "8.3"
 
     steps:
       - name: "Checkout"
@@ -104,3 +115,9 @@ jobs:
 
       - name: "Send code coverage report to Codecov.io"
         uses: codecov/codecov-action@v3
+
+      - name: "Send code coverage report to Codacy"
+        uses: codacy/codacy-coverage-reporter-action@v1
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          coverage-reports: .build/coverage/clover.xml
