@@ -259,7 +259,7 @@ final class QueryUtil{
 	/**
 	 * Recursive rawurlencode
 	 *
-	 * @param string|string[] $data
+	 * @param mixed $data
 	 *
 	 * @return string|string[]
 	 * @throws \InvalidArgumentException
@@ -267,7 +267,7 @@ final class QueryUtil{
 	public static function recursiveRawurlencode(mixed $data):array|string{
 
 		if(is_array($data)){
-			return array_map(__FUNCTION__, $data);
+			return array_map(__METHOD__, $data);
 		}
 
 		if(!is_scalar($data) && $data !== null){
