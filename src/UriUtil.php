@@ -122,7 +122,7 @@ final class UriUtil{
 	public static function withQueryValue(UriInterface $uri, string $key, string $value = null):UriInterface{
 		$current = $uri->getQuery();
 
-		$result = $current !== ''
+		$result = ($current !== '')
 			? array_filter(explode('&', $current), fn($part) => rawurldecode(explode('=', $part)[0]) !== rawurldecode($key))
 			: [];
 

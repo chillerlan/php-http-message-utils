@@ -131,7 +131,7 @@ final class MimeTypeUtil{
 	 * Get the mime type for the given file extension
 	 */
 	public static function getFromExtension(string $extension):?string{
-		return self::MIMETYPES[strtolower($extension)] ?? null;
+		return (self::MIMETYPES[strtolower($extension)] ?? null);
 	}
 
 	/**

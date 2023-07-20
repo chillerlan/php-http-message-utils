@@ -162,9 +162,9 @@ final class QueryUtil{
 	 * Merges additional query parameters into an existing query string
 	 */
 	public static function merge(string $uri, array $query):string{
-		$parsedquery = self::parse(self::parseUrl($uri)['query'] ?? '');
-		$requestURI  = explode('?', $uri)[0];
-		$params      = array_merge($parsedquery, $query);
+		$querypart  = (self::parseUrl($uri)['query'] ?? '');
+		$params     = array_merge(self::parse($querypart), $query);
+		$requestURI = explode('?', $uri)[0];
 
 		if(!empty($params)){
 			$requestURI .= '?'.self::build($params);
@@ -258,8 +258,6 @@ final class QueryUtil{
 
 	/**
 	 * Recursive rawurlencode
-	 *
-	 * @param mixed $data
 	 *
 	 * @return string|string[]
 	 * @throws \InvalidArgumentException

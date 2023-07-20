@@ -69,7 +69,7 @@ class HeaderUtil{
 			// cookie headers may appear multiple times
 			// https://tools.ietf.org/html/rfc6265#section-4.1.2
 			if($key === 'Set-Cookie'){
-				// i'll just collect the last value here and leave parsing up to you :P
+				// we'll just collect the last value here and leave parsing up to you :P
 				$normalized[$key][strtolower(explode('=', $val, 2)[0])] = $val;
 			}
 			// combine header fields with the same name

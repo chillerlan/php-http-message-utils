@@ -41,7 +41,7 @@ final class ServerUtil{
 	public function createServerRequestFromGlobals():ServerRequestInterface{
 
 		$serverRequest = $this->serverRequestFactory->createServerRequest(
-			$_SERVER['REQUEST_METHOD'] ?? 'GET',
+			($_SERVER['REQUEST_METHOD'] ?? 'GET'),
 			$this->createUriFromGlobals(),
 			$_SERVER
 		);
@@ -64,7 +64,7 @@ final class ServerUtil{
 	}
 
 	/**
-	 * Creates an Uri populated with values from $_SERVER.
+	 * Creates a UriInterface populated with values from $_SERVER.
 	 */
 	public function createUriFromGlobals():UriInterface{
 		$hasPort  = false;
@@ -72,7 +72,7 @@ final class ServerUtil{
 
 		$uri = $this->uriFactory
 			->createUri()
-			->withScheme(!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http')
+			->withScheme((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http')
 		;
 
 		if(isset($_SERVER['HTTP_HOST'])){

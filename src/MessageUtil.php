@@ -37,7 +37,7 @@ final class MessageUtil{
 	 * @throws \JsonException
 	 */
 	public static function decodeJSON(MessageInterface $message, bool $assoc = null):mixed{
-		return json_decode(self::getContents($message), $assoc ?? false, 512, JSON_THROW_ON_ERROR);
+		return json_decode(self::getContents($message), ($assoc ?? false), 512, JSON_THROW_ON_ERROR);
 	}
 
 	/**
