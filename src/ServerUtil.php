@@ -28,7 +28,9 @@ final class ServerUtil{
 		protected UriFactoryInterface           $uriFactory,
 		protected UploadedFileFactoryInterface  $uploadedFileFactory,
 		protected StreamFactoryInterface        $streamFactory
-	){}
+	){
+		// noop
+	}
 
 	/**
 	 * Returns a ServerRequest populated with superglobals:

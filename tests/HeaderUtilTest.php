@@ -27,8 +27,8 @@ class HeaderUtilTest extends TestCase{
 			'UPPERCASEKEY'  => [['UPPERCASEKEY' => 'UPPERCASEVALUE'], ['Uppercasekey' => 'UPPERCASEVALUE']],
 			'mIxEdCaSeKey'  => [['mIxEdCaSeKey' => 'MiXeDcAsEvAlUe'], ['Mixedcasekey' => 'MiXeDcAsEvAlUe']],
 			'31i71casekey'  => [['31i71casekey' => '31i71casevalue'], ['31i71casekey' => '31i71casevalue']],
-			'numericvalue'  => [['numericvalue:1'], ['Numericvalue'  => '1']],
-			'numericvalue2' => [['numericvalue' => 2], ['Numericvalue'  => '2']],
+			'numericvalue'  => [['numericvalue:1'], ['Numericvalue' => '1']],
+			'numericvalue2' => [['numericvalue' => 2], ['Numericvalue' => '2']],
 			'keyvaluearray' => [[['foo' => 'bar']], ['Foo' => 'bar']],
 			'arrayvalue'    => [['foo' => ['bar', 'baz']], ['Foo' => 'bar, baz']],
 			'invalid: 2'    => [[2 => 2], []],
@@ -57,7 +57,7 @@ class HeaderUtilTest extends TestCase{
 		$this::assertSame([
 			'Accept'     => 'foo, bar',
 			'X-Whatever' => 'nope',
-			'X-Foo'      => 'bar, baz, what, nope'
+			'X-Foo'      => 'bar, baz, what, nope',
 		], HeaderUtil::normalize($headers));
 
 		$r = $this->responseFactory->createResponse();
@@ -66,10 +66,10 @@ class HeaderUtilTest extends TestCase{
 			$r = $r->withAddedHeader($k, $v);
 		}
 
-		$this::assertSame( [
+		$this::assertSame([
 			'Accept'     => ['foo, bar'],
 			'X-Whatever' => ['nope'],
-			'X-Foo'      => ['bar, baz, what, nope']
+			'X-Foo'      => ['bar, baz, what, nope'],
 		], $r->getHeaders());
 
 	}
@@ -85,7 +85,7 @@ class HeaderUtilTest extends TestCase{
 		$this::assertSame([
 			'Set-Cookie' => [
 				'foo'      => 'foo=baz',
-				'whatever' => 'whatever=nope; HttpOnly'
+				'whatever' => 'whatever=nope; HttpOnly',
 			]
 		], HeaderUtil::normalize($headers));
 	}

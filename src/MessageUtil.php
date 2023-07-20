@@ -54,28 +54,39 @@ final class MessageUtil{
 	/**
 	 * Returns the string representation of an HTTP message. (from Guzzle)
 	 */
-	public static function toString(MessageInterface $message, bool $appendBody = true):string{
-		$msg = '';
+	public static function toString(MessageInterface $message, bool $appendBody = null):string{
+		$appendBody ??= true;
+		$msg          = '';
 
 		if($message instanceof RequestInterface){
-			$msg = trim($message->getMethod().' '.$message->getRequestTarget()).' HTTP/'.$message->getProtocolVersion();
+			$msg = sprintf(
+				'%s %s HTTP/%s',
+				$message->getMethod(),
+				$message->getRequestTarget(),
+				$message->getProtocolVersion()
+			);
 
 			if(!$message->hasHeader('host')){
-				$msg .= "\r\nHost: ".$message->getUri()->getHost();
+				$msg .= sprintf("\r\nHost: %s", $message->getUri()->getHost());
 			}
 
 		}
 		elseif($message instanceof ResponseInterface){
-			$msg = 'HTTP/'.$message->getProtocolVersion().' '.$message->getStatusCode().' '.$message->getReasonPhrase();
+			$msg = sprintf(
+				'HTTP/%s %s %s',
+				$message->getProtocolVersion(),
+				$message->getStatusCode(),
+				$message->getReasonPhrase()
+			);
 		}
 
 		foreach($message->getHeaders() as $name => $values){
-			$msg .= "\r\n".$name.': '.implode(', ', $values);
+			$msg .= sprintf("\r\n%s: %s", $name, implode(', ', $values));
 		}
 
 		// appending the body might cause issues in some cases, e.g. with large responses or file streams
-		if($appendBody){
-			$msg .= "\r\n\r\n".self::getContents($message);
+		if($appendBody === true){
+			$msg .= sprintf("\r\n\r\n%s", self::getContents($message));
 		}
 
 		return $msg;

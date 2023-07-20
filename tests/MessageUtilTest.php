@@ -125,8 +125,8 @@ class MessageUtilTest extends TestCase{
 
 	public static function decompressExceptionFnProvider():array{
 		return [
-			'br'       => ['brotli', 'brotli_compress', 'br'],
-			'zstd'     => ['zstd', 'zstd_compress', 'zstd'],
+			'br'   => ['brotli', 'brotli_compress', 'br'],
+			'zstd' => ['zstd', 'zstd_compress', 'zstd'],
 		];
 	}
 

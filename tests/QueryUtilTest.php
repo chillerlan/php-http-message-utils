@@ -33,22 +33,22 @@ class QueryUtilTest extends TestCase{
 				['whatever' => null, 'nope' => '', 'true' => true, 'false' => false, 'array' => ['value' => false]],
 			],
 			// bool cast to types
-			'BOOLEANS_AS_BOOL' => [
+			'BOOLEANS_AS_BOOL'             => [
 				QueryUtil::BOOLEANS_AS_BOOL,
 				true,
 				['true' => true, 'false' => false, 'array' => ['value' => false]],
 			],
-			'BOOLEANS_AS_INT' => [
+			'BOOLEANS_AS_INT'              => [
 				QueryUtil::BOOLEANS_AS_INT,
 				true,
 				['true' => 1, 'false' => 0, 'array' => ['value' => 0]],
 			],
-			'BOOLEANS_AS_INT_STRING' => [
+			'BOOLEANS_AS_INT_STRING'       => [
 				QueryUtil::BOOLEANS_AS_INT_STRING,
 				true,
 				['true' => '1', 'false' => '0', 'array' => ['value' => '0']],
 			],
-			'BOOLEANS_AS_STRING' => [
+			'BOOLEANS_AS_STRING'           => [
 				QueryUtil::BOOLEANS_AS_STRING,
 				true,
 				['true' => 'true', 'false' => 'false', 'array' => ['value' => 'false']],
@@ -171,16 +171,20 @@ class QueryUtilTest extends TestCase{
 	public static function parseUrlProvider():array{
 		return [
 			['http://', null],
-			['https://яндекAс.рф', [
-				'scheme' => 'https',
-				'host'   => 'яндекAс.рф'
-			]],
-			['http://[2a00:f48:1008::212:183:10]:56?foo=bar', [
-				'scheme' => 'http',
-				'host'   => '[2a00:f48:1008::212:183:10]',
-				'port'   => '56',
-				'query'  => 'foo=bar',
-			]]
+			[
+				'https://яндекAс.рф', [
+					'scheme' => 'https',
+					'host'   => 'яндекAс.рф',
+				],
+			],
+			[
+				'http://[2a00:f48:1008::212:183:10]:56?foo=bar', [
+					'scheme' => 'http',
+					'host'   => '[2a00:f48:1008::212:183:10]',
+					'port'   => '56',
+					'query'  => 'foo=bar',
+				],
+			],
 		];
 	}
 

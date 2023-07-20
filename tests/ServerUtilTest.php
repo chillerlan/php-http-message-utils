@@ -46,19 +46,19 @@ class ServerUtilTest extends TestCase{
 		];
 
 		return [
-			'HTTPS request' => [
+			'HTTPS request'                                                => [
 				'https://www.example.org/blog/article.php?id=10&user=foo',
 				$server,
 			],
-			'HTTPS request with different on value' => [
+			'HTTPS request with different on value'                        => [
 				'https://www.example.org/blog/article.php?id=10&user=foo',
 				array_merge($server, ['HTTPS' => '1']),
 			],
-			'HTTP request' => [
+			'HTTP request'                                                 => [
 				'http://www.example.org/blog/article.php?id=10&user=foo',
 				array_merge($server, ['HTTPS' => 'off', 'SERVER_PORT' => '80']),
 			],
-			'HTTP_HOST missing -> fallback to SERVER_NAME' => [
+			'HTTP_HOST missing -> fallback to SERVER_NAME'                 => [
 				'https://www.example.org/blog/article.php?id=10&user=foo',
 				array_merge($server, ['HTTP_HOST' => null]),
 			],
@@ -66,23 +66,23 @@ class ServerUtilTest extends TestCase{
 				'https://217.112.82.20/blog/article.php?id=10&user=foo',
 				array_merge($server, ['HTTP_HOST' => null, 'SERVER_NAME' => null]),
 			],
-			'No query String' => [
+			'No query String'                                              => [
 				'https://www.example.org/blog/article.php',
 				array_merge($server, ['REQUEST_URI' => '/blog/article.php', 'QUERY_STRING' => '']),
 			],
-			'Host header with port' => [
+			'Host header with port'                                        => [
 				'https://www.example.org:8324/blog/article.php?id=10&user=foo',
 				array_merge($server, ['HTTP_HOST' => 'www.example.org:8324']),
 			],
-			'Different port with SERVER_PORT' => [
+			'Different port with SERVER_PORT'                              => [
 				'https://www.example.org:8324/blog/article.php?id=10&user=foo',
 				array_merge($server, ['SERVER_PORT' => '8324']),
 			],
-			'REQUEST_URI missing query string' => [
+			'REQUEST_URI missing query string'                             => [
 				'https://www.example.org/blog/article.php?id=10&user=foo',
 				array_merge($server, ['REQUEST_URI' => '/blog/article.php']),
 			],
-			'Empty server variable' => [
+			'Empty server variable'                                        => [
 				'http://localhost',
 				['REQUEST_TIME' => time(), 'SCRIPT_NAME' => '/blog/article.php'], // phpunit fix
 			],
@@ -119,7 +119,7 @@ class ServerUtilTest extends TestCase{
 		];
 
 		$_COOKIE = [
-			'logged-in' => 'yes!'
+			'logged-in' => 'yes!',
 		];
 
 		$_POST = [
@@ -128,7 +128,7 @@ class ServerUtilTest extends TestCase{
 		];
 
 		$_GET = [
-			'id' => 10,
+			'id'   => 10,
 			'user' => 'foo',
 		];
 
@@ -139,7 +139,7 @@ class ServerUtilTest extends TestCase{
 				'tmp_name' => __DIR__.'/uploaded_file.tmp',
 				'error'    => UPLOAD_ERR_OK,
 				'size'     => 123,
-			]
+			],
 		];
 
 		$server = $this->server->createServerRequestFromGlobals();
@@ -173,11 +173,11 @@ class ServerUtilTest extends TestCase{
 		$files = [
 			'files' => [
 				'name'     => ['MyFile1.txt', 'MyFile2.gif', 'MyFile3.txt'],
-				'type'     => ['text/plain','image/gif','text/plain',],
+				'type'     => ['text/plain','image/gif','text/plain'],
 				'tmp_name' => [$tmp, $tmp, $tmp],
 				'error'    => [UPLOAD_ERR_OK, UPLOAD_ERR_PARTIAL, UPLOAD_ERR_OK],
 				'size'     => [123, 456, 789],
-			]
+			],
 		];
 
 		/** @var array $normalized */
@@ -213,7 +213,7 @@ class ServerUtilTest extends TestCase{
 					'error'    => UPLOAD_ERR_OK,
 					'size'     => 789,
 				],
-			]
+			],
 		];
 
 		/** @var array $normalized */
