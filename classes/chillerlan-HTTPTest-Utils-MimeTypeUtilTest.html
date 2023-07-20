@@ -94,14 +94,17 @@
             <div class="phpdocumentor-column -eight phpdocumentor-content">
                     <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/chillerlan.html">chillerlan</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/chillerlan-http.html">HTTP</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/chillerlan-http-utils.html">Utils</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/chillerlan-httptest.html">HTTPTest</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/chillerlan-httptest-utils.html">Utils</a></li>
     </ul>
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    HeaderUtil
+    MimeTypeUtilTest
 
+        <span class="phpdocumentor-element__extends">
+        extends <abbr title="\PHPUnit\Framework\TestCase">TestCase</abbr>
+    </span>
     
             <div class="phpdocumentor-element__package">
             in package
@@ -114,9 +117,9 @@
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/HeaderUtil.php"><a href="files/src-headerutil.html"><abbr title="src/HeaderUtil.php">HeaderUtil.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/MimeTypeUtilTest.php"><a href="files/tests-mimetypeutiltest.html"><abbr title="tests/MimeTypeUtilTest.php">MimeTypeUtilTest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">19</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
     </aside>
 
@@ -136,26 +139,25 @@
 
 <dl class="phpdocumentor-table-of-contents">
                         <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTP-Utils-HeaderUtil.html#method_normalize">normalize()</a>
+    <a href="classes/chillerlan-HTTPTest-Utils-MimeTypeUtilTest.html#method_testGetMimeTypeFromContent">testGetMimeTypeFromContent()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+                                &nbsp;: void    </span>
 </dt>
-<dd>Normalizes an array of header lines to format [&quot;Name&quot; =&gt; &quot;Value (, Value2, Value3, ...)&quot;, ...]
-An exception is being made for Set-Cookie, which holds an array of values for each cookie.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTP-Utils-HeaderUtil.html#method_normalizeHeaderName">normalizeHeaderName()</a>
+    <a href="classes/chillerlan-HTTPTest-Utils-MimeTypeUtilTest.html#method_testGetMimetypeFromExtension">testGetMimetypeFromExtension()</a>
     <span>
-                                &nbsp;: string    </span>
+                                &nbsp;: void    </span>
 </dt>
-<dd>Normalizes a header name, e.g. &quot;conTENT- lenGTh&quot; -&gt; &quot;Content-Length&quot;</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTP-Utils-HeaderUtil.html#method_trimValues">trimValues()</a>
+    <a href="classes/chillerlan-HTTPTest-Utils-MimeTypeUtilTest.html#method_testGetMimeTypeFromFileName">testGetMimeTypeFromFileName()</a>
     <span>
-                                &nbsp;: array&lt;string|int, string&gt;    </span>
+                                &nbsp;: void    </span>
 </dt>
-<dd>Trims whitespace from the header values.</dd>
+<dd></dd>
 
         </dl>
 
@@ -168,51 +170,37 @@ An exception is being made for Set-Cookie, which holds an array of values for ea
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/chillerlan-HTTP-Utils-HeaderUtil.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-HTTPTest-Utils-MimeTypeUtilTest.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article
         class="phpdocumentor-element
             -method
             -public
-                                    -static                    "
+                                                        "
 >
-    <h4 class="phpdocumentor-element__name" id="method_normalize">
-        normalize()
-        <a href="classes/chillerlan-HTTP-Utils-HeaderUtil.html#method_normalize" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_testGetMimeTypeFromContent">
+        testGetMimeTypeFromContent()
+        <a href="classes/chillerlan-HTTPTest-Utils-MimeTypeUtilTest.html#method_testGetMimeTypeFromContent" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/HeaderUtil.php"><a href="files/src-headerutil.html"><abbr title="src/HeaderUtil.php">HeaderUtil.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/MimeTypeUtilTest.php"><a href="files/tests-mimetypeutiltest.html"><abbr title="tests/MimeTypeUtilTest.php">MimeTypeUtilTest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">31</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Normalizes an array of header lines to format [&quot;Name&quot; =&gt; &quot;Value (, Value2, Value3, ...)&quot;, ...]
-An exception is being made for Set-Cookie, which holds an array of values for each cookie.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">normalize</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$headers</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">testGetMimeTypeFromContent</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
-        <section class="phpdocumentor-description"><p>For multiple cookies with the same name, only the last value will be kept.</p>
-</section>
+        <section class="phpdocumentor-description"></section>
 
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$headers</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
-            </dd>
-            </dl>
-
+    
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__response_type">void</span>
             &mdash;
         
     
@@ -221,42 +209,31 @@ An exception is being made for Set-Cookie, which holds an array of values for ea
         class="phpdocumentor-element
             -method
             -public
-                                    -static                    "
+                                                        "
 >
-    <h4 class="phpdocumentor-element__name" id="method_normalizeHeaderName">
-        normalizeHeaderName()
-        <a href="classes/chillerlan-HTTP-Utils-HeaderUtil.html#method_normalizeHeaderName" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_testGetMimetypeFromExtension">
+        testGetMimetypeFromExtension()
+        <a href="classes/chillerlan-HTTPTest-Utils-MimeTypeUtilTest.html#method_testGetMimetypeFromExtension" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/HeaderUtil.php"><a href="files/src-headerutil.html"><abbr title="src/HeaderUtil.php">HeaderUtil.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/MimeTypeUtilTest.php"><a href="files/tests-mimetypeutiltest.html"><abbr title="tests/MimeTypeUtilTest.php">MimeTypeUtilTest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">108</span>
+    <span class="phpdocumentor-element-found-in__line">22</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Normalizes a header name, e.g. &quot;conTENT- lenGTh&quot; -&gt; &quot;Content-Length&quot;</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">normalizeHeaderName</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+                    <span class="phpdocumentor-signature__name">testGetMimetypeFromExtension</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+        <section class="phpdocumentor-description"></section>
 
     
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$name</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
-            </dd>
-            </dl>
-
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
+    <span class="phpdocumentor-signature__response_type">void</span>
             &mdash;
         
     
@@ -265,65 +242,33 @@ An exception is being made for Set-Cookie, which holds an array of values for ea
         class="phpdocumentor-element
             -method
             -public
-                                    -static                    "
+                                                        "
 >
-    <h4 class="phpdocumentor-element__name" id="method_trimValues">
-        trimValues()
-        <a href="classes/chillerlan-HTTP-Utils-HeaderUtil.html#method_trimValues" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_testGetMimeTypeFromFileName">
+        testGetMimeTypeFromFileName()
+        <a href="classes/chillerlan-HTTPTest-Utils-MimeTypeUtilTest.html#method_testGetMimeTypeFromFileName" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/HeaderUtil.php"><a href="files/src-headerutil.html"><abbr title="src/HeaderUtil.php">HeaderUtil.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/MimeTypeUtilTest.php"><a href="files/tests-mimetypeutiltest.html"><abbr title="tests/MimeTypeUtilTest.php">MimeTypeUtilTest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">101</span>
+    <span class="phpdocumentor-element-found-in__line">27</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Trims whitespace from the header values.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">trimValues</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$values</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">testGetMimeTypeFromFileName</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
-        <section class="phpdocumentor-description"><p>Spaces and tabs ought to be excluded by parsers when extracting the field value from a header field.</p>
-<p>header-field = field-name &quot;:&quot; OWS field-value OWS
-OWS          = *( SP / HTAB )</p>
-</section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$values</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>header values</p>
-</section>
-
-            </dd>
-            </dl>
+        <section class="phpdocumentor-description"></section>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="https://tools.ietf.org/html/rfc7230#section-3.2.4"><abbr title="https://tools.ietf.org/html/rfc7230#section-3.2.4">https://tools.ietf.org/html/rfc7230#section-3.2.4</abbr></a></span>
-                                        
-                                             
-                                    </dd>
-                        </dl>
+    
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
+    <span class="phpdocumentor-signature__response_type">void</span>
             &mdash;
-            <section class="phpdocumentor-description"><p>Trimmed header values</p>
-</section>
-
+        
     
 </article>
             </section>
@@ -404,7 +349,7 @@ OWS          = *( SP / HTAB )</p>
 </section>
             </div>
         </div>
-        <a href="classes/chillerlan-HTTP-Utils-HeaderUtil.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/chillerlan-HTTPTest-Utils-MimeTypeUtilTest.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

@@ -93,56 +93,36 @@
 
             <div class="phpdocumentor-column -eight phpdocumentor-content">
                     <ul class="phpdocumentor-breadcrumbs">
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/chillerlan.html">chillerlan</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/chillerlan-http.html">HTTP</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/chillerlan-http-utils.html">Utils</a></li>
     </ul>
 
-    <article class="phpdocumentor-element -file">
-        <h2 class="phpdocumentor-content__title">message_helpers.php</h2>
+    <article class="phpdocumentor-element -class">
+        <h2 class="phpdocumentor-content__title">
+    MimeTypeUtil
+
+    
+            <div class="phpdocumentor-element__package">
+            in package
+            <ul class="phpdocumentor-breadcrumbs">
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Application.html">Application</a></li>
+                            </ul>
+        </div>
+    
+    
+    </h2>
+
+        <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/MimeTypeUtil.php"><a href="files/src-mimetypeutil.html"><abbr title="src/MimeTypeUtil.php">MimeTypeUtil.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">22</span>
+
+    </aside>
 
         
 
 
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">created</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>28.08.2018</p>
-</section>
-
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">author</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>smiley <a href="mailto:smiley@chillerlan.net">smiley@chillerlan.net</a></p>
-</section>
-
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">copyright</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>2018 smiley</p>
-</section>
-
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">license</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>MIT</p>
-</section>
-
-                                    </dd>
-                        </dl>
 
 
 
@@ -156,41 +136,34 @@
 
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="namespaces/chillerlan-http-utils.html#constant_CHILLERLAN_PSR7_UTIL_INCLUDES">CHILLERLAN_PSR7_UTIL_INCLUDES</a>
-    <span>
-        &nbsp;= true                            </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="namespaces/chillerlan-http-utils.html#constant_MIMETYPES">MIMETYPES</a>
+    <a href="classes/chillerlan-HTTP-Utils-MimeTypeUtil.html#constant_MIMETYPES">MIMETYPES</a>
     <span>
         &nbsp;= [&#039;3gp&#039; =&gt; &#039;video/3gpp&#039;, &#039;7z&#039; =&gt; &#039;application/x-7z-compressed&#039;, &#039;aac&#039; =&gt; &#039;audio/x-aac&#039;, &#039;ai&#039; =&gt; &#039;application/postscript&#039;, &#039;aif&#039; =&gt; &#039;audio/x-aiff&#039;, &#039;asc&#039; =&gt; &#039;text/plain&#039;, &#039;asf&#039; =&gt; &#039;video/x-ms-asf&#039;, &#039;atom&#039; =&gt; &#039;application/atom+xml&#039;, &#039;avi&#039; =&gt; &#039;video/x-msvideo&#039;, &#039;bmp&#039; =&gt; &#039;image/bmp&#039;, &#039;bz2&#039; =&gt; &#039;application/x-bzip2&#039;, &#039;cer&#039; =&gt; &#039;application/pkix-cert&#039;, &#039;crl&#039; =&gt; &#039;application/pkix-crl&#039;, &#039;crt&#039; =&gt; &#039;application/x-x509-ca-cert&#039;, &#039;css&#039; =&gt; &#039;text/css&#039;, &#039;csv&#039; =&gt; &#039;text/csv&#039;, &#039;cu&#039; =&gt; &#039;application/cu-seeme&#039;, &#039;deb&#039; =&gt; &#039;application/x-debian-package&#039;, &#039;doc&#039; =&gt; &#039;application/msword&#039;, &#039;docx&#039; =&gt; &#039;application/vnd.openxmlformats-officedocument.wordprocessingml.document&#039;, &#039;dvi&#039; =&gt; &#039;application/x-dvi&#039;, &#039;eot&#039; =&gt; &#039;application/vnd.ms-fontobject&#039;, &#039;eps&#039; =&gt; &#039;application/postscript&#039;, &#039;epub&#039; =&gt; &#039;application/epub+zip&#039;, &#039;etx&#039; =&gt; &#039;text/x-setext&#039;, &#039;flac&#039; =&gt; &#039;audio/flac&#039;, &#039;flv&#039; =&gt; &#039;video/x-flv&#039;, &#039;gif&#039; =&gt; &#039;image/gif&#039;, &#039;gz&#039; =&gt; &#039;application/gzip&#039;, &#039;htm&#039; =&gt; &#039;text/html&#039;, &#039;html&#039; =&gt; &#039;text/html&#039;, &#039;ico&#039; =&gt; &#039;image/x-icon&#039;, &#039;ics&#039; =&gt; &#039;text/calendar&#039;, &#039;ini&#039; =&gt; &#039;text/plain&#039;, &#039;iso&#039; =&gt; &#039;application/x-iso9660-image&#039;, &#039;jar&#039; =&gt; &#039;application/java-archive&#039;, &#039;jpe&#039; =&gt; &#039;image/jpeg&#039;, &#039;jpeg&#039; =&gt; &#039;image/jpeg&#039;, &#039;jpg&#039; =&gt; &#039;image/jpeg&#039;, &#039;js&#039; =&gt; &#039;text/javascript&#039;, &#039;json&#039; =&gt; &#039;application/json&#039;, &#039;latex&#039; =&gt; &#039;application/x-latex&#039;, &#039;log&#039; =&gt; &#039;text/plain&#039;, &#039;m4a&#039; =&gt; &#039;audio/mp4&#039;, &#039;m4v&#039; =&gt; &#039;video/mp4&#039;, &#039;mid&#039; =&gt; &#039;audio/midi&#039;, &#039;midi&#039; =&gt; &#039;audio/midi&#039;, &#039;mov&#039; =&gt; &#039;video/quicktime&#039;, &#039;mkv&#039; =&gt; &#039;video/x-matroska&#039;, &#039;mp3&#039; =&gt; &#039;audio/mpeg&#039;, &#039;mp4&#039; =&gt; &#039;video/mp4&#039;, &#039;mp4a&#039; =&gt; &#039;audio/mp4&#039;, &#039;mp4v&#039; =&gt; &#039;video/mp4&#039;, &#039;mpe&#039; =&gt; &#039;video/mpeg&#039;, &#039;mpeg&#039; =&gt; &#039;video/mpeg&#039;, &#039;mpg&#039; =&gt; &#039;video/mpeg&#039;, &#039;mpg4&#039; =&gt; &#039;video/mp4&#039;, &#039;oga&#039; =&gt; &#039;audio/ogg&#039;, &#039;ogg&#039; =&gt; &#039;audio/ogg&#039;, &#039;ogv&#039; =&gt; &#039;video/ogg&#039;, &#039;ogx&#039; =&gt; &#039;application/ogg&#039;, &#039;pbm&#039; =&gt; &#039;image/x-portable-bitmap&#039;, &#039;pdf&#039; =&gt; &#039;application/pdf&#039;, &#039;pgm&#039; =&gt; &#039;image/x-portable-graymap&#039;, &#039;png&#039; =&gt; &#039;image/png&#039;, &#039;pnm&#039; =&gt; &#039;image/x-portable-anymap&#039;, &#039;ppm&#039; =&gt; &#039;image/x-portable-pixmap&#039;, &#039;ppt&#039; =&gt; &#039;application/vnd.ms-powerpoint&#039;, &#039;pptx&#039; =&gt; &#039;application/vnd.openxmlformats-officedocument.presentationml.presentation&#039;, &#039;ps&#039; =&gt; &#039;application/postscript&#039;, &#039;qt&#039; =&gt; &#039;video/quicktime&#039;, &#039;rar&#039; =&gt; &#039;application/x-rar-compressed&#039;, &#039;ras&#039; =&gt; &#039;image/x-cmu-raster&#039;, &#039;rss&#039; =&gt; &#039;application/rss+xml&#039;, &#039;rtf&#039; =&gt; &#039;application/rtf&#039;, &#039;sgm&#039; =&gt; &#039;text/sgml&#039;, &#039;sgml&#039; =&gt; &#039;text/sgml&#039;, &#039;svg&#039; =&gt; &#039;image/svg+xml&#039;, &#039;swf&#039; =&gt; &#039;application/x-shockwave-flash&#039;, &#039;tar&#039; =&gt; &#039;application/x-tar&#039;, &#039;tif&#039; =&gt; &#039;image/tiff&#039;, &#039;tiff&#039; =&gt; &#039;image/tiff&#039;, &#039;torrent&#039; =&gt; &#039;application/x-bittorrent&#039;, &#039;ttf&#039; =&gt; &#039;application/x-font-ttf&#039;, &#039;txt&#039; =&gt; &#039;text/plain&#039;, &#039;wav&#039; =&gt; &#039;audio/x-wav&#039;, &#039;webm&#039; =&gt; &#039;video/webm&#039;, &#039;wma&#039; =&gt; &#039;audio/x-ms-wma&#039;, &#039;wmv&#039; =&gt; &#039;video/x-ms-wmv&#039;, &#039;woff&#039; =&gt; &#039;application/x-font-woff&#039;, &#039;wsdl&#039; =&gt; &#039;application/wsdl+xml&#039;, &#039;xbm&#039; =&gt; &#039;image/x-xbitmap&#039;, &#039;xls&#039; =&gt; &#039;application/vnd.ms-excel&#039;, &#039;xlsx&#039; =&gt; &#039;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&#039;, &#039;xml&#039; =&gt; &#039;application/xml&#039;, &#039;xpm&#039; =&gt; &#039;image/x-xpixmap&#039;, &#039;xwd&#039; =&gt; &#039;image/x-xwindowdump&#039;, &#039;yaml&#039; =&gt; &#039;text/yaml&#039;, &#039;yml&#039; =&gt; &#039;text/yaml&#039;, &#039;zip&#039; =&gt; &#039;application/zip&#039;]                            </span>
 </dt>
 <dd></dd>
 
-                            <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/chillerlan-http-utils.html#function_getMimetypeFromExtension">getMimetypeFromExtension()</a>
+                        <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-HTTP-Utils-MimeTypeUtil.html#method_getFromContent">getFromContent()</a>
+    <span>
+                                &nbsp;: string|null    </span>
+</dt>
+<dd>Get the mime type from the given content</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-HTTP-Utils-MimeTypeUtil.html#method_getFromExtension">getFromExtension()</a>
     <span>
                                 &nbsp;: string|null    </span>
 </dt>
 <dd>Get the mime type for the given file extension</dd>
 
-            <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/chillerlan-http-utils.html#function_getMimetypeFromFilename">getMimetypeFromFilename()</a>
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-HTTP-Utils-MimeTypeUtil.html#method_getFromFilename">getFromFilename()</a>
     <span>
                                 &nbsp;: string|null    </span>
 </dt>
 <dd>Get the mime type from a file name</dd>
 
-            <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/chillerlan-http-utils.html#function_r_rawurlencode">r_rawurlencode()</a>
-    <span>
-                                &nbsp;: string|array&lt;string|int, string&gt;    </span>
-</dt>
-<dd>Recursive rawurlencode</dd>
-
-    </dl>
+        </dl>
 
 
 
@@ -198,47 +171,18 @@
     <section class="phpdocumentor-constants">
         <h3 class="phpdocumentor-elements__header" id="constants">
             Constants
-            <a href="files/src-message-helpers.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-HTTP-Utils-MimeTypeUtil.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_CHILLERLAN_PSR7_UTIL_INCLUDES">
-        CHILLERLAN_PSR7_UTIL_INCLUDES
-        <a href="namespaces/chillerlan-http-utils.html#constant_CHILLERLAN_PSR7_UTIL_INCLUDES" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/message_helpers.php"><a href="files/src-message-helpers.html"><abbr title="src/message_helpers.php">message_helpers.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">15</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">CHILLERLAN_PSR7_UTIL_INCLUDES</span>
-    = <span class="phpdocumentor-signature__default-value">true</span>
-</code>
-
-
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-
-</article>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_MIMETYPES">
         MIMETYPES
-        <a href="namespaces/chillerlan-http-utils.html#constant_MIMETYPES" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-HTTP-Utils-MimeTypeUtil.html#constant_MIMETYPES" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/message_helpers.php"><a href="files/src-message-helpers.html"><abbr title="src/message_helpers.php">message_helpers.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/MimeTypeUtil.php"><a href="files/src-mimetypeutil.html"><abbr title="src/MimeTypeUtil.php">MimeTypeUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">27</span>
 
     </aside>
 
@@ -272,28 +216,79 @@
 </article>
             </section>
 
-            <section class="phpdocumentor-functions">
-        <h3 class="phpdocumentor-elements__header" id="functions">
-            Functions
-            <a href="files/src-message-helpers.html#functions" class="headerlink"><i class="fas fa-link"></i></a>
+        
+
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/chillerlan-HTTP-Utils-MimeTypeUtil.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_getMimetypeFromExtension">
-        getMimetypeFromExtension()
-        <a href="namespaces/chillerlan-http-utils.html#function_getMimetypeFromExtension" class="headerlink"><i class="fas fa-link"></i></a>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getFromContent">
+        getFromContent()
+        <a href="classes/chillerlan-HTTP-Utils-MimeTypeUtil.html#method_getFromContent" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/message_helpers.php"><a href="files/src-message-helpers.html"><abbr title="src/message_helpers.php">message_helpers.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/MimeTypeUtil.php"><a href="files/src-mimetypeutil.html"><abbr title="src/MimeTypeUtil.php">MimeTypeUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">126</span>
+    <span class="phpdocumentor-element-found-in__line">147</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Get the mime type from the given content</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getFromContent</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$content</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$content</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string|null</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getFromExtension">
+        getFromExtension()
+        <a href="classes/chillerlan-HTTP-Utils-MimeTypeUtil.html#method_getFromExtension" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/MimeTypeUtil.php"><a href="files/src-mimetypeutil.html"><abbr title="src/MimeTypeUtil.php">MimeTypeUtil.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">133</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">Get the mime type for the given file extension</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">getMimetypeFromExtension</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$extension</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getFromExtension</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$extension</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -316,23 +311,28 @@
         
     
 </article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_getMimetypeFromFilename">
-        getMimetypeFromFilename()
-        <a href="namespaces/chillerlan-http-utils.html#function_getMimetypeFromFilename" class="headerlink"><i class="fas fa-link"></i></a>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getFromFilename">
+        getFromFilename()
+        <a href="classes/chillerlan-HTTP-Utils-MimeTypeUtil.html#method_getFromFilename" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/message_helpers.php"><a href="files/src-message-helpers.html"><abbr title="src/message_helpers.php">message_helpers.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/MimeTypeUtil.php"><a href="files/src-mimetypeutil.html"><abbr title="src/MimeTypeUtil.php">MimeTypeUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">133</span>
+    <span class="phpdocumentor-element-found-in__line">140</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">Get the mime type from a file name</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">getMimetypeFromFilename</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filename</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getFromFilename</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filename</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -355,59 +355,69 @@
         
     
 </article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_r_rawurlencode">
-        r_rawurlencode()
-        <a href="namespaces/chillerlan-http-utils.html#function_r_rawurlencode" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/message_helpers.php"><a href="files/src-message-helpers.html"><abbr title="src/message_helpers.php">message_helpers.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">145</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Recursive rawurlencode</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">r_rawurlencode</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|array&lt;string|int, string&gt;</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$data</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, string&gt;</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\TypeError">TypeError</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                        </dl>
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string|array&lt;string|int, string&gt;</span>
-            &mdash;
-        
-    
-</article>
             </section>
+
+        
+    <script type="text/javascript">
+        function loadExternalCodeSnippets(line) {
+            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+                var language = 'php';
+
+                var code = document.createElement('code');
+                code.className = 'language-' + language;
+
+                pre.textContent = '';
+
+                pre.setAttribute('data-line', line)
+                code.textContent = 'Loading…';
+
+                pre.appendChild(code);
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', src, true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+
+                            Prism.highlightElement(code);
+                        }
+                        else if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                        }
+                        else {
+                            code.textContent = '✖ Error: File does not exist, is empty or trying to view from localhost';
+                        }
+                    }
+                };
+
+                xhr.send(null);
+            });
+        }
+
+        var modals = document.querySelectorAll("[data-modal]");
+
+        modals.forEach(function (trigger) {
+            trigger.addEventListener("click", function (event) {
+                //event.preventDefault();
+                const modal = document.getElementById(trigger.dataset.modal);
+                modal.classList.add("phpdocumentor-modal__open");
+                loadExternalCodeSnippets(trigger.dataset.line)
+                const exits = modal.querySelectorAll("[data-exit-button]");
+                exits.forEach(function (exit) {
+                    exit.addEventListener("click", function (event) {
+                        event.preventDefault();
+                        modal.classList.remove("phpdocumentor-modal__open");
+                    });
+                });
+            });
+        });
+    </script>
 
     </article>
                 <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
@@ -423,7 +433,7 @@
 </section>
             </div>
         </div>
-        <a href="files/src-message-helpers.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/chillerlan-HTTP-Utils-MimeTypeUtil.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 
