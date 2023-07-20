@@ -12,28 +12,16 @@
 
 namespace chillerlan\HTTPTest\Utils;
 
-use chillerlan\HTTP\Utils\ServerUtil;
 use InvalidArgumentException;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\TestCase;
 use function microtime;
 use function time;
 use const UPLOAD_ERR_OK;
 use const UPLOAD_ERR_PARTIAL;
 
-class ServerUtilTest extends TestAbstract{
-
-	protected ServerUtil $server;
-
-	protected function setUp():void{
-		parent::setUp();
-
-		$this->server = new ServerUtil(
-			$this->serverRequestFactory,
-			$this->uriFactory,
-			$this->uploadedFileFactory,
-			$this->streamFactory
-		);
-	}
+class ServerUtilTest extends TestCase{
+	use FactoryTrait;
 
 	public static function dataGetUriFromGlobals():array{
 

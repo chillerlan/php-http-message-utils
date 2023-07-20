@@ -12,6 +12,7 @@ namespace chillerlan\HTTPTest\Utils;
 
 use chillerlan\HTTP\Utils\MessageUtil;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\TestCase;
 use RuntimeException;
 use function extension_loaded;
 use function function_exists;
@@ -21,7 +22,8 @@ use function str_repeat;
 /**
  *
  */
-class MessageUtilTest extends TestAbstract{
+class MessageUtilTest extends TestCase{
+	use FactoryTrait;
 
 	public function testGetJSON():void{
 

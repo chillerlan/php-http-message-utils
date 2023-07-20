@@ -11,12 +11,13 @@
 namespace chillerlan\HTTPTest\Utils;
 
 use chillerlan\HTTP\Utils\MimeTypeUtil;
+use PHPUnit\Framework\TestCase;
 use function file_get_contents;
 
 /**
  *
  */
-class MimeTypeUtilTest extends TestAbstract{
+class MimeTypeUtilTest extends TestCase{
 
 	public function testGetMimetypeFromExtension():void{
 		$this::assertSame('application/json', MimeTypeUtil::getFromExtension('json'));
