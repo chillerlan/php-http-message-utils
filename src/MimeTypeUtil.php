@@ -11,7 +11,6 @@
 namespace chillerlan\HTTP\Utils;
 
 use finfo;
-use function finfo_close;
 use function pathinfo;
 use function strtolower;
 use const FILEINFO_MIME_TYPE;
@@ -148,8 +147,6 @@ final class MimeTypeUtil{
 	public static function getFromContent(string $content):?string{
 		$finfo = new finfo(FILEINFO_MIME_TYPE);
 		$mime  = $finfo->buffer($content);
-
-		finfo_close($finfo);
 
 		if($mime === false){
 			return null;
