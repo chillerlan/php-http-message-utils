@@ -10,10 +10,10 @@
 
 namespace chillerlan\HTTP\Utils;
 
-use function array_map, array_merge, call_user_func_array, explode, implode, is_array, is_bool, is_iterable,
-	is_numeric, is_string, parse_url, preg_match, preg_replace_callback, rawurldecode, sort, str_replace, trim, uksort,
-	urlencode;
-
+use InvalidArgumentException;
+use function array_map, array_merge, call_user_func_array, explode, implode, is_array, is_bool,
+	is_iterable, is_numeric, is_scalar, is_string, parse_url, preg_match, preg_replace_callback,
+	rawurldecode, rawurlencode, sort, str_replace, trim, uksort, urlencode;
 use const PHP_QUERY_RFC1738, PHP_QUERY_RFC3986, SORT_STRING;
 
 /**
@@ -254,6 +254,27 @@ final class QueryUtil{
 		}
 
 		return array_map('urldecode', $result);
+	}
+
+	/**
+	 * Recursive rawurlencode
+	 *
+	 * @param string|string[] $data
+	 *
+	 * @return string|string[]
+	 * @throws \InvalidArgumentException
+	 */
+	public static function recursiveRawurlencode(mixed $data):array|string{
+
+		if(is_array($data)){
+			return array_map(__FUNCTION__, $data);
+		}
+
+		if(!is_scalar($data) && $data !== null){
+			throw new InvalidArgumentException('$data is neither scalar nor null');
+		}
+
+		return rawurlencode((string)$data);
 	}
 
 }

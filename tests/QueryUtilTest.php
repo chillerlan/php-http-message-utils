@@ -13,6 +13,7 @@
 namespace chillerlan\HTTPTest\Utils;
 
 use chillerlan\HTTP\Utils\QueryUtil;
+use InvalidArgumentException;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use const PHP_QUERY_RFC1738;
@@ -186,6 +187,32 @@ class QueryUtilTest extends TestCase{
 	#[DataProvider('parseUrlProvider')]
 	public function testParseUrl($url, $expected):void{
 		$this::assertSame($expected, QueryUtil::parseUrl($url));
+	}
+
+	public static function rawurlencodeDataProvider():array{
+		return [
+			'null'         => [null, ''],
+			'bool (false)' => [false, ''],
+			'bool (true)'  => [true, '1'],
+			'int'          => [42, '42'],
+			'float'        => [42.42, '42.42'],
+			'string'       => ['some test string!', 'some%20test%20string%21'],
+			'array'        => [
+				['some other', 'test string', ['oh wait!', 'this', ['is an', 'array!']]],
+				['some%20other', 'test%20string', ['oh%20wait%21', 'this', ['is%20an', 'array%21']]],
+			],
+		];
+	}
+
+	#[DataProvider('rawurlencodeDataProvider')]
+	public function testRawurlencode(mixed $data, string|array $expected):void{
+		$this::assertSame($expected, QueryUtil::recursiveRawurlencode($data));
+	}
+
+	public function testRawurlencodeTypeErrorException():void{
+		$this->expectException(InvalidArgumentException::class);
+
+		QueryUtil::recursiveRawurlencode((object)[]);
 	}
 
 }
