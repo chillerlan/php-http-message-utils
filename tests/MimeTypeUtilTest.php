@@ -25,6 +25,7 @@ class MimeTypeUtilTest extends TestCase{
 	}
 
 	public function testGetMimeTypeFromFileName():void{
+		$this::assertNull(MimeTypeUtil::getFromFilename(''));
 		$this::assertSame('application/json', MimeTypeUtil::getFromFilename('/path/to/some/file.json'));
 	}
 

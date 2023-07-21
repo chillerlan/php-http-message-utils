@@ -13,7 +13,7 @@ namespace chillerlan\HTTP\Utils;
 use Psr\Http\Message\{MessageInterface, RequestInterface, ResponseInterface};
 use RuntimeException, Throwable;
 use function call_user_func, extension_loaded, function_exists, gzdecode, gzinflate, gzuncompress, implode,
-	in_array, json_decode, json_encode, simplexml_load_string, sprintf, strtolower;
+	in_array, json_decode, json_encode, simplexml_load_string, sprintf, strtolower, trim;
 use const JSON_THROW_ON_ERROR;
 
 /**
@@ -144,6 +144,30 @@ final class MessageUtil{
 		}
 
 		return $message;
+	}
+
+	/**
+	 * Tries to determine the content type from the given values and sets the Content-Type header accordingly,
+	 * throws if no mime type could be guessed.
+	 *
+	 * @throws \RuntimeException
+	 */
+	public static function setContentTypeHeader(
+		MessageInterface $message,
+		string           $filename = null,
+		string           $extension = null
+	):MessageInterface{
+		$mime = (
+			   MimeTypeUtil::getFromExtension(trim(($extension ?? ''), ".\t\n\r\0\x0B"))
+			?? MimeTypeUtil::getFromFilename(($filename ?? ''))
+			?? MimeTypeUtil::getFromContent(self::getContents($message))
+		);
+
+		if($mime === null){
+			throw new RuntimeException('could not determine content type');
+		}
+
+		return $message->withHeader('Content-Type', $mime);
 	}
 
 }

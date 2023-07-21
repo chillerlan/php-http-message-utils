@@ -15,6 +15,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
 use function extension_loaded;
+use function file_get_contents;
 use function function_exists;
 use function sprintf;
 use function str_repeat;
@@ -160,6 +161,31 @@ class MessageUtilTest extends TestCase{
 			(string)$message->getBody()->getSize(),
 			$message->getHeaderLine('Content-Length')
 		);
+	}
+
+	public static function contentTypeProvider():array{
+		return [
+			'text/plain'             => ['foo', null, null, 'text/plain'],
+			'application/json'       => ['{}', null, null, 'application/json'],
+			'text/javascript (name)' => ['{}', 'test.js', null, 'text/javascript'],
+			'text/javascript (ext)'  => ['{}', null, 'js', 'text/javascript'],
+			'text/x-php'             => [file_get_contents(__FILE__), null, null, 'text/x-php'],
+			'text/markdown'          => [file_get_contents(__DIR__.'/../README.md'), null, 'md', 'text/markdown'],
+		];
+	}
+
+	#[DataProvider('contentTypeProvider')]
+	public function testSetContentTypeHeader(string $content, ?string $filename, ?string $extension, string $expectedMIME):void{
+
+		$message = $this->requestFactory
+			->createRequest('GET', 'https://example.com')
+			->withBody($this->streamFactory->createStream($content))
+		;
+
+		$message = MessageUtil::setContentTypeHeader($message, $filename, $extension);
+
+		$this::assertTrue($message->hasHeader('content-type'));
+		$this::assertSame($expectedMIME, $message->getHeaderLine('content-type'));
 	}
 
 }
