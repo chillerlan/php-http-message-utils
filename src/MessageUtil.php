@@ -139,7 +139,7 @@ final class MessageUtil{
 	public static function setContentLengthHeader(MessageInterface $message):MessageInterface{
 		$bodySize = $message->getBody()->getSize();
 
-		if(!$message->hasHeader('Content-Length') && $bodySize !== null){
+		if(!$message->hasHeader('Content-Length') && $bodySize !== null && $bodySize > 0){
 			$message = $message->withHeader('Content-Length', (string)$bodySize);
 		}
 

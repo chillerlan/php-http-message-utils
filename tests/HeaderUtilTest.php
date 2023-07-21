@@ -33,6 +33,8 @@ class HeaderUtilTest extends TestCase{
 			'arrayvalue'    => [['foo' => ['bar', 'baz']], ['Foo' => 'bar, baz']],
 			'invalid: 2'    => [[2 => 2], []],
 			'invalid: what' => [['what'], []],
+			'empty value'   => [['empty-value' => ''], ['Empty-Value' => '']],
+			'null value'    => [['null-value' => null], ['Null-Value' => '']],
 		];
 	}
 
