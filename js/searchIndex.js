@@ -28,7 +28,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\MessageUtil\u003A\u003AgetContents\u0028\u0029",
             "name": "getContents",
-            "summary": "Read\u0020the\u0020message\u0020body\u0027s\u0020content\u0020and\u0020make\u0020sure\u0020we\u0020rewind",
+            "summary": "Read\u0020the\u0020message\u0020body\u0027s\u0020content",
             "url": "classes/chillerlan-HTTP-Utils-MessageUtil.html#method_getContents"
         },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\MessageUtil\u003A\u003AdecodeJSON\u0028\u0029",
@@ -60,6 +60,11 @@ Search.appendIndex(
             "name": "setContentLengthHeader",
             "summary": "Sets\u0020a\u0020Content\u002DLength\u0020header\u0020in\u0020the\u0020given\u0020message\u0020in\u0020case\u0020it\u0020does\u0020not\u0020exist\u0020and\u0020body\u0020size\u0020is\u0020not\u0020null",
             "url": "classes/chillerlan-HTTP-Utils-MessageUtil.html#method_setContentLengthHeader"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\MessageUtil\u003A\u003AsetContentTypeHeader\u0028\u0029",
+            "name": "setContentTypeHeader",
+            "summary": "Tries\u0020to\u0020determine\u0020the\u0020content\u0020type\u0020from\u0020the\u0020given\u0020values\u0020and\u0020sets\u0020the\u0020Content\u002DType\u0020header\u0020accordingly,\nthrows\u0020if\u0020no\u0020mime\u0020type\u0020could\u0020be\u0020guessed.",
+            "url": "classes/chillerlan-HTTP-Utils-MessageUtil.html#method_setContentTypeHeader"
         },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\MimeTypeUtil",
             "name": "MimeTypeUtil",
@@ -200,6 +205,16 @@ Search.appendIndex(
             "name": "streamFactory",
             "summary": "",
             "url": "classes/chillerlan-HTTP-Utils-ServerUtil.html#property_streamFactory"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\StreamUtil",
+            "name": "StreamUtil",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-StreamUtil.html"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\StreamUtil\u003A\u003AgetContents\u0028\u0029",
+            "name": "getContents",
+            "summary": "Reads\u0020the\u0020content\u0020from\u0020a\u0020stream\u0020and\u0020make\u0020sure\u0020we\u0020rewind",
+            "url": "classes/chillerlan-HTTP-Utils-StreamUtil.html#method_getContents"
         },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\UriUtil",
             "name": "UriUtil",
@@ -380,6 +395,16 @@ Search.appendIndex(
             "name": "testSetContentLengthHeader",
             "summary": "",
             "url": "classes/chillerlan-HTTPTest-Utils-MessageUtilTest.html#method_testSetContentLengthHeader"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageUtilTest\u003A\u003AcontentTypeProvider\u0028\u0029",
+            "name": "contentTypeProvider",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-MessageUtilTest.html#method_contentTypeProvider"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageUtilTest\u003A\u003AtestSetContentTypeHeader\u0028\u0029",
+            "name": "testSetContentTypeHeader",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-MessageUtilTest.html#method_testSetContentTypeHeader"
         },                {
             "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MimeTypeUtilTest",
             "name": "MimeTypeUtilTest",
