@@ -13,7 +13,7 @@ namespace chillerlan\HTTP\Utils;
 use Psr\Http\Message\{MessageInterface, RequestInterface, ResponseInterface};
 use RuntimeException, Throwable;
 use function call_user_func, extension_loaded, function_exists, gzdecode, gzinflate, gzuncompress, implode,
-	in_array, json_decode, json_encode, simplexml_load_string, sprintf, strtolower, trim;
+	in_array, json_decode, json_encode, simplexml_load_string, sprintf, strtolower;
 use const JSON_THROW_ON_ERROR;
 
 /**
