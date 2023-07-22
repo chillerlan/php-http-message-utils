@@ -118,12 +118,12 @@ final class ServerUtil{
 	/**
 	 * Returns an UploadedFile instance array.
 	 *
-	 * @param array $files An array which respect $_FILES structure
+	 * @param iterable $files An array which respects $_FILES structure
 	 *
 	 * @return \Psr\Http\Message\UploadedFileInterface[]
 	 * @throws \InvalidArgumentException for unrecognized values
 	 */
-	public function normalizeFiles(array $files):array{
+	public function normalizeFiles(iterable $files):array{
 		$normalized = [];
 
 		foreach($files as $key => $value){

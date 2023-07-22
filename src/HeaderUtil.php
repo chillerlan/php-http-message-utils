@@ -23,7 +23,7 @@ class HeaderUtil{
 	 * An exception is being made for Set-Cookie, which holds an array of values for each cookie.
 	 * For multiple cookies with the same name, only the last value will be kept.
 	 */
-	public static function normalize(array $headers):array{
+	public static function normalize(iterable $headers):array{
 		$normalized = [];
 
 		foreach($headers as $key => $val){
@@ -98,8 +98,13 @@ class HeaderUtil{
 	 *
 	 * @see https://tools.ietf.org/html/rfc7230#section-3.2.4
 	 */
-	public static function trimValues(array $values):array{
-		return array_map(fn(string $value):string => trim($value, " \t"), $values);
+	public static function trimValues(iterable $values):iterable{
+
+		foreach($values as &$value){
+			$value = trim($value, " \t");
+		}
+
+		return $values;
 	}
 
 	/**
