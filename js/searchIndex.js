@@ -216,6 +216,21 @@ Search.appendIndex(
             "summary": "Reads\u0020the\u0020content\u0020from\u0020a\u0020stream\u0020and\u0020make\u0020sure\u0020we\u0020rewind",
             "url": "classes/chillerlan-HTTP-Utils-StreamUtil.html#method_getContents"
         },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\StreamUtil\u003A\u003AMODES_READ_WRITE",
+            "name": "MODES_READ_WRITE",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-StreamUtil.html#constant_MODES_READ_WRITE"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\StreamUtil\u003A\u003AMODES_READ",
+            "name": "MODES_READ",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-StreamUtil.html#constant_MODES_READ"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\StreamUtil\u003A\u003AMODES_WRITE",
+            "name": "MODES_WRITE",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-StreamUtil.html#constant_MODES_WRITE"
+        },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\UriUtil",
             "name": "UriUtil",
             "summary": "",
