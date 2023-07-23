@@ -17,6 +17,10 @@ use Psr\Http\Message\StreamInterface;
  */
 class StreamUtil{
 
+	public const MODES_READ_WRITE = ['a+', 'c+', 'c+b', 'c+t', 'r+' , 'r+b', 'r+t', 'w+' , 'w+b', 'w+t', 'x+' , 'x+b', 'x+t'];
+	public const MODES_READ       = [...self::MODES_READ_WRITE, 'r', 'rb', 'rt'];
+	public const MODES_WRITE      = [...self::MODES_READ_WRITE, 'a', 'rw', 'w', 'wb'];
+
 	/**
 	 * Reads the content from a stream and make sure we rewind
 	 */
