@@ -12,6 +12,7 @@ namespace chillerlan\HTTP\Utils;
 
 use InvalidArgumentException;
 use Psr\Http\Message\StreamInterface;
+use Throwable;
 use function in_array;
 use function preg_match;
 use function str_contains;
@@ -99,17 +100,27 @@ final class StreamUtil{
 
 	/**
 	 * Reads the content from a stream and make sure we rewind
+	 *
+	 * Returns the stream content as a string, null if an error occurs, e.g. the StreamInterface throws.
 	 */
-	public static function getContents(StreamInterface $stream):string{
+	public static function getContents(StreamInterface $stream):?string{
 
 		// rewind before read...
 		if($stream->isSeekable()){
 			$stream->rewind();
 		}
 
-		$data = $stream->isReadable()
-			? $stream->getContents()
-			: $stream->__toString();
+		try{
+			$data = $stream->isReadable()
+				// stream is readable - great!
+				? $stream->getContents()
+				// try the __toString() method
+				// there's a chance the stream is implemented in such a way (might throw)
+				: $stream->__toString(); // @codeCoverageIgnore
+		}
+		catch(Throwable $e){
+			return null;
+		}
 
 		// ...and after
 		if($stream->isSeekable()){
