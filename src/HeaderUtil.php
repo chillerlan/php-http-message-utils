@@ -108,10 +108,17 @@ class HeaderUtil{
 	}
 
 	/**
-	 * Normalizes a header name, e.g. "conTENT- lenGTh" -> "Content-Length"
+	 * Normalizes a header name, e.g. "con TENT- lenGTh" -> "Content-Length"
 	 */
 	public static function normalizeHeaderName(string $name):string{
-		return implode('-', array_map(fn(string $v):string => ucfirst(strtolower(trim($v))), explode('-', $name)));
+		$parts = explode('-', $name);
+
+		foreach($parts as &$part){
+			// we'll remove any spaces in the name part, e.g. "con tent" -> "content"
+			$part = ucfirst(strtolower(str_replace(' ', '', trim($part))));
+		}
+
+		return implode('-', $parts);
 	}
 
 }

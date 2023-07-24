@@ -35,6 +35,7 @@ class HeaderUtilTest extends TestCase{
 			'invalid: what' => [['what'], []],
 			'empty value'   => [['empty-value' => ''], ['Empty-Value' => '']],
 			'null value'    => [['null-value' => null], ['Null-Value' => '']],
+			'space in name' => [['space name - header' => 'nope'], ['Spacename-Header' => 'nope']],
 		];
 	}
 
