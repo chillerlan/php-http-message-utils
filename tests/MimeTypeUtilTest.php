@@ -27,6 +27,7 @@ class MimeTypeUtilTest extends TestCase{
 	public function testGetMimeTypeFromFileName():void{
 		$this::assertNull(MimeTypeUtil::getFromFilename(''));
 		$this::assertSame('application/json', MimeTypeUtil::getFromFilename('/path/to/some/file.json'));
+		$this::assertSame('application/x-httpd-php', MimeTypeUtil::getFromFilename(__FILE__));
 	}
 
 	public function testGetMimeTypeFromContent():void{
