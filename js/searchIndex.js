@@ -28,7 +28,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\MessageUtil\u003A\u003AgetContents\u0028\u0029",
             "name": "getContents",
-            "summary": "Read\u0020the\u0020message\u0020body\u0027s\u0020content",
+            "summary": "Read\u0020the\u0020message\u0020body\u0027s\u0020content,\u0020throws\u0020if\u0020the\u0020content\u0020could\u0020not\u0020be\u0020read\u0020from\u0020the\u0020message\u0020body",
             "url": "classes/chillerlan-HTTP-Utils-MessageUtil.html#method_getContents"
         },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\MessageUtil\u003A\u003AdecodeJSON\u0028\u0029",
