@@ -13,11 +13,12 @@ namespace chillerlan\HTTPTest\Utils;
 use chillerlan\HTTP\Utils\StreamUtil;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
+use RuntimeException;
 use function fclose;
 use function fopen;
 use function stream_get_meta_data;
+use function strlen;
 use function substr;
-use function var_dump;
 
 /**
  *
@@ -83,6 +84,57 @@ class StreamUtilTest extends TestCase{
 
 		$this::assertFalse($stream->isReadable());
 		$this::assertNull(StreamUtil::getContents($stream));
+	}
+
+	public function testCopyToStream():void{
+		$content = 'teststream';
+
+		$streamA = $this->streamFactory->createStream($content);
+		$streamB = $this->streamFactory->createStream();
+
+		$bytesRead = StreamUtil::copyToStream($streamA, $streamB);
+
+		$this::assertSame(strlen($content), $bytesRead);
+		$this::assertSame($content, (string)$streamB); // -> "teststream"
+	}
+
+	public function testCopyToStreamWithMaxlength():void{
+		$content   = 'teststream';
+		$maxlength = 4;
+
+		$streamA   = $this->streamFactory->createStream($content);
+		$streamB   = $this->streamFactory->createStream();
+
+		$bytesRead = StreamUtil::copyToStream($streamA, $streamB, $maxlength);
+
+		$this::assertSame($maxlength, $bytesRead);
+		$this::assertSame(substr($content, 0, $maxlength), (string)$streamB); // -> "test"
+	}
+
+	public function testCopyToStreamFromCurrentPosition():void{
+		$content  = 'teststream';
+		$position = 4;
+
+		$streamA  = $this->streamFactory->createStream($content);
+		$streamB  = $this->streamFactory->createStream();
+
+		$streamA->seek($position);
+		$pos = $streamA->tell();
+
+		$bytesRead = StreamUtil::copyToStream($streamA, $streamB);
+
+		$this::assertSame((strlen($content) - $pos), $bytesRead);
+		$this::assertSame(substr($content, $position), (string)$streamB); // -> "stream"
+	}
+
+	public function testCopyToStreamException():void{
+		$this->expectException(RuntimeException::class);
+		$this->expectExceptionMessage('$source must be readable and $destination must be writable');
+
+		$streamA = $this->streamFactory->createStreamFromResource(fopen(__DIR__.'/fopen-test.txt', 'a'));
+		$streamB = $this->streamFactory->createStream();
+
+		StreamUtil::copyToStream($streamA, $streamB);
 	}
 
 }

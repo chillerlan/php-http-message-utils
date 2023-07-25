@@ -12,10 +12,13 @@ namespace chillerlan\HTTP\Utils;
 
 use InvalidArgumentException;
 use Psr\Http\Message\StreamInterface;
+use RuntimeException;
 use Throwable;
 use function in_array;
+use function min;
 use function preg_match;
 use function str_contains;
+use function strlen;
 use function substr;
 
 /**
@@ -128,6 +131,39 @@ final class StreamUtil{
 		}
 
 		return $data;
+	}
+
+	/**
+	 * Copies a stream to another stream, starting from the current position of the source stream,
+	 * reading to the end or until the given maxlength is hit.
+	 *
+	 * Throws if the source is not readable or the destination not writable.
+	 *
+	 * @throws \RuntimeException
+	 */
+	public static function copyToStream(StreamInterface $source, StreamInterface $destination, int $maxLength = null):int{
+
+		if(!$source->isReadable() || !$destination->isWritable()){
+			throw new RuntimeException('$source must be readable and $destination must be writable');
+		}
+
+		$remaining = ($maxLength ?? ($source->getSize() - $source->tell()));
+		$bytesRead = 0;
+
+		while($remaining > 0 && !$source->eof()){
+			$chunk      = $source->read(min(8192, $remaining));
+			$length     = strlen($chunk);
+			$bytesRead += $length;
+
+			if($length === 0){
+				break;
+			}
+
+			$remaining -= $length;
+			$destination->write($chunk);
+		}
+
+		return $bytesRead;
 	}
 
 }
