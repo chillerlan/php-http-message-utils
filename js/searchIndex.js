@@ -18,7 +18,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\HeaderUtil\u003A\u003AnormalizeHeaderName\u0028\u0029",
             "name": "normalizeHeaderName",
-            "summary": "Normalizes\u0020a\u0020header\u0020name,\u0020e.g.\u0020\u0022conTENT\u002D\u0020lenGTh\u0022\u0020\u002D\u003E\u0020\u0022Content\u002DLength\u0022",
+            "summary": "Normalizes\u0020a\u0020header\u0020name,\u0020e.g.\u0020\u0022con\u0020TENT\u002D\u0020lenGTh\u0022\u0020\u002D\u003E\u0020\u0022Content\u002DLength\u0022",
             "url": "classes/chillerlan-HTTP-Utils-HeaderUtil.html#method_normalizeHeaderName"
         },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\MessageUtil",
@@ -211,25 +211,55 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-HTTP-Utils-StreamUtil.html"
         },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\StreamUtil\u003A\u003AmodeAllowsReadWrite\u0028\u0029",
+            "name": "modeAllowsReadWrite",
+            "summary": "Checks\u0020whether\u0020the\u0020given\u0020mode\u0020allows\u0020reading\u0020and\u0020writing",
+            "url": "classes/chillerlan-HTTP-Utils-StreamUtil.html#method_modeAllowsReadWrite"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\StreamUtil\u003A\u003AmodeAllowsReadOnly\u0028\u0029",
+            "name": "modeAllowsReadOnly",
+            "summary": "Checks\u0020whether\u0020the\u0020given\u0020mode\u0020allows\u0020only\u0020reading",
+            "url": "classes/chillerlan-HTTP-Utils-StreamUtil.html#method_modeAllowsReadOnly"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\StreamUtil\u003A\u003AmodeAllowsWriteOnly\u0028\u0029",
+            "name": "modeAllowsWriteOnly",
+            "summary": "Checks\u0020whether\u0020the\u0020given\u0020mode\u0020allows\u0020only\u0020writing",
+            "url": "classes/chillerlan-HTTP-Utils-StreamUtil.html#method_modeAllowsWriteOnly"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\StreamUtil\u003A\u003AmodeAllowsRead\u0028\u0029",
+            "name": "modeAllowsRead",
+            "summary": "Checks\u0020whether\u0020the\u0020given\u0020mode\u0020allows\u0020reading",
+            "url": "classes/chillerlan-HTTP-Utils-StreamUtil.html#method_modeAllowsRead"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\StreamUtil\u003A\u003AmodeAllowsWrite\u0028\u0029",
+            "name": "modeAllowsWrite",
+            "summary": "Checks\u0020whether\u0020the\u0020given\u0020mode\u0020allows\u0020writing",
+            "url": "classes/chillerlan-HTTP-Utils-StreamUtil.html#method_modeAllowsWrite"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\StreamUtil\u003A\u003AvalidateMode\u0028\u0029",
+            "name": "validateMode",
+            "summary": "Checks\u0020if\u0020the\u0020given\u0020mode\u0020is\u0020valid\u0020for\u0020fopen\u0028\u0029.",
+            "url": "classes/chillerlan-HTTP-Utils-StreamUtil.html#method_validateMode"
+        },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\StreamUtil\u003A\u003AgetContents\u0028\u0029",
             "name": "getContents",
             "summary": "Reads\u0020the\u0020content\u0020from\u0020a\u0020stream\u0020and\u0020make\u0020sure\u0020we\u0020rewind",
             "url": "classes/chillerlan-HTTP-Utils-StreamUtil.html#method_getContents"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\StreamUtil\u003A\u003AMODES_READ_WRITE",
-            "name": "MODES_READ_WRITE",
-            "summary": "",
-            "url": "classes/chillerlan-HTTP-Utils-StreamUtil.html#constant_MODES_READ_WRITE"
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\StreamUtil\u003A\u003AcopyToStream\u0028\u0029",
+            "name": "copyToStream",
+            "summary": "Copies\u0020a\u0020stream\u0020to\u0020another\u0020stream,\u0020starting\u0020from\u0020the\u0020current\u0020position\u0020of\u0020the\u0020source\u0020stream,\nreading\u0020to\u0020the\u0020end\u0020or\u0020until\u0020the\u0020given\u0020maxlength\u0020is\u0020hit.",
+            "url": "classes/chillerlan-HTTP-Utils-StreamUtil.html#method_copyToStream"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\StreamUtil\u003A\u003AMODES_READ",
-            "name": "MODES_READ",
-            "summary": "",
-            "url": "classes/chillerlan-HTTP-Utils-StreamUtil.html#constant_MODES_READ"
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\StreamUtil\u003A\u003AtryFopen\u0028\u0029",
+            "name": "tryFopen",
+            "summary": "Safely\u0020open\u0020a\u0020PHP\u0020resource,\u0020throws\u0020instead\u0020of\u0020raising\u0020warnings\u0020and\u0020errors",
+            "url": "classes/chillerlan-HTTP-Utils-StreamUtil.html#method_tryFopen"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\StreamUtil\u003A\u003AMODES_WRITE",
-            "name": "MODES_WRITE",
-            "summary": "",
-            "url": "classes/chillerlan-HTTP-Utils-StreamUtil.html#constant_MODES_WRITE"
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\StreamUtil\u003A\u003AtryGetContents\u0028\u0029",
+            "name": "tryGetContents",
+            "summary": "Safely\u0020get\u0020the\u0020contents\u0020of\u0020a\u0020stream\u0020resource,\u0020throws\u0020instead\u0020of\u0020raising\u0020warnings\u0020and\u0020errors",
+            "url": "classes/chillerlan-HTTP-Utils-StreamUtil.html#method_tryGetContents"
         },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\UriUtil",
             "name": "UriUtil",
@@ -580,6 +610,106 @@ Search.appendIndex(
             "name": "testNormalizeFilesInvalidValueException",
             "summary": "",
             "url": "classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#method_testNormalizeFilesInvalidValueException"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\StreamUtilTest",
+            "name": "StreamUtilTest",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-StreamUtilTest.html"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\StreamUtilTest\u003A\u003AtestModeAllowsRead\u0028\u0029",
+            "name": "testModeAllowsRead",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-StreamUtilTest.html#method_testModeAllowsRead"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\StreamUtilTest\u003A\u003AtestModeAllowsReadOnly\u0028\u0029",
+            "name": "testModeAllowsReadOnly",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-StreamUtilTest.html#method_testModeAllowsReadOnly"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\StreamUtilTest\u003A\u003AtestModeAllowsWrite\u0028\u0029",
+            "name": "testModeAllowsWrite",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-StreamUtilTest.html#method_testModeAllowsWrite"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\StreamUtilTest\u003A\u003AtestModeAllowsWriteOnly\u0028\u0029",
+            "name": "testModeAllowsWriteOnly",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-StreamUtilTest.html#method_testModeAllowsWriteOnly"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\StreamUtilTest\u003A\u003AtestModeAllowsReadWrite\u0028\u0029",
+            "name": "testModeAllowsReadWrite",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-StreamUtilTest.html#method_testModeAllowsReadWrite"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\StreamUtilTest\u003A\u003AtestCheckModeIsValidThrows\u0028\u0029",
+            "name": "testCheckModeIsValidThrows",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-StreamUtilTest.html#method_testCheckModeIsValidThrows"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\StreamUtilTest\u003A\u003AtestModeAllowedFlagPositionIrrelevant\u0028\u0029",
+            "name": "testModeAllowedFlagPositionIrrelevant",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-StreamUtilTest.html#method_testModeAllowedFlagPositionIrrelevant"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\StreamUtilTest\u003A\u003AtestGetContentsRewindsStream\u0028\u0029",
+            "name": "testGetContentsRewindsStream",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-StreamUtilTest.html#method_testGetContentsRewindsStream"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\StreamUtilTest\u003A\u003AtestGetContentsFromUnreadableStream\u0028\u0029",
+            "name": "testGetContentsFromUnreadableStream",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-StreamUtilTest.html#method_testGetContentsFromUnreadableStream"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\StreamUtilTest\u003A\u003AtestCopyToStream\u0028\u0029",
+            "name": "testCopyToStream",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-StreamUtilTest.html#method_testCopyToStream"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\StreamUtilTest\u003A\u003AtestCopyToStreamWithMaxlength\u0028\u0029",
+            "name": "testCopyToStreamWithMaxlength",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-StreamUtilTest.html#method_testCopyToStreamWithMaxlength"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\StreamUtilTest\u003A\u003AtestCopyToStreamFromCurrentPosition\u0028\u0029",
+            "name": "testCopyToStreamFromCurrentPosition",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-StreamUtilTest.html#method_testCopyToStreamFromCurrentPosition"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\StreamUtilTest\u003A\u003AtestCopyToStreamException\u0028\u0029",
+            "name": "testCopyToStreamException",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-StreamUtilTest.html#method_testCopyToStreamException"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\StreamUtilTest\u003A\u003AtestTryFopen\u0028\u0029",
+            "name": "testTryFopen",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-StreamUtilTest.html#method_testTryFopen"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\StreamUtilTest\u003A\u003AtestTryFopenThrowsExceptionInsteadOfWarning\u0028\u0029",
+            "name": "testTryFopenThrowsExceptionInsteadOfWarning",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-StreamUtilTest.html#method_testTryFopenThrowsExceptionInsteadOfWarning"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\StreamUtilTest\u003A\u003AtestTryFopenThrowsExceptionInsteadOfValueError\u0028\u0029",
+            "name": "testTryFopenThrowsExceptionInsteadOfValueError",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-StreamUtilTest.html#method_testTryFopenThrowsExceptionInsteadOfValueError"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\StreamUtilTest\u003A\u003AtestTryGetContents\u0028\u0029",
+            "name": "testTryGetContents",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-StreamUtilTest.html#method_testTryGetContents"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\StreamUtilTest\u003A\u003AtestTryGetContentsThrowsExceptionOnUnreadableResource\u0028\u0029",
+            "name": "testTryGetContentsThrowsExceptionOnUnreadableResource",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-StreamUtilTest.html#method_testTryGetContentsThrowsExceptionOnUnreadableResource"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\StreamUtilTest\u003A\u003AtestTryGetContentsThrowsExceptionOnInvalidResource\u0028\u0029",
+            "name": "testTryGetContentsThrowsExceptionOnInvalidResource",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-StreamUtilTest.html#method_testTryGetContentsThrowsExceptionOnInvalidResource"
         },                {
             "fqsen": "\\chillerlan\\HTTPTest\\Utils\\UriUtilTest",
             "name": "UriUtilTest",
