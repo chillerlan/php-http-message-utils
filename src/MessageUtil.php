@@ -22,10 +22,18 @@ use const JSON_THROW_ON_ERROR;
 final class MessageUtil{
 
 	/**
-	 * Read the message body's content
+	 * Read the message body's content, throws if the content could not be read from the message body
+	 *
+	 * @throws \RuntimeException
 	 */
 	public static function getContents(MessageInterface $message):string{
-		return StreamUtil::getContents($message->getBody());
+		$content = StreamUtil::getContents($message->getBody());
+
+		if($content === null){
+			throw new RuntimeException('invalid message content');
+		}
+
+		return $content;
 	}
 
 	/**

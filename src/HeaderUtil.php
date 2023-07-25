@@ -10,7 +10,7 @@
 
 namespace chillerlan\HTTP\Utils;
 
-use function array_keys, array_map, array_values, count, explode, implode,
+use function array_keys, array_values, count, explode, implode,
 	is_array, is_numeric, is_string, strtolower, trim, ucfirst;
 
 /**
