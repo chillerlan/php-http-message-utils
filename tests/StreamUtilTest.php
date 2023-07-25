@@ -62,11 +62,11 @@ class StreamUtilTest extends TestCase{
 		$mode = 'rwarrrrrw++++b12345';
 		$this::assertTrue(StreamUtil::modeAllowsRead($mode));
 
-		$fh = fopen(__DIR__.'/fopen-test.txt', $mode);
-		$meta = stream_get_meta_data($fh);
+		$resource = fopen(__DIR__.'/fopen-test.txt', $mode);
+		$meta     = stream_get_meta_data($resource);
 
 		$this::assertSame(substr($mode, 0, 15), $meta['mode']);
-		fclose($fh);
+		fclose($resource);
 	}
 
 	public function testGetContentsRewindsStream():void{
@@ -80,7 +80,8 @@ class StreamUtilTest extends TestCase{
 	}
 
 	public function testGetContentsFromUnreadableStream():void{
-		$stream = $this->streamFactory->createStreamFromResource(fopen(__DIR__.'/fopen-test.txt', 'a'));
+		$resource = fopen(__DIR__.'/fopen-test.txt', 'a');
+		$stream   = $this->streamFactory->createStreamFromResource($resource);
 
 		$this::assertFalse($stream->isReadable());
 		$this::assertNull(StreamUtil::getContents($stream));
@@ -131,10 +132,58 @@ class StreamUtilTest extends TestCase{
 		$this->expectException(RuntimeException::class);
 		$this->expectExceptionMessage('$source must be readable and $destination must be writable');
 
-		$streamA = $this->streamFactory->createStreamFromResource(fopen(__DIR__.'/fopen-test.txt', 'a'));
-		$streamB = $this->streamFactory->createStream();
+		$resource = fopen(__DIR__.'/fopen-test.txt', 'a');
+		$streamA  = $this->streamFactory->createStreamFromResource($resource);
+		$streamB  = $this->streamFactory->createStream();
 
 		StreamUtil::copyToStream($streamA, $streamB);
+	}
+
+	public function testTryFopen():void{
+		$resource = StreamUtil::tryFopen(__DIR__.'/fopen-test.txt', 'r');
+
+		$this::assertIsResource($resource);
+
+		fclose($resource);
+	}
+
+	public function testTryFopenThrowsExceptionInsteadOfWarning():void{
+		$this->expectException(RuntimeException::class);
+		$this->expectExceptionMessage('Unable to open "/path/not/found" using mode "r": fopen(/path/not/found)');
+
+		StreamUtil::tryFopen('/path/not/found', 'r');
+	}
+
+	public function testTryFopenThrowsExceptionInsteadOfValueError():void{
+		$this->expectException(RuntimeException::class);
+		$this->expectExceptionMessage('Unable to open "" using mode "r": Path cannot be empty');
+
+		StreamUtil::tryFopen('', 'r');
+	}
+
+	public function testTryGetContents():void{
+		$resource = StreamUtil::tryFopen(__DIR__.'/fopen-test.txt', 'r');
+
+		$this::assertStringContainsString('foo', StreamUtil::tryGetContents($resource));
+	}
+
+	public function testTryGetContentsThrowsExceptionOnUnreadableResource():void{
+		$this->expectException(RuntimeException::class);
+		$this->expectExceptionMessage('Unable to read stream contents:');
+
+		$resource = StreamUtil::tryFopen(__DIR__.'/fopen-test.txt', 'a');
+
+		StreamUtil::tryGetContents($resource);
+	}
+
+	public function testTryGetContentsThrowsExceptionOnInvalidResource():void{
+		$this->expectException(RuntimeException::class);
+		$this->expectExceptionMessage('supplied resource is not a valid stream resource');
+
+		$resource = StreamUtil::tryFopen(__DIR__.'/fopen-test.txt', 'r');
+		fclose($resource);
+
+		StreamUtil::tryGetContents($resource);
 	}
 
 }

@@ -14,10 +14,15 @@ use InvalidArgumentException;
 use Psr\Http\Message\StreamInterface;
 use RuntimeException;
 use Throwable;
+use function fopen;
 use function in_array;
 use function min;
 use function preg_match;
+use function restore_error_handler;
+use function set_error_handler;
+use function sprintf;
 use function str_contains;
+use function stream_get_contents;
 use function strlen;
 use function substr;
 
@@ -139,6 +144,8 @@ final class StreamUtil{
 	 *
 	 * Throws if the source is not readable or the destination not writable.
 	 *
+	 * @see https://github.com/guzzle/psr7/blob/815698d9f11c908bc59471d11f642264b533346a/src/Utils.php#L36-L69
+	 *
 	 * @throws \RuntimeException
 	 */
 	public static function copyToStream(StreamInterface $source, StreamInterface $destination, int $maxLength = null):int{
@@ -164,6 +171,90 @@ final class StreamUtil{
 		}
 
 		return $bytesRead;
+	}
+
+	/**
+	 * Safely open a PHP resource, throws instead of raising warnings and errors
+	 *
+	 * @see https://github.com/guzzle/psr7/blob/815698d9f11c908bc59471d11f642264b533346a/src/Utils.php#L344-L391
+	 *
+	 * @param string        $filename
+	 * @param string        $mode
+	 * @param resource|null $context
+	 *
+	 * @return resource
+	 * @throws \RuntimeException
+	 */
+	public static function tryFopen(string $filename, string $mode, $context = null){
+		$exception    = null;
+		$message      = 'Unable to open "%s" using mode "%s": %s';
+
+		$errorHandler = function(int $errno, string $errstr) use ($filename, $mode, &$exception, $message):bool{
+			$exception = new RuntimeException(sprintf($message, $filename, $mode, $errstr));
+
+			return true;
+		};
+
+		set_error_handler($errorHandler);
+
+		try{
+			/** @var resource $handle */
+			$handle = fopen(filename: $filename, mode: $mode, context: $context);
+		}
+		catch(Throwable $e){
+			$exception = new RuntimeException(message: sprintf($message, $filename, $mode, $e->getMessage()), previous: $e);
+		}
+
+		restore_error_handler();
+
+		if($exception !== null){
+			throw $exception;
+		}
+
+		return $handle;
+	}
+
+	/**
+	 * Safely get the contents of a stream resource, throws instead of raising warnings and errors
+	 *
+	 * @see https://github.com/guzzle/psr7/blob/815698d9f11c908bc59471d11f642264b533346a/src/Utils.php#L393-L438
+	 *
+	 * @param resource $stream
+	 * @param int|null $length
+	 * @param int      $offset
+	 *
+	 * @return string
+	 * @throws \RuntimeException
+	 */
+	public static function tryGetContents($stream, int $length = null, int $offset = -1):string{
+		$exception = null;
+		$message   = 'Unable to read stream contents: %s';
+
+		$errorHandler = function(int $errno, string $errstr) use (&$exception, $message):bool{
+			$exception = new RuntimeException(sprintf($message, $errstr));
+
+			return true;
+		};
+
+		set_error_handler($errorHandler);
+
+		try{
+			$contents = stream_get_contents($stream, $length, $offset);
+
+			if($contents === false){
+				$exception = new RuntimeException(sprintf($message, '(returned false)'));
+			}
+
+		}
+		catch(Throwable $e){
+			$exception = new RuntimeException(message: sprintf($message, $e->getMessage()), previous: $e);
+		}
+
+		if($exception !== null){
+			throw $exception;
+		}
+
+		return $contents;
 	}
 
 }
