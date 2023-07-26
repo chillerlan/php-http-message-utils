@@ -186,8 +186,9 @@ final class StreamUtil{
 	 * @throws \RuntimeException
 	 */
 	public static function tryFopen(string $filename, string $mode, $context = null){
-		$exception    = null;
-		$message      = 'Unable to open "%s" using mode "%s": %s';
+		$mode      = self::validateMode($mode);
+		$exception = null;
+		$message   = 'Unable to open "%s" using mode "%s": %s';
 
 		$errorHandler = function(int $errno, string $errstr) use ($filename, $mode, &$exception, $message):bool{
 			$exception = new RuntimeException(sprintf($message, $filename, $mode, $errstr));
