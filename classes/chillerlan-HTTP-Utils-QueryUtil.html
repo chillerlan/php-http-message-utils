@@ -199,13 +199,6 @@
 <dd>Parses a query string into an associative array.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTP-Utils-QueryUtil.html#method_parseUrl">parseUrl()</a>
-    <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
-</dt>
-<dd>UTF-8 aware \parse_url() replacement.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-HTTP-Utils-QueryUtil.html#method_recursiveRawurlencode">recursiveRawurlencode()</a>
     <span>
                                 &nbsp;: string|array&lt;string|int, string&gt;    </span>
@@ -658,92 +651,6 @@ BOOLEANS_AS_INT_STRING: &quot;0&quot;/&quot;1&quot;</p>
             -public
                                     -static                    "
 >
-    <h4 class="phpdocumentor-element__name" id="method_parseUrl">
-        parseUrl()
-        <a href="classes/chillerlan-HTTP-Utils-QueryUtil.html#method_parseUrl" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/QueryUtil.php"><a href="files/src-queryutil.html"><abbr title="src/QueryUtil.php">QueryUtil.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">239</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">UTF-8 aware \parse_url() replacement.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">parseUrl</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$url</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
-
-        <section class="phpdocumentor-description"><p>The internal function produces broken output for non ASCII domain names
-(IDN) when used with locales other than &quot;C&quot;.</p>
-<p>On the other hand, cURL understands IDN correctly only when UTF-8 locale
-is configured (&quot;C.UTF-8&quot;, &quot;en_US.UTF-8&quot;, etc.).</p>
-</section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$url</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="https://bugs.php.net/bug.php?id=52923"><abbr title="https://bugs.php.net/bug.php?id=52923">https://bugs.php.net/bug.php?id=52923</abbr></a></span>
-                                        
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="https://www.php.net/manual/en/function.parse-url.php#114817"><abbr title="https://www.php.net/manual/en/function.parse-url.php#114817">https://www.php.net/manual/en/function.parse-url.php#114817</abbr></a></span>
-                                        
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="https://curl.haxx.se/libcurl/c/CURLOPT_URL.html#ENCODING"><abbr title="https://curl.haxx.se/libcurl/c/CURLOPT_URL.html#ENCODING">https://curl.haxx.se/libcurl/c/CURLOPT_URL.html#ENCODING</abbr></a></span>
-                                        
-                                             
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">link</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                                        <a class="phpdocumentor-tag-link" href="https://github.com/guzzle/psr7/blob/c0dcda9f54d145bd4d062a6d15f54931a67732f9/src/Uri.php#L89-L130"> https://github.com/guzzle/psr7/blob/c0dcda9f54d145bd4d062a6d15f54931a67732f9/src/Uri.php#L89-L130 </a>
-                    
-                                    </dd>
-                        </dl>
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                    -static                    "
->
     <h4 class="phpdocumentor-element__name" id="method_recursiveRawurlencode">
         recursiveRawurlencode()
         <a href="classes/chillerlan-HTTP-Utils-QueryUtil.html#method_recursiveRawurlencode" class="headerlink"><i class="fas fa-link"></i></a>
@@ -751,7 +658,7 @@ is configured (&quot;C.UTF-8&quot;, &quot;en_US.UTF-8&quot;, etc.).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/QueryUtil.php"><a href="files/src-queryutil.html"><abbr title="src/QueryUtil.php">QueryUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">265</span>
+    <span class="phpdocumentor-element-found-in__line">230</span>
 
     </aside>
 

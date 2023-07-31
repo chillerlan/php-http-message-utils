@@ -116,11 +116,6 @@ Search.appendIndex(
             "summary": "Parses\u0020a\u0020query\u0020string\u0020into\u0020an\u0020associative\u0020array.",
             "url": "classes/chillerlan-HTTP-Utils-QueryUtil.html#method_parse"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\QueryUtil\u003A\u003AparseUrl\u0028\u0029",
-            "name": "parseUrl",
-            "summary": "UTF\u002D8\u0020aware\u0020\\parse_url\u0028\u0029\u0020replacement.",
-            "url": "classes/chillerlan-HTTP-Utils-QueryUtil.html#method_parseUrl"
-        },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\QueryUtil\u003A\u003ArecursiveRawurlencode\u0028\u0029",
             "name": "recursiveRawurlencode",
             "summary": "Recursive\u0020rawurlencode",
@@ -300,6 +295,11 @@ Search.appendIndex(
             "name": "withQueryValue",
             "summary": "Adds\u0020a\u0020specific\u0020query\u0020string\u0020value.",
             "url": "classes/chillerlan-HTTP-Utils-UriUtil.html#method_withQueryValue"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\UriUtil\u003A\u003AparseUrl\u0028\u0029",
+            "name": "parseUrl",
+            "summary": "UTF\u002D8\u0020aware\u0020\\parse_url\u0028\u0029\u0020replacement.",
+            "url": "classes/chillerlan-HTTP-Utils-UriUtil.html#method_parseUrl"
         },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\UriUtil\u003A\u003AURI_DEFAULT_PORTS",
             "name": "URI_DEFAULT_PORTS",
@@ -556,16 +556,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-HTTPTest-Utils-QueryUtilTest.html#method_testParseDoesTrimQuestionMark"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryUtilTest\u003A\u003AparseUrlProvider\u0028\u0029",
-            "name": "parseUrlProvider",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-QueryUtilTest.html#method_parseUrlProvider"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryUtilTest\u003A\u003AtestParseUrl\u0028\u0029",
-            "name": "testParseUrl",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-QueryUtilTest.html#method_testParseUrl"
-        },                {
             "fqsen": "\\chillerlan\\HTTPTest\\Utils\\QueryUtilTest\u003A\u003ArawurlencodeDataProvider\u0028\u0029",
             "name": "rawurlencodeDataProvider",
             "summary": "",
@@ -770,6 +760,16 @@ Search.appendIndex(
             "name": "testUriIsDefaultPort",
             "summary": "",
             "url": "classes/chillerlan-HTTPTest-Utils-UriUtilTest.html#method_testUriIsDefaultPort"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\UriUtilTest\u003A\u003AparseUrlProvider\u0028\u0029",
+            "name": "parseUrlProvider",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-UriUtilTest.html#method_parseUrlProvider"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\UriUtilTest\u003A\u003AtestParseUrl\u0028\u0029",
+            "name": "testParseUrl",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-UriUtilTest.html#method_testParseUrl"
         },                {
             "fqsen": "\\",
             "name": "\\",
