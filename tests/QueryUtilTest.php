@@ -168,31 +168,6 @@ class QueryUtilTest extends TestCase{
 		$this::assertSame(QueryUtil::parse('?q=a'), ['q' => 'a']);
 	}
 
-	public static function parseUrlProvider():array{
-		return [
-			['http://', null],
-			[
-				'https://яндекAс.рф', [
-					'scheme' => 'https',
-					'host'   => 'яндекAс.рф',
-				],
-			],
-			[
-				'http://[2a00:f48:1008::212:183:10]:56?foo=bar', [
-					'scheme' => 'http',
-					'host'   => '[2a00:f48:1008::212:183:10]',
-					'port'   => '56',
-					'query'  => 'foo=bar',
-				],
-			],
-		];
-	}
-
-	#[DataProvider('parseUrlProvider')]
-	public function testParseUrl($url, $expected):void{
-		$this::assertSame($expected, QueryUtil::parseUrl($url));
-	}
-
 	public static function rawurlencodeDataProvider():array{
 		return [
 			'null'         => [null, ''],

@@ -11,6 +11,7 @@
 namespace chillerlan\HTTPTest\Utils;
 
 use chillerlan\HTTP\Utils\UriUtil;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -125,6 +126,31 @@ class UriUtilTest extends TestCase{
 		$uri = $this->uriFactory->createUri('https://localhost:42');
 		$this->assertSame('https://localhost:42', (string)$uri);
 
+	}
+
+	public static function parseUrlProvider():array{
+		return [
+			['http://', null],
+			[
+				'https://яндекAс.рф', [
+				'scheme' => 'https',
+				'host'   => 'яндекAс.рф',
+			],
+			],
+			[
+				'http://[2a00:f48:1008::212:183:10]:56?foo=bar', [
+				'scheme' => 'http',
+				'host'   => '[2a00:f48:1008::212:183:10]',
+				'port'   => '56',
+				'query'  => 'foo=bar',
+			],
+			],
+		];
+	}
+
+	#[DataProvider('parseUrlProvider')]
+	public function testParseUrl($url, $expected):void{
+		$this::assertSame($expected, UriUtil::parseUrl($url));
 	}
 
 }

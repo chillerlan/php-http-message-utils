@@ -12,8 +12,8 @@ namespace chillerlan\HTTP\Utils;
 
 use InvalidArgumentException;
 use function array_map, array_merge, call_user_func_array, explode, implode, is_array, is_bool,
-	is_iterable, is_numeric, is_scalar, is_string, parse_url, preg_match, preg_replace_callback,
-	rawurldecode, rawurlencode, sort, str_replace, trim, uksort, urlencode;
+	is_iterable, is_numeric, is_scalar, is_string, rawurldecode, rawurlencode, sort, str_replace,
+	trim, uksort;
 use const PHP_QUERY_RFC1738, PHP_QUERY_RFC3986, SORT_STRING;
 
 /**
@@ -162,7 +162,7 @@ final class QueryUtil{
 	 * Merges additional query parameters into an existing query string
 	 */
 	public static function merge(string $uri, array $query):string{
-		$querypart  = (self::parseUrl($uri)['query'] ?? '');
+		$querypart  = (UriUtil::parseUrl($uri)['query'] ?? '');
 		$params     = array_merge(self::parse($querypart), $query);
 		$requestURI = explode('?', $uri)[0];
 
@@ -219,41 +219,6 @@ final class QueryUtil{
 		}
 
 		return $result;
-	}
-
-	/**
-	 * UTF-8 aware \parse_url() replacement.
-	 *
-	 * The internal function produces broken output for non ASCII domain names
-	 * (IDN) when used with locales other than "C".
-	 *
-	 * On the other hand, cURL understands IDN correctly only when UTF-8 locale
-	 * is configured ("C.UTF-8", "en_US.UTF-8", etc.).
-	 *
-	 * @see https://bugs.php.net/bug.php?id=52923
-	 * @see https://www.php.net/manual/en/function.parse-url.php#114817
-	 * @see https://curl.haxx.se/libcurl/c/CURLOPT_URL.html#ENCODING
-	 *
-	 * @link https://github.com/guzzle/psr7/blob/c0dcda9f54d145bd4d062a6d15f54931a67732f9/src/Uri.php#L89-L130
-	 */
-	public static function parseUrl(string $url):?array{
-		// If IPv6
-		$prefix = '';
-		/** @noinspection RegExpRedundantEscape */
-		if(preg_match('%^(.*://\[[0-9:a-f]+\])(.*?)$%', $url, $matches)){
-			/** @var array{0:string, 1:string, 2:string} $matches */
-			$prefix = $matches[1];
-			$url    = $matches[2];
-		}
-
-		$encodedUrl = preg_replace_callback('%[^:/@?&=#]+%usD', fn($matches) => urlencode($matches[0]), $url);
-		$result     = parse_url($prefix.$encodedUrl);
-
-		if($result === false){
-			return null;
-		}
-
-		return array_map('urldecode', $result);
 	}
 
 	/**
