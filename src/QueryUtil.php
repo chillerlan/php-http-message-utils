@@ -107,15 +107,11 @@ final class QueryUtil{
 		$enclosure ??= '';
 		$delimiter ??= '&';
 
-		if($encoding === PHP_QUERY_RFC3986){
-			$encode = 'rawurlencode';
-		}
-		elseif($encoding === PHP_QUERY_RFC1738){
-			$encode = 'urlencode';
-		}
-		else{
-			$encode = fn(string $str):string => $str;
-		}
+		$encode = match($encoding){
+			PHP_QUERY_RFC3986 => 'rawurlencode',
+			PHP_QUERY_RFC1738 => 'urlencode',
+			default           => fn(string $str):string => $str,
+		};
 
 		$pair = function(string $key, $value) use ($encode, $enclosure):string{
 
@@ -185,18 +181,12 @@ final class QueryUtil{
 			return [];
 		}
 
-		if($urlEncoding === self::NO_ENCODING){
-			$decode = fn(string $str):string => $str;
-		}
-		elseif($urlEncoding === PHP_QUERY_RFC3986){
-			$decode = 'rawurldecode';
-		}
-		elseif($urlEncoding === PHP_QUERY_RFC1738){
-			$decode = 'urldecode';
-		}
-		else{
-			$decode = fn(string $value):string => rawurldecode(str_replace('+', ' ', $value));
-		}
+		$decode = match($urlEncoding){
+			self::NO_ENCODING => fn(string $str):string => $str,
+			PHP_QUERY_RFC3986 => 'rawurldecode',
+			PHP_QUERY_RFC1738 => 'urldecode',
+			default           => fn(string $value):string => rawurldecode(str_replace('+', ' ', $value)),
+		};
 
 		$result = [];
 
