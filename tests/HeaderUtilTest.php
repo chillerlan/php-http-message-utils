@@ -30,6 +30,8 @@ class HeaderUtilTest extends TestCase{
 			'numericvalue'  => [['numericvalue:1'], ['Numericvalue' => '1']],
 			'numericvalue2' => [['numericvalue' => 2], ['Numericvalue' => '2']],
 			'keyvaluearray' => [[['foo' => 'bar']], ['Foo' => 'bar']],
+			'emptykvearray' => [[[]], []],
+			'kvarraynumkey' => [[[69 => 420]], []],
 			'arrayvalue'    => [['foo' => ['bar', 'baz']], ['Foo' => 'bar, baz']],
 			'invalid: 2'    => [[2 => 2], []],
 			'invalid: what' => [['what'], []],

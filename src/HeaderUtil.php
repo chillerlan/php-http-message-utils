@@ -16,7 +16,7 @@ use function array_keys, array_values, count, explode, implode,
 /**
  *
  */
-class HeaderUtil{
+final class HeaderUtil{
 
 	/**
 	 * Normalizes an array of header lines to format ["Name" => "Value (, Value2, Value3, ...)", ...]
@@ -30,7 +30,6 @@ class HeaderUtil{
 
 			// the key is numeric, so $val is either a string or an array
 			if(is_numeric($key)){
-
 				// "key: val"
 				if(is_string($val)){
 					$header = explode(':', $val, 2);
@@ -43,9 +42,14 @@ class HeaderUtil{
 					$val = $header[1];
 				}
 				// [$key, $val], ["key" => $key, "val" => $val]
-				elseif(is_array($val)){
+				elseif(is_array($val) && !empty($val)){
 					$key = array_keys($val)[0];
 					$val = array_values($val)[0];
+
+					// skip if the key is numeric
+					if(is_numeric($key)){
+						continue;
+					}
 				}
 				else{
 					continue;
@@ -91,10 +95,6 @@ class HeaderUtil{
 	 *
 	 * header-field = field-name ":" OWS field-value OWS
 	 * OWS          = *( SP / HTAB )
-	 *
-	 * @param string[] $values header values
-	 *
-	 * @return string[] Trimmed header values
 	 *
 	 * @see https://tools.ietf.org/html/rfc7230#section-3.2.4
 	 */
