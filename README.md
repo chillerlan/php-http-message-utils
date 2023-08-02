@@ -96,9 +96,18 @@ The following classes contain static methods for use with PSR-7 http message obj
 | `getFromContent(string $content)`     | `?string` | Get the mime type from the given content                                                                                                                                                                                                          |
 
 ### `StreamUtil`
-| method                           | return   | info                                                    |
-|----------------------------------|----------|---------------------------------------------------------|
-| `getContents(string $extension)` | `string` | Reads the content from a stream and make sure we rewind |
+| method                                                                                       | return     | info                                                                                                                                                |
+|----------------------------------------------------------------------------------------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| `getContents(string $extension)`                                                             | `string`   | Reads the content from a stream and make sure we rewind                                                                                             |
+| `copyToStream(StreamInterface $source, StreamInterface $destination, int $maxLength = null)` | `int`      | Copies a stream to another stream, starting from the current position of the source stream, reading to the end or until the given maxlength is hit. |
+| `tryFopen(string $filename, string $mode, $context = null)`                                  | `resource` | Safely open a PHP resource, throws instead of raising warnings and errors                                                                           |
+| `tryGetContents($stream, int $length = null, int $offset = -1)`                              | `string`   | Safely get the contents of a stream resource, throws instead of raising warnings and errors                                                         |
+| `validateMode(string $mode)`                                                                 | `string`   | Checks if the given mode is valid for `fopen()`                                                                                                     |
+| `modeAllowsReadWrite(string $mode)`                                                          | `bool`     | Checks whether the given mode allows reading and writing                                                                                            |
+| `modeAllowsReadOnly(string $mode)`                                                           | `bool`     | Checks whether the given mode allows only reading                                                                                                   |
+| `modeAllowsWriteOnly(string $mode)`                                                          | `bool`     | Checks whether the given mode allows only writing                                                                                                   |
+| `modeAllowsRead(string $mode)`                                                               | `bool`     | Checks whether the given mode allows reading                                                                                                        |
+| `modeAllowsWrite(string $mode)`                                                              | `bool`     | Checks whether the given mode allows writing                                                                                                        |
 
 ### `ServerUtil`
 The `ServerUtil` object requires a set of [PSR-17 factories](https://www.php-fig.org/psr/psr-17/) on invocation, namely `ServerRequestFactoryInterface`, `UriFactoryInterface`, `UploadedFileFactoryInterface` and `StreamFactoryInterface`.
