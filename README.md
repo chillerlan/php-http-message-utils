@@ -19,7 +19,7 @@ A collection of utilities for use with [PSR-7 Message implementations](https://w
 [coverage-badge]: https://img.shields.io/codecov/c/github/chillerlan/php-http-message-utils?logo=codecov
 [coverage]: https://codecov.io/github/chillerlan/php-http-message-utils
 [codacy-badge]: https://img.shields.io/codacy/grade/70e19515c2734e0a9036d83dbbd1469c?logo=codacy
-[codacy]: https://www.codacy.com/gh/chillerlan/php-http-message-utils/dashboard
+[codacy]: https://app.codacy.com/gh/chillerlan/php-http-message-utils/dashboard
 [downloads-badge]: https://img.shields.io/packagist/dt/chillerlan/php-http-message-utils?logo=packagist
 [downloads]: https://packagist.org/packages/chillerlan/php-http-message-utils/stats
 [gh-action-badge]: https://img.shields.io/github/actions/workflow/status/chillerlan/php-http-message-utils/ci.yml?branch=main&logo=github
