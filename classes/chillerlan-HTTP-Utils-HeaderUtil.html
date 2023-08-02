@@ -153,7 +153,7 @@ An exception is being made for Set-Cookie, which holds an array of values for ea
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-HTTP-Utils-HeaderUtil.html#method_trimValues">trimValues()</a>
     <span>
-                                &nbsp;: array&lt;string|int, string&gt;    </span>
+                                &nbsp;: iteratable&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Trims whitespace from the header values.</dd>
 
@@ -282,7 +282,7 @@ An exception is being made for Set-Cookie, which holds an array of values for ea
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">trimValues</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$values</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">trimValues</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">iteratable&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$values</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">iteratable&lt;string|int, mixed&gt;</span></code>
 
         <section class="phpdocumentor-description"><p>Spaces and tabs ought to be excluded by parsers when extracting the field value from a header field.</p>
 <p>header-field = field-name &quot;:&quot; OWS field-value OWS
@@ -293,11 +293,10 @@ OWS          = *( SP / HTAB )</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$values</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">iteratable&lt;string|int, mixed&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>header values</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
@@ -319,11 +318,9 @@ OWS          = *( SP / HTAB )</p>
                         </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
+    <span class="phpdocumentor-signature__response_type">iteratable&lt;string|int, mixed&gt;</span>
             &mdash;
-            <section class="phpdocumentor-description"><p>Trimmed header values</p>
-</section>
-
+        
     
 </article>
             </section>
