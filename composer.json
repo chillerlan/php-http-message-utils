@@ -1,6 +1,6 @@
 {
 	"name": "chillerlan/php-http-message-utils",
-	"description": "PSR-7/17/18 utils",
+	"description": "PSR-7/17/18 utilities",
 	"license": "MIT",
 	"type": "library",
 	"keywords": [
