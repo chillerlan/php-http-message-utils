@@ -8,6 +8,8 @@
  * @license      MIT
  */
 
+declare(strict_types=1);
+
 namespace chillerlan\HTTP\Utils;
 
 use finfo;
@@ -1306,21 +1308,21 @@ final class MimeTypeUtil{
 	/**
 	 * Get the mime type for the given file extension
 	 */
-	public static function getFromExtension(string $extension):?string{
+	public static function getFromExtension(string $extension):string|null{
 		return (self::MIMETYPES[strtolower($extension)] ?? null);
 	}
 
 	/**
 	 * Get the mime type from a file name
 	 */
-	public static function getFromFilename(string $filename):?string{
+	public static function getFromFilename(string $filename):string|null{
 		return self::getFromExtension(pathinfo($filename, PATHINFO_EXTENSION));
 	}
 
 	/**
 	 * Get the mime type from the given content
 	 */
-	public static function getFromContent(string $content):?string{
+	public static function getFromContent(string $content):string|null{
 		$finfo = new finfo(FILEINFO_MIME_TYPE);
 		$mime  = $finfo->buffer($content);
 

@@ -8,6 +8,8 @@
  * @license      MIT
  */
 
+declare(strict_types=1);
+
 namespace chillerlan\HTTP\Utils;
 
 use function array_keys, array_values, count, explode, implode,
@@ -63,7 +65,7 @@ final class HeaderUtil{
 			}
 
 			$key = self::normalizeHeaderName($key);
-			$val = trim($val);
+			$val = trim((string)($val ?? ''));
 
 			// skip if the header already exists but the current value is empty
 			if(isset($normalized[$key]) && empty($val)){

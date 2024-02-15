@@ -10,15 +10,15 @@
  * @noinspection PhpArrayWriteIsNotUsedInspection
  */
 
+declare(strict_types=1);
+
 namespace chillerlan\HTTPTest\Utils;
 
 use InvalidArgumentException;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
-use function microtime;
-use function time;
-use const UPLOAD_ERR_OK;
-use const UPLOAD_ERR_PARTIAL;
+use function microtime, time;
+use const UPLOAD_ERR_OK, UPLOAD_ERR_PARTIAL;
 
 class ServerUtilTest extends TestCase{
 	use FactoryTrait;

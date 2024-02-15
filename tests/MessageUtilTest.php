@@ -8,17 +8,15 @@
  * @license      MIT
  */
 
+declare(strict_types=1);
+
 namespace chillerlan\HTTPTest\Utils;
 
 use chillerlan\HTTP\Utils\MessageUtil;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
-use function extension_loaded;
-use function file_get_contents;
-use function function_exists;
-use function sprintf;
-use function str_repeat;
+use function extension_loaded, file_get_contents, function_exists, sprintf, str_repeat;
 
 /**
  *
@@ -175,7 +173,12 @@ class MessageUtilTest extends TestCase{
 	}
 
 	#[DataProvider('contentTypeProvider')]
-	public function testSetContentTypeHeader(string $content, ?string $filename, ?string $extension, string $expectedMIME):void{
+	public function testSetContentTypeHeader(
+		string      $content,
+		string|null $filename,
+		string|null $extension,
+		string      $expectedMIME,
+	):void{
 
 		$message = $this->requestFactory
 			->createRequest('GET', 'https://example.com')

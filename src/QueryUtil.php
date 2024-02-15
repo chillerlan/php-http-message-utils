@@ -8,6 +8,8 @@
  * @license      MIT
  */
 
+declare(strict_types=1);
+
 namespace chillerlan\HTTP\Utils;
 
 use InvalidArgumentException;
@@ -44,7 +46,11 @@ final class QueryUtil{
 	 *
 	 * @return array
 	 */
-	public static function cleanParams(iterable $params, int $bool_cast = null, bool $remove_empty = null):array{
+	public static function cleanParams(
+		iterable  $params,
+		int|null  $bool_cast = null,
+		bool|null $remove_empty = null,
+	):array{
 		$bool_cast    ??= self::BOOLEANS_AS_BOOL;
 		$remove_empty ??= true;
 
@@ -97,7 +103,12 @@ final class QueryUtil{
 	 * @link https://github.com/abraham/twitteroauth/blob/57108b31f208d0066ab90a23257cdd7bb974c67d/src/Util.php#L84-L122
 	 * @link https://github.com/guzzle/psr7/blob/c0dcda9f54d145bd4d062a6d15f54931a67732f9/src/Query.php#L59-L113
 	 */
-	public static function build(array $params, int $encoding = null, string $delimiter = null, string $enclosure = null):string{
+	public static function build(
+		array       $params,
+		int|null    $encoding = null,
+		string|null $delimiter = null,
+		string|null $enclosure = null,
+	):string{
 
 		if(empty($params)){
 			return '';
@@ -174,7 +185,7 @@ final class QueryUtil{
 	 *
 	 * @link https://github.com/guzzle/psr7/blob/c0dcda9f54d145bd4d062a6d15f54931a67732f9/src/Query.php#L9-L57
 	 */
-	public static function parse(string $querystring, int $urlEncoding = null):array{
+	public static function parse(string $querystring, int|null $urlEncoding = null):array{
 		$querystring = trim($querystring, '?'); // handle leftover question marks (e.g. Twitter API "next_results")
 
 		if($querystring === ''){

@@ -8,9 +8,11 @@
  * @license      MIT
  */
 
+declare(strict_types=1);
+
 namespace chillerlan\HTTP\Utils;
 
-use Psr\Http\Message\{MessageInterface, RequestInterface, ResponseInterface};
+use Psr\Http\Message\{MessageInterface, RequestInterface, ResponseInterface, ServerRequestInterface};
 use RuntimeException, Throwable;
 use function call_user_func, extension_loaded, function_exists, gzdecode, gzinflate, gzuncompress, implode,
 	in_array, json_decode, json_encode, simplexml_load_string, sprintf, strtolower, trim;
@@ -39,14 +41,14 @@ final class MessageUtil{
 	/**
 	 * @throws \JsonException
 	 */
-	public static function decodeJSON(MessageInterface $message, bool $assoc = null):mixed{
+	public static function decodeJSON(MessageInterface $message, bool|null $assoc = null):mixed{
 		return json_decode(self::getContents($message), ($assoc ?? false), 512, JSON_THROW_ON_ERROR);
 	}
 
 	/**
 	 * @return \SimpleXMLElement|\stdClass|mixed
 	 */
-	public static function decodeXML(MessageInterface $message, bool $assoc = null):mixed{
+	public static function decodeXML(MessageInterface $message, bool|null $assoc = null):mixed{
 		$data = simplexml_load_string(self::getContents($message));
 
 		return $assoc === true
@@ -57,7 +59,7 @@ final class MessageUtil{
 	/**
 	 * Returns the string representation of an HTTP message. (from Guzzle)
 	 */
-	public static function toString(MessageInterface $message, bool $appendBody = null):string{
+	public static function toString(MessageInterface $message, bool|null $appendBody = null):string{
 		$appendBody ??= true;
 		$msg          = '';
 
@@ -144,7 +146,9 @@ final class MessageUtil{
 	/**
 	 * Sets a Content-Length header in the given message in case it does not exist and body size is not null
 	 */
-	public static function setContentLengthHeader(MessageInterface $message):MessageInterface{
+	public static function setContentLengthHeader(
+		MessageInterface $message
+	):MessageInterface|RequestInterface|ResponseInterface|ServerRequestInterface{
 		$bodySize = $message->getBody()->getSize();
 
 		if(!$message->hasHeader('Content-Length') && $bodySize !== null && $bodySize > 0){
@@ -162,9 +166,9 @@ final class MessageUtil{
 	 */
 	public static function setContentTypeHeader(
 		MessageInterface $message,
-		string           $filename = null,
-		string           $extension = null
-	):MessageInterface{
+		string|null      $filename = null,
+		string|null      $extension = null,
+	):MessageInterface|RequestInterface|ResponseInterface|ServerRequestInterface{
 		$mime = (
 			   MimeTypeUtil::getFromExtension(trim(($extension ?? ''), ".\t\n\r\0\x0B"))
 			?? MimeTypeUtil::getFromFilename(($filename ?? ''))

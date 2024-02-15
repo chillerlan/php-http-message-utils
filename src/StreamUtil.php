@@ -8,6 +8,8 @@
  * @license      MIT
  */
 
+declare(strict_types=1);
+
 namespace chillerlan\HTTP\Utils;
 
 use InvalidArgumentException;
@@ -111,7 +113,7 @@ final class StreamUtil{
 	 *
 	 * Returns the stream content as a string, null if an error occurs, e.g. the StreamInterface throws.
 	 */
-	public static function getContents(StreamInterface $stream):?string{
+	public static function getContents(StreamInterface $stream):string|null{
 
 		// rewind before read...
 		if($stream->isSeekable()){
@@ -148,7 +150,7 @@ final class StreamUtil{
 	 *
 	 * @throws \RuntimeException
 	 */
-	public static function copyToStream(StreamInterface $source, StreamInterface $destination, int $maxLength = null):int{
+	public static function copyToStream(StreamInterface $source, StreamInterface $destination, int|null $maxLength = null):int{
 
 		if(!$source->isReadable() || !$destination->isWritable()){
 			throw new RuntimeException('$source must be readable and $destination must be writable');
@@ -185,7 +187,7 @@ final class StreamUtil{
 	 * @return resource
 	 * @throws \RuntimeException
 	 */
-	public static function tryFopen(string $filename, string $mode, $context = null){
+	public static function tryFopen(string $filename, string $mode, mixed $context = null){
 		$mode      = self::validateMode($mode);
 		$exception = null;
 		$message   = 'Unable to open "%s" using mode "%s": %s';
@@ -227,7 +229,7 @@ final class StreamUtil{
 	 * @return string
 	 * @throws \RuntimeException
 	 */
-	public static function tryGetContents($stream, int $length = null, int $offset = -1):string{
+	public static function tryGetContents($stream, int|null $length = null, int $offset = -1):string{
 		$exception = null;
 		$message   = 'Unable to read stream contents: %s';
 

@@ -8,6 +8,8 @@
  * @license      MIT
  */
 
+declare(strict_types=1);
+
 namespace chillerlan\HTTP\Utils;
 
 use Psr\Http\Message\UriInterface;
@@ -119,7 +121,7 @@ final class UriUtil{
 	 *
 	 * A value of null will set the query string key without a value, e.g. "key" instead of "key=value".
 	 */
-	public static function withQueryValue(UriInterface $uri, string $key, string $value = null):UriInterface{
+	public static function withQueryValue(UriInterface $uri, string $key, string|null $value = null):UriInterface{
 		$current = $uri->getQuery();
 
 		$result = ($current !== '')
@@ -154,7 +156,7 @@ final class UriUtil{
 	 *
 	 * @link https://github.com/guzzle/psr7/blob/c0dcda9f54d145bd4d062a6d15f54931a67732f9/src/Uri.php#L89-L130
 	 */
-	public static function parseUrl(string $url):?array{
+	public static function parseUrl(string $url):array|null{
 		// If IPv6
 		$prefix = '';
 		/** @noinspection RegExpRedundantEscape */

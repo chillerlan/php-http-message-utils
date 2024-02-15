@@ -10,14 +10,15 @@
  * @license      MIT
  */
 
+declare(strict_types=1);
+
 namespace chillerlan\HTTPTest\Utils;
 
 use chillerlan\HTTP\Utils\QueryUtil;
 use InvalidArgumentException;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
-use const PHP_QUERY_RFC1738;
-use const PHP_QUERY_RFC3986;
+use const PHP_QUERY_RFC1738, PHP_QUERY_RFC3986;
 
 /**
  *

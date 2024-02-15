@@ -8,6 +8,8 @@
  * @license      MIT
  */
 
+declare(strict_types=1);
+
 namespace chillerlan\HTTPTest\Utils;
 
 use chillerlan\HTTP\Utils\ServerUtil;
@@ -16,11 +18,7 @@ use Psr\Http\Message\{
 	RequestFactoryInterface, ResponseFactoryInterface, ServerRequestFactoryInterface,
 	StreamFactoryInterface, UploadedFileFactoryInterface, UriFactoryInterface
 };
-use function class_exists;
-use function constant;
-use function defined;
-use function method_exists;
-use function sprintf;
+use function class_exists, constant, defined, method_exists, sprintf;
 
 trait FactoryTrait{
 
