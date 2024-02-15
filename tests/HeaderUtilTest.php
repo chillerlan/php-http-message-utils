@@ -113,4 +113,8 @@ class HeaderUtilTest extends TestCase{
 		$this::assertSame($expected, HeaderUtil::normalizeHeaderName($name));
 	}
 
+	public function testTrimValues():void{
+		$this::assertSame(['69', '420'], HeaderUtil::trimValues([69, '	420 ']));
+	}
+
 }

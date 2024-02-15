@@ -103,7 +103,7 @@ final class HeaderUtil{
 	public static function trimValues(iterable $values):iterable{
 
 		foreach($values as &$value){
-			$value = trim($value, " \t");
+			$value = trim((string)($value ?? ''), " \t");
 		}
 
 		return $values;
