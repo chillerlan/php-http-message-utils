@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/base.css">
             <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/template.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
                 <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
         <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/template.js"></script>
         <script src="js/search.js"></script>
         <script defer src="js/searchIndex.js"></script>
     </head>
@@ -52,7 +53,7 @@
 <label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
     Menu
 </label>
-<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
+<aside class="phpdocumentor-column -three phpdocumentor-sidebar">
                     <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -91,8 +92,9 @@
     </section>
 </aside>
 
-            <div class="phpdocumentor-column -eight phpdocumentor-content">
-                    <ul class="phpdocumentor-breadcrumbs">
+            <div class="phpdocumentor-column -nine phpdocumentor-content">
+                                <section>
+                                        <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/chillerlan.html">chillerlan</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/chillerlan-http.html">HTTP</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/chillerlan-http-utils.html">Utils</a></li>
@@ -113,10 +115,17 @@
     
     </h2>
 
+<div class="phpdocumentor-label-line">
+
+    <div class="phpdocumentor-label phpdocumentor-label--success"><span>Final</span><span>Yes</span></div>
+
+
+</div>
+
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/StreamUtil.php"><a href="files/src-streamutil.html"><abbr title="src/StreamUtil.php">StreamUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 
     </aside>
 
@@ -126,16 +135,28 @@
 
 
 
-
-
-
 <h3 id="toc">
     Table of Contents
-    <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+
 </h3>
 
+
+
+
+
+
+
+
+
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
 <dl class="phpdocumentor-table-of-contents">
-                        <dt class="phpdocumentor-table-of-contents__entry -method -public">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#method_copyToStream">copyToStream()</a>
     <span>
                                 &nbsp;: int    </span>
@@ -206,7 +227,8 @@ reading to the end or until the given maxlength is hit.</dd>
 </dt>
 <dd>Checks if the given mode is valid for fopen().</dd>
 
-        </dl>
+    </dl>
+
 
 
 
@@ -218,6 +240,7 @@ reading to the end or until the given maxlength is hit.</dd>
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
             <a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
         </h3>
                     <article
         class="phpdocumentor-element
@@ -228,11 +251,12 @@ reading to the end or until the given maxlength is hit.</dd>
     <h4 class="phpdocumentor-element__name" id="method_copyToStream">
         copyToStream()
         <a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#method_copyToStream" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/StreamUtil.php"><a href="files/src-streamutil.html"><abbr title="src/StreamUtil.php">StreamUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">151</span>
+    <span class="phpdocumentor-element-found-in__line">153</span>
 
     </aside>
 
@@ -241,8 +265,10 @@ reading to the end or until the given maxlength is hit.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">copyToStream</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\StreamInterface">StreamInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$source</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\StreamInterface">StreamInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$destination</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$maxLength</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">copyToStream</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\StreamInterface">StreamInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$source</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\StreamInterface">StreamInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$destination</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$maxLength</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
         <section class="phpdocumentor-description"><p>Throws if the source is not readable or the destination not writable.</p>
 </section>
 
@@ -253,38 +279,36 @@ reading to the end or until the given maxlength is hit.</p>
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\StreamInterface">StreamInterface</abbr></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
+                
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$destination</span>
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\StreamInterface">StreamInterface</abbr></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
+                
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$maxLength</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
+                
             </dd>
             </dl>
 
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#method_copyToStream#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">see</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="https://github.com/guzzle/psr7/blob/815698d9f11c908bc59471d11f642264b533346a/src/Utils.php#L36-L69"><abbr title="https://github.com/guzzle/psr7/blob/815698d9f11c908bc59471d11f642264b533346a/src/Utils.php#L36-L69">https://github.com/guzzle/psr7/blob/815698d9f11c908bc59471d11f642264b533346a/src/Utils.php#L36-L69</abbr></a></span>
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://github.com/guzzle/psr7/blob/815698d9f11c908bc59471d11f642264b533346a/src/Utils.php#L36-L69">https://github.com/guzzle/psr7/blob/815698d9f11c908bc59471d11f642264b533346a/src/Utils.php#L36-L69</a></span>
                                         
                                              
                                     </dd>
@@ -296,13 +320,13 @@ reading to the end or until the given maxlength is hit.</p>
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">int</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type">int</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -313,11 +337,12 @@ reading to the end or until the given maxlength is hit.</p>
     <h4 class="phpdocumentor-element__name" id="method_getContents">
         getContents()
         <a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#method_getContents" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/StreamUtil.php"><a href="files/src-streamutil.html"><abbr title="src/StreamUtil.php">StreamUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">114</span>
+    <span class="phpdocumentor-element-found-in__line">116</span>
 
     </aside>
 
@@ -327,6 +352,8 @@ reading to the end or until the given maxlength is hit.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getContents</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\StreamInterface">StreamInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$stream</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
         <section class="phpdocumentor-description"><p>Returns the stream content as a string, null if an error occurs, e.g. the StreamInterface throws.</p>
 </section>
 
@@ -337,18 +364,17 @@ reading to the end or until the given maxlength is hit.</p>
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\StreamInterface">StreamInterface</abbr></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
+                
             </dd>
             </dl>
 
     
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string|null</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type">string|null</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -359,11 +385,12 @@ reading to the end or until the given maxlength is hit.</p>
     <h4 class="phpdocumentor-element__name" id="method_modeAllowsRead">
         modeAllowsRead()
         <a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#method_modeAllowsRead" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/StreamUtil.php"><a href="files/src-streamutil.html"><abbr title="src/StreamUtil.php">StreamUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">62</span>
+    <span class="phpdocumentor-element-found-in__line">64</span>
 
     </aside>
 
@@ -373,6 +400,8 @@ reading to the end or until the given maxlength is hit.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">modeAllowsRead</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$mode</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -381,18 +410,17 @@ reading to the end or until the given maxlength is hit.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
+                
             </dd>
             </dl>
 
     
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -403,11 +431,12 @@ reading to the end or until the given maxlength is hit.</p>
     <h4 class="phpdocumentor-element__name" id="method_modeAllowsReadOnly">
         modeAllowsReadOnly()
         <a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#method_modeAllowsReadOnly" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/StreamUtil.php"><a href="files/src-streamutil.html"><abbr title="src/StreamUtil.php">StreamUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">44</span>
+    <span class="phpdocumentor-element-found-in__line">46</span>
 
     </aside>
 
@@ -417,6 +446,8 @@ reading to the end or until the given maxlength is hit.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">modeAllowsReadOnly</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$mode</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -425,18 +456,17 @@ reading to the end or until the given maxlength is hit.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
+                
             </dd>
             </dl>
 
     
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -447,11 +477,12 @@ reading to the end or until the given maxlength is hit.</p>
     <h4 class="phpdocumentor-element__name" id="method_modeAllowsReadWrite">
         modeAllowsReadWrite()
         <a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#method_modeAllowsReadWrite" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/StreamUtil.php"><a href="files/src-streamutil.html"><abbr title="src/StreamUtil.php">StreamUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">39</span>
 
     </aside>
 
@@ -461,6 +492,8 @@ reading to the end or until the given maxlength is hit.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">modeAllowsReadWrite</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$mode</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -469,18 +502,17 @@ reading to the end or until the given maxlength is hit.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
+                
             </dd>
             </dl>
 
     
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -491,11 +523,12 @@ reading to the end or until the given maxlength is hit.</p>
     <h4 class="phpdocumentor-element__name" id="method_modeAllowsWrite">
         modeAllowsWrite()
         <a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#method_modeAllowsWrite" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/StreamUtil.php"><a href="files/src-streamutil.html"><abbr title="src/StreamUtil.php">StreamUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">71</span>
+    <span class="phpdocumentor-element-found-in__line">73</span>
 
     </aside>
 
@@ -505,6 +538,8 @@ reading to the end or until the given maxlength is hit.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">modeAllowsWrite</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$mode</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -513,18 +548,17 @@ reading to the end or until the given maxlength is hit.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
+                
             </dd>
             </dl>
 
     
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -535,11 +569,12 @@ reading to the end or until the given maxlength is hit.</p>
     <h4 class="phpdocumentor-element__name" id="method_modeAllowsWriteOnly">
         modeAllowsWriteOnly()
         <a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#method_modeAllowsWriteOnly" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/StreamUtil.php"><a href="files/src-streamutil.html"><abbr title="src/StreamUtil.php">StreamUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">53</span>
+    <span class="phpdocumentor-element-found-in__line">55</span>
 
     </aside>
 
@@ -549,6 +584,8 @@ reading to the end or until the given maxlength is hit.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">modeAllowsWriteOnly</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$mode</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -557,18 +594,17 @@ reading to the end or until the given maxlength is hit.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
+                
             </dd>
             </dl>
 
     
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -579,11 +615,12 @@ reading to the end or until the given maxlength is hit.</p>
     <h4 class="phpdocumentor-element__name" id="method_tryFopen">
         tryFopen()
         <a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#method_tryFopen" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/StreamUtil.php"><a href="files/src-streamutil.html"><abbr title="src/StreamUtil.php">StreamUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">188</span>
+    <span class="phpdocumentor-element-found-in__line">190</span>
 
     </aside>
 
@@ -593,6 +630,8 @@ reading to the end or until the given maxlength is hit.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">tryFopen</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filename</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$mode</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">resource|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$context</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">resource</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -622,14 +661,15 @@ reading to the end or until the given maxlength is hit.</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#method_tryFopen#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">see</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="https://github.com/guzzle/psr7/blob/815698d9f11c908bc59471d11f642264b533346a/src/Utils.php#L344-L391"><abbr title="https://github.com/guzzle/psr7/blob/815698d9f11c908bc59471d11f642264b533346a/src/Utils.php#L344-L391">https://github.com/guzzle/psr7/blob/815698d9f11c908bc59471d11f642264b533346a/src/Utils.php#L344-L391</abbr></a></span>
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://github.com/guzzle/psr7/blob/815698d9f11c908bc59471d11f642264b533346a/src/Utils.php#L344-L391">https://github.com/guzzle/psr7/blob/815698d9f11c908bc59471d11f642264b533346a/src/Utils.php#L344-L391</a></span>
                                         
                                              
                                     </dd>
@@ -641,13 +681,13 @@ reading to the end or until the given maxlength is hit.</p>
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">resource</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type">resource</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -658,11 +698,12 @@ reading to the end or until the given maxlength is hit.</p>
     <h4 class="phpdocumentor-element__name" id="method_tryGetContents">
         tryGetContents()
         <a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#method_tryGetContents" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/StreamUtil.php"><a href="files/src-streamutil.html"><abbr title="src/StreamUtil.php">StreamUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">230</span>
+    <span class="phpdocumentor-element-found-in__line">232</span>
 
     </aside>
 
@@ -672,6 +713,8 @@ reading to the end or until the given maxlength is hit.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">tryGetContents</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">resource&nbsp;</span><span class="phpdocumentor-signature__argument__name">$stream</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$length</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offset</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">-1</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -701,14 +744,15 @@ reading to the end or until the given maxlength is hit.</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#method_tryGetContents#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">see</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="https://github.com/guzzle/psr7/blob/815698d9f11c908bc59471d11f642264b533346a/src/Utils.php#L393-L438"><abbr title="https://github.com/guzzle/psr7/blob/815698d9f11c908bc59471d11f642264b533346a/src/Utils.php#L393-L438">https://github.com/guzzle/psr7/blob/815698d9f11c908bc59471d11f642264b533346a/src/Utils.php#L393-L438</abbr></a></span>
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://github.com/guzzle/psr7/blob/815698d9f11c908bc59471d11f642264b533346a/src/Utils.php#L393-L438">https://github.com/guzzle/psr7/blob/815698d9f11c908bc59471d11f642264b533346a/src/Utils.php#L393-L438</a></span>
                                         
                                              
                                     </dd>
@@ -720,13 +764,13 @@ reading to the end or until the given maxlength is hit.</p>
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -737,11 +781,12 @@ reading to the end or until the given maxlength is hit.</p>
     <h4 class="phpdocumentor-element__name" id="method_validateMode">
         validateMode()
         <a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#method_validateMode" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/StreamUtil.php"><a href="files/src-streamutil.html"><abbr title="src/StreamUtil.php">StreamUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">99</span>
+    <span class="phpdocumentor-element-found-in__line">101</span>
 
     </aside>
 
@@ -751,6 +796,8 @@ reading to the end or until the given maxlength is hit.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">validateMode</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$mode</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
         <section class="phpdocumentor-description"><p>Returns the first 15 characters, throws if that string doesn't match the pattern.</p>
 <p>Note: we don't care where the modifier flags are in the string, what matters is that the first character
 is one of &quot;acrwx&quot; and the rest may contain one of &quot;bet+&quot; from 2nd position onwards, so &quot;aaaaaaaaaaaaaa+b&quot; is valid.</p>
@@ -768,22 +815,22 @@ Also, some libraries allow a mode &quot;rw&quot; which is wrong and just falls b
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
+                
             </dd>
             </dl>
 
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#method_validateMode#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">see</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="https://www.php.net/manual/en/function.fopen"><abbr title="https://www.php.net/manual/en/function.fopen">https://www.php.net/manual/en/function.fopen</abbr></a></span>
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://www.php.net/manual/en/function.fopen">https://www.php.net/manual/en/function.fopen</a></span>
                                         
                                              
                                     </dd>
@@ -791,7 +838,7 @@ Also, some libraries allow a mode &quot;rw&quot; which is wrong and just falls b
                     <span class="phpdocumentor-tag__name">see</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="https://www.php.net/manual/en/function.gzopen.php"><abbr title="https://www.php.net/manual/en/function.gzopen.php">https://www.php.net/manual/en/function.gzopen.php</abbr></a></span>
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://www.php.net/manual/en/function.gzopen.php">https://www.php.net/manual/en/function.gzopen.php</a></span>
                                         
                                              
                                     </dd>
@@ -799,7 +846,7 @@ Also, some libraries allow a mode &quot;rw&quot; which is wrong and just falls b
                     <span class="phpdocumentor-tag__name">see</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="https://stackoverflow.com/a/44483367/3185624"><abbr title="https://stackoverflow.com/a/44483367/3185624">https://stackoverflow.com/a/44483367/3185624</abbr></a></span>
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://stackoverflow.com/a/44483367/3185624">https://stackoverflow.com/a/44483367/3185624</a></span>
                                         
                                              
                                     </dd>
@@ -807,7 +854,7 @@ Also, some libraries allow a mode &quot;rw&quot; which is wrong and just falls b
                     <span class="phpdocumentor-tag__name">see</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="https://github.com/php/php-src/blob/6602ddead5c81fb67ebf2b21c32b58aa1de67699/main/streams/plain_wrapper.c#L71-L121"><abbr title="https://github.com/php/php-src/blob/6602ddead5c81fb67ebf2b21c32b58aa1de67699/main/streams/plain_wrapper.c#L71-L121">https://github.com/php/php-src/blob/6602ddead5c81fb67ebf2b21c32b58aa1de67699/main/streams/plain_wrapper.c#L71-L121</abbr></a></span>
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://github.com/php/php-src/blob/6602ddead5c81fb67ebf2b21c32b58aa1de67699/main/streams/plain_wrapper.c#L71-L121">https://github.com/php/php-src/blob/6602ddead5c81fb67ebf2b21c32b58aa1de67699/main/streams/plain_wrapper.c#L71-L121</a></span>
                                         
                                              
                                     </dd>
@@ -815,7 +862,7 @@ Also, some libraries allow a mode &quot;rw&quot; which is wrong and just falls b
                     <span class="phpdocumentor-tag__name">see</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="https://github.com/guzzle/psr7/blob/815698d9f11c908bc59471d11f642264b533346a/src/Stream.php#L19"><abbr title="https://github.com/guzzle/psr7/blob/815698d9f11c908bc59471d11f642264b533346a/src/Stream.php#L19">https://github.com/guzzle/psr7/blob/815698d9f11c908bc59471d11f642264b533346a/src/Stream.php#L19</abbr></a></span>
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://github.com/guzzle/psr7/blob/815698d9f11c908bc59471d11f642264b533346a/src/Stream.php#L19">https://github.com/guzzle/psr7/blob/815698d9f11c908bc59471d11f642264b533346a/src/Stream.php#L19</a></span>
                                         
                                              
                                     </dd>
@@ -827,80 +874,145 @@ Also, some libraries allow a mode &quot;rw&quot; which is wrong and just falls b
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
 </article>
             </section>
 
-        
+        <div class="phpdocumentor-modal" id="source-view">
+    <div class="phpdocumentor-modal-bg" data-exit-button></div>
+    <div class="phpdocumentor-modal-container">
+        <div class="phpdocumentor-modal-content">
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/StreamUtil.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+        </div>
+        <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
+    </div>
+</div>
+
     <script type="text/javascript">
-        function loadExternalCodeSnippets(line) {
-            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach((pre) => {
-                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
-                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
-                var language = 'php';
+        (function () {
+            function loadExternalCodeSnippet(el, url, line) {
+                Array.prototype.slice.call(el.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                    const src = url || pre.getAttribute('data-src').replace(/\\/g, '/');
+                    const language = 'php';
 
-                var code = document.createElement('code');
-                code.className = 'language-' + language;
+                    const code = document.createElement('code');
+                    code.className = 'language-' + language;
+                    pre.textContent = '';
+                    pre.setAttribute('data-line', line)
+                    code.textContent = 'Loading…';
+                    pre.appendChild(code);
 
-                pre.textContent = '';
+                    var xhr = new XMLHttpRequest();
 
-                pre.setAttribute('data-line', line)
-                code.textContent = 'Loading…';
+                    xhr.open('GET', src, true);
 
-                pre.appendChild(code);
-
-                var xhr = new XMLHttpRequest();
-
-                xhr.open('GET', src, true);
-
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState == 4) {
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState !== 4) {
+                            return;
+                        }
 
                         if (xhr.status < 400 && xhr.responseText) {
                             code.textContent = xhr.responseText;
-
                             Prism.highlightElement(code);
+                            return;
                         }
-                        else if (xhr.status >= 400) {
+
+                        if (xhr.status === 404) {
+                            code.textContent = '✖ Error: File could not be found';
+                            return;
+                        }
+
+                        if (xhr.status >= 400) {
                             code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                            return;
                         }
-                        else {
-                            code.textContent = '✖ Error: File does not exist, is empty or trying to view from localhost';
-                        }
+
+                        code.textContent = '✖ Error: An unknown error occurred';
+                    };
+
+                    xhr.send(null);
+                });
+            }
+
+            const modalButtons = document.querySelectorAll("[data-modal]");
+            const openedAsLocalFile = window.location.protocol === 'file:';
+            if (modalButtons.length > 0 && openedAsLocalFile) {
+                console.warn(
+                    'Viewing the source code is unavailable because you are opening this page from the file:// scheme; ' +
+                    'browsers block XHR requests when a page is opened this way'
+                );
+            }
+
+            modalButtons.forEach(function (trigger) {
+                if (openedAsLocalFile) {
+                    trigger.setAttribute("hidden", "hidden");
+                }
+
+                trigger.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const modal = document.getElementById(trigger.dataset.modal);
+                    if (!modal) {
+                        console.error(`Modal with id "${trigger.dataset.modal}" could not be found`);
+                        return;
                     }
-                };
+                    modal.classList.add("phpdocumentor-modal__open");
 
-                xhr.send(null);
-            });
-        }
-
-        var modals = document.querySelectorAll("[data-modal]");
-
-        modals.forEach(function (trigger) {
-            trigger.addEventListener("click", function (event) {
-                //event.preventDefault();
-                const modal = document.getElementById(trigger.dataset.modal);
-                modal.classList.add("phpdocumentor-modal__open");
-                loadExternalCodeSnippets(trigger.dataset.line)
-                const exits = modal.querySelectorAll("[data-exit-button]");
-                exits.forEach(function (exit) {
-                    exit.addEventListener("click", function (event) {
-                        event.preventDefault();
-                        modal.classList.remove("phpdocumentor-modal__open");
+                    loadExternalCodeSnippet(modal, trigger.dataset.src || null, trigger.dataset.line)
+                    const exits = modal.querySelectorAll("[data-exit-button]");
+                    exits.forEach(function (exit) {
+                        exit.addEventListener("click", function (event) {
+                            event.preventDefault();
+                            modal.classList.remove("phpdocumentor-modal__open");
+                        });
                     });
                 });
             });
-        });
+        })();
     </script>
 
     </article>
-                <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+                                </section>
+                <section class="phpdocumentor-on-this-page__sidebar">
+                                
+    <section class="phpdocumentor-on-this-page__content">
+        <strong class="phpdocumentor-on-this-page__title">On this page</strong>
+
+        <ul class="phpdocumentor-list -clean">
+            <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                                                                <li><a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#toc-methods">Methods</a></li>
+                                    </ul>
+            </li>
+            
+            
+                        <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li><a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#method_copyToStream">copyToStream()</a></li>
+                                            <li><a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#method_getContents">getContents()</a></li>
+                                            <li><a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#method_modeAllowsRead">modeAllowsRead()</a></li>
+                                            <li><a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#method_modeAllowsReadOnly">modeAllowsReadOnly()</a></li>
+                                            <li><a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#method_modeAllowsReadWrite">modeAllowsReadWrite()</a></li>
+                                            <li><a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#method_modeAllowsWrite">modeAllowsWrite()</a></li>
+                                            <li><a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#method_modeAllowsWriteOnly">modeAllowsWriteOnly()</a></li>
+                                            <li><a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#method_tryFopen">tryFopen()</a></li>
+                                            <li><a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#method_tryGetContents">tryGetContents()</a></li>
+                                            <li><a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#method_validateMode">validateMode()</a></li>
+                                    </ul>
+            </li>
+                    </ul>
+    </section>
+
+                </section>
+                            </div>
+            <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
     <section class="phpdocumentor-search-results__dialog">
         <header class="phpdocumentor-search-results__header">
             <h2 class="phpdocumentor-search-results__title">Search results</h2>
@@ -911,7 +1023,6 @@ Also, some libraries allow a mode &quot;rw&quot; which is wrong and just falls b
         </section>
     </section>
 </section>
-            </div>
         </div>
         <a href="classes/chillerlan-HTTP-Utils-StreamUtil.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
