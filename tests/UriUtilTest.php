@@ -134,18 +134,20 @@ class UriUtilTest extends TestCase{
 		return [
 			['http://', null],
 			[
-				'https://яндекAс.рф', [
-				'scheme' => 'https',
-				'host'   => 'яндекAс.рф',
-			],
+				'https://яндекAс.рф',
+				[
+					'scheme' => 'https',
+					'host'   => 'яндекAс.рф',
+				],
 			],
 			[
-				'http://[2a00:f48:1008::212:183:10]:56?foo=bar', [
-				'scheme' => 'http',
-				'host'   => '[2a00:f48:1008::212:183:10]',
-				'port'   => '56',
-				'query'  => 'foo=bar',
-			],
+				'http://[2a00:f48:1008::212:183:10]:56?foo=bar',
+				[
+					'scheme' => 'http',
+					'host'   => '[2a00:f48:1008::212:183:10]',
+					'port'   => 56,
+					'query'  => 'foo=bar',
+				],
 			],
 		];
 	}

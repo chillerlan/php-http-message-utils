@@ -173,7 +173,13 @@ final class UriUtil{
 			return null;
 		}
 
-		return array_map('urldecode', $result);
+		$parsed = array_map('urldecode', $result);
+
+		if(isset($parsed['port'])){
+			$parsed['port'] = (int)$parsed['port'];
+		}
+
+		return $parsed;
 	}
 
 }
