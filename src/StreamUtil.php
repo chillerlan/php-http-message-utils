@@ -12,21 +12,10 @@ declare(strict_types=1);
 
 namespace chillerlan\HTTP\Utils;
 
-use InvalidArgumentException;
 use Psr\Http\Message\StreamInterface;
-use RuntimeException;
-use Throwable;
-use function fopen;
-use function in_array;
-use function min;
-use function preg_match;
-use function restore_error_handler;
-use function set_error_handler;
-use function sprintf;
-use function str_contains;
-use function stream_get_contents;
-use function strlen;
-use function substr;
+use InvalidArgumentException, RuntimeException, Throwable;
+use function fopen, in_array, min, preg_match, restore_error_handler, set_error_handler,
+	sprintf, str_contains, stream_get_contents, strlen, substr;
 
 /**
  *

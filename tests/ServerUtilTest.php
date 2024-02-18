@@ -14,9 +14,9 @@ declare(strict_types=1);
 
 namespace chillerlan\HTTPTest\Utils;
 
-use InvalidArgumentException;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
+use InvalidArgumentException;
 use function microtime, time;
 use const UPLOAD_ERR_OK, UPLOAD_ERR_PARTIAL;
 

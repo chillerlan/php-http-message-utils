@@ -12,12 +12,11 @@ declare(strict_types=1);
 
 namespace chillerlan\HTTP\Utils;
 
-use InvalidArgumentException;
 use Psr\Http\Message\{
 	ServerRequestFactoryInterface, ServerRequestInterface, StreamFactoryInterface,
 	UploadedFileFactoryInterface, UploadedFileInterface, UriFactoryInterface, UriInterface
 };
-
+use InvalidArgumentException;
 use function array_keys, explode, function_exists, is_array, is_file, substr;
 
 /**

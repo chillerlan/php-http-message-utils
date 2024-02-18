@@ -13,10 +13,8 @@ declare(strict_types=1);
 namespace chillerlan\HTTP\Utils;
 
 use finfo;
-use function pathinfo;
-use function strtolower;
-use const FILEINFO_MIME_TYPE;
-use const PATHINFO_EXTENSION;
+use function pathinfo, strtolower;
+use const FILEINFO_MIME_TYPE, PATHINFO_EXTENSION;
 
 /**
  *

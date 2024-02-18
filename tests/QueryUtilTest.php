@@ -15,9 +15,9 @@ declare(strict_types=1);
 namespace chillerlan\HTTPTest\Utils;
 
 use chillerlan\HTTP\Utils\QueryUtil;
-use InvalidArgumentException;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
+use InvalidArgumentException;
 use const PHP_QUERY_RFC1738, PHP_QUERY_RFC3986;
 
 /**

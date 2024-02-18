@@ -13,9 +13,8 @@ declare(strict_types=1);
 namespace chillerlan\HTTPTest\Utils;
 
 use chillerlan\HTTP\Utils\StreamUtil;
-use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
-use RuntimeException;
+use InvalidArgumentException, RuntimeException;
 use function fclose, fopen, stream_get_meta_data, strlen, substr;
 
 /**
