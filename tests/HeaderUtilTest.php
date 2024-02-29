@@ -48,6 +48,30 @@ class HeaderUtilTest extends TestCase{
 		$this::assertSame($normalized, HeaderUtil::normalize($headers));
 	}
 
+	public function testNormalizeHeadersFromMessageInterface():void{
+
+		$response = $this->responseFactory
+			->createResponse()
+			->withHeader('foo', 'bar')
+			->withAddedHeader('what', 'nope')
+			->withAddedHeader('what', 'why')
+			->withHeader('set-cookie', 'foo=nope')
+			->withAddedHeader('set-cookie', 'foo=bar')
+			->withAddedHeader('set-cookie', 'what=why')
+		;
+
+		$expected = [
+			'Foo'        => 'bar',
+			'What'       => 'nope, why',
+			'Set-Cookie' => [
+				'foo'  => 'foo=bar',
+				'what' => 'what=why',
+			],
+		];
+
+		$this::assertSame($expected, HeaderUtil::normalize($response->getHeaders()));
+	}
+
 	public function testCombineHeaderFields():void{
 
 		$headers = [
@@ -61,11 +85,13 @@ class HeaderUtilTest extends TestCase{
 			' x-foo ' => ['what', 'nope'],
 		];
 
-		$this::assertSame([
+		$expected = [
 			'Accept'     => 'foo, bar',
 			'X-Whatever' => 'nope',
 			'X-Foo'      => 'bar, baz, what, nope',
-		], HeaderUtil::normalize($headers));
+		];
+
+		$this::assertSame($expected, HeaderUtil::normalize($headers));
 
 		$r = $this->responseFactory->createResponse();
 
@@ -73,11 +99,13 @@ class HeaderUtilTest extends TestCase{
 			$r = $r->withAddedHeader($k, $v);
 		}
 
-		$this::assertSame([
+		$expected = [
 			'Accept'     => ['foo, bar'],
 			'X-Whatever' => ['nope'],
 			'X-Foo'      => ['bar, baz, what, nope'],
-		], $r->getHeaders());
+		];
+
+		$this::assertSame($expected, $r->getHeaders());
 
 	}
 

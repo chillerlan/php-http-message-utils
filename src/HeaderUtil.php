@@ -30,64 +30,82 @@ final class HeaderUtil{
 
 		foreach($headers as $key => $val){
 
-			// the key is numeric, so $val is either a string or an array
+			// the key is numeric, so $val is either a string or an array that contains both
 			if(is_numeric($key)){
-				// "key: val"
-				if(is_string($val)){
-					$header = explode(':', $val, 2);
+				[$key, $val] = self::normalizeKV($val);
 
-					if(count($header) !== 2){
-						continue;
-					}
-
-					$key = $header[0];
-					$val = $header[1];
-				}
-				// [$key, $val], ["key" => $key, "val" => $val]
-				elseif(is_array($val) && !empty($val)){
-					$key = array_keys($val)[0];
-					$val = array_values($val)[0];
-
-					// skip if the key is numeric
-					if(is_numeric($key)){
-						continue;
-					}
-				}
-				else{
+				if($key === null){
 					continue;
-				}
-			}
-			// the key is named, so we assume $val holds the header values only, either as string or array
-			else{
-				if(is_array($val)){
-					$val = implode(', ', array_values($val));
 				}
 			}
 
 			$key = self::normalizeHeaderName($key);
-			$val = trim((string)($val ?? ''));
 
-			// skip if the header already exists but the current value is empty
-			if(isset($normalized[$key]) && empty($val)){
-				continue;
-			}
-
-			// cookie headers may appear multiple times
-			// https://tools.ietf.org/html/rfc6265#section-4.1.2
+			// cookie headers may appear multiple times -  we'll just collect the last value here
+			// https://datatracker.ietf.org/doc/html/rfc6265#section-5.2
 			if($key === 'Set-Cookie'){
-				// we'll just collect the last value here and leave parsing up to you :P
-				$normalized[$key][strtolower(explode('=', $val, 2)[0])] = $val;
+				$name = fn(string $v):string => trim(strtolower(explode('=', $v, 2)[0]));
+
+				// array received from Message::getHeaders()
+				if(is_array($val)){
+					foreach($val as $line){
+						$normalized[$key][$name($line)] = trim($line);
+					}
+				}
+				else{
+					$normalized[$key][$name($val)] = trim($val);
+				}
 			}
 			// combine header fields with the same name
-			// https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
+			// https://datatracker.ietf.org/doc/html/rfc7230#section-3.2
 			else{
-				isset($normalized[$key]) && !empty($normalized[$key])
+
+				// the key is named, so we assume $val holds the header values only, either as string or array
+				if(is_array($val)){
+					$val = implode(', ', array_values($val));
+				}
+
+				$val = trim((string)($val ?? ''));
+
+				// skip if the header already exists but the current value is empty
+				if(isset($normalized[$key]) && empty($val)){
+					continue;
+				}
+
+				!empty($normalized[$key])
 					? $normalized[$key] .= ', '.$val
 					: $normalized[$key] = $val;
 			}
 		}
 
 		return $normalized;
+	}
+
+	/**
+	 * Extracts a key:value pair from the given value and returns it as 2-element array.
+	 * If the key cannot be parsed, both array values will be `null`.
+	 */
+	protected static function normalizeKV(mixed $value):array{
+
+		// "key: val"
+		if(is_string($value)){
+			$kv = explode(':', $value, 2);
+
+			if(count($kv) === 2){
+				return $kv;
+			}
+		}
+		// [$key, $val], ["key" => $key, "val" => $val]
+		elseif(is_array($value) && !empty($value)){
+			$key = array_keys($value)[0];
+			$val = array_values($value)[0];
+
+			if(is_string($key)){
+				return [$key, $val];
+			}
+		}
+
+		return [null, null];
 	}
 
 	/**
