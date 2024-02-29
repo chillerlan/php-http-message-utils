@@ -32,7 +32,7 @@ final class MessageUtil{
 		$content = StreamUtil::getContents($message->getBody());
 
 		if($content === null){
-			throw new RuntimeException('invalid message content');
+			throw new RuntimeException('invalid message content'); // @codeCoverageIgnore
 		}
 
 		return $content;
@@ -104,7 +104,7 @@ final class MessageUtil{
 	 * @see https://github.com/kjdev/php-ext-zstd
 	 * @see https://en.wikipedia.org/wiki/HTTP_compression#Content-Encoding_tokens
 	 *
-	 * @throws \RuntimeException
+	 * @throws \Throwable|\RuntimeException
 	 */
 	public static function decompress(MessageInterface $message):string{
 		$data     = self::getContents($message);
@@ -122,7 +122,6 @@ final class MessageUtil{
 		}
 		catch(Throwable $e){
 			if(in_array($encoding, ['br', 'zstd'])){
-				/** @var \RuntimeException $e */
 				throw $e;
 			}
 		}
@@ -131,7 +130,7 @@ final class MessageUtil{
 	}
 
 	/**
-	 *
+	 * @codeCoverageIgnore
 	 */
 	protected static function call_decompress_func(string $func, string $data):string{
 		$fn = $func.'_uncompress';
@@ -140,7 +139,7 @@ final class MessageUtil{
 			throw new RuntimeException(sprintf('cannot decompress %s compressed message body', $func));
 		}
 
-		return call_user_func($fn, $data);
+		return $fn($data);
 	}
 
 	/**
@@ -176,7 +175,7 @@ final class MessageUtil{
 		);
 
 		if($mime === null){
-			throw new RuntimeException('could not determine content type');
+			throw new RuntimeException('could not determine content type'); // @codeCoverageIgnore
 		}
 
 		return $message->withHeader('Content-Type', $mime);

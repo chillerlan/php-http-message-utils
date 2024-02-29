@@ -167,7 +167,7 @@ final class ServerUtil{
 		// not sure if dumb or genius
 		$stream = is_file($value['tmp_name'])
 			? $this->streamFactory->createStreamFromFile($value['tmp_name'])
-			: $this->streamFactory->createStream($value['tmp_name']);
+			: $this->streamFactory->createStream($value['tmp_name']); // @codeCoverageIgnore
 
 		return $this->uploadedFileFactory
 			->createUploadedFile($stream, (int)$value['size'], (int)$value['error'], $value['name'], $value['type']);

@@ -1325,7 +1325,7 @@ final class MimeTypeUtil{
 		$mime  = $finfo->buffer($content);
 
 		if($mime === false){
-			return null;
+			return null; // @codeCoverageIgnore
 		}
 
 		return $mime;

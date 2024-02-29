@@ -154,7 +154,7 @@ final class StreamUtil{
 			$bytesRead += $length;
 
 			if($length === 0){
-				break;
+				break; // @codeCoverageIgnore
 			}
 
 			$remaining -= $length;
