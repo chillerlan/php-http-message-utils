@@ -191,4 +191,38 @@ class MessageUtilTest extends TestCase{
 		$this::assertSame($expectedMIME, $message->getHeaderLine('content-type'));
 	}
 
+	public function testSetCookie():void{
+
+		$response = MessageUtil::setCookie(
+			$this->responseFactory->createResponse(), 'foo', 'what', null, 'example.com', '/', true, true, 'strict',
+		);
+
+		$cookieHeaders = $response->getHeader('Set-Cookie');
+
+		$this::assertSame(
+			'foo=what; Domain=example.com; Path=/; Secure; HttpOnly; SameSite=strict',
+			$cookieHeaders[0]
+		);
+	}
+
+	public function testGetCookieFromHeader():void{
+		$response = $this->responseFactory->createResponse();
+
+		$this::assertNull(MessageUtil::getCookiesFromHeader($response));
+		$this::assertNull(MessageUtil::getCookiesFromHeader($response->withHeader('Cookie', ' ')));
+
+		$response = $this->responseFactory
+			->createResponse()
+			->withHeader('Cookie', 'name1=value1; name2=value2; empty=;foo=bar')
+		;
+
+		$expected = [
+			'name1' => 'value1',
+			'name2' => 'value2',
+			'empty' => '',
+			'foo'   => 'bar',
+		];
+
+		$this::assertSame($expected, MessageUtil::getCookiesFromHeader($response));
+	}
 }

@@ -13,9 +13,9 @@ declare(strict_types=1);
 namespace chillerlan\HTTP\Utils;
 
 use Psr\Http\Message\{MessageInterface, RequestInterface, ResponseInterface, ServerRequestInterface};
-use RuntimeException, Throwable;
-use function call_user_func, extension_loaded, function_exists, gzdecode, gzinflate, gzuncompress, implode,
-	in_array, json_decode, json_encode, simplexml_load_string, sprintf, strtolower, trim;
+use DateInterval, DateTimeInterface, RuntimeException, Throwable;
+use function array_map, explode, extension_loaded, function_exists, gzdecode, gzinflate, gzuncompress, implode,
+	in_array, json_decode, json_encode, rawurldecode, simplexml_load_string, sprintf, strtolower, trim;
 use const JSON_THROW_ON_ERROR;
 
 /**
@@ -179,6 +179,64 @@ final class MessageUtil{
 		}
 
 		return $message->withHeader('Content-Type', $mime);
+	}
+
+	/**
+	 * Adds a Set-Cookie header to a ResponseInterface (convenience)
+	 *
+	 * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie
+	 */
+	public static function setCookie(
+		ResponseInterface                       $message,
+		string                                  $name,
+		string|null                             $value = null,
+		DateTimeInterface|DateInterval|int|null $expiry = null,
+		string|null                             $domain = null,
+		string|null                             $path = null,
+		bool                                    $secure = false,
+		bool                                    $httpOnly = false,
+		string|null                             $sameSite = null,
+	):ResponseInterface{
+
+		$cookie = (new Cookie($name, $value))
+			->withExpiry($expiry)
+			->withDomain($domain)
+			->withPath($path)
+			->withSecure($secure)
+			->withHttpOnly($httpOnly)
+			->withSameSite($sameSite)
+		;
+
+		return $message->withAddedHeader('Set-Cookie', (string)$cookie);
+	}
+
+	/**
+	 * Attempts to extract and parse a cookie from a "Cookie" (user-agent) header
+	 *
+	 * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cookie
+	 */
+	public static function getCookiesFromHeader(MessageInterface $message):array|null{
+
+		if(!$message->hasHeader('Cookie')){
+			return null;
+		}
+
+		$header = trim($message->getHeaderLine('Cookie'));
+
+		if(empty($header)){
+			return null;
+		}
+
+		$cookies = [];
+
+		// some people apparently use regular expressions for this (:
+		foreach(array_map('trim', explode(';', $header)) as $kv){
+			[$name, $value] = array_map('trim', explode('=', $kv, 2));
+
+			$cookies[$name] = rawurldecode($value);
+		}
+
+		return $cookies;
 	}
 
 }
