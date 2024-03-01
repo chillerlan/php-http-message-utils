@@ -29,18 +29,18 @@ A collection of utilities for use with [PSR-7 Message implementations](https://w
 
 ## Requirements
   - PHP 8.1+
-    - `ext-fileinfo`, `ext-json`, `ext-simplexml`, `ext-zlib`
-    - for `MessageUtil::decompress()`: `ext-br` [kjdev/php-ext-brotli](https://github.com/kjdev/php-ext-brotli) and `ext-zstd` [kjdev/php-ext-zstd](https://github.com/kjdev/php-ext-zstd)
+    - `ext-fileinfo`, `ext-intl`, `ext-json`, `ext-mbstring`, `ext-simplexml`, `ext-zlib`
+    - for `MessageUtil::decompress()`: `ext-br` [kjdev/php-ext-brotli](https://github.com/kjdev/php-ext-brotli) or `ext-zstd` [kjdev/php-ext-zstd](https://github.com/kjdev/php-ext-zstd)
 
 ## Installation
 **requires [composer](https://getcomposer.org)**
 
-`composer.json` (note: replace `dev-main` with a [version boundary](https://getcomposer.org/doc/articles/versions.md))
+`composer.json` (note: replace `dev-main` with a [version boundary](https://getcomposer.org/doc/articles/versions.md), e.g. `^2.1`)
 ```json
 {
 	"require": {
 		"php": "^8.1",
-		"chillerlan/php-http-message-utils": "dev-main"
+		"chillerlan/php-http-message-utils": "dev-main#<commit_hash>"
 	}
 }
 ```
