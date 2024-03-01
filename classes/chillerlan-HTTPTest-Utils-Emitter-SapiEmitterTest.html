@@ -98,11 +98,12 @@
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/chillerlan.html">chillerlan</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/chillerlan-httptest.html">HTTPTest</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/chillerlan-httptest-utils.html">Utils</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/chillerlan-httptest-utils-emitter.html">Emitter</a></li>
     </ul>
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    HeaderUtilTest
+    SapiEmitterTest
 
         <span class="phpdocumentor-element__extends">
         extends <abbr title="\PHPUnit\Framework\TestCase">TestCase</abbr>
@@ -127,9 +128,9 @@
 </div>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/HeaderUtilTest.php"><a href="files/tests-headerutiltest.html"><abbr title="tests/HeaderUtilTest.php">HeaderUtilTest.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Emitter/SapiEmitterTest.php"><a href="files/tests-emitter-sapiemittertest.html"><abbr title="tests/Emitter/SapiEmitterTest.php">SapiEmitterTest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">24</span>
 
     </aside>
 
@@ -141,7 +142,7 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -155,10 +156,16 @@
 
 <h4 id="toc-properties">
     Properties
-    <a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#property_emitter">$emitter</a>
+    <span>
+                        &nbsp;: <a href="classes/chillerlan-HTTP-Utils-Emitter-ResponseEmitterInterface.html"><abbr title="\chillerlan\HTTP\Utils\Emitter\ResponseEmitterInterface">ResponseEmitterInterface</abbr></a>            </span>
+</dt>
+
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#property_requestFactory">$requestFactory</a>
     <span>
@@ -211,57 +218,58 @@
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_headerDataProvider">headerDataProvider()</a>
+    <a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_contentRangeProvider">contentRangeProvider()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+                                &nbsp;: <abbr title="\Generator">Generator</abbr>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_headerNameProvider">headerNameProvider()</a>
-    <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_testCombinedCookieHeaders">testCombinedCookieHeaders()</a>
+    <a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_testEmit">testEmit()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_testCombineHeaderFields">testCombineHeaderFields()</a>
+    <a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_testEmitContentRange">testEmitContentRange()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_testNormalizeHeaderName">testNormalizeHeaderName()</a>
+    <a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_testEmitPartialContent">testEmitPartialContent()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_testNormalizeHeaders">testNormalizeHeaders()</a>
+    <a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_testInvalidContentRangeRemovesHeader">testInvalidContentRangeRemovesHeader()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_testNormalizeHeadersFromMessageInterface">testNormalizeHeadersFromMessageInterface()</a>
+    <a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_testPreviousOutputException">testPreviousOutputException()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_testTrimValues">testTrimValues()</a>
+    <a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_testSetHeaders">testSetHeaders()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_initEmitter">initEmitter()</a>
+    <span>
+                                &nbsp;: <a href="classes/chillerlan-HTTP-Utils-Emitter-ResponseEmitterInterface.html"><abbr title="\chillerlan\HTTP\Utils\Emitter\ResponseEmitterInterface">ResponseEmitterInterface</abbr></a>    </span>
+</dt>
+<dd>Returns an instance of the SapiEmitter that intercepts headers and output so that they can be examined</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#method_setUp">setUp()</a>
@@ -280,9 +288,42 @@
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_emitter">
+        $emitter
+        <a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#property_emitter" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Emitter/SapiEmitterTest.php"><a href="files/tests-emitter-sapiemittertest.html"><abbr title="tests/Emitter/SapiEmitterTest.php">SapiEmitterTest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">27</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/chillerlan-HTTP-Utils-Emitter-ResponseEmitterInterface.html"><abbr title="\chillerlan\HTTP\Utils\Emitter\ResponseEmitterInterface">ResponseEmitterInterface</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$emitter</span>
+    </code>
+
+    
+    
+    
+
+</article>
                     <article
         class="
             phpdocumentor-element
@@ -552,7 +593,7 @@
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -561,22 +602,22 @@
             -public
                                     -static                    "
 >
-    <h4 class="phpdocumentor-element__name" id="method_headerDataProvider">
-        headerDataProvider()
-        <a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_headerDataProvider" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_contentRangeProvider">
+        contentRangeProvider()
+        <a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_contentRangeProvider" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/HeaderUtilTest.php"><a href="files/tests-headerutiltest.html"><abbr title="tests/HeaderUtilTest.php">HeaderUtilTest.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Emitter/SapiEmitterTest.php"><a href="files/tests-emitter-sapiemittertest.html"><abbr title="tests/Emitter/SapiEmitterTest.php">SapiEmitterTest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">25</span>
+    <span class="phpdocumentor-element-found-in__line">120</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">headerDataProvider</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">contentRangeProvider</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Generator">Generator</abbr></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -586,42 +627,7 @@
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                    -static                    "
->
-    <h4 class="phpdocumentor-element__name" id="method_headerNameProvider">
-        headerNameProvider()
-        <a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_headerNameProvider" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/HeaderUtilTest.php"><a href="files/tests-headerutiltest.html"><abbr title="tests/HeaderUtilTest.php">HeaderUtilTest.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">128</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">headerNameProvider</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Generator">Generator</abbr></span>
             </section>
 
 </article>
@@ -631,22 +637,22 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_testCombinedCookieHeaders">
-        testCombinedCookieHeaders()
-        <a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_testCombinedCookieHeaders" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_testEmit">
+        testEmit()
+        <a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_testEmit" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/HeaderUtilTest.php"><a href="files/tests-headerutiltest.html"><abbr title="tests/HeaderUtilTest.php">HeaderUtilTest.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Emitter/SapiEmitterTest.php"><a href="files/tests-emitter-sapiemittertest.html"><abbr title="tests/Emitter/SapiEmitterTest.php">SapiEmitterTest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">112</span>
+    <span class="phpdocumentor-element-found-in__line">88</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">testCombinedCookieHeaders</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">testEmit</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -662,53 +668,22 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_testCombineHeaderFields">
-        testCombineHeaderFields()
-        <a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_testCombineHeaderFields" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_testEmitContentRange">
+        testEmitContentRange()
+        <a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_testEmitContentRange" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/HeaderUtilTest.php"><a href="files/tests-headerutiltest.html"><abbr title="tests/HeaderUtilTest.php">HeaderUtilTest.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Emitter/SapiEmitterTest.php"><a href="files/tests-emitter-sapiemittertest.html"><abbr title="tests/Emitter/SapiEmitterTest.php">SapiEmitterTest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">75</span>
+    <span class="phpdocumentor-element-found-in__line">142</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">testCombineHeaderFields</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_testNormalizeHeaderName">
-        testNormalizeHeaderName()
-        <a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_testNormalizeHeaderName" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/HeaderUtilTest.php"><a href="files/tests-headerutiltest.html"><abbr title="tests/HeaderUtilTest.php">HeaderUtilTest.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">139</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">testNormalizeHeaderName</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$expected</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">testEmitContentRange</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$start</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$end</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$bufferSize</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$body</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$expectedLength</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$expected</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -716,8 +691,36 @@
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$name</span>
+                <span class="phpdocumentor-signature__argument__name">$start</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$end</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$bufferSize</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$body</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$expectedLength</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -741,22 +744,147 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_testNormalizeHeaders">
-        testNormalizeHeaders()
-        <a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_testNormalizeHeaders" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_testEmitPartialContent">
+        testEmitPartialContent()
+        <a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_testEmitPartialContent" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/HeaderUtilTest.php"><a href="files/tests-headerutiltest.html"><abbr title="tests/HeaderUtilTest.php">HeaderUtilTest.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Emitter/SapiEmitterTest.php"><a href="files/tests-emitter-sapiemittertest.html"><abbr title="tests/Emitter/SapiEmitterTest.php">SapiEmitterTest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">46</span>
+    <span class="phpdocumentor-element-found-in__line">202</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">testNormalizeHeaders</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$headers</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$normalized</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">testEmitPartialContent</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_testInvalidContentRangeRemovesHeader">
+        testInvalidContentRangeRemovesHeader()
+        <a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_testInvalidContentRangeRemovesHeader" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Emitter/SapiEmitterTest.php"><a href="files/tests-emitter-sapiemittertest.html"><abbr title="tests/Emitter/SapiEmitterTest.php">SapiEmitterTest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">178</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">testInvalidContentRangeRemovesHeader</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_testPreviousOutputException">
+        testPreviousOutputException()
+        <a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_testPreviousOutputException" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Emitter/SapiEmitterTest.php"><a href="files/tests-emitter-sapiemittertest.html"><abbr title="tests/Emitter/SapiEmitterTest.php">SapiEmitterTest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">105</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">testPreviousOutputException</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_testSetHeaders">
+        testSetHeaders()
+        <a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_testSetHeaders" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Emitter/SapiEmitterTest.php"><a href="files/tests-emitter-sapiemittertest.html"><abbr title="tests/Emitter/SapiEmitterTest.php">SapiEmitterTest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">59</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">testSetHeaders</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_initEmitter">
+        initEmitter()
+        <a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_initEmitter" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Emitter/SapiEmitterTest.php"><a href="files/tests-emitter-sapiemittertest.html"><abbr title="tests/Emitter/SapiEmitterTest.php">SapiEmitterTest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">32</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns an instance of the SapiEmitter that intercepts headers and output so that they can be examined</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">initEmitter</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$response</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$bufferSize</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">8192</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/chillerlan-HTTP-Utils-Emitter-ResponseEmitterInterface.html"><abbr title="\chillerlan\HTTP\Utils\Emitter\ResponseEmitterInterface">ResponseEmitterInterface</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -764,16 +892,16 @@
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$headers</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                <span class="phpdocumentor-signature__argument__name">$response</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$normalized</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
-                            </dt>
+                <span class="phpdocumentor-signature__argument__name">$bufferSize</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">8192</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
@@ -781,69 +909,11 @@
 
     
 
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_testNormalizeHeadersFromMessageInterface">
-        testNormalizeHeadersFromMessageInterface()
-        <a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_testNormalizeHeadersFromMessageInterface" class="headerlink"><i class="fas fa-link"></i></a>
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/chillerlan-HTTP-Utils-Emitter-ResponseEmitterInterface.html"><abbr title="\chillerlan\HTTP\Utils\Emitter\ResponseEmitterInterface">ResponseEmitterInterface</abbr></a></span>
+            </section>
 
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/HeaderUtilTest.php"><a href="files/tests-headerutiltest.html"><abbr title="tests/HeaderUtilTest.php">HeaderUtilTest.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">51</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">testNormalizeHeadersFromMessageInterface</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_testTrimValues">
-        testTrimValues()
-        <a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_testTrimValues" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/HeaderUtilTest.php"><a href="files/tests-headerutiltest.html"><abbr title="tests/HeaderUtilTest.php">HeaderUtilTest.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">144</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">testTrimValues</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-
-    
 </article>
                     <article
         class="phpdocumentor-element
@@ -897,7 +967,7 @@
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/tests/HeaderUtilTest.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/tests/Emitter/SapiEmitterTest.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -996,36 +1066,37 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                            <li><a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#toc-properties">Properties</a></li>
-                                                            <li><a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#toc-methods">Methods</a></li>
+                                                            <li><a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
             
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#property_requestFactory">$requestFactory<a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html"></li>
-                                                    <li><a href="classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#property_responseFactory">$responseFactory<a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html"></li>
-                                                    <li><a href="classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#property_server">$server<a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html"></li>
-                                                    <li><a href="classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#property_serverRequestFactory">$serverRequestFactory<a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html"></li>
-                                                    <li><a href="classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#property_streamFactory">$streamFactory<a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html"></li>
-                                                    <li><a href="classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#property_uploadedFileFactory">$uploadedFileFactory<a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html"></li>
-                                                    <li><a href="classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#property_uriFactory">$uriFactory<a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html"></li>
-                                                    <li><a href="classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#property_FACTORIES">$FACTORIES<a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html"></li>
+                                                    <li><a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#property_emitter">$emitter<a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html"></li>
+                                                    <li><a href="classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#property_requestFactory">$requestFactory<a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html"></li>
+                                                    <li><a href="classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#property_responseFactory">$responseFactory<a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html"></li>
+                                                    <li><a href="classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#property_server">$server<a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html"></li>
+                                                    <li><a href="classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#property_serverRequestFactory">$serverRequestFactory<a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html"></li>
+                                                    <li><a href="classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#property_streamFactory">$streamFactory<a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html"></li>
+                                                    <li><a href="classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#property_uploadedFileFactory">$uploadedFileFactory<a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html"></li>
+                                                    <li><a href="classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#property_uriFactory">$uriFactory<a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html"></li>
+                                                    <li><a href="classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#property_FACTORIES">$FACTORIES<a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html"></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_headerDataProvider">headerDataProvider()</a></li>
-                                            <li><a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_headerNameProvider">headerNameProvider()</a></li>
-                                            <li><a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_testCombinedCookieHeaders">testCombinedCookieHeaders()</a></li>
-                                            <li><a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_testCombineHeaderFields">testCombineHeaderFields()</a></li>
-                                            <li><a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_testNormalizeHeaderName">testNormalizeHeaderName()</a></li>
-                                            <li><a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_testNormalizeHeaders">testNormalizeHeaders()</a></li>
-                                            <li><a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_testNormalizeHeadersFromMessageInterface">testNormalizeHeadersFromMessageInterface()</a></li>
-                                            <li><a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_testTrimValues">testTrimValues()</a></li>
+                                            <li><a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_contentRangeProvider">contentRangeProvider()</a></li>
+                                            <li><a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_testEmit">testEmit()</a></li>
+                                            <li><a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_testEmitContentRange">testEmitContentRange()</a></li>
+                                            <li><a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_testEmitPartialContent">testEmitPartialContent()</a></li>
+                                            <li><a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_testInvalidContentRangeRemovesHeader">testInvalidContentRangeRemovesHeader()</a></li>
+                                            <li><a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_testPreviousOutputException">testPreviousOutputException()</a></li>
+                                            <li><a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_testSetHeaders">testSetHeaders()</a></li>
+                                            <li><a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_initEmitter">initEmitter()</a></li>
                                             <li><a href="classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#method_setUp">setUp()</a></li>
                                     </ul>
             </li>
@@ -1046,7 +1117,7 @@
     </section>
 </section>
         </div>
-        <a href="classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

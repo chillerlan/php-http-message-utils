@@ -178,6 +178,13 @@ An exception is being made for Set-Cookie, which holds an array of values for ea
 </dt>
 <dd>Trims whitespace from the header values.</dd>
 
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/chillerlan-HTTP-Utils-HeaderUtil.html#method_normalizeKV">normalizeKV()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Extracts a key:value pair from the given value and returns it as 2-element array.</dd>
+
     </dl>
 
 
@@ -256,7 +263,7 @@ An exception is being made for Set-Cookie, which holds an array of values for ea
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/HeaderUtil.php"><a href="files/src-headerutil.html"><abbr title="src/HeaderUtil.php">HeaderUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">115</span>
+    <span class="phpdocumentor-element-found-in__line">133</span>
 
     </aside>
 
@@ -302,7 +309,7 @@ An exception is being made for Set-Cookie, which holds an array of values for ea
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/HeaderUtil.php"><a href="files/src-headerutil.html"><abbr title="src/HeaderUtil.php">HeaderUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">103</span>
+    <span class="phpdocumentor-element-found-in__line">121</span>
 
     </aside>
 
@@ -350,6 +357,54 @@ OWS          = *( SP / HTAB )</p>
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">iterable&lt;string|int, mixed&gt;</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_normalizeKV">
+        normalizeKV()
+        <a href="classes/chillerlan-HTTP-Utils-HeaderUtil.html#method_normalizeKV" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/HeaderUtil.php"><a href="files/src-headerutil.html"><abbr title="src/HeaderUtil.php">HeaderUtil.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">88</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Extracts a key:value pair from the given value and returns it as 2-element array.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">normalizeKV</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+        <section class="phpdocumentor-description"><p>If the key cannot be parsed, both array values will be <code class="prettyprint">null</code>.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$value</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
             </section>
 
 </article>
@@ -469,6 +524,7 @@ OWS          = *( SP / HTAB )</p>
                                             <li><a href="classes/chillerlan-HTTP-Utils-HeaderUtil.html#method_normalize">normalize()</a></li>
                                             <li><a href="classes/chillerlan-HTTP-Utils-HeaderUtil.html#method_normalizeHeaderName">normalizeHeaderName()</a></li>
                                             <li><a href="classes/chillerlan-HTTP-Utils-HeaderUtil.html#method_trimValues">trimValues()</a></li>
+                                            <li><a href="classes/chillerlan-HTTP-Utils-HeaderUtil.html#method_normalizeKV">normalizeKV()</a></li>
                                     </ul>
             </li>
                     </ul>

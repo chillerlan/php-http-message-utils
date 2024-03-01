@@ -1,6 +1,216 @@
 Search.appendIndex(
     [
                 {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Cookie",
+            "name": "Cookie",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Cookie.html"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Cookie\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Cookie.html#method___construct"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Cookie\u003A\u003A__toString\u0028\u0029",
+            "name": "__toString",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Cookie.html#method___toString"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Cookie\u003A\u003AwithNameAndValue\u0028\u0029",
+            "name": "withNameAndValue",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Cookie.html#method_withNameAndValue"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Cookie\u003A\u003AwithExpiry\u0028\u0029",
+            "name": "withExpiry",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Cookie.html#method_withExpiry"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Cookie\u003A\u003AwithDomain\u0028\u0029",
+            "name": "withDomain",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Cookie.html#method_withDomain"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Cookie\u003A\u003AwithPath\u0028\u0029",
+            "name": "withPath",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Cookie.html#method_withPath"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Cookie\u003A\u003AwithSecure\u0028\u0029",
+            "name": "withSecure",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Cookie.html#method_withSecure"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Cookie\u003A\u003AwithHttpOnly\u0028\u0029",
+            "name": "withHttpOnly",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Cookie.html#method_withHttpOnly"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Cookie\u003A\u003AwithSameSite\u0028\u0029",
+            "name": "withSameSite",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Cookie.html#method_withSameSite"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Cookie\u003A\u003ARESERVED_CHARACTERS",
+            "name": "RESERVED_CHARACTERS",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Cookie.html#constant_RESERVED_CHARACTERS"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Cookie\u003A\u003A\u0024name",
+            "name": "name",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Cookie.html#property_name"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Cookie\u003A\u003A\u0024value",
+            "name": "value",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Cookie.html#property_value"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Cookie\u003A\u003A\u0024expiry",
+            "name": "expiry",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Cookie.html#property_expiry"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Cookie\u003A\u003A\u0024maxAge",
+            "name": "maxAge",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Cookie.html#property_maxAge"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Cookie\u003A\u003A\u0024domain",
+            "name": "domain",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Cookie.html#property_domain"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Cookie\u003A\u003A\u0024path",
+            "name": "path",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Cookie.html#property_path"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Cookie\u003A\u003A\u0024secure",
+            "name": "secure",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Cookie.html#property_secure"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Cookie\u003A\u003A\u0024httpOnly",
+            "name": "httpOnly",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Cookie.html#property_httpOnly"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Cookie\u003A\u003A\u0024sameSite",
+            "name": "sameSite",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Cookie.html#property_sameSite"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\ResponseEmitterAbstract",
+            "name": "ResponseEmitterAbstract",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Emitter-ResponseEmitterAbstract.html"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\ResponseEmitterAbstract\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "ResponseEmitter\u0020constructor",
+            "url": "classes/chillerlan-HTTP-Utils-Emitter-ResponseEmitterAbstract.html#method___construct"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\ResponseEmitterAbstract\u003A\u003AhasBody\u0028\u0029",
+            "name": "hasBody",
+            "summary": "Checks\u0020whether\u0020the\u0020response\u0020has\u0020\u0028or\u0020is\u0020supposed\u0020to\u0020have\u0029\u0020a\u0020body",
+            "url": "classes/chillerlan-HTTP-Utils-Emitter-ResponseEmitterAbstract.html#method_hasBody"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\ResponseEmitterAbstract\u003A\u003AgetStatusLine\u0028\u0029",
+            "name": "getStatusLine",
+            "summary": "Returns\u0020a\u0020full\u0020status\u0020line\u0020for\u0020the\u0020given\u0020response,\u0020e.g.\u0020\u0022HTTP\/1.1\u0020200\u0020OK\u0022",
+            "url": "classes/chillerlan-HTTP-Utils-Emitter-ResponseEmitterAbstract.html#method_getStatusLine"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\ResponseEmitterAbstract\u003A\u003AsetContentLengthHeader\u0028\u0029",
+            "name": "setContentLengthHeader",
+            "summary": "Sets\/adjusts\u0020the\u0020Content\u002DLength\u0020header",
+            "url": "classes/chillerlan-HTTP-Utils-Emitter-ResponseEmitterAbstract.html#method_setContentLengthHeader"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\ResponseEmitterAbstract\u003A\u003AparseContentRange\u0028\u0029",
+            "name": "parseContentRange",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Emitter-ResponseEmitterAbstract.html#method_parseContentRange"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\ResponseEmitterAbstract\u003A\u003AemitBuffer\u0028\u0029",
+            "name": "emitBuffer",
+            "summary": "emits\u0020the\u0020given\u0020buffer",
+            "url": "classes/chillerlan-HTTP-Utils-Emitter-ResponseEmitterAbstract.html#method_emitBuffer"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\ResponseEmitterAbstract\u003A\u003AemitBody\u0028\u0029",
+            "name": "emitBody",
+            "summary": "emits\u0020the\u0020body\u0020of\u0020the\u0020given\u0020response\u0020with\u0020respect\u0020to\u0020the\u0020parameters\u0020given\u0020in\u0020content\u002Drange\u0020and\u0020content\u002Dlength\u0020headers",
+            "url": "classes/chillerlan-HTTP-Utils-Emitter-ResponseEmitterAbstract.html#method_emitBody"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\ResponseEmitterAbstract\u003A\u003AemitBodyRange\u0028\u0029",
+            "name": "emitBodyRange",
+            "summary": "emits\u0020a\u0020part\u0020of\u0020the\u0020body",
+            "url": "classes/chillerlan-HTTP-Utils-Emitter-ResponseEmitterAbstract.html#method_emitBodyRange"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\ResponseEmitterAbstract\u003A\u003A\u0024body",
+            "name": "body",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Emitter-ResponseEmitterAbstract.html#property_body"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\ResponseEmitterAbstract\u003A\u003A\u0024hasCustomLength",
+            "name": "hasCustomLength",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Emitter-ResponseEmitterAbstract.html#property_hasCustomLength"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\ResponseEmitterAbstract\u003A\u003A\u0024hasContentRange",
+            "name": "hasContentRange",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Emitter-ResponseEmitterAbstract.html#property_hasContentRange"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\ResponseEmitterAbstract\u003A\u003A\u0024rangeStart",
+            "name": "rangeStart",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Emitter-ResponseEmitterAbstract.html#property_rangeStart"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\ResponseEmitterAbstract\u003A\u003A\u0024rangeLength",
+            "name": "rangeLength",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Emitter-ResponseEmitterAbstract.html#property_rangeLength"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\ResponseEmitterAbstract\u003A\u003A\u0024response",
+            "name": "response",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Emitter-ResponseEmitterAbstract.html#property_response"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\ResponseEmitterAbstract\u003A\u003A\u0024bufferSize",
+            "name": "bufferSize",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Emitter-ResponseEmitterAbstract.html#property_bufferSize"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\ResponseEmitterInterface",
+            "name": "ResponseEmitterInterface",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Emitter-ResponseEmitterInterface.html"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\ResponseEmitterInterface\u003A\u003Aemit\u0028\u0029",
+            "name": "emit",
+            "summary": "Emits\u0020a\u0020PSR\u002D7\u0020response.",
+            "url": "classes/chillerlan-HTTP-Utils-Emitter-ResponseEmitterInterface.html#method_emit"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\SapiEmitter",
+            "name": "SapiEmitter",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Emitter-SapiEmitter.html"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\SapiEmitter\u003A\u003Aemit\u0028\u0029",
+            "name": "emit",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Emitter-SapiEmitter.html#method_emit"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\SapiEmitter\u003A\u003AemitHeaders\u0028\u0029",
+            "name": "emitHeaders",
+            "summary": "Emits\u0020the\u0020headers",
+            "url": "classes/chillerlan-HTTP-Utils-Emitter-SapiEmitter.html#method_emitHeaders"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\SapiEmitter\u003A\u003AsendHeader\u0028\u0029",
+            "name": "sendHeader",
+            "summary": "Allow\u0020to\u0020intercept\u0020header\u0020calls\u0020in\u0020tests",
+            "url": "classes/chillerlan-HTTP-Utils-Emitter-SapiEmitter.html#method_sendHeader"
+        },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\HeaderUtil",
             "name": "HeaderUtil",
             "summary": "",
@@ -10,6 +220,11 @@ Search.appendIndex(
             "name": "normalize",
             "summary": "Normalizes\u0020an\u0020array\u0020of\u0020header\u0020lines\u0020to\u0020format\u0020\u005B\u0022Name\u0022\u0020\u003D\u003E\u0020\u0022Value\u0020\u0028,\u0020Value2,\u0020Value3,\u0020...\u0029\u0022,\u0020...\u005D\nAn\u0020exception\u0020is\u0020being\u0020made\u0020for\u0020Set\u002DCookie,\u0020which\u0020holds\u0020an\u0020array\u0020of\u0020values\u0020for\u0020each\u0020cookie.",
             "url": "classes/chillerlan-HTTP-Utils-HeaderUtil.html#method_normalize"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\HeaderUtil\u003A\u003AnormalizeKV\u0028\u0029",
+            "name": "normalizeKV",
+            "summary": "Extracts\u0020a\u0020key\u003Avalue\u0020pair\u0020from\u0020the\u0020given\u0020value\u0020and\u0020returns\u0020it\u0020as\u00202\u002Delement\u0020array.",
+            "url": "classes/chillerlan-HTTP-Utils-HeaderUtil.html#method_normalizeKV"
         },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\HeaderUtil\u003A\u003AtrimValues\u0028\u0029",
             "name": "trimValues",
@@ -65,6 +280,16 @@ Search.appendIndex(
             "name": "setContentTypeHeader",
             "summary": "Tries\u0020to\u0020determine\u0020the\u0020content\u0020type\u0020from\u0020the\u0020given\u0020values\u0020and\u0020sets\u0020the\u0020Content\u002DType\u0020header\u0020accordingly,\nthrows\u0020if\u0020no\u0020mime\u0020type\u0020could\u0020be\u0020guessed.",
             "url": "classes/chillerlan-HTTP-Utils-MessageUtil.html#method_setContentTypeHeader"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\MessageUtil\u003A\u003AsetCookie\u0028\u0029",
+            "name": "setCookie",
+            "summary": "Adds\u0020a\u0020Set\u002DCookie\u0020header\u0020to\u0020a\u0020ResponseInterface\u0020\u0028convenience\u0029",
+            "url": "classes/chillerlan-HTTP-Utils-MessageUtil.html#method_setCookie"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\MessageUtil\u003A\u003AgetCookiesFromHeader\u0028\u0029",
+            "name": "getCookiesFromHeader",
+            "summary": "Attempts\u0020to\u0020extract\u0020and\u0020parse\u0020a\u0020cookie\u0020from\u0020a\u0020\u0022Cookie\u0022\u0020\u0028user\u002Dagent\u0029\u0020header",
+            "url": "classes/chillerlan-HTTP-Utils-MessageUtil.html#method_getCookiesFromHeader"
         },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\MimeTypeUtil",
             "name": "MimeTypeUtil",
@@ -306,6 +531,136 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-HTTP-Utils-UriUtil.html#constant_URI_DEFAULT_PORTS"
         },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\CookieTest",
+            "name": "CookieTest",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-CookieTest.html"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\CookieTest\u003A\u003AtestEmptyNameException\u0028\u0029",
+            "name": "testEmptyNameException",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-CookieTest.html#method_testEmptyNameException"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\CookieTest\u003A\u003AinvalidNameProvider\u0028\u0029",
+            "name": "invalidNameProvider",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-CookieTest.html#method_invalidNameProvider"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\CookieTest\u003A\u003AtestInvalidCharactersInNameException\u0028\u0029",
+            "name": "testInvalidCharactersInNameException",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-CookieTest.html#method_testInvalidCharactersInNameException"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\CookieTest\u003A\u003AexpiryProvider\u0028\u0029",
+            "name": "expiryProvider",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-CookieTest.html#method_expiryProvider"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\CookieTest\u003A\u003AtestSetExpiry\u0028\u0029",
+            "name": "testSetExpiry",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-CookieTest.html#method_testSetExpiry"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\CookieTest\u003A\u003AtestExpiryWithEmptyValue\u0028\u0029",
+            "name": "testExpiryWithEmptyValue",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-CookieTest.html#method_testExpiryWithEmptyValue"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\CookieTest\u003A\u003AdomainProvider\u0028\u0029",
+            "name": "domainProvider",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-CookieTest.html#method_domainProvider"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\CookieTest\u003A\u003AtestSetDomain\u0028\u0029",
+            "name": "testSetDomain",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-CookieTest.html#method_testSetDomain"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\CookieTest\u003A\u003ApathProvider\u0028\u0029",
+            "name": "pathProvider",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-CookieTest.html#method_pathProvider"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\CookieTest\u003A\u003AtestPath\u0028\u0029",
+            "name": "testPath",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-CookieTest.html#method_testPath"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\CookieTest\u003A\u003AtestSecure\u0028\u0029",
+            "name": "testSecure",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-CookieTest.html#method_testSecure"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\CookieTest\u003A\u003AtestHttpOnly\u0028\u0029",
+            "name": "testHttpOnly",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-CookieTest.html#method_testHttpOnly"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\CookieTest\u003A\u003AtestSameSiteInvalidValueException\u0028\u0029",
+            "name": "testSameSiteInvalidValueException",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-CookieTest.html#method_testSameSiteInvalidValueException"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\CookieTest\u003A\u003AtestSameSiteNoneWithoutSecureException\u0028\u0029",
+            "name": "testSameSiteNoneWithoutSecureException",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-CookieTest.html#method_testSameSiteNoneWithoutSecureException"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\CookieTest\u003A\u003AtestSameSite\u0028\u0029",
+            "name": "testSameSite",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-CookieTest.html#method_testSameSite"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Emitter\\SapiEmitterTest",
+            "name": "SapiEmitterTest",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Emitter\\SapiEmitterTest\u003A\u003AinitEmitter\u0028\u0029",
+            "name": "initEmitter",
+            "summary": "Returns\u0020an\u0020instance\u0020of\u0020the\u0020SapiEmitter\u0020that\u0020intercepts\u0020headers\u0020and\u0020output\u0020so\u0020that\u0020they\u0020can\u0020be\u0020examined",
+            "url": "classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_initEmitter"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Emitter\\SapiEmitterTest\u003A\u003AtestSetHeaders\u0028\u0029",
+            "name": "testSetHeaders",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_testSetHeaders"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Emitter\\SapiEmitterTest\u003A\u003AtestEmit\u0028\u0029",
+            "name": "testEmit",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_testEmit"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Emitter\\SapiEmitterTest\u003A\u003AtestPreviousOutputException\u0028\u0029",
+            "name": "testPreviousOutputException",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_testPreviousOutputException"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Emitter\\SapiEmitterTest\u003A\u003AcontentRangeProvider\u0028\u0029",
+            "name": "contentRangeProvider",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_contentRangeProvider"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Emitter\\SapiEmitterTest\u003A\u003AtestEmitContentRange\u0028\u0029",
+            "name": "testEmitContentRange",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_testEmitContentRange"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Emitter\\SapiEmitterTest\u003A\u003AtestInvalidContentRangeRemovesHeader\u0028\u0029",
+            "name": "testInvalidContentRangeRemovesHeader",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_testInvalidContentRangeRemovesHeader"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Emitter\\SapiEmitterTest\u003A\u003AtestEmitPartialContent\u0028\u0029",
+            "name": "testEmitPartialContent",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#method_testEmitPartialContent"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Emitter\\SapiEmitterTest\u003A\u003A\u0024emitter",
+            "name": "emitter",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#property_emitter"
+        },                {
             "fqsen": "\\chillerlan\\HTTPTest\\Utils\\FactoryTrait",
             "name": "FactoryTrait",
             "summary": "",
@@ -370,6 +725,11 @@ Search.appendIndex(
             "name": "testNormalizeHeaders",
             "summary": "",
             "url": "classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_testNormalizeHeaders"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\HeaderUtilTest\u003A\u003AtestNormalizeHeadersFromMessageInterface\u0028\u0029",
+            "name": "testNormalizeHeadersFromMessageInterface",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_testNormalizeHeadersFromMessageInterface"
         },                {
             "fqsen": "\\chillerlan\\HTTPTest\\Utils\\HeaderUtilTest\u003A\u003AtestCombineHeaderFields\u0028\u0029",
             "name": "testCombineHeaderFields",
@@ -455,6 +815,16 @@ Search.appendIndex(
             "name": "testSetContentTypeHeader",
             "summary": "",
             "url": "classes/chillerlan-HTTPTest-Utils-MessageUtilTest.html#method_testSetContentTypeHeader"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageUtilTest\u003A\u003AtestSetCookie\u0028\u0029",
+            "name": "testSetCookie",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-MessageUtilTest.html#method_testSetCookie"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageUtilTest\u003A\u003AtestGetCookieFromHeader\u0028\u0029",
+            "name": "testGetCookieFromHeader",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-MessageUtilTest.html#method_testGetCookieFromHeader"
         },                {
             "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MimeTypeUtilTest",
             "name": "MimeTypeUtilTest",
@@ -796,6 +1166,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/chillerlan.html"
         },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter",
+            "name": "Emitter",
+            "summary": "",
+            "url": "namespaces/chillerlan-http-utils-emitter.html"
+        },                {
             "fqsen": "\\chillerlan\\HTTPTest\\Utils",
             "name": "Utils",
             "summary": "",
@@ -805,5 +1180,10 @@ Search.appendIndex(
             "name": "HTTPTest",
             "summary": "",
             "url": "namespaces/chillerlan-httptest.html"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Emitter",
+            "name": "Emitter",
+            "summary": "",
+            "url": "namespaces/chillerlan-httptest-utils-emitter.html"
         }            ]
 );
