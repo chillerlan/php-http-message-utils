@@ -54,6 +54,7 @@ final class HeaderUtil{
 					}
 				}
 				else{
+					/** @phan-suppress-next-line PhanTypeArraySuspicious */
 					$val = self::trimValues([$val])[0];
 
 					$normalized[$key][$name($val)] = $val;
@@ -67,7 +68,10 @@ final class HeaderUtil{
 					$val = [$val];
 				}
 
-				/** @noinspection PhpParamsInspection */
+				/**
+				 * @noinspection PhpParamsInspection (it is an array...)
+				 * @phan-suppress-next-next-line PhanTypeMismatchArgumentInternal
+				 */
 				$val = implode(', ', array_values(self::trimValues($val)));
 
 				// skip if the header already exists but the current value is empty
