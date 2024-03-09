@@ -751,6 +751,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_testNormalizeHeaderName"
         },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\HeaderUtilTest\u003A\u003AheaderValueProvider\u0028\u0029",
+            "name": "headerValueProvider",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-HeaderUtilTest.html#method_headerValueProvider"
+        },                {
             "fqsen": "\\chillerlan\\HTTPTest\\Utils\\HeaderUtilTest\u003A\u003AtestTrimValues\u0028\u0029",
             "name": "testTrimValues",
             "summary": "",
