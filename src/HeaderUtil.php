@@ -12,8 +12,9 @@ declare(strict_types=1);
 
 namespace chillerlan\HTTP\Utils;
 
-use function array_keys, array_values, count, explode, implode,
-	is_array, is_numeric, is_string, strtolower, trim, ucfirst;
+use InvalidArgumentException;
+use function array_keys, array_values, count, explode, implode, is_array,
+	is_numeric, is_scalar, is_string, str_replace, strtolower, trim, ucfirst;
 
 /**
  *
@@ -48,27 +49,29 @@ final class HeaderUtil{
 
 				// array received from Message::getHeaders()
 				if(is_array($val)){
-					foreach($val as $line){
+					foreach(self::trimValues($val) as $line){
 						$normalized[$key][$name($line)] = trim($line);
 					}
 				}
 				else{
-					$normalized[$key][$name($val)] = trim($val);
+					$val = self::trimValues([$val])[0];
+
+					$normalized[$key][$name($val)] = $val;
 				}
 			}
 			// combine header fields with the same name
 			// https://datatracker.ietf.org/doc/html/rfc7230#section-3.2
 			else{
 
-				// the key is named, so we assume $val holds the header values only, either as string or array
-				if(is_array($val)){
-					$val = implode(', ', array_values($val));
+				if(!is_array($val)){
+					$val = [$val];
 				}
 
-				$val = trim((string)($val ?? ''));
+				/** @noinspection PhpParamsInspection */
+				$val = implode(', ', array_values(self::trimValues($val)));
 
 				// skip if the header already exists but the current value is empty
-				if(isset($normalized[$key]) && empty($val)){
+				if(isset($normalized[$key]) && $val === ''){
 					continue;
 				}
 
@@ -117,11 +120,17 @@ final class HeaderUtil{
 	 * OWS          = *( SP / HTAB )
 	 *
 	 * @see https://tools.ietf.org/html/rfc7230#section-3.2.4
+	 * @see https://github.com/advisories/GHSA-wxmh-65f7-jcvw
 	 */
 	public static function trimValues(iterable $values):iterable{
 
 		foreach($values as &$value){
-			$value = trim((string)($value ?? ''), " \t");
+
+			if(!is_scalar($value) && $value !== null){
+				throw new InvalidArgumentException('value is expected to be scalar or null');
+			}
+
+			$value = trim(str_replace(["\r", "\n"], '', (string)($value ?? '')));
 		}
 
 		return $values;
@@ -129,13 +138,15 @@ final class HeaderUtil{
 
 	/**
 	 * Normalizes a header name, e.g. "con TENT- lenGTh" -> "Content-Length"
+	 *
+	 * @see https://github.com/advisories/GHSA-wxmh-65f7-jcvw
 	 */
 	public static function normalizeHeaderName(string $name):string{
-		$parts = explode('-', $name);
+		// we'll remove any spaces as well as CRLF in the name, e.g. "con tent" -> "content"
+		$parts = explode('-', str_replace([' ', "\r", "\n"], '', $name));
 
 		foreach($parts as &$part){
-			// we'll remove any spaces in the name part, e.g. "con tent" -> "content"
-			$part = ucfirst(strtolower(str_replace(' ', '', trim($part))));
+			$part = ucfirst(strtolower(trim($part)));
 		}
 
 		return implode('-', $parts);

@@ -40,6 +40,7 @@ class HeaderUtilTest extends TestCase{
 			'empty value'   => [['empty-value' => ''], ['Empty-Value' => '']],
 			'null value'    => [['null-value' => null], ['Null-Value' => '']],
 			'space in name' => [['space name - header' => 'nope'], ['Spacename-Header' => 'nope']],
+			'CRLF'          => [["CR\rLF-\nin-Na\r\n\r\nme" => " CR\rLF-\nin-va\r\n\r\nlue "], ['Crlf-In-Name' => 'CRLF-in-value']],
 		];
 	}
 
@@ -133,6 +134,7 @@ class HeaderUtilTest extends TestCase{
 			'UPPERCASEKEY' => ['UPPERCASEKEY', 'Uppercasekey'],
 			'mIxEdCaSeKey' => ['mIxEdCaSeKey', 'Mixedcasekey'],
 			'31i71casekey' => ['31i71casekey', '31i71casekey'],
+			'CRLF-In-Name' => ["CR\rLF-\nin-Na\r\n\r\nme", 'Crlf-In-Name'],
 		];
 	}
 
@@ -141,8 +143,20 @@ class HeaderUtilTest extends TestCase{
 		$this::assertSame($expected, HeaderUtil::normalizeHeaderName($name));
 	}
 
-	public function testTrimValues():void{
-		$this::assertSame(['69', '420'], HeaderUtil::trimValues([69, '	420 ']));
+	public static function headerValueProvider():array{
+		return [
+			'boolean'                => [true, '1'],
+			'float'                  => [69.420, '69.42'],
+			'int'                    => [69, '69'],
+			'numeric string'         => ['69.420', '69.420'],
+			'string with whitespace' => ['	 hello	 ', 'hello'],
+			'CRLF-In-Value'          => [" CR\rLF-\nIn-Va\r\n\r\nlue ", 'CRLF-In-Value'],
+		];
+	}
+
+	#[DataProvider('headerValueProvider')]
+	public function testTrimValues(string|int|float|bool $value, string $expected):void{
+		$this::assertSame([$expected], HeaderUtil::trimValues([$value]));
 	}
 
 }
