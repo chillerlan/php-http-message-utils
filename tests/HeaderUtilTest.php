@@ -14,13 +14,11 @@ namespace chillerlan\HTTPTest\Utils;
 
 use chillerlan\HTTP\Utils\HeaderUtil;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\TestCase;
 
 /**
  *
  */
-class HeaderUtilTest extends TestCase{
-	use FactoryTrait;
+final class HeaderUtilTest extends UtilTestAbstract{
 
 	public static function headerDataProvider():array{
 		return [

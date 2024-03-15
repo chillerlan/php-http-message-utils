@@ -14,7 +14,6 @@ namespace chillerlan\HTTPTest\Utils;
 
 use chillerlan\HTTP\Utils\MessageUtil;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\TestCase;
 use RuntimeException;
 use function extension_loaded, file_get_contents, function_exists, sprintf, str_repeat;
 use function json_decode;
@@ -22,8 +21,7 @@ use function json_decode;
 /**
  *
  */
-class MessageUtilTest extends TestCase{
-	use FactoryTrait;
+final class MessageUtilTest extends UtilTestAbstract{
 
 	public function testGetJSON():void{
 

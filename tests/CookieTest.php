@@ -20,7 +20,7 @@ use function ord, sprintf;
 /**
  *
  */
-class CookieTest extends TestCase{
+final class CookieTest extends TestCase{
 
 	public function testEmptyNameException():void{
 		$this->expectException(InvalidArgumentException::class);

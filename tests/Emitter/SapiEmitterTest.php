@@ -14,15 +14,13 @@ namespace chillerlan\HTTPTest\Utils\Emitter;
 
 use chillerlan\HTTP\Utils\Emitter\ResponseEmitterInterface;
 use chillerlan\HTTP\Utils\Emitter\SapiEmitter;
-use chillerlan\HTTPTest\Utils\FactoryTrait;
+use chillerlan\HTTPTest\Utils\UtilTestAbstract;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 use Generator, RuntimeException;
 use function array_column, array_map, array_pop, explode, header, implode, sprintf, strlen;
 
-class SapiEmitterTest extends TestCase{
-	use FactoryTrait;
+final class SapiEmitterTest extends UtilTestAbstract{
 
 	protected ResponseEmitterInterface $emitter;
 

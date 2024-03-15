@@ -19,7 +19,7 @@ use function file_get_contents;
 /**
  *
  */
-class MimeTypeUtilTest extends TestCase{
+final class MimeTypeUtilTest extends TestCase{
 
 	public function testGetMimetypeFromExtension():void{
 		$this::assertSame('application/json', MimeTypeUtil::getFromExtension('json'));

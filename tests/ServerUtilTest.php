@@ -14,14 +14,33 @@ declare(strict_types=1);
 
 namespace chillerlan\HTTPTest\Utils;
 
+use chillerlan\HTTP\Utils\ServerUtil;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\TestCase;
-use InvalidArgumentException;
-use function microtime, time;
+use InvalidArgumentException, Throwable;
+use function microtime, realpath, time;
 use const UPLOAD_ERR_OK, UPLOAD_ERR_PARTIAL;
 
-class ServerUtilTest extends TestCase{
-	use FactoryTrait;
+final class ServerUtilTest extends UtilTestAbstract{
+
+	private ServerUtil $server;
+
+	protected function setUp():void{
+
+		try{
+			$this->initFactories();
+		}
+		catch(Throwable $e){
+			$this->markTestSkipped('unable to init http factories: '.$e->getMessage());
+		}
+
+		$this->server = new ServerUtil(
+			$this->serverRequestFactory,
+			$this->uriFactory,
+			$this->uploadedFileFactory,
+			$this->streamFactory
+		);
+
+	}
 
 	public static function dataGetUriFromGlobals():array{
 

@@ -13,15 +13,13 @@ declare(strict_types=1);
 namespace chillerlan\HTTPTest\Utils;
 
 use chillerlan\HTTP\Utils\StreamUtil;
-use PHPUnit\Framework\TestCase;
 use InvalidArgumentException, RuntimeException;
 use function fclose, fopen, stream_get_meta_data, strlen, substr;
 
 /**
  *
  */
-class StreamUtilTest extends TestCase{
-	use FactoryTrait;
+final class StreamUtilTest extends UtilTestAbstract{
 
 	public function testModeAllowsRead():void{
 		$this::assertTrue(StreamUtil::modeAllowsRead('r+'));

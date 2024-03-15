@@ -23,7 +23,7 @@ use const PHP_QUERY_RFC1738, PHP_QUERY_RFC3986;
 /**
  *
  */
-class QueryUtilTest extends TestCase{
+final class QueryUtilTest extends TestCase{
 
 	public static function queryParamDataProvider():array{
 		return [

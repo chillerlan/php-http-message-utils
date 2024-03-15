@@ -14,13 +14,11 @@ namespace chillerlan\HTTPTest\Utils;
 
 use chillerlan\HTTP\Utils\UriUtil;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\TestCase;
 
 /**
  *
  */
-class UriUtilTest extends TestCase{
-	use FactoryTrait;
+final class UriUtilTest extends UtilTestAbstract{
 
 	public function testUriIsAbsolute():void{
 		$this::assertTrue(UriUtil::isAbsolute($this->uriFactory->createUri('http://example.org')));
