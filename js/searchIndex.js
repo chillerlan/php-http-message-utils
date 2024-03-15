@@ -1,6 +1,96 @@
 Search.appendIndex(
     [
                 {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Client\\EchoClient",
+            "name": "EchoClient",
+            "summary": "Echoes\u0020the\u0020http\u0020request\u0020back\u0020\u0028as\u0020a\u0020JSON\u0020object\u0029",
+            "url": "classes/chillerlan-HTTP-Utils-Client-EchoClient.html"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Client\\EchoClient\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "EchoClient\u0020constructor.",
+            "url": "classes/chillerlan-HTTP-Utils-Client-EchoClient.html#method___construct"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Client\\EchoClient\u003A\u003AsendRequest\u0028\u0029",
+            "name": "sendRequest",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Client-EchoClient.html#method_sendRequest"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Client\\EchoClient\u003A\u003A\u0024responseFactory",
+            "name": "responseFactory",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Client-EchoClient.html#property_responseFactory"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Client\\LoggingClient",
+            "name": "LoggingClient",
+            "summary": "a\u0020silly\u0020logging\u0020wrapper\u0020\u0028do\u0020not\u0020use\u0020in\u0020production\u0021\u0029",
+            "url": "classes/chillerlan-HTTP-Utils-Client-LoggingClient.html"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Client\\LoggingClient\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "LoggingClient\u0020constructor.",
+            "url": "classes/chillerlan-HTTP-Utils-Client-LoggingClient.html#method___construct"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Client\\LoggingClient\u003A\u003AsetLogger\u0028\u0029",
+            "name": "setLogger",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Client-LoggingClient.html#method_setLogger"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Client\\LoggingClient\u003A\u003AsendRequest\u0028\u0029",
+            "name": "sendRequest",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Client-LoggingClient.html#method_sendRequest"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Client\\LoggingClient\u003A\u003A\u0024http",
+            "name": "http",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Client-LoggingClient.html#property_http"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Client\\LoggingClient\u003A\u003A\u0024logger",
+            "name": "logger",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Client-LoggingClient.html#property_logger"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Client\\URLExtractor",
+            "name": "URLExtractor",
+            "summary": "A\u0020client\u0020that\u0020follows\u0020redirects\u0020until\u0020it\u0020reaches\u0020a\u0020non\u002D30x\u0020response,\u0020e.g.\u0020to\u0020extract\u0020shortened\u0020URLs",
+            "url": "classes/chillerlan-HTTP-Utils-Client-URLExtractor.html"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Client\\URLExtractor\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "URLExtractor\u0020constructor.",
+            "url": "classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#method___construct"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Client\\URLExtractor\u003A\u003AsendRequest\u0028\u0029",
+            "name": "sendRequest",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#method_sendRequest"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Client\\URLExtractor\u003A\u003Aextract\u0028\u0029",
+            "name": "extract",
+            "summary": "extract\u0020the\u0020given\u0020URL\u0020and\u0020return\u0020the\u0020last\u0020valid\u0020location\u0020header",
+            "url": "classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#method_extract"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Client\\URLExtractor\u003A\u003AgetResponses\u0028\u0029",
+            "name": "getResponses",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#method_getResponses"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Client\\URLExtractor\u003A\u003A\u0024responses",
+            "name": "responses",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#property_responses"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Client\\URLExtractor\u003A\u003A\u0024http",
+            "name": "http",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#property_http"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Client\\URLExtractor\u003A\u003A\u0024requestFactory",
+            "name": "requestFactory",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#property_requestFactory"
+        },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\Cookie",
             "name": "Cookie",
             "summary": "",
@@ -260,6 +350,11 @@ Search.appendIndex(
             "name": "toString",
             "summary": "Returns\u0020the\u0020string\u0020representation\u0020of\u0020an\u0020HTTP\u0020message.\u0020\u0028from\u0020Guzzle\u0029",
             "url": "classes/chillerlan-HTTP-Utils-MessageUtil.html#method_toString"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\MessageUtil\u003A\u003AtoJSON\u0028\u0029",
+            "name": "toJSON",
+            "summary": "Returns\u0020a\u0020JSON\u0020representation\u0020of\u0020an\u0020HTTP\u0020message.",
+            "url": "classes/chillerlan-HTTP-Utils-MessageUtil.html#method_toJSON"
         },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\MessageUtil\u003A\u003Adecompress\u0028\u0029",
             "name": "decompress",
@@ -531,6 +626,116 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-HTTP-Utils-UriUtil.html#constant_URI_DEFAULT_PORTS"
         },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Client\\EchoClientTest",
+            "name": "EchoClientTest",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Client-EchoClientTest.html"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Client\\EchoClientTest\u003A\u003AtestSendRequest\u0028\u0029",
+            "name": "testSendRequest",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Client-EchoClientTest.html#method_testSendRequest"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Client\\EchoClientTest\u003A\u003AtestNetworkError\u0028\u0029",
+            "name": "testNetworkError",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Client-EchoClientTest.html#method_testNetworkError"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Client\\EchoClientTest\u003A\u003AtestRequestError\u0028\u0029",
+            "name": "testRequestError",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Client-EchoClientTest.html#method_testRequestError"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Client\\EchoClientTest\u003A\u003A\u0024HTTP_CLIENT_FACTORY",
+            "name": "HTTP_CLIENT_FACTORY",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Client-EchoClientTest.html#property_HTTP_CLIENT_FACTORY"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Client\\Factories\\EchoClientFactory",
+            "name": "EchoClientFactory",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Client-Factories-EchoClientFactory.html"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Client\\Factories\\EchoClientFactory\u003A\u003AgetClient\u0028\u0029",
+            "name": "getClient",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Client-Factories-EchoClientFactory.html#method_getClient"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Client\\Factories\\LoggingClientFactory",
+            "name": "LoggingClientFactory",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Client-Factories-LoggingClientFactory.html"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Client\\Factories\\LoggingClientFactory\u003A\u003AgetClient\u0028\u0029",
+            "name": "getClient",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Client-Factories-LoggingClientFactory.html#method_getClient"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Client\\Factories\\URLExtractorClientFactory",
+            "name": "URLExtractorClientFactory",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Client-Factories-URLExtractorClientFactory.html"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Client\\Factories\\URLExtractorClientFactory\u003A\u003AgetClient\u0028\u0029",
+            "name": "getClient",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Client-Factories-URLExtractorClientFactory.html#method_getClient"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Client\\HTTPClientTestAbstract",
+            "name": "HTTPClientTestAbstract",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Client-HTTPClientTestAbstract.html"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Client\\HTTPClientTestAbstract\u003A\u003AtestSendRequest\u0028\u0029",
+            "name": "testSendRequest",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Client-HTTPClientTestAbstract.html#method_testSendRequest"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Client\\HTTPClientTestAbstract\u003A\u003AtestNetworkError\u0028\u0029",
+            "name": "testNetworkError",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Client-HTTPClientTestAbstract.html#method_testNetworkError"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Client\\LoggingClientTest",
+            "name": "LoggingClientTest",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Client\\LoggingClientTest\u003A\u003AtestNetworkError\u0028\u0029",
+            "name": "testNetworkError",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html#method_testNetworkError"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Client\\LoggingClientTest\u003A\u003AtestRequestError\u0028\u0029",
+            "name": "testRequestError",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html#method_testRequestError"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Client\\LoggingClientTest\u003A\u003A\u0024HTTP_CLIENT_FACTORY",
+            "name": "HTTP_CLIENT_FACTORY",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html#property_HTTP_CLIENT_FACTORY"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Client\\URLExtractorTest",
+            "name": "URLExtractorTest",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Client-URLExtractorTest.html"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Client\\URLExtractorTest\u003A\u003AtestSendRequest\u0028\u0029",
+            "name": "testSendRequest",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Client-URLExtractorTest.html#method_testSendRequest"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Client\\URLExtractorTest\u003A\u003AtestExtract\u0028\u0029",
+            "name": "testExtract",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Client-URLExtractorTest.html#method_testExtract"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Client\\URLExtractorTest\u003A\u003A\u0024HTTP_CLIENT_FACTORY",
+            "name": "HTTP_CLIENT_FACTORY",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-Client-URLExtractorTest.html#property_HTTP_CLIENT_FACTORY"
+        },                {
             "fqsen": "\\chillerlan\\HTTPTest\\Utils\\CookieTest",
             "name": "CookieTest",
             "summary": "",
@@ -661,56 +866,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-HTTPTest-Utils-Emitter-SapiEmitterTest.html#property_emitter"
         },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\FactoryTrait",
-            "name": "FactoryTrait",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-FactoryTrait.html"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\FactoryTrait\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#method_setUp"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\FactoryTrait\u003A\u003A\u0024FACTORIES",
-            "name": "FACTORIES",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#property_FACTORIES"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\FactoryTrait\u003A\u003A\u0024requestFactory",
-            "name": "requestFactory",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#property_requestFactory"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\FactoryTrait\u003A\u003A\u0024responseFactory",
-            "name": "responseFactory",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#property_responseFactory"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\FactoryTrait\u003A\u003A\u0024serverRequestFactory",
-            "name": "serverRequestFactory",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#property_serverRequestFactory"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\FactoryTrait\u003A\u003A\u0024streamFactory",
-            "name": "streamFactory",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#property_streamFactory"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\FactoryTrait\u003A\u003A\u0024uploadedFileFactory",
-            "name": "uploadedFileFactory",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#property_uploadedFileFactory"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\FactoryTrait\u003A\u003A\u0024uriFactory",
-            "name": "uriFactory",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#property_uriFactory"
-        },                {
-            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\FactoryTrait\u003A\u003A\u0024server",
-            "name": "server",
-            "summary": "",
-            "url": "classes/chillerlan-HTTPTest-Utils-FactoryTrait.html#property_server"
-        },                {
             "fqsen": "\\chillerlan\\HTTPTest\\Utils\\HeaderUtilTest",
             "name": "HeaderUtilTest",
             "summary": "",
@@ -780,6 +935,11 @@ Search.appendIndex(
             "name": "testMessageToString",
             "summary": "",
             "url": "classes/chillerlan-HTTPTest-Utils-MessageUtilTest.html#method_testMessageToString"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageUtilTest\u003A\u003AtestMessageToJSON\u0028\u0029",
+            "name": "testMessageToJSON",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-MessageUtilTest.html#method_testMessageToJSON"
         },                {
             "fqsen": "\\chillerlan\\HTTPTest\\Utils\\MessageUtilTest\u003A\u003AdecompressFnProvider\u0028\u0029",
             "name": "decompressFnProvider",
@@ -956,6 +1116,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html"
         },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\ServerUtilTest\u003A\u003AsetUp\u0028\u0029",
+            "name": "setUp",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#method_setUp"
+        },                {
             "fqsen": "\\chillerlan\\HTTPTest\\Utils\\ServerUtilTest\u003A\u003AdataGetUriFromGlobals\u0028\u0029",
             "name": "dataGetUriFromGlobals",
             "summary": "",
@@ -980,6 +1145,11 @@ Search.appendIndex(
             "name": "testNormalizeFilesInvalidValueException",
             "summary": "",
             "url": "classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#method_testNormalizeFilesInvalidValueException"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\ServerUtilTest\u003A\u003A\u0024server",
+            "name": "server",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#property_server"
         },                {
             "fqsen": "\\chillerlan\\HTTPTest\\Utils\\StreamUtilTest",
             "name": "StreamUtilTest",
@@ -1151,10 +1321,30 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-HTTPTest-Utils-UriUtilTest.html#method_testParseUrl"
         },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\UtilTestAbstract",
+            "name": "UtilTestAbstract",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-UtilTestAbstract.html"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\UtilTestAbstract\u003A\u003AsetUp\u0028\u0029",
+            "name": "setUp",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-UtilTestAbstract.html#method_setUp"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\UtilTestAbstract\u003A\u003ACACERT",
+            "name": "CACERT",
+            "summary": "",
+            "url": "classes/chillerlan-HTTPTest-Utils-UtilTestAbstract.html#constant_CACERT"
+        },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
             "url": "namespaces/default.html"
+        },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Client",
+            "name": "Client",
+            "summary": "",
+            "url": "namespaces/chillerlan-http-utils-client.html"
         },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils",
             "name": "Utils",
@@ -1175,6 +1365,16 @@ Search.appendIndex(
             "name": "Emitter",
             "summary": "",
             "url": "namespaces/chillerlan-http-utils-emitter.html"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Client",
+            "name": "Client",
+            "summary": "",
+            "url": "namespaces/chillerlan-httptest-utils-client.html"
+        },                {
+            "fqsen": "\\chillerlan\\HTTPTest\\Utils\\Client\\Factories",
+            "name": "Factories",
+            "summary": "",
+            "url": "namespaces/chillerlan-httptest-utils-client-factories.html"
         },                {
             "fqsen": "\\chillerlan\\HTTPTest\\Utils",
             "name": "Utils",

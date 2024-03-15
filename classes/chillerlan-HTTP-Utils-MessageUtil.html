@@ -212,6 +212,13 @@ throws if no mime type could be guessed.</dd>
 <dd>Adds a Set-Cookie header to a ResponseInterface (convenience)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_toJSON">toJSON()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Returns a JSON representation of an HTTP message.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_toString">toString()</a>
     <span>
                                 &nbsp;: string    </span>
@@ -368,7 +375,7 @@ throws if no mime type could be guessed.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/MessageUtil.php"><a href="files/src-messageutil.html"><abbr title="src/MessageUtil.php">MessageUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">109</span>
+    <span class="phpdocumentor-element-found-in__line">149</span>
 
     </aside>
 
@@ -514,7 +521,7 @@ throws if no mime type could be guessed.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/MessageUtil.php"><a href="files/src-messageutil.html"><abbr title="src/MessageUtil.php">MessageUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">218</span>
+    <span class="phpdocumentor-element-found-in__line">258</span>
 
     </aside>
 
@@ -575,7 +582,7 @@ throws if no mime type could be guessed.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/MessageUtil.php"><a href="files/src-messageutil.html"><abbr title="src/MessageUtil.php">MessageUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">148</span>
+    <span class="phpdocumentor-element-found-in__line">188</span>
 
     </aside>
 
@@ -621,7 +628,7 @@ throws if no mime type could be guessed.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/MessageUtil.php"><a href="files/src-messageutil.html"><abbr title="src/MessageUtil.php">MessageUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">166</span>
+    <span class="phpdocumentor-element-found-in__line">206</span>
 
     </aside>
 
@@ -697,7 +704,7 @@ throws if no mime type could be guessed.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/MessageUtil.php"><a href="files/src-messageutil.html"><abbr title="src/MessageUtil.php">MessageUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">189</span>
+    <span class="phpdocumentor-element-found-in__line">229</span>
 
     </aside>
 
@@ -806,6 +813,59 @@ throws if no mime type could be guessed.</p>
             -public
                                     -static                    "
 >
+    <h4 class="phpdocumentor-element__name" id="method_toJSON">
+        toJSON()
+        <a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_toJSON" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/MessageUtil.php"><a href="files/src-messageutil.html"><abbr title="src/MessageUtil.php">MessageUtil.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">103</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns a JSON representation of an HTTP message.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">toJSON</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\MessageInterface">MessageInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$message</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$appendBody</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$message</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\MessageInterface">MessageInterface</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$appendBody</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
     <h4 class="phpdocumentor-element__name" id="method_toString">
         toString()
         <a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_toString" class="headerlink"><i class="fas fa-link"></i></a>
@@ -867,7 +927,7 @@ throws if no mime type could be guessed.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/MessageUtil.php"><a href="files/src-messageutil.html"><abbr title="src/MessageUtil.php">MessageUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">135</span>
+    <span class="phpdocumentor-element-found-in__line">175</span>
 
     </aside>
 
@@ -1040,6 +1100,7 @@ throws if no mime type could be guessed.</p>
                                             <li><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_setContentLengthHeader">setContentLengthHeader()</a></li>
                                             <li><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_setContentTypeHeader">setContentTypeHeader()</a></li>
                                             <li><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_setCookie">setCookie()</a></li>
+                                            <li><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_toJSON">toJSON()</a></li>
                                             <li><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_toString">toString()</a></li>
                                             <li><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_call_decompress_func">call_decompress_func()</a></li>
                                     </ul>

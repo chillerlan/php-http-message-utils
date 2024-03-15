@@ -98,14 +98,15 @@
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/chillerlan.html">chillerlan</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/chillerlan-httptest.html">HTTPTest</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/chillerlan-httptest-utils.html">Utils</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/chillerlan-httptest-utils-client.html">Client</a></li>
     </ul>
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    ServerUtilTest
+    LoggingClientTest
 
         <span class="phpdocumentor-element__extends">
-        extends <a href="classes/chillerlan-HTTPTest-Utils-UtilTestAbstract.html"><abbr title="\chillerlan\HTTPTest\Utils\UtilTestAbstract">UtilTestAbstract</abbr></a>
+        extends <a href="classes/chillerlan-HTTPTest-Utils-Client-HTTPClientTestAbstract.html"><abbr title="\chillerlan\HTTPTest\Utils\Client\HTTPClientTestAbstract">HTTPClientTestAbstract</abbr></a>
     </span>
     
             <div class="phpdocumentor-element__package">
@@ -126,9 +127,9 @@
 </div>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/ServerUtilTest.php"><a href="files/tests-serverutiltest.html"><abbr title="tests/ServerUtilTest.php">ServerUtilTest.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Client/LoggingClientTest.php"><a href="files/tests-client-loggingclienttest.html"><abbr title="tests/Client/LoggingClientTest.php">LoggingClientTest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">23</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 
     </aside>
 
@@ -140,7 +141,7 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -152,7 +153,7 @@
 
 <h4 id="toc-constants">
     Constants
-    <a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
@@ -167,56 +168,50 @@
 
 <h4 id="toc-properties">
     Properties
-    <a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#property_server">$server</a>
+            <dt class="phpdocumentor-table-of-contents__entry -property -public">
+    <a href="classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html#property_httpClient">$httpClient</a>
     <span>
-                        &nbsp;: <a href="classes/chillerlan-HTTP-Utils-ServerUtil.html"><abbr title="\chillerlan\HTTP\Utils\ServerUtil">ServerUtil</abbr></a>            </span>
+                        &nbsp;: <a href="classes/chillerlan-HTTP-Utils-Client-LoggingClient.html"><abbr title="\chillerlan\HTTP\Utils\Client\LoggingClient">LoggingClient</abbr></a>            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html#property_HTTP_CLIENT_FACTORY">$HTTP_CLIENT_FACTORY</a>
+    <span>
+                        &nbsp;: string            </span>
 </dt>
 
     </dl>
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#method_dataGetUriFromGlobals">dataGetUriFromGlobals()</a>
-    <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#method_testCreateServerRequestFromGlobals">testCreateServerRequestFromGlobals()</a>
+    <a href="classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html#method_testNetworkError">testNetworkError()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#method_testCreateUriFromGlobals">testCreateUriFromGlobals()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#method_testNormalizeFilesInvalidValueException">testNormalizeFilesInvalidValueException()</a>
+    <a href="classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html#method_testRequestError">testRequestError()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#method_testNormalizeMultipleFiles">testNormalizeMultipleFiles()</a>
+    <a href="classes/chillerlan-HTTPTest-Utils-Client-HTTPClientTestAbstract.html#method_testSendRequest">testSendRequest()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#method_setUp">setUp()</a>
+    <a href="classes/chillerlan-HTTPTest-Utils-UtilTestAbstract.html#method_setUp">setUp()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
@@ -230,7 +225,7 @@
     <section class="phpdocumentor-constants">
         <h3 class="phpdocumentor-elements__header" id="constants">
             Constants
-            <a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article class="phpdocumentor-element -constant -protected ">
@@ -267,25 +262,58 @@
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
         class="
             phpdocumentor-element
             -property
-            -private
+            -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_server">
-        $server
-        <a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#property_server" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_httpClient">
+        $httpClient
+        <a href="classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html#property_httpClient" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/ServerUtilTest.php"><a href="files/tests-serverutiltest.html"><abbr title="tests/ServerUtilTest.php">ServerUtilTest.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Client/LoggingClientTest.php"><a href="files/tests-client-loggingclienttest.html"><abbr title="tests/Client/LoggingClientTest.php">LoggingClientTest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">0</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/chillerlan-HTTP-Utils-Client-LoggingClient.html"><abbr title="\chillerlan\HTTP\Utils\Client\LoggingClient">LoggingClient</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$httpClient</span>
+    </code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_HTTP_CLIENT_FACTORY">
+        $HTTP_CLIENT_FACTORY
+        <a href="classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html#property_HTTP_CLIENT_FACTORY" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Client/LoggingClientTest.php"><a href="files/tests-client-loggingclienttest.html"><abbr title="tests/Client/LoggingClientTest.php">LoggingClientTest.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">25</span>
 
@@ -293,10 +321,10 @@
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type"><a href="classes/chillerlan-HTTP-Utils-ServerUtil.html"><abbr title="\chillerlan\HTTP\Utils\ServerUtil">ServerUtil</abbr></a></span>
-    <span class="phpdocumentor-signature__name">$server</span>
-    </code>
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$HTTP_CLIENT_FACTORY</span>
+     = <span class="phpdocumentor-signature__default-value">\chillerlan\HTTPTest\Utils\Client\Factories\LoggingClientFactory::class</span></code>
 
     
     
@@ -308,66 +336,31 @@
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
         class="phpdocumentor-element
             -method
             -public
-                                    -static                    "
->
-    <h4 class="phpdocumentor-element__name" id="method_dataGetUriFromGlobals">
-        dataGetUriFromGlobals()
-        <a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#method_dataGetUriFromGlobals" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/ServerUtilTest.php"><a href="files/tests-serverutiltest.html"><abbr title="tests/ServerUtilTest.php">ServerUtilTest.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">45</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">dataGetUriFromGlobals</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_testCreateServerRequestFromGlobals">
-        testCreateServerRequestFromGlobals()
-        <a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#method_testCreateServerRequestFromGlobals" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_testNetworkError">
+        testNetworkError()
+        <a href="classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html#method_testNetworkError" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/ServerUtilTest.php"><a href="files/tests-serverutiltest.html"><abbr title="tests/ServerUtilTest.php">ServerUtilTest.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Client/LoggingClientTest.php"><a href="files/tests-client-loggingclienttest.html"><abbr title="tests/Client/LoggingClientTest.php">LoggingClientTest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">118</span>
+    <span class="phpdocumentor-element-found-in__line">27</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">testCreateServerRequestFromGlobals</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">testNetworkError</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -383,70 +376,22 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_testCreateUriFromGlobals">
-        testCreateUriFromGlobals()
-        <a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#method_testCreateUriFromGlobals" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_testRequestError">
+        testRequestError()
+        <a href="classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html#method_testRequestError" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/ServerUtilTest.php"><a href="files/tests-serverutiltest.html"><abbr title="tests/ServerUtilTest.php">ServerUtilTest.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Client/LoggingClientTest.php"><a href="files/tests-client-loggingclienttest.html"><abbr title="tests/Client/LoggingClientTest.php">LoggingClientTest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">111</span>
+    <span class="phpdocumentor-element-found-in__line">31</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">testCreateUriFromGlobals</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$expected</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$serverParams</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$expected</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$serverParams</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_testNormalizeFilesInvalidValueException">
-        testNormalizeFilesInvalidValueException()
-        <a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#method_testNormalizeFilesInvalidValueException" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/ServerUtilTest.php"><a href="files/tests-serverutiltest.html"><abbr title="tests/ServerUtilTest.php">ServerUtilTest.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">249</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">testNormalizeFilesInvalidValueException</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">testRequestError</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -462,22 +407,22 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_testNormalizeMultipleFiles">
-        testNormalizeMultipleFiles()
-        <a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#method_testNormalizeMultipleFiles" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_testSendRequest">
+        testSendRequest()
+        <a href="classes/chillerlan-HTTPTest-Utils-Client-HTTPClientTestAbstract.html#method_testSendRequest" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/ServerUtilTest.php"><a href="files/tests-serverutiltest.html"><abbr title="tests/ServerUtilTest.php">ServerUtilTest.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Client/HTTPClientTestAbstract.php"><a href="files/tests-client-httpclienttestabstract.html"><abbr title="tests/Client/HTTPClientTestAbstract.php">HTTPClientTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">188</span>
+    <span class="phpdocumentor-element-found-in__line">26</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">testNormalizeMultipleFiles</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">testSendRequest</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -495,13 +440,13 @@
 >
     <h4 class="phpdocumentor-element__name" id="method_setUp">
         setUp()
-        <a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#method_setUp" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-HTTPTest-Utils-UtilTestAbstract.html#method_setUp" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/ServerUtilTest.php"><a href="files/tests-serverutiltest.html"><abbr title="tests/ServerUtilTest.php">ServerUtilTest.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/UtilTestAbstract.php"><a href="files/tests-utiltestabstract.html"><abbr title="tests/UtilTestAbstract.php">UtilTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">28</span>
 
     </aside>
 
@@ -524,7 +469,7 @@
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/tests/ServerUtilTest.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/tests/Client/LoggingClientTest.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -623,9 +568,9 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                        <li><a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#toc-constants">Constants</a></li>
-                                                            <li><a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#toc-properties">Properties</a></li>
-                                                            <li><a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#toc-methods">Methods</a></li>
+                                        <li><a href="classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html#toc-constants">Constants</a></li>
+                                                            <li><a href="classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
                             <li class="phpdocumentor-on-this-page-section__title">Constants</li>
@@ -638,19 +583,18 @@
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#property_server">$server<a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html"></li>
+                                                    <li><a href="classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html#property_httpClient">$httpClient<a href="classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html"></li>
+                                                    <li><a href="classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html#property_HTTP_CLIENT_FACTORY">$HTTP_CLIENT_FACTORY<a href="classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html"></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#method_dataGetUriFromGlobals">dataGetUriFromGlobals()</a></li>
-                                            <li><a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#method_testCreateServerRequestFromGlobals">testCreateServerRequestFromGlobals()</a></li>
-                                            <li><a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#method_testCreateUriFromGlobals">testCreateUriFromGlobals()</a></li>
-                                            <li><a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#method_testNormalizeFilesInvalidValueException">testNormalizeFilesInvalidValueException()</a></li>
-                                            <li><a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#method_testNormalizeMultipleFiles">testNormalizeMultipleFiles()</a></li>
-                                            <li><a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#method_setUp">setUp()</a></li>
+                                            <li><a href="classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html#method_testNetworkError">testNetworkError()</a></li>
+                                            <li><a href="classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html#method_testRequestError">testRequestError()</a></li>
+                                            <li><a href="classes/chillerlan-HTTPTest-Utils-Client-HTTPClientTestAbstract.html#method_testSendRequest">testSendRequest()</a></li>
+                                            <li><a href="classes/chillerlan-HTTPTest-Utils-UtilTestAbstract.html#method_setUp">setUp()</a></li>
                                     </ul>
             </li>
                     </ul>
@@ -670,7 +614,7 @@
     </section>
 </section>
         </div>
-        <a href="classes/chillerlan-HTTPTest-Utils-ServerUtilTest.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/chillerlan-HTTPTest-Utils-Client-LoggingClientTest.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 
