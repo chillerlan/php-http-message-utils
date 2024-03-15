@@ -16,7 +16,7 @@ use Psr\Http\Message\{MessageInterface, RequestInterface, ResponseInterface, Ser
 use DateInterval, DateTimeInterface, RuntimeException, Throwable;
 use function array_map, explode, extension_loaded, function_exists, gzdecode, gzinflate, gzuncompress, implode,
 	in_array, json_decode, json_encode, rawurldecode, simplexml_load_string, sprintf, strtolower, trim;
-use const JSON_THROW_ON_ERROR;
+use const JSON_PRETTY_PRINT, JSON_THROW_ON_ERROR, JSON_UNESCAPED_SLASHES;
 
 /**
  *
@@ -68,7 +68,7 @@ final class MessageUtil{
 				'%s %s HTTP/%s',
 				$message->getMethod(),
 				$message->getRequestTarget(),
-				$message->getProtocolVersion()
+				$message->getProtocolVersion(),
 			);
 
 			if(!$message->hasHeader('host')){
@@ -81,7 +81,7 @@ final class MessageUtil{
 				'HTTP/%s %s %s',
 				$message->getProtocolVersion(),
 				$message->getStatusCode(),
-				$message->getReasonPhrase()
+				$message->getReasonPhrase(),
 			);
 		}
 
@@ -95,6 +95,46 @@ final class MessageUtil{
 		}
 
 		return $msg;
+	}
+
+	/**
+	 * Returns a JSON representation of an HTTP message.
+	 */
+	public static function toJSON(MessageInterface $message, bool|null $appendBody = null):string{
+		$appendBody ??= true;
+		$msg          = [];
+
+		if($message instanceof RequestInterface){
+			$msg['request'] = [
+				'url'    => (string)$message->getUri(),
+				'method' => $message->getMethod(),
+				'target' => $message->getRequestTarget(),
+				'http'   => $message->getProtocolVersion(),
+			];
+		}
+		elseif($message instanceof ResponseInterface){
+			$msg['response'] = [
+				'status' => $message->getStatusCode(),
+				'reason' => $message->getReasonPhrase(),
+				'http'   => $message->getProtocolVersion(),
+			];
+		}
+
+		$msg['headers'] = [];
+
+		if($message instanceof RequestInterface && !$message->hasHeader('host')){
+			$msg['headers']['Host'] = $message->getUri()->getHost();
+		}
+
+		foreach($message->getHeaders() as $name => $values){
+			$msg['headers'][$name] = implode(', ', $values);
+		}
+
+		if($appendBody === true){
+			$msg['body'] = self::getContents($message);
+		}
+
+		return json_encode($msg, (JSON_THROW_ON_ERROR|JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES));
 	}
 
 	/**

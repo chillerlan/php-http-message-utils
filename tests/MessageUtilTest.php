@@ -17,6 +17,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
 use function extension_loaded, file_get_contents, function_exists, sprintf, str_repeat;
+use function json_decode;
 
 /**
  *
@@ -76,6 +77,35 @@ class MessageUtilTest extends TestCase{
 			'HTTP/1.1 200 OK'."\r\n".'foo: bar'."\r\n\r\n".'testbody',
 			MessageUtil::toString($response)
 		);
+	}
+
+	public function testMessageToJSON():void{
+		$body = $this->streamFactory->createStream('testbody');
+
+		$request = $this->requestFactory
+			->createRequest('GET', 'https://localhost/foo')
+			->withAddedHeader('foo', 'bar')
+			->withBody($body)
+		;
+
+		$json = json_decode(MessageUtil::toJSON($request));
+
+		$this::assertSame('GET', $json->request->method);
+		$this::assertSame('localhost', $json->headers->{'Host'});
+		$this::assertSame('testbody', $json->body);
+
+
+		$response = $this->responseFactory
+			->createResponse()
+			->withAddedHeader('foo', 'bar')
+			->withBody($body)
+		;
+
+		$json = json_decode(MessageUtil::toJSON($response));
+
+		$this::assertSame(200, $json->response->status);
+		$this::assertSame('bar', $json->headers->{'foo'});
+		$this::assertSame('testbody', $json->body);
 	}
 
 	public static function decompressFnProvider():array{
