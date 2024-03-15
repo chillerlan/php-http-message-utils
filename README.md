@@ -1,6 +1,6 @@
 # chillerlan/php-http-message-utils
 
-A collection of utilities for use with [PSR-7 Message implementations](https://www.php-fig.org/psr/psr-7/).
+A collection of framework-agnostic utilities for use with [PSR-7 Message implementations](https://www.php-fig.org/psr/psr-7/).
 
 [![PHP Version Support][php-badge]][php]
 [![version][packagist-badge]][packagist]
@@ -25,6 +25,7 @@ A collection of utilities for use with [PSR-7 Message implementations](https://w
 [gh-action-badge]: https://img.shields.io/github/actions/workflow/status/chillerlan/php-http-message-utils/ci.yml?branch=main&logo=github
 [gh-action]: https://github.com/chillerlan/php-http-message-utils/actions/workflows/ci.yml?query=branch%3Amain
 
+
 # Documentation
 
 ## Requirements
@@ -33,6 +34,7 @@ A collection of utilities for use with [PSR-7 Message implementations](https://w
     - for `MessageUtil::decompress()`: `ext-br` [kjdev/php-ext-brotli](https://github.com/kjdev/php-ext-brotli) or `ext-zstd` [kjdev/php-ext-zstd](https://github.com/kjdev/php-ext-zstd)
 
 ## Installation
+
 **requires [composer](https://getcomposer.org)**
 
 `composer.json` (note: replace `dev-main` with a [version boundary](https://getcomposer.org/doc/articles/versions.md), e.g. `^2.1`)
@@ -45,6 +47,78 @@ A collection of utilities for use with [PSR-7 Message implementations](https://w
 }
 ```
 Profit!
+
+## Usage
+
+### `URLExtractor`
+
+The `URLExtractor` wraps a PSR-18 `ClientInterface` to extract and follow shortened URLs to their original location.
+
+```php
+// @see https://github.com/chillerlan/php-httpinterface
+$options                 = new HTTPOptions;
+$options->user_agent     = 'my cool user agent 1.0';
+$options->ssl_verifypeer = false;
+$options->curl_options   = [
+	CURLOPT_FOLLOWLOCATION => false,
+	CURLOPT_MAXREDIRS      => 25,
+];
+
+$httpClient   = new CurlClient($responseFactory, $options, $logger);
+$urlExtractor = new URLExtractor($httpClient, $responseFactory);
+
+$request = $factory->createRequest('GET', 'https://t.co/ZSS6nVOcVp');
+
+$urlExtractor->sendRequest($request); // -> response from the final location
+
+// you can retrieve an array with all followed locations afterwards
+$responses = $this->http->getResponses(); // -> ResponseInterface[]
+
+// if you just want the URL of the final location, you can use the extract method:
+$url = $this->http->extract('https://t.co/ZSS6nVOcVp'); // -> https://api.guildwars2.com/v2/build
+```
+
+### `EchoClient`
+
+The `EchoClient` returns a JSON representation the original message:
+
+```php
+$echoClient = new EchoClient($responseFactory);
+
+$request  = $requestFactory->createRequest('GET', 'https://example.com');
+$response = $echoClient->sendRequest($request);
+$json     = json_decode($response->getBody()->getContents());
+```
+
+Which yields an object similar to the following
+
+```json
+{
+    "request": {
+        "url": "https://example.com",
+        "method": "GET",
+        "target": "/",
+        "http": "1.1"
+    },
+    "headers": {
+        "Host": "example.com"
+    },
+    "body": ""
+}
+```
+
+
+### `LoggingClient`
+
+The `LoggingClient` wraps a `ClientInterface` and outputs the HTTP messages in a readable way through a `LoggerInterface` (do NOT use in production!).
+
+```php
+$loggingClient = new LoggingClient($httpClient, $logger);
+
+$loggingClient->sendRequest($request); // -> log to output given via logger
+```
+
+
 
 ## API
 The following classes contain static methods for use with PSR-7 http message objects.
@@ -59,24 +133,25 @@ The following classes contain static methods for use with PSR-7 http message obj
 ### `QueryUtil`
 | method                                                                                           | return          | info                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 |--------------------------------------------------------------------------------------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cleanParams(iterable $params, int $bool_cast = null, bool $remove_empty = null)`                | `array`         | Cleans/normalizes an array of query parameters, booleans will be converted according to the given `$bool_cast` constant. By default, booleans will be left as-is (`Query::BOOLEANS_AS_BOOL`) and may result in empty values. If `$remove_empty` is set to true, empty non-boolean and null values will be removed from the array. The `Query` class provides the following constants for `$bool_cast`:<br>`BOOLEANS_AS_BOOL`: unchanged boolean value (default)<br>`BOOLEANS_AS_INT`: integer values 0 or 1<br>`BOOLEANS_AS_STRING`: "true"/"false" strings<br>`BOOLEANS_AS_INT_STRING`: "0"/"1" strings |
+| `cleanParams(iterable $params, int $bool_cast = null, bool $remove_empty = true)`                | `array`         | Cleans/normalizes an array of query parameters, booleans will be converted according to the given `$bool_cast` constant. By default, booleans will be left as-is (`Query::BOOLEANS_AS_BOOL`) and may result in empty values. If `$remove_empty` is set to true, empty non-boolean and null values will be removed from the array. The `Query` class provides the following constants for `$bool_cast`:<br>`BOOLEANS_AS_BOOL`: unchanged boolean value (default)<br>`BOOLEANS_AS_INT`: integer values 0 or 1<br>`BOOLEANS_AS_STRING`: "true"/"false" strings<br>`BOOLEANS_AS_INT_STRING`: "0"/"1" strings |
 | `build(array $params, int $encoding = null, string $delimiter = null, string $enclosure = null)` | `string`        | Builds a query string from an array of key value pairs, similar to [`http_build_query`](https://www.php.net/manual/en/function.http-build-query). Valid values for `$encoding` are `PHP_QUERY_RFC3986` (default) and `PHP_QUERY_RFC1738`, any other integer value will be interpreted as "no encoding" (`Query::NO_ENCODING`).                                                                                                                                                                                                                                                                           |
 | `merge(string $uri, array $query)`                                                               | `string`        | Merges additional query parameters into an existing query string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | `parse(string $querystring, int $urlEncoding = null)`                                            | `array`         | Parses a query string into an associative array, similar to [`parse_str`](https://www.php.net/manual/en/function.parse-str) (without the inconvenient usage of a by-reference result variable).                                                                                                                                                                                                                                                                                                                                                                                                          |
 | `recursiveRawurlencode(mixed $data)`                                                             | `array\|string` | Recursive [`rawurlencode`](https://www.php.net/manual/en/function.rawurlencode)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
 ### `MessageUtil`
-| method                                                                                                                                                                                                                                               | return              | info                                                                                                                                                                                                                                                  |
-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `getContents(MessageInterface $message)`                                                                                                                                                                                                             | `string`            | Reads the body content of a `MessageInterface` and makes sure to rewind.                                                                                                                                                                              |
-| `decodeJSON(MessageInterface $message, bool $assoc = null)`                                                                                                                                                                                          | mixed               | fetches the body of a `MessageInterface` and converts it to a JSON object (`stdClass`) or an associative array if `$assoc` is set to `true` and returns the result.                                                                                   |
-| `decodeXML(MessageInterface $message, bool $assoc = null)`                                                                                                                                                                                           | mixed               | fetches the body of a `MessageInterface` and converts it to a `SimpleXMLElement` or an associative array if `$assoc` is set to `true` and returns the result.                                                                                         |
-| `toString(MessageInterface $message)`                                                                                                                                                                                                                | `string`            | Returns the string representation of an HTTP message.                                                                                                                                                                                                 |
-| `decompress(MessageInterface $message)`                                                                                                                                                                                                              | `string`            | Decompresses the message content according to the `Content-Encoding` header (`compress`, `deflate`, `gzip`, `br`, `zstd`) and returns the decompressed data. `br` and `zstd` will throw a `RuntimeException` if the respecive extensions are missing. |
-| `setContentLengthHeader(MessageInterface $message)`                                                                                                                                                                                                  | `MessageInterface`  | Sets a Content-Length header in the given message in case it does not exist and body size is not null                                                                                                                                                 |
-| `setContentTypeHeader(MessageInterface $message, string $filename = null, string $extension = null)`                                                                                                                                                 | `MessageInterface`  | Tries to determine the content type from the given values and sets the Content-Type header accordingly, throws if no mime type could be guessed.                                                                                                      |
-| `setCookie(ResponseInterface $message, string $name, string $value = null, DateTimeInterface\| DateInterval\|int $expiry = null, string $domain = null, string $path = null, bool $secure = false, bool $httpOnly = false, string $sameSite = null)` | `ResponseInterface` | Adds a Set-Cookie header to a ResponseInterface (convenience)                                                                                                                                                                                         |
-| `getCookiesFromHeader(MessageInterface $message)`                                                                                                                                                                                                    | `array\|null`       | Attempts to extract and parse a cookie from a "Cookie" (user-agent) header                                                                                                                                                                            |
+| method                                                                                                                                                                                                                                              | return              | info                                                                                                                                                                                                                                                  |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `getContents(MessageInterface $message)`                                                                                                                                                                                                            | `string`            | Reads the body content of a `MessageInterface` and makes sure to rewind.                                                                                                                                                                              |
+| `decodeJSON(MessageInterface $message, bool $assoc = false)`                                                                                                                                                                                        | mixed               | fetches the body of a `MessageInterface` and converts it to a JSON object (`stdClass`) or an associative array if `$assoc` is set to `true` and returns the result.                                                                                   |
+| `decodeXML(MessageInterface $message, bool $assoc = false)`                                                                                                                                                                                         | mixed               | fetches the body of a `MessageInterface` and converts it to a `SimpleXMLElement` or an associative array if `$assoc` is set to `true` and returns the result.                                                                                         |
+| `toString(MessageInterface $message, bool $appendBody = true)`                                                                                                                                                                                      | `string`            | Returns the string representation of an HTTP message.                                                                                                                                                                                                 |
+| `toJSON(MessageInterface $message, bool $appendBody = true)`                                                                                                                                                                                        | `string`            | Returns the string representation of an HTTP message.                                                                                                                                                                                                 |
+| `decompress(MessageInterface $message)`                                                                                                                                                                                                             | `string`            | Decompresses the message content according to the `Content-Encoding` header (`compress`, `deflate`, `gzip`, `br`, `zstd`) and returns the decompressed data. `br` and `zstd` will throw a `RuntimeException` if the respecive extensions are missing. |
+| `setContentLengthHeader(MessageInterface $message)`                                                                                                                                                                                                 | `MessageInterface`  | Sets a Content-Length header in the given message in case it does not exist and body size is not null                                                                                                                                                 |
+| `setContentTypeHeader(MessageInterface $message, string $filename = null, string $extension = null)`                                                                                                                                                | `MessageInterface`  | Tries to determine the content type from the given values and sets the Content-Type header accordingly, throws if no mime type could be guessed.                                                                                                      |
+| `setCookie(ResponseInterface $message, string $name, string $value = null, DateTimeInterface\|DateInterval\|int $expiry = null, string $domain = null, string $path = null, bool $secure = false, bool $httpOnly = false, string $sameSite = null)` | `ResponseInterface` | Adds a Set-Cookie header to a ResponseInterface (convenience)                                                                                                                                                                                         |
+| `getCookiesFromHeader(MessageInterface $message)`                                                                                                                                                                                                   | `array\|null`       | Attempts to extract and parse a cookie from a "Cookie" (user-agent) header                                                                                                                                                                            |
 
 ### `UriUtil`
 | method                                                                 | return         | info                                                                                                                                                                                                                                                                        |
