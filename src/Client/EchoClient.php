@@ -43,7 +43,7 @@ class EchoClient implements ClientInterface{
 
 		$response = $response
 			->withHeader('Content-Type', 'application/json')
-			->withHeader('Content-Length', strlen($content))
+			->withHeader('Content-Length', (string)strlen($content))
 		;
 
 		$response->getBody()->write($content);
