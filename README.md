@@ -37,7 +37,7 @@ A collection of framework-agnostic utilities for use with [PSR-7 Message impleme
 
 **requires [composer](https://getcomposer.org)**
 
-`composer.json` (note: replace `dev-main` with a [version boundary](https://getcomposer.org/doc/articles/versions.md), e.g. `^2.1`)
+`composer.json` (note: replace `dev-main` with a [version boundary](https://getcomposer.org/doc/articles/versions.md), e.g. `^2.2`)
 ```json
 {
 	"require": {
@@ -47,6 +47,7 @@ A collection of framework-agnostic utilities for use with [PSR-7 Message impleme
 }
 ```
 Profit!
+
 
 ## Usage
 
@@ -72,10 +73,10 @@ $request = $factory->createRequest('GET', 'https://t.co/ZSS6nVOcVp');
 $urlExtractor->sendRequest($request); // -> response from the final location
 
 // you can retrieve an array with all followed locations afterwards
-$responses = $this->http->getResponses(); // -> ResponseInterface[]
+$responses = $urlExtractor->getResponses(); // -> ResponseInterface[]
 
 // if you just want the URL of the final location, you can use the extract method:
-$url = $this->http->extract('https://t.co/ZSS6nVOcVp'); // -> https://api.guildwars2.com/v2/build
+$url = $urlExtractor->extract('https://t.co/ZSS6nVOcVp'); // -> https://api.guildwars2.com/v2/build
 ```
 
 ### `EchoClient`
@@ -118,6 +119,37 @@ $loggingClient = new LoggingClient($httpClient, $logger);
 $loggingClient->sendRequest($request); // -> log to output given via logger
 ```
 
+The output looks similar to the following (using [monolog](https://github.com/Seldaek/monolog)):
+
+```
+[2024-03-15 22:10:41][debug] LoggingClientTest:
+----HTTP-REQUEST----
+GET /get HTTP/1.1
+Host: httpbin.org
+
+
+[2024-03-15 22:10:41][debug] LoggingClientTest:
+----HTTP-RESPONSE---
+HTTP/1.1 200 OK
+Date: Fri, 15 Mar 2024 21:10:40 GMT
+Content-Type: application/json
+Content-Length: 294
+Connection: keep-alive
+Server: gunicorn/19.9.0
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Credentials: true
+
+{
+  "args": {},
+  "headers": {
+    "Host": "httpbin.org",
+    "User-Agent": "chillerlanPHPUnitHttp/1.0.0 +https://github.com/chillerlan/phpunit-http",
+    "X-Amzn-Trace-Id": "Root=1-65f4b950-1f87b9e37182673438091aea"
+  },
+  "origin": "93.236.207.163",
+  "url": "https://httpbin.org/get"
+}
+```
 
 
 ## API
