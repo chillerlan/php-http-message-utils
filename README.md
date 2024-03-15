@@ -86,7 +86,7 @@ The `EchoClient` returns a JSON representation the original message:
 ```php
 $echoClient = new EchoClient($responseFactory);
 
-$request  = $requestFactory->createRequest('GET', 'https://example.com');
+$request  = $requestFactory->createRequest('GET', 'https://example.com?whatever=value');
 $response = $echoClient->sendRequest($request);
 $json     = json_decode($response->getBody()->getContents());
 ```
@@ -95,14 +95,17 @@ Which yields an object similar to the following
 
 ```json
 {
+	"headers": {
+		"Host": "example.com"
+	},
     "request": {
-        "url": "https://example.com",
+        "url": "https://example.com?whatever=value",
+	    "params" : {
+		    "whatever" : "value"
+	    },
         "method": "GET",
         "target": "/",
         "http": "1.1"
-    },
-    "headers": {
-        "Host": "example.com"
     },
     "body": ""
 }
