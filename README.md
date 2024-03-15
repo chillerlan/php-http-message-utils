@@ -98,16 +98,16 @@ Which yields an object similar to the following
 	"headers": {
 		"Host": "example.com"
 	},
-    "request": {
-        "url": "https://example.com?whatever=value",
-	    "params" : {
-		    "whatever" : "value"
-	    },
-        "method": "GET",
-        "target": "/",
-        "http": "1.1"
-    },
-    "body": ""
+	"request": {
+		"url": "https://example.com?whatever=value",
+		"params": {
+			"whatever": "value"
+		},
+		"method": "GET",
+		"target": "/",
+		"http": "1.1"
+	},
+	"body": ""
 }
 ```
 
