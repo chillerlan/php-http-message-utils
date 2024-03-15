@@ -102,15 +102,23 @@ final class MessageUtil{
 	 */
 	public static function toJSON(MessageInterface $message, bool|null $appendBody = null):string{
 		$appendBody ??= true;
-		$msg          = [];
+		$msg          = ['headers' => []];
 
 		if($message instanceof RequestInterface){
+			$uri = $message->getUri();
+
 			$msg['request'] = [
-				'url'    => (string)$message->getUri(),
+				'url'    => (string)$uri,
+				'params' => QueryUtil::parse($uri->getQuery()),
 				'method' => $message->getMethod(),
 				'target' => $message->getRequestTarget(),
 				'http'   => $message->getProtocolVersion(),
 			];
+
+			if(!$message->hasHeader('host')){
+				$msg['headers']['Host'] = $message->getUri()->getHost();
+			}
+
 		}
 		elseif($message instanceof ResponseInterface){
 			$msg['response'] = [
@@ -118,12 +126,6 @@ final class MessageUtil{
 				'reason' => $message->getReasonPhrase(),
 				'http'   => $message->getProtocolVersion(),
 			];
-		}
-
-		$msg['headers'] = [];
-
-		if($message instanceof RequestInterface && !$message->hasHeader('host')){
-			$msg['headers']['Host'] = $message->getUri()->getHost();
 		}
 
 		foreach($message->getHeaders() as $name => $values){

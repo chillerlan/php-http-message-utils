@@ -21,12 +21,13 @@ class EchoClientTest extends HTTPClientTestAbstract{
 	protected string $HTTP_CLIENT_FACTORY = EchoClientFactory::class;
 
 	public function testSendRequest():void{
-		$url      = 'https://httpbin.org/get';
+		$url      = 'https://httpbin.org/get?whatever=value';
 		$response = $this->httpClient->sendRequest($this->requestFactory->createRequest('GET', $url));
 		$json     = MessageUtil::decodeJSON($response);
 
 		$this::assertSame($url, $json->request->url);
 		$this::assertSame('GET', $json->request->method);
+		$this::assertSame('value', $json->request->params->{'whatever'});
 		$this::assertSame('httpbin.org', $json->headers->{'Host'});
 	}
 
