@@ -7,12 +7,13 @@
 >
 	<testsuites>
 		<testsuite name="php-http-message-utils test suite">
-			<directory>./tests</directory>
+			<directory>tests</directory>
+			<exclude>tests/Client/Factories</exclude>
 		</testsuite>
 	</testsuites>
 	<source>
 		<include>
-			<directory>./src</directory>
+			<directory>src</directory>
 		</include>
 	</source>
 	<coverage>
