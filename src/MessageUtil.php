@@ -42,14 +42,14 @@ final class MessageUtil{
 	 * @throws \JsonException
 	 */
 	public static function decodeJSON(MessageInterface $message, bool|null $assoc = null):mixed{
-		return json_decode(self::getContents($message), ($assoc ?? false), 512, JSON_THROW_ON_ERROR);
+		return json_decode(self::decompress($message), ($assoc ?? false), 512, JSON_THROW_ON_ERROR);
 	}
 
 	/**
 	 * @return \SimpleXMLElement|\stdClass|mixed
 	 */
 	public static function decodeXML(MessageInterface $message, bool|null $assoc = null):mixed{
-		$data = simplexml_load_string(self::getContents($message));
+		$data = simplexml_load_string(self::decompress($message));
 
 		return $assoc === true
 			? json_decode(json_encode($data), true) // cruel
@@ -91,7 +91,7 @@ final class MessageUtil{
 
 		// appending the body might cause issues in some cases, e.g. with large responses or file streams
 		if($appendBody === true){
-			$msg .= sprintf("\r\n\r\n%s", self::getContents($message));
+			$msg .= sprintf("\r\n\r\n%s", self::decompress($message));
 		}
 
 		return $msg;
@@ -133,7 +133,7 @@ final class MessageUtil{
 		}
 
 		if($appendBody === true){
-			$msg['body'] = self::getContents($message);
+			$msg['body'] = self::decompress($message);
 		}
 
 		return json_encode($msg, (JSON_THROW_ON_ERROR|JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES));
