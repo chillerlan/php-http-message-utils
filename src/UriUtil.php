@@ -131,7 +131,7 @@ final class UriUtil{
 		$replaceQuery = ['=' => '%3D', '&' => '%26'];
 		$key          = strtr($key, $replaceQuery);
 
-		$result[] = $value !== null
+		$result[] = ($value !== null)
 			? $key.'='.strtr($value, $replaceQuery)
 			: $key;
 

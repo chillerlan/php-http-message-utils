@@ -11,10 +11,8 @@ declare(strict_types=1);
 
 namespace chillerlan\HTTP\Utils;
 
-use Psr\Http\Message\{
-	ServerRequestFactoryInterface, ServerRequestInterface, StreamFactoryInterface,
-	UploadedFileFactoryInterface, UploadedFileInterface, UriFactoryInterface, UriInterface
-};
+use Psr\Http\Message\{ServerRequestFactoryInterface, ServerRequestInterface, StreamFactoryInterface, StreamInterface,
+	UploadedFileFactoryInterface, UploadedFileInterface, UriFactoryInterface, UriInterface};
 use InvalidArgumentException;
 use function array_keys, explode, function_exists, is_array, is_file, substr;
 
@@ -176,13 +174,20 @@ final class ServerUtil{
 			return self::normalizeNestedFileSpec($value);
 		}
 
-		// not sure if dumb or genius
-		$stream = is_file($value['tmp_name'])
-			? $this->streamFactory->createStreamFromFile($value['tmp_name'])
-			: $this->streamFactory->createStream($value['tmp_name']); // @codeCoverageIgnore
+		$stream = $this->createStreamFromFile($value['tmp_name']);
 
 		return $this->uploadedFileFactory
 			->createUploadedFile($stream, (int)$value['size'], (int)$value['error'], $value['name'], $value['type']);
+	}
+
+	/** @codeCoverageIgnore */
+	private function createStreamFromFile(string $file):StreamInterface{
+
+		if(is_file($file)){
+			return $this->streamFactory->createStreamFromFile($file);
+		}
+
+		return $this->streamFactory->createStream($file);
 	}
 
 	/**
