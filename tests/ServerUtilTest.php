@@ -9,7 +9,6 @@
  *
  * @noinspection PhpArrayWriteIsNotUsedInspection
  */
-
 declare(strict_types=1);
 
 namespace chillerlan\HTTPTest\Utils;
@@ -37,11 +36,14 @@ final class ServerUtilTest extends UtilTestAbstract{
 			$this->serverRequestFactory,
 			$this->uriFactory,
 			$this->uploadedFileFactory,
-			$this->streamFactory
+			$this->streamFactory,
 		);
 
 	}
 
+	/**
+	 * @return array<string, array{0: string, 1: array<string, scalar|null>}>
+	 */
 	public static function dataGetUriFromGlobals():array{
 
 		$server = [
@@ -108,8 +110,11 @@ final class ServerUtilTest extends UtilTestAbstract{
 		];
 	}
 
+	/**
+	 * @param array<string, scalar|null> $serverParams
+	 */
 	#[DataProvider('dataGetUriFromGlobals')]
-	public function testCreateUriFromGlobals(string $expected, array $serverParams){
+	public function testCreateUriFromGlobals(string $expected, array $serverParams):void{
 		$_SERVER = $serverParams;
 
 		$this::assertSame($expected, (string)$this->server->createUriFromGlobals());
@@ -165,7 +170,7 @@ final class ServerUtilTest extends UtilTestAbstract{
 
 		$this::assertSame('POST', $server->getMethod());
 		$this::assertSame(['Host' => ['www.example.org']], $server->getHeaders());
-		$this::assertSame('', (string) $server->getBody());
+		$this::assertSame('', (string)$server->getBody());
 		$this::assertSame('1.1', $server->getProtocolVersion());
 		$this::assertSame($_COOKIE, $server->getCookieParams());
 		$this::assertSame($_POST, $server->getParsedBody());
@@ -173,7 +178,7 @@ final class ServerUtilTest extends UtilTestAbstract{
 
 		$this::assertEquals(
 			$this->uriFactory->createUri('https://www.example.org/blog/article.php?id=10&user=foo'),
-			$server->getUri()
+			$server->getUri(),
 		);
 
 		$file = $server->getUploadedFiles()['file'];
@@ -216,7 +221,7 @@ final class ServerUtilTest extends UtilTestAbstract{
 					123,
 					UPLOAD_ERR_OK,
 					'MyFile1.txt',
-					'text/plain'
+					'text/plain',
 				),
 				[
 					'name'     => 'MyFile2.gif',

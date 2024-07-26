@@ -7,15 +7,13 @@
  * @copyright    2024 smiley
  * @license      MIT
  */
+declare(strict_types=1);
 
 namespace chillerlan\HTTPTest\Utils\Client;
 
 use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\HTTPTest\Utils\Client\Factories\EchoClientFactory;
 
-/**
- *
- */
 class EchoClientTest extends HTTPClientTestAbstract{
 
 	protected string $HTTP_CLIENT_FACTORY = EchoClientFactory::class;

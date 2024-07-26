@@ -7,7 +7,6 @@
  * @copyright    2021 smiley
  * @license      MIT
  */
-
 declare(strict_types=1);
 
 namespace chillerlan\HTTPTest\Utils;
@@ -15,14 +14,17 @@ namespace chillerlan\HTTPTest\Utils;
 use chillerlan\HTTP\Utils\HeaderUtil;
 use PHPUnit\Framework\Attributes\DataProvider;
 
-/**
- *
- */
 final class HeaderUtilTest extends UtilTestAbstract{
 
+	/**
+	 * @return array<string, array{0: array<string|int, scalar|null>, 1: array<string, string>}>
+	 */
 	public static function headerDataProvider():array{
 		return [
-			'content-Type'  => [['Content-Type' => 'application/x-www-form-urlencoded'], ['Content-Type' => 'application/x-www-form-urlencoded']],
+			'content-Type'  => [
+				['Content-Type' => 'application/x-www-form-urlencoded'],
+				['Content-Type' => 'application/x-www-form-urlencoded'],
+			],
 			'lowercasekey'  => [['lowercasekey' => 'lowercasevalue'], ['Lowercasekey' => 'lowercasevalue']],
 			'UPPERCASEKEY'  => [['UPPERCASEKEY' => 'UPPERCASEVALUE'], ['Uppercasekey' => 'UPPERCASEVALUE']],
 			'mIxEdCaSeKey'  => [['mIxEdCaSeKey' => 'MiXeDcAsEvAlUe'], ['Mixedcasekey' => 'MiXeDcAsEvAlUe']],
@@ -38,10 +40,17 @@ final class HeaderUtilTest extends UtilTestAbstract{
 			'empty value'   => [['empty-value' => ''], ['Empty-Value' => '']],
 			'null value'    => [['null-value' => null], ['Null-Value' => '']],
 			'space in name' => [['space name - header' => 'nope'], ['Spacename-Header' => 'nope']],
-			'CRLF'          => [["CR\rLF-\nin-Na\r\n\r\nme" => " CR\rLF-\nin-va\r\n\r\nlue "], ['Crlf-In-Name' => 'CRLF-in-value']],
+			'CRLF'          => [
+				["CR\rLF-\nin-Na\r\n\r\nme" => " CR\rLF-\nin-va\r\n\r\nlue "],
+				['Crlf-In-Name' => 'CRLF-in-value'],
+			],
 		];
 	}
 
+	/**
+	 * @param array<string|int, scalar|null> $headers
+	 * @param array<string, string> $normalized
+	 */
 	#[DataProvider('headerDataProvider')]
 	public function testNormalizeHeaders(array $headers, array $normalized):void{
 		$this::assertSame($normalized, HeaderUtil::normalize($headers));
@@ -73,6 +82,7 @@ final class HeaderUtilTest extends UtilTestAbstract{
 
 	public function testCombineHeaderFields():void{
 
+		// phpcs:ignore
 		$headers = [
 			'accept:',
 			'Accept: foo',
@@ -124,6 +134,9 @@ final class HeaderUtilTest extends UtilTestAbstract{
 		], HeaderUtil::normalize($headers));
 	}
 
+	/**
+	 * @return array<string, array{0: string, 1: string}>
+	 */
 	public static function headerNameProvider():array{
 		return [
 			'content-Type' => ['content-Type', 'Content-Type'],
@@ -141,6 +154,9 @@ final class HeaderUtilTest extends UtilTestAbstract{
 		$this::assertSame($expected, HeaderUtil::normalizeHeaderName($name));
 	}
 
+	/**
+	 * @return array<string, array{0: scalar|bool, 1: string}>
+	 */
 	public static function headerValueProvider():array{
 		return [
 			'boolean'                => [true, '1'],

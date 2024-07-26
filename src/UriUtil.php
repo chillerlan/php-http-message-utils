@@ -7,17 +7,14 @@
  * @copyright    2022 smiley
  * @license      MIT
  */
-
 declare(strict_types=1);
 
 namespace chillerlan\HTTP\Utils;
 
 use Psr\Http\Message\UriInterface;
-use function array_filter, array_map, explode, implode, parse_url, preg_match, preg_replace_callback, rawurldecode, urlencode;
+use function array_filter, array_map, explode, implode, parse_url, preg_match,
+	preg_replace_callback, rawurldecode, urldecode, urlencode;
 
-/**
- *
- */
 final class UriUtil{
 
 	public const URI_DEFAULT_PORTS = [
@@ -155,6 +152,8 @@ final class UriUtil{
 	 * @see https://curl.haxx.se/libcurl/c/CURLOPT_URL.html#ENCODING
 	 *
 	 * @link https://github.com/guzzle/psr7/blob/c0dcda9f54d145bd4d062a6d15f54931a67732f9/src/Uri.php#L89-L130
+	 *
+	 * @return array{scheme?: string, host?: int|string, port?: string, user?: string, pass?: string, path?: string, query?: string, fragment?: string}|null
 	 */
 	public static function parseUrl(string $url):array|null{
 		// If IPv6
@@ -173,7 +172,7 @@ final class UriUtil{
 			return null;
 		}
 
-		$parsed = array_map('urldecode', $result);
+		$parsed = array_map(urldecode(...), $result);
 
 		if(isset($parsed['port'])){
 			$parsed['port'] = (int)$parsed['port'];

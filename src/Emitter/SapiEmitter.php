@@ -7,7 +7,6 @@
  * @copyright    2022 smiley
  * @license      MIT
  */
-
 declare(strict_types=1);
 
 namespace chillerlan\HTTP\Utils\Emitter;
@@ -16,14 +15,8 @@ use chillerlan\HTTP\Utils\HeaderUtil;
 use RuntimeException;
 use function header, headers_sent, is_array, ob_get_length, ob_get_level, sprintf;
 
-/**
- *
- */
 class SapiEmitter extends ResponseEmitterAbstract{
 
-	/**
-	 * @inheritDoc
-	 */
 	public function emit():void{
 
 		if(ob_get_level() > 0 && ob_get_length() > 0){

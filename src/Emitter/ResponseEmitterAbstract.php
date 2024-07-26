@@ -7,7 +7,6 @@
  * @copyright    2022 smiley
  * @license      MIT
  */
-
 declare(strict_types=1);
 
 namespace chillerlan\HTTP\Utils\Emitter;
@@ -23,19 +22,20 @@ use const CONNECTION_NORMAL;
  */
 abstract class ResponseEmitterAbstract implements ResponseEmitterInterface{
 
-	protected StreamInterface $body;
-	protected bool            $hasCustomLength;
-	protected bool            $hasContentRange;
-	protected int             $rangeStart  = 0;
-	protected int             $rangeLength = 0;
+	protected ResponseInterface $response;
+	protected StreamInterface   $body;
+	protected bool              $hasCustomLength;
+	protected bool              $hasContentRange;
+	protected int               $rangeStart  = 0;
+	protected int               $rangeLength = 0;
+	protected int               $bufferSize  = 65536;
 
 	/**
 	 * ResponseEmitter constructor
 	 */
-	public function __construct(
-		protected ResponseInterface $response,
-		protected int               $bufferSize = 65536
-	){
+	public function __construct(ResponseInterface $response, int $bufferSize = 65536){
+		$this->response   = $response;
+		$this->bufferSize = $bufferSize;
 
 		if($this->bufferSize < 1){
 			throw new InvalidArgumentException('Buffer length must be greater than zero.'); // @codeCoverageIgnore
@@ -63,7 +63,7 @@ abstract class ResponseEmitterAbstract implements ResponseEmitterInterface{
 	protected function hasBody():bool{
 		$status = $this->response->getStatusCode();
 		// these response codes never return a body
-		if($status < 200 || in_array($status, [204, 205, 304])){
+		if($status < 200 || in_array($status, [204, 205, 304], true)){
 			return false;
 		}
 
@@ -152,6 +152,8 @@ abstract class ResponseEmitterAbstract implements ResponseEmitterInterface{
 
 	/**
 	 * @see https://datatracker.ietf.org/doc/html/rfc9110#name-content-range
+	 *
+	 * @return array{0: int, 1: int, 2: int|null, 3: int}|null
 	 */
 	protected function parseContentRange():array|null{
 		$contentRange = $this->response->getHeaderLine('Content-Range');

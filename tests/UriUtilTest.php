@@ -7,7 +7,6 @@
  * @copyright    2022 smiley
  * @license      MIT
  */
-
 declare(strict_types=1);
 
 namespace chillerlan\HTTPTest\Utils;
@@ -15,9 +14,6 @@ namespace chillerlan\HTTPTest\Utils;
 use chillerlan\HTTP\Utils\UriUtil;
 use PHPUnit\Framework\Attributes\DataProvider;
 
-/**
- *
- */
 final class UriUtilTest extends UtilTestAbstract{
 
 	public function testUriIsAbsolute():void{
@@ -128,6 +124,9 @@ final class UriUtilTest extends UtilTestAbstract{
 
 	}
 
+	/**
+	 * @return array<int, array{0: string, 1: array<string, scalar>|null}>
+	 */
 	public static function parseUrlProvider():array{
 		return [
 			['http://', null],
@@ -150,8 +149,11 @@ final class UriUtilTest extends UtilTestAbstract{
 		];
 	}
 
+	/**
+	 * @param array<string, scalar>|null $expected
+	 */
 	#[DataProvider('parseUrlProvider')]
-	public function testParseUrl($url, $expected):void{
+	public function testParseUrl(string $url, array|null $expected):void{
 		$this::assertSame($expected, UriUtil::parseUrl($url));
 	}
 

@@ -7,7 +7,6 @@
  * @copyright    2023 smiley
  * @license      MIT
  */
-
 declare(strict_types=1);
 
 namespace chillerlan\HTTPTest\Utils;
@@ -16,9 +15,6 @@ use chillerlan\HTTP\Utils\MimeTypeUtil;
 use PHPUnit\Framework\TestCase;
 use function file_get_contents;
 
-/**
- *
- */
 final class MimeTypeUtilTest extends TestCase{
 
 	public function testGetMimetypeFromExtension():void{

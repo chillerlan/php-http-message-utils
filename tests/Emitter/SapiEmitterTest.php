@@ -7,7 +7,6 @@
  * @copyright    2023 smiley
  * @license      MIT
  */
-
 declare(strict_types=1);
 
 namespace chillerlan\HTTPTest\Utils\Emitter;
@@ -18,7 +17,7 @@ use chillerlan\HTTPTest\Utils\UtilTestAbstract;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Psr\Http\Message\ResponseInterface;
 use Generator, RuntimeException;
-use function array_column, array_map, array_pop, explode, header, implode, sprintf, strlen;
+use function array_column, array_map, array_pop, explode, header, implode, sprintf, strlen, trim;
 
 final class SapiEmitterTest extends UtilTestAbstract{
 
@@ -29,7 +28,9 @@ final class SapiEmitterTest extends UtilTestAbstract{
 	 */
 	protected function initEmitter(ResponseInterface $response, int $bufferSize = 8192):ResponseEmitterInterface{
 		return new class ($response, $bufferSize) extends SapiEmitter{
+			/** @var array<string, array{0: string, 1: bool, 2: int}> */
 			protected array $headers = [];
+			/** @var string[] */
 			protected array $content = [];
 
 			protected function sendHeader(string $header, bool $replace, int $response_code = 0):void{
@@ -40,12 +41,14 @@ final class SapiEmitterTest extends UtilTestAbstract{
 				$this->content[] = $buffer;
 			}
 
+			/** @return array<string, array{0: string, 1: bool, 2: int}> */
 			public function getHeaders():array{
 				return $this->headers;
 			}
 
+			/** @return string[] */
 			public function getBody():array{
-				return $this->headers;
+				return $this->content;
 			}
 
 			public function getBodyContent():string{
@@ -159,7 +162,7 @@ final class SapiEmitterTest extends UtilTestAbstract{
 		$content = $this->emitter->getBodyContent();
 
 		foreach($this->emitter->getHeaders() as $line){
-			[$headerName, $headerContent] = array_map('trim', explode(':', $line['header'], 2));
+			[$headerName, $headerContent] = array_map(trim(...), explode(':', $line['header'], 2));
 
 			if($headerName === 'Content-Length'){
 				$this::assertSame($expectedLength, (int)$headerContent);

@@ -7,7 +7,6 @@
  * @copyright    2022 smiley
  * @license      MIT
  */
-
 declare(strict_types=1);
 
 namespace chillerlan\HTTP\Utils;
@@ -18,9 +17,6 @@ use function array_map, explode, extension_loaded, function_exists, gzdecode, gz
 	in_array, json_decode, json_encode, rawurldecode, simplexml_load_string, sprintf, strtolower, trim;
 use const JSON_PRETTY_PRINT, JSON_THROW_ON_ERROR, JSON_UNESCAPED_SLASHES;
 
-/**
- *
- */
 final class MessageUtil{
 
 	/**
@@ -45,15 +41,14 @@ final class MessageUtil{
 		return json_decode(self::decompress($message), ($assoc ?? false), 512, JSON_THROW_ON_ERROR);
 	}
 
-	/**
-	 * @return \SimpleXMLElement|\stdClass|mixed
-	 */
 	public static function decodeXML(MessageInterface $message, bool|null $assoc = null):mixed{
 		$data = simplexml_load_string(self::decompress($message));
 
-		return $assoc === true
-			? json_decode(json_encode($data), true) // cruel
-			: $data;
+		if($assoc === true){
+			return json_decode(json_encode($data), true); // cruel
+		}
+
+		return  $data;
 	}
 
 	/**
@@ -136,7 +131,7 @@ final class MessageUtil{
 			$msg['body'] = self::decompress($message);
 		}
 
-		return json_encode($msg, (JSON_THROW_ON_ERROR|JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES));
+		return json_encode($msg, (JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
 	}
 
 	/**
@@ -153,7 +148,7 @@ final class MessageUtil{
 		$encoding = strtolower($message->getHeaderLine('content-encoding'));
 
 		try{
-			return match($encoding){
+			$decoded = match($encoding){
 				'', 'identity'   => $data,
 				'gzip', 'x-gzip' => gzdecode($data),
 				'compress'       => gzuncompress($data),
@@ -161,9 +156,15 @@ final class MessageUtil{
 				'br'             => self::call_decompress_func('brotli', $data),
 				'zstd'           => self::call_decompress_func('zstd', $data),
 			};
+
+			if($decoded === false){
+				throw new RuntimeException;
+			}
+
+			return $decoded;
 		}
 		catch(Throwable $e){
-			if(in_array($encoding, ['br', 'zstd'])){
+			if(in_array($encoding, ['br', 'zstd'], true)){
 				throw $e;
 			}
 		}
@@ -188,7 +189,7 @@ final class MessageUtil{
 	 * Sets a Content-Length header in the given message in case it does not exist and body size is not null
 	 */
 	public static function setContentLengthHeader(
-		MessageInterface $message
+		MessageInterface $message,
 	):MessageInterface|RequestInterface|ResponseInterface|ServerRequestInterface{
 		$bodySize = $message->getBody()->getSize();
 
@@ -256,6 +257,8 @@ final class MessageUtil{
 	 * Attempts to extract and parse a cookie from a "Cookie" (user-agent) header
 	 *
 	 * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cookie
+	 *
+	 * @return array<string, string>|null
 	 */
 	public static function getCookiesFromHeader(MessageInterface $message):array|null{
 
@@ -272,8 +275,8 @@ final class MessageUtil{
 		$cookies = [];
 
 		// some people apparently use regular expressions for this (:
-		foreach(array_map('trim', explode(';', $header)) as $kv){
-			[$name, $value] = array_map('trim', explode('=', $kv, 2));
+		foreach(array_map(trim(...), explode(';', $header)) as $kv){
+			[$name, $value] = array_map(trim(...), explode('=', $kv, 2));
 
 			$cookies[$name] = rawurldecode($value);
 		}

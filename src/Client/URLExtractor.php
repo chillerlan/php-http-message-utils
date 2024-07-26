@@ -7,7 +7,6 @@
  * @copyright    2019 smiley
  * @license      MIT
  */
-
 declare(strict_types=1);
 
 namespace chillerlan\HTTP\Utils\Client;
@@ -27,21 +26,18 @@ use function array_reverse, in_array;
 class URLExtractor implements ClientInterface{
 
 	/** @var \Psr\Http\Message\ResponseInterface[] */
-	protected array $responses = [];
+	protected array                   $responses = [];
+	protected ClientInterface         $http;
+	protected RequestFactoryInterface $requestFactory;
 
 	/**
 	 * URLExtractor constructor.
 	 */
-	public function __construct(
-		protected ClientInterface         $http,
-		protected RequestFactoryInterface $requestFactory,
-	){
-
+	public function __construct(ClientInterface $http, RequestFactoryInterface $requestFactory){
+		$this->http           = $http;
+		$this->requestFactory = $requestFactory;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function sendRequest(RequestInterface $request):ResponseInterface{
 
 		do{

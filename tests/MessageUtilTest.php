@@ -7,7 +7,6 @@
  * @copyright    2022 smiley
  * @license      MIT
  */
-
 declare(strict_types=1);
 
 namespace chillerlan\HTTPTest\Utils;
@@ -15,12 +14,8 @@ namespace chillerlan\HTTPTest\Utils;
 use chillerlan\HTTP\Utils\MessageUtil;
 use PHPUnit\Framework\Attributes\DataProvider;
 use RuntimeException;
-use function extension_loaded, file_get_contents, function_exists, sprintf, str_repeat;
-use function json_decode;
+use function extension_loaded, file_get_contents, function_exists, json_decode, sprintf, str_repeat;
 
-/**
- *
- */
 final class MessageUtilTest extends UtilTestAbstract{
 
 	public function testGetJSON():void{
@@ -62,7 +57,7 @@ final class MessageUtilTest extends UtilTestAbstract{
 
 		$this::assertSame(
 			'GET /foo HTTP/1.1'."\r\n".'Host: localhost'."\r\n".'foo: bar'."\r\n\r\n".'testbody',
-			MessageUtil::toString($request)
+			MessageUtil::toString($request),
 		);
 
 		$response = $this->responseFactory
@@ -73,7 +68,7 @@ final class MessageUtilTest extends UtilTestAbstract{
 
 		$this::assertSame(
 			'HTTP/1.1 200 OK'."\r\n".'foo: bar'."\r\n\r\n".'testbody',
-			MessageUtil::toString($response)
+			MessageUtil::toString($response),
 		);
 	}
 
@@ -106,6 +101,9 @@ final class MessageUtilTest extends UtilTestAbstract{
 		$this::assertSame('testbody', $json->body);
 	}
 
+	/**
+	 * @return array<string, array{0: string, 1: string}>
+	 */
 	public static function decompressFnProvider():array{
 		return [
 			'br'       => ['brotli_compress', 'br'],
@@ -150,6 +148,9 @@ final class MessageUtilTest extends UtilTestAbstract{
 		MessageUtil::decompress($response);
 	}
 
+	/**
+	 * @return array<string, array{0: string, 1: string, 2: string}>
+	 */
 	public static function decompressExceptionFnProvider():array{
 		return [
 			'br'   => ['brotli', 'brotli_compress', 'br'],
@@ -185,10 +186,13 @@ final class MessageUtilTest extends UtilTestAbstract{
 		$this::assertTrue($message->hasHeader('Content-Length'));
 		$this->assertSame(
 			(string)$message->getBody()->getSize(),
-			$message->getHeaderLine('Content-Length')
+			$message->getHeaderLine('Content-Length'),
 		);
 	}
 
+	/**
+	 * @return array<string, array{0: string, 1: string|null, 2: string|null, 3: string}>
+	 */
 	public static function contentTypeProvider():array{
 		return [
 			'text/plain'             => ['foo', null, null, 'text/plain'],
@@ -229,7 +233,7 @@ final class MessageUtilTest extends UtilTestAbstract{
 
 		$this::assertSame(
 			'foo=what; Domain=example.com; Path=/; Secure; HttpOnly; SameSite=strict',
-			$cookieHeaders[0]
+			$cookieHeaders[0],
 		);
 	}
 

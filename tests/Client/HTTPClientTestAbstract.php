@@ -7,7 +7,6 @@
  * @copyright    2018 smiley
  * @license      MIT
  */
-
 declare(strict_types=1);
 
 namespace chillerlan\HTTPTest\Utils\Client;
@@ -18,9 +17,6 @@ use chillerlan\PHPUnitHttp\HttpClientFactoryInterface;
 use Psr\Http\Client\ClientExceptionInterface;
 use Throwable;
 
-/**
- *
- */
 abstract class HTTPClientTestAbstract extends UtilTestAbstract{
 
 	public function testSendRequest():void{

@@ -7,7 +7,6 @@
  * @copyright    2021 smiley
  * @license      MIT
  */
-
 declare(strict_types=1);
 
 namespace chillerlan\HTTP\Utils;
@@ -20,17 +19,26 @@ use InvalidArgumentException;
 use function array_keys, explode, function_exists, is_array, is_file, substr;
 
 /**
- *
+ * @phpstan-type File     array{tmp_name: string, size: int, error: int, name: string, type: string}
+ * @phpstan-type FileSpec array{tmp_name: string[], size: int[], error: int[], name: string[], type: string[]}
  */
 final class ServerUtil{
 
+	protected ServerRequestFactoryInterface $serverRequestFactory;
+	protected UriFactoryInterface           $uriFactory;
+	protected UploadedFileFactoryInterface  $uploadedFileFactory;
+	protected StreamFactoryInterface        $streamFactory;
+
 	public function __construct(
-		protected ServerRequestFactoryInterface $serverRequestFactory,
-		protected UriFactoryInterface           $uriFactory,
-		protected UploadedFileFactoryInterface  $uploadedFileFactory,
-		protected StreamFactoryInterface        $streamFactory
+		ServerRequestFactoryInterface $serverRequestFactory,
+		UriFactoryInterface           $uriFactory,
+		UploadedFileFactoryInterface  $uploadedFileFactory,
+		StreamFactoryInterface        $streamFactory,
 	){
-		// noop
+		$this->serverRequestFactory = $serverRequestFactory;
+		$this->uriFactory           = $uriFactory;
+		$this->uploadedFileFactory  = $uploadedFileFactory;
+		$this->streamFactory        = $streamFactory;
 	}
 
 	/**
@@ -46,12 +54,16 @@ final class ServerUtil{
 		$serverRequest = $this->serverRequestFactory->createServerRequest(
 			($_SERVER['REQUEST_METHOD'] ?? 'GET'),
 			$this->createUriFromGlobals(),
-			$_SERVER
+			$_SERVER,
 		);
 
 		if(function_exists('getallheaders')){
-			foreach(getallheaders() ?: [] as $name => $value){
-				$serverRequest = $serverRequest->withHeader($name, $value);
+			$allHeaders = getallheaders();
+
+			if(is_array($allHeaders)){
+				foreach($allHeaders as $name => $value){
+					$serverRequest = $serverRequest->withHeader($name, $value);
+				}
 			}
 		}
 
@@ -119,9 +131,9 @@ final class ServerUtil{
 	/**
 	 * Returns an UploadedFile instance array.
 	 *
-	 * @param iterable $files An array which respects $_FILES structure
+	 * @param array<string, string> $files An array which respects $_FILES structure
 	 *
-	 * @return \Psr\Http\Message\UploadedFileInterface[]
+	 * @return array<string, \Psr\Http\Message\UploadedFileInterface>
 	 * @throws \InvalidArgumentException for unrecognized values
 	 */
 	public function normalizeFiles(iterable $files):array{
@@ -154,7 +166,7 @@ final class ServerUtil{
 	 * If the specification represents an array of values, this method will
 	 * delegate to normalizeNestedFileSpec() and return that return value.
 	 *
-	 * @param array $value $_FILES struct
+	 * @phpstan-param (File|FileSpec) $value
 	 *
 	 * @return \Psr\Http\Message\UploadedFileInterface|\Psr\Http\Message\UploadedFileInterface[]
 	 */
@@ -179,7 +191,7 @@ final class ServerUtil{
 	 * Loops through all nested files and returns a normalized array of
 	 * UploadedFileInterface instances.
 	 *
-	 * @param array $files
+	 * @phpstan-param FileSpec $files
 	 *
 	 * @return \Psr\Http\Message\UploadedFileInterface[]
 	 */

@@ -1,0 +1,151 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method chillerlan\\\\HTTP\\\\Utils\\\\HeaderUtil\\:\\:trimValues\\(\\) should return array\\<int, string\\> but returns array\\<int, bool\\|float\\|int\\|string\\|null\\>\\.$#"
+			count: 1
+			path: src/HeaderUtil.php
+
+		-
+			message: "#^Parameter \\#1 \\$json of function json_decode expects string, string\\|false given\\.$#"
+			count: 1
+			path: src/MessageUtil.php
+
+		-
+			message: "#^Method chillerlan\\\\HTTP\\\\Utils\\\\QueryUtil\\:\\:parse\\(\\) should return array\\<string, array\\<string\\>\\|string\\> but returns array\\<string, array\\<int, string\\|null\\>\\|string\\|null\\>\\.$#"
+			count: 1
+			path: src/QueryUtil.php
+
+		-
+			message: "#^Method chillerlan\\\\HTTP\\\\Utils\\\\QueryUtil\\:\\:recursiveRawurlencode\\(\\) should return array\\<string\\>\\|string but returns array\\<int, array\\<string\\>\\|string\\>\\.$#"
+			count: 1
+			path: src/QueryUtil.php
+
+		-
+			message: "#^Parameter \\#1 \\$callback of function array_map expects \\(callable\\(bool\\|float\\|int\\|string\\|null\\)\\: mixed\\)\\|null, 'chillerlan\\\\\\\\HTTP…' given\\.$#"
+			count: 1
+			path: src/QueryUtil.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with array will always evaluate to true\\.$#"
+			count: 1
+			path: src/ServerUtil.php
+
+		-
+			message: "#^Method chillerlan\\\\HTTP\\\\Utils\\\\ServerUtil\\:\\:normalizeFiles\\(\\) should return array\\<string, Psr\\\\Http\\\\Message\\\\UploadedFileInterface\\> but returns array\\<string, array\\<Psr\\\\Http\\\\Message\\\\UploadedFileInterface\\>\\|Psr\\\\Http\\\\Message\\\\UploadedFileInterface\\>\\.$#"
+			count: 1
+			path: src/ServerUtil.php
+
+		-
+			message: "#^Method chillerlan\\\\HTTP\\\\Utils\\\\ServerUtil\\:\\:normalizeNestedFileSpec\\(\\) should return array\\<Psr\\\\Http\\\\Message\\\\UploadedFileInterface\\> but returns array\\<array\\<Psr\\\\Http\\\\Message\\\\UploadedFileInterface\\>\\|Psr\\\\Http\\\\Message\\\\UploadedFileInterface\\>\\.$#"
+			count: 1
+			path: src/ServerUtil.php
+
+		-
+			message: "#^Method chillerlan\\\\HTTP\\\\Utils\\\\StreamUtil\\:\\:tryGetContents\\(\\) should return string but returns string\\|false\\.$#"
+			count: 1
+			path: src/StreamUtil.php
+
+		-
+			message: "#^Variable \\$contents might not be defined\\.$#"
+			count: 1
+			path: src/StreamUtil.php
+
+		-
+			message: "#^Variable \\$handle might not be defined\\.$#"
+			count: 1
+			path: src/StreamUtil.php
+
+		-
+			message: "#^Method chillerlan\\\\HTTP\\\\Utils\\\\UriUtil\\:\\:parseUrl\\(\\) should return array\\{scheme\\?\\: string, host\\?\\: int\\|string, port\\?\\: string, user\\?\\: string, pass\\?\\: string, path\\?\\: string, query\\?\\: string, fragment\\?\\: string\\}\\|null but returns array\\{scheme\\?\\: string, host\\?\\: string, port\\?\\: int\\|string, user\\?\\: string, pass\\?\\: string, path\\?\\: string, query\\?\\: string, fragment\\?\\: string\\}\\.$#"
+			count: 1
+			path: src/UriUtil.php
+
+		-
+			message: "#^Parameter \\#1 \\$callback of function array_map expects \\(callable\\(int\\<0, 65535\\>\\|string\\)\\: mixed\\)\\|null, Closure\\(string\\)\\: string given\\.$#"
+			count: 1
+			path: src/UriUtil.php
+
+		-
+			message: "#^Method class@anonymous/tests/Client/Factories/LoggingClientFactory\\.php\\:27\\:\\:log\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Client/Factories/LoggingClientFactory.php
+
+		-
+			message: "#^Call to an undefined method chillerlan\\\\HTTP\\\\Utils\\\\Emitter\\\\ResponseEmitterInterface\\:\\:getBodyContent\\(\\)\\.$#"
+			count: 3
+			path: tests/Emitter/SapiEmitterTest.php
+
+		-
+			message: "#^Call to an undefined method chillerlan\\\\HTTP\\\\Utils\\\\Emitter\\\\ResponseEmitterInterface\\:\\:getHeaders\\(\\)\\.$#"
+			count: 5
+			path: tests/Emitter/SapiEmitterTest.php
+
+		-
+			message: "#^Property class@anonymous/tests/Emitter/SapiEmitterTest\\.php\\:30\\:\\:\\$headers \\(array\\<string, array\\{string, bool, int\\}\\>\\) does not accept non\\-empty\\-array\\<int\\|string, array\\{header\\: string, replace\\: bool, response_code\\: int\\}\\|array\\{string, bool, int\\}\\>\\.$#"
+			count: 1
+			path: tests/Emitter/SapiEmitterTest.php
+
+		-
+			message: "#^Method chillerlan\\\\HTTPTest\\\\Utils\\\\HeaderUtilTest\\:\\:headerDataProvider\\(\\) should return array\\<string, array\\{array\\<int\\|string, bool\\|float\\|int\\|string\\|null\\>, array\\<string, string\\>\\}\\> but returns array\\{content\\-Type\\: array\\{array\\{Content\\-Type\\: 'application/x\\-www…'\\}, array\\{Content\\-Type\\: 'application/x\\-www…'\\}\\}, lowercasekey\\: array\\{array\\{lowercasekey\\: 'lowercasevalue'\\}, array\\{Lowercasekey\\: 'lowercasevalue'\\}\\}, UPPERCASEKEY\\: array\\{array\\{UPPERCASEKEY\\: 'UPPERCASEVALUE'\\}, array\\{Uppercasekey\\: 'UPPERCASEVALUE'\\}\\}, mIxEdCaSeKey\\: array\\{array\\{mIxEdCaSeKey\\: 'MiXeDcAsEvAlUe'\\}, array\\{Mixedcasekey\\: 'MiXeDcAsEvAlUe'\\}\\}, 31i71casekey\\: array\\{array\\{31i71casekey\\: '31i71casevalue'\\}, array\\{31i71casekey\\: '31i71casevalue'\\}\\}, numericvalue\\: array\\{array\\{'numericvalue\\:1'\\}, array\\{Numericvalue\\: '1'\\}\\}, numericvalue2\\: array\\{array\\{numericvalue\\: 2\\}, array\\{Numericvalue\\: '2'\\}\\}, keyvaluearray\\: array\\{array\\{array\\{foo\\: 'bar'\\}\\}, array\\{Foo\\: 'bar'\\}\\}, \\.\\.\\.\\}\\.$#"
+			count: 1
+			path: tests/HeaderUtilTest.php
+
+		-
+			message: "#^Method chillerlan\\\\HTTPTest\\\\Utils\\\\MessageUtilTest\\:\\:contentTypeProvider\\(\\) should return array\\<string, array\\{string, string\\|null, string\\|null, string\\}\\> but returns array\\{text/plain\\: array\\{'foo', null, null, 'text/plain'\\}, application/json\\: array\\{'\\{\\}', null, null, 'application/json'\\}, text/javascript \\(name\\)\\: array\\{'\\{\\}', 'test\\.js', null, 'text/javascript'\\}, text/javascript \\(ext\\)\\: array\\{'\\{\\}', null, 'js', 'text/javascript'\\}, text/x\\-php\\: array\\{string\\|false, null, null, 'text/x\\-php'\\}, text/markdown\\: array\\{string\\|false, null, 'md', 'text/markdown'\\}\\}\\.$#"
+			count: 1
+			path: tests/MessageUtilTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$content of static method chillerlan\\\\HTTP\\\\Utils\\\\MimeTypeUtil\\:\\:getFromContent\\(\\) expects string, string\\|false given\\.$#"
+			count: 1
+			path: tests/MimeTypeUtilTest.php
+
+		-
+			message: "#^Method chillerlan\\\\HTTPTest\\\\Utils\\\\QueryUtilTest\\:\\:parseQueryProvider\\(\\) should return array\\<string, array\\{string, array\\<string, mixed\\>\\}\\> but returns array\\{Does not need to parse when the string is empty\\: array\\{'', array\\{\\}\\}, Can parse mult\\-values items\\: array\\{'q\\=a&q\\=b', array\\{q\\: array\\{'a', 'b'\\}\\}\\}, Can parse multi\\-valued items that use numeric indices\\: array\\{'q\\[0\\]\\=a&q\\[1\\]\\=b', array\\{q\\[0\\]\\: 'a', q\\[1\\]\\: 'b'\\}\\}, Can parse duplicates and does not include numeric indices\\: array\\{'q\\[\\]\\=a&q\\[\\]\\=b', array\\{q\\[\\]\\: array\\{'a', 'b'\\}\\}\\}, 'Ensures that the value of \"q\" is an array'\\: array\\{'q\\[\\]\\=a', array\\{q\\[\\]\\: 'a'\\}\\}, 'Does not modify \"\\.\" to \"_\" like parse_str\\(\\)'\\: array\\{'q\\.a\\=a&q\\.b\\=b', array\\{q\\.a\\: 'a', q\\.b\\: 'b'\\}\\}, 'Can decode %%20 to \" \"'\\: array\\{'q%%20a\\=a%%20b', array\\{q a\\: 'a b'\\}\\}, Can parse strings with no values by assigning each to null\\: array\\{'a&q', array\\{a\\: null, q\\: null\\}\\}, \\.\\.\\.\\}\\.$#"
+			count: 1
+			path: tests/QueryUtilTest.php
+
+		-
+			message: "#^Method chillerlan\\\\HTTPTest\\\\Utils\\\\QueryUtilTest\\:\\:queryParamDataProvider\\(\\) should return array\\<string, array\\{0\\: int, 1\\: bool, 3\\: array\\<string, mixed\\>\\}\\> but returns array\\{BOOLEANS_AS_BOOL \\(no remove\\)\\: array\\{0, false, array\\{whatever\\: null, nope\\: '', true\\: true, false\\: false, array\\: array\\{value\\: false\\}\\}\\}, BOOLEANS_AS_BOOL\\: array\\{0, true, array\\{true\\: true, false\\: false, array\\: array\\{value\\: false\\}\\}\\}, BOOLEANS_AS_INT\\: array\\{1, true, array\\{true\\: 1, false\\: 0, array\\: array\\{value\\: 0\\}\\}\\}, BOOLEANS_AS_INT_STRING\\: array\\{3, true, array\\{true\\: '1', false\\: '0', array\\: array\\{value\\: '0'\\}\\}\\}, BOOLEANS_AS_STRING\\: array\\{2, true, array\\{true\\: 'true', false\\: 'false', array\\: array\\{value\\: 'false'\\}\\}\\}\\}\\.$#"
+			count: 1
+			path: tests/QueryUtilTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$data of static method chillerlan\\\\HTTP\\\\Utils\\\\QueryUtil\\:\\:recursiveRawurlencode\\(\\) expects array\\<int, bool\\|float\\|int\\|string\\|null\\>\\|string, object\\{\\}&stdClass given\\.$#"
+			count: 1
+			path: tests/QueryUtilTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$params of static method chillerlan\\\\HTTP\\\\Utils\\\\QueryUtil\\:\\:cleanParams\\(\\) expects iterable\\<int\\|string, bool\\|float\\|int\\|string\\|null\\>, array\\<string, array\\<string, bool\\>\\|bool\\|string\\|null\\> given\\.$#"
+			count: 1
+			path: tests/QueryUtilTest.php
+
+		-
+			message: "#^PHPDoc tag @var for variable \\$normalized has no value type specified in iterable type array\\.$#"
+			count: 2
+			path: tests/ServerUtilTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$files of method chillerlan\\\\HTTP\\\\Utils\\\\ServerUtil\\:\\:normalizeFiles\\(\\) expects iterable\\<string, string\\>, array\\<string, array\\<int, array\\<string, int\\|string\\>\\|Psr\\\\Http\\\\Message\\\\UploadedFileInterface\\>\\> given\\.$#"
+			count: 1
+			path: tests/ServerUtilTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$files of method chillerlan\\\\HTTP\\\\Utils\\\\ServerUtil\\:\\:normalizeFiles\\(\\) expects iterable\\<string, string\\>, array\\<string, array\\<string, array\\<int, int\\|string\\>\\>\\> given\\.$#"
+			count: 1
+			path: tests/ServerUtilTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$resource of method Psr\\\\Http\\\\Message\\\\StreamFactoryInterface\\:\\:createStreamFromResource\\(\\) expects resource, resource\\|false given\\.$#"
+			count: 2
+			path: tests/StreamUtilTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$stream of function fclose expects resource, resource\\|false given\\.$#"
+			count: 1
+			path: tests/StreamUtilTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$stream of function stream_get_meta_data expects resource, resource\\|false given\\.$#"
+			count: 1
+			path: tests/StreamUtilTest.php

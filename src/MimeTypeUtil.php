@@ -7,7 +7,6 @@
  * @copyright    2023 smiley
  * @license      MIT
  */
-
 declare(strict_types=1);
 
 namespace chillerlan\HTTP\Utils;
@@ -16,9 +15,6 @@ use finfo;
 use function pathinfo, strtolower;
 use const FILEINFO_MIME_TYPE, PATHINFO_EXTENSION;
 
-/**
- *
- */
 final class MimeTypeUtil{
 
 	/**

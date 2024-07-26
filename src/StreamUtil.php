@@ -7,7 +7,6 @@
  * @copyright    2023 smiley
  * @license      MIT
  */
-
 declare(strict_types=1);
 
 namespace chillerlan\HTTP\Utils;
@@ -17,9 +16,6 @@ use InvalidArgumentException, RuntimeException, Throwable;
 use function fopen, in_array, min, preg_match, restore_error_handler, set_error_handler,
 	sprintf, str_contains, stream_get_contents, strlen, substr;
 
-/**
- *
- */
 final class StreamUtil{
 
 	/**
@@ -44,7 +40,7 @@ final class StreamUtil{
 	public static function modeAllowsWriteOnly(string $mode):bool{
 		$mode = self::validateMode($mode);
 
-		return in_array($mode[0], ['a', 'c', 'w', 'x']) && !str_contains($mode, '+');
+		return in_array($mode[0], ['a', 'c', 'w', 'x'], true) && !str_contains($mode, '+');
 	}
 
 	/**
@@ -53,7 +49,7 @@ final class StreamUtil{
 	public static function modeAllowsRead(string $mode):bool{
 		$mode = self::validateMode($mode);
 
-		return $mode[0] === 'r' || (in_array($mode[0], ['a', 'c', 'w', 'x']) && str_contains($mode, '+'));
+		return $mode[0] === 'r' || (in_array($mode[0], ['a', 'c', 'w', 'x'], true) && str_contains($mode, '+'));
 	}
 
 	/**
@@ -62,7 +58,7 @@ final class StreamUtil{
 	public static function modeAllowsWrite(string $mode):bool{
 		$mode = self::validateMode($mode);
 
-		return in_array($mode[0], ['a', 'c', 'w', 'x']) || ($mode[0] === 'r' && str_contains($mode, '+'));
+		return in_array($mode[0], ['a', 'c', 'w', 'x'], true) || ($mode[0] === 'r' && str_contains($mode, '+'));
 	}
 
 	/**
@@ -117,7 +113,7 @@ final class StreamUtil{
 				// there's a chance the stream is implemented in such a way (might throw)
 				: $stream->__toString(); // @codeCoverageIgnore
 		}
-		catch(Throwable $e){
+		catch(Throwable){
 			return null;
 		}
 
@@ -169,8 +165,6 @@ final class StreamUtil{
 	 *
 	 * @see https://github.com/guzzle/psr7/blob/815698d9f11c908bc59471d11f642264b533346a/src/Utils.php#L344-L391
 	 *
-	 * @param string        $filename
-	 * @param string        $mode
 	 * @param resource|null $context
 	 *
 	 * @return resource
@@ -212,10 +206,7 @@ final class StreamUtil{
 	 * @see https://github.com/guzzle/psr7/blob/815698d9f11c908bc59471d11f642264b533346a/src/Utils.php#L393-L438
 	 *
 	 * @param resource $stream
-	 * @param int|null $length
-	 * @param int      $offset
-	 *
-	 * @return string
+
 	 * @throws \RuntimeException
 	 */
 	public static function tryGetContents($stream, int|null $length = null, int $offset = -1):string{
@@ -241,6 +232,8 @@ final class StreamUtil{
 		catch(Throwable $e){
 			$exception = new RuntimeException(message: sprintf($message, $e->getMessage()), previous: $e);
 		}
+
+		restore_error_handler();
 
 		if($exception !== null){
 			throw $exception;

@@ -7,7 +7,6 @@
  * @copyright    2023 smiley
  * @license      MIT
  */
-
 declare(strict_types=1);
 
 namespace chillerlan\HTTPTest\Utils;
@@ -16,9 +15,6 @@ use chillerlan\HTTP\Utils\StreamUtil;
 use InvalidArgumentException, RuntimeException;
 use function fclose, fopen, stream_get_meta_data, strlen, substr;
 
-/**
- *
- */
 final class StreamUtilTest extends UtilTestAbstract{
 
 	public function testModeAllowsRead():void{

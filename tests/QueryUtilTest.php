@@ -9,7 +9,6 @@
  * @copyright    2021 smiley
  * @license      MIT
  */
-
 declare(strict_types=1);
 
 namespace chillerlan\HTTPTest\Utils;
@@ -20,11 +19,11 @@ use PHPUnit\Framework\TestCase;
 use InvalidArgumentException;
 use const PHP_QUERY_RFC1738, PHP_QUERY_RFC3986;
 
-/**
- *
- */
 final class QueryUtilTest extends TestCase{
 
+	/**
+	 * @return array<string, array{0: int, 1: bool, 3: array<string, mixed>}>
+	 */
 	public static function queryParamDataProvider():array{
 		return [
 			// don't remove empty values
@@ -57,6 +56,9 @@ final class QueryUtilTest extends TestCase{
 		];
 	}
 
+	/**
+	 * @param array<string, mixed> $expected
+	 */
 	#[DataProvider('queryParamDataProvider')]
 	public function testCleanQueryParams(int $bool_cast, bool $remove_empty, array $expected):void{
 		$data = ['whatever' => null, 'nope' => '   ', 'true' => true, 'false' => false, 'array' => ['value' => false]];
@@ -64,6 +66,9 @@ final class QueryUtilTest extends TestCase{
 		$this::assertSame($expected, QueryUtil::cleanParams($data, $bool_cast, $remove_empty));
 	}
 
+	/**
+	 * @return array<string, array{0: string, 1: array<string, string>, 2: string}>
+	 */
 	public static function mergeQueryDataProvider():array{
 		$uri    = 'http://localhost/whatever/';
 		$params = ['foo' => 'bar'];
@@ -76,6 +81,9 @@ final class QueryUtilTest extends TestCase{
 		];
 	}
 
+	/**
+	 * @param array<string, string> $params
+	 */
 	#[DataProvider('mergeQueryDataProvider')]
 	public function testMergeQuery(string $uri, array $params, string $expected):void{
 		$merged = QueryUtil::merge($uri, $params);
@@ -93,7 +101,7 @@ final class QueryUtilTest extends TestCase{
 		$data['florps'] = ['nope', 'nope', 'nah'];
 		$this::assertSame(
 			'florps="nah", florps="nope", florps="nope", foo="bar", whatever?="nope!"',
-			QueryUtil::build($data, QueryUtil::NO_ENCODING, ', ', '"')
+			QueryUtil::build($data, QueryUtil::NO_ENCODING, ', ', '"'),
 		);
 	}
 
@@ -101,6 +109,9 @@ final class QueryUtilTest extends TestCase{
 		$this::assertSame('a=2&b=1&b=2&b=3&c=1&d=4', QueryUtil::build(['c' => 1, 'a' => 2, 'b' => [3, 1, 2], 'd' => 4]));
 	}
 
+	/**
+	 * @return array<string, array{0: string, 1: array<string, mixed>}>
+	 */
 	public static function parseQueryProvider():array{
 		return [
 			'Does not need to parse when the string is empty'            => ['', []],
@@ -123,6 +134,9 @@ final class QueryUtilTest extends TestCase{
 		];
 	}
 
+	/**
+	 * @param array<string, mixed> $output
+	 */
 	#[DataProvider('parseQueryProvider')]
 	public function testParsesQueries(string $input, array $output):void{
 		$this::assertSame($output, QueryUtil::parse($input));
@@ -161,7 +175,7 @@ final class QueryUtilTest extends TestCase{
 
 		$this::assertSame(
 			'bar=0&bar=false&foo=1&foo=true',
-			QueryUtil::build(['foo' => [true, 'true'], 'bar' => [false, 'false']], PHP_QUERY_RFC1738)
+			QueryUtil::build(['foo' => [true, 'true'], 'bar' => [false, 'false']], PHP_QUERY_RFC1738),
 		);
 	}
 
@@ -169,6 +183,9 @@ final class QueryUtilTest extends TestCase{
 		$this::assertSame(QueryUtil::parse('?q=a'), ['q' => 'a']);
 	}
 
+	/**
+	 * @return array<string, array{0: scalar|bool|array<int, mixed>|null, 1: string|array<int, mixed>}>
+	 */
 	public static function rawurlencodeDataProvider():array{
 		return [
 			'null'         => [null, ''],
@@ -184,6 +201,9 @@ final class QueryUtilTest extends TestCase{
 		];
 	}
 
+	/**
+	 * @param string|array<int, mixed> $expected
+	 */
 	#[DataProvider('rawurlencodeDataProvider')]
 	public function testRawurlencode(mixed $data, string|array $expected):void{
 		$this::assertSame($expected, QueryUtil::recursiveRawurlencode($data));

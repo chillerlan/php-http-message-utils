@@ -7,6 +7,7 @@
  * @copyright    2024 smiley
  * @license      MIT
  */
+declare(strict_types=1);
 
 namespace chillerlan\HTTPTest\Utils;
 
@@ -17,9 +18,6 @@ use PHPUnit\Framework\TestCase;
 use DateInterval, DateTimeImmutable, DateTimeInterface, DateTimeZone, Generator, InvalidArgumentException;
 use function ord, sprintf;
 
-/**
- *
- */
 final class CookieTest extends TestCase{
 
 	public function testEmptyNameException():void{
@@ -43,6 +41,9 @@ final class CookieTest extends TestCase{
 		new Cookie('Cookie'.$char.'Name');
 	}
 
+	/**
+	 * @return array<string, array{0: DateTimeInterface|DateInterval|int, 1: string, 2: int}>
+	 */
 	public static function expiryProvider():array{
 		$dt     = (new DateTimeImmutable)->setTimezone(new DateTimeZone('GMT'));
 		$now    = $dt->getTimestamp();
@@ -89,6 +90,9 @@ final class CookieTest extends TestCase{
 		$this::assertSame('test=; Expires=Thursday, 01-Jan-1970 12:34:56 GMT; Max-Age=0', (string)$cookie);
 	}
 
+	/**
+	 * @return array<string, array{0: string, 1: bool, 2: string}>
+	 */
 	public static function domainProvider():array{
 		return [
 			'WWW.Example.COM'            => ['WWW.Example.COM', false, 'www.example.com'],
@@ -106,6 +110,9 @@ final class CookieTest extends TestCase{
 		$this::assertSame('test=domain', (string)$cookie->withDomain(null));
 	}
 
+	/**
+	 * @return array<string, array{0: string, 1: string}>
+	 */
 	public static function pathProvider():array{
 		return [
 			'empty'  => ['', '/'],

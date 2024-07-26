@@ -7,7 +7,6 @@
  * @copyright    2019 smiley
  * @license      MIT
  */
-
 declare(strict_types=1);
 
 namespace chillerlan\HTTP\Utils\Client;
@@ -17,7 +16,7 @@ use Psr\Http\Client\{ClientExceptionInterface, ClientInterface};
 use Psr\Http\Message\{RequestInterface, ResponseInterface};
 use Psr\Log\{LoggerInterface, NullLogger};
 use RuntimeException, Throwable;
-use function get_class, sprintf;
+use function sprintf;
 
 /**
  * a silly logging wrapper (do not use in production!)
@@ -26,28 +25,23 @@ use function get_class, sprintf;
  */
 class LoggingClient implements ClientInterface{
 
+	protected ClientInterface $http;
+	protected LoggerInterface $logger;
+
 	/**
 	 * LoggingClient constructor.
 	 */
-	public function __construct(
-		protected ClientInterface $http,
-		protected LoggerInterface $logger = new NullLogger,
-	){
-
+	public function __construct(ClientInterface $http, LoggerInterface $logger = new NullLogger){
+		$this->http   = $http;
+		$this->logger = $logger;
 	}
 
-	/**
-	 * @codeCoverageIgnore
-	 */
 	public function setLogger(LoggerInterface $logger):static{
 		$this->logger = $logger;
 
 		return $this;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function sendRequest(RequestInterface $request):ResponseInterface{
 
 		try{
@@ -64,7 +58,7 @@ class LoggingClient implements ClientInterface{
 			if(!$e instanceof ClientExceptionInterface){
 				$msg = 'unexpected exception, does not implement "ClientExceptionInterface": "%s"';
 
-				throw new RuntimeException(sprintf($msg, get_class($e)));
+				throw new RuntimeException(sprintf($msg, $e::class));
 			}
 
 			throw $e;

@@ -7,6 +7,7 @@
  * @copyright    2024 smiley
  * @license      MIT
  */
+declare(strict_types=1);
 
 namespace chillerlan\HTTPTest\Utils\Client\Factories;
 
@@ -19,9 +20,6 @@ use Psr\Http\Message\ResponseFactoryInterface;
 use const CURLOPT_FOLLOWLOCATION;
 use const CURLOPT_MAXREDIRS;
 
-/**
- *
- */
 final class URLExtractorClientFactory implements HttpClientFactoryInterface{
 
 	public function getClient(string $cacert, ResponseFactoryInterface $responseFactory):ClientInterface{

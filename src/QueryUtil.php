@@ -7,20 +7,16 @@
  * @copyright    2021 smiley
  * @license      MIT
  */
-
 declare(strict_types=1);
 
 namespace chillerlan\HTTP\Utils;
 
 use InvalidArgumentException;
 use function array_map, array_merge, call_user_func_array, explode, implode, is_array, is_bool,
-	is_iterable, is_numeric, is_scalar, is_string, rawurldecode, rawurlencode, sort, str_replace,
-	trim, uksort;
+	is_iterable, is_numeric, is_scalar, is_string, rawurldecode, rawurlencode, sort, strcmp,
+	str_replace, trim, uksort, urlencode;
 use const PHP_QUERY_RFC1738, PHP_QUERY_RFC3986, SORT_STRING;
 
-/**
- *
- */
 final class QueryUtil{
 
 	public const BOOLEANS_AS_BOOL       = 0;
@@ -31,20 +27,21 @@ final class QueryUtil{
 	public const NO_ENCODING = -1;
 
 	/**
-	 * Cleans/normalizes an array of query parameters, booleans will be converted according to the given $bool_cast constant.
-	 * By default, booleans will be left as-is (BOOLEANS_AS_BOOL) and may result in empty values.
-	 * If $remove_empty is set to true, empty and null values will be removed from the array.
+	 * Cleans/normalizes an array of query parameters
 	 *
-	 * @param iterable  $params
-	 * @param int|null  $bool_cast    converts booleans to a type determined like following:
-	 *                                BOOLEANS_AS_BOOL      : unchanged boolean value (default)
-	 *                                BOOLEANS_AS_INT       : integer values 0 or 1
-	 *                                BOOLEANS_AS_STRING    : "true"/"false" strings
-	 *                                BOOLEANS_AS_INT_STRING: "0"/"1"
+	 * By default, booleans will be left as-is (`BOOLEANS_AS_BOOL`) and may result in empty values.
+	 * If `$remove_empty` is set to `true` (default), empty and `null` values will be removed from the array.
 	 *
-	 * @param bool|null $remove_empty remove empty and NULL values (default: true)
+	 * `$bool_cast` converts booleans to a type determined like following:
 	 *
-	 * @return array
+	 *   - `BOOLEANS_AS_BOOL`      : unchanged boolean value (default)
+	 *   - `BOOLEANS_AS_INT`       : integer values 0 or 1
+	 *   - `BOOLEANS_AS_STRING`    : "true"/"false" strings
+	 *   - `BOOLEANS_AS_INT_STRING`: "0"/"1"
+	 *
+	 * @param array<int|string, scalar|bool|null> $params
+	 *
+	 * @return array<int|string, scalar|bool|null>
 	 */
 	public static function cleanParams(
 		iterable  $params,
@@ -69,6 +66,7 @@ final class QueryUtil{
 					self::BOOLEANS_AS_INT        => (int)$value,
 					self::BOOLEANS_AS_STRING     => ($value) ? 'true' : 'false',
 					self::BOOLEANS_AS_INT_STRING => (string)(int)$value,
+					default                      => throw new InvalidArgumentException('invalid $bool_cast parameter value'),
 				};
 
 			}
@@ -100,8 +98,12 @@ final class QueryUtil{
 	 * Valid values for $encoding are PHP_QUERY_RFC3986 (default) and PHP_QUERY_RFC1738,
 	 * any other integer value will be interpreted as "no encoding".
 	 *
+	 * Boolean values will be cast to int(0,1), null values will be removed, leaving only their keys.
+	 *
 	 * @link https://github.com/abraham/twitteroauth/blob/57108b31f208d0066ab90a23257cdd7bb974c67d/src/Util.php#L84-L122
 	 * @link https://github.com/guzzle/psr7/blob/c0dcda9f54d145bd4d062a6d15f54931a67732f9/src/Query.php#L59-L113
+	 *
+	 * @param array<string, scalar|bool|array<int, scalar|bool|null>|null> $params
 	 */
 	public static function build(
 		array       $params,
@@ -119,8 +121,8 @@ final class QueryUtil{
 		$delimiter ??= '&';
 
 		$encode = match($encoding){
-			PHP_QUERY_RFC3986 => 'rawurlencode',
-			PHP_QUERY_RFC1738 => 'urlencode',
+			PHP_QUERY_RFC3986 => rawurlencode(...),
+			PHP_QUERY_RFC1738 => urlencode(...),
 			default           => fn(string $str):string => $str,
 		};
 
@@ -139,7 +141,7 @@ final class QueryUtil{
 		};
 
 		// Parameters are sorted by name, using lexicographical byte value ordering.
-		uksort($params, 'strcmp');
+		uksort($params, strcmp(...));
 
 		$pairs = [];
 
@@ -167,6 +169,8 @@ final class QueryUtil{
 
 	/**
 	 * Merges additional query parameters into an existing query string
+	 *
+	 * @param array<string, scalar|bool|null> $query
 	 */
 	public static function merge(string $uri, array $query):string{
 		$querypart  = (UriUtil::parseUrl($uri)['query'] ?? '');
@@ -184,6 +188,8 @@ final class QueryUtil{
 	 * Parses a query string into an associative array.
 	 *
 	 * @link https://github.com/guzzle/psr7/blob/c0dcda9f54d145bd4d062a6d15f54931a67732f9/src/Query.php#L9-L57
+	 *
+	 * @return array<string, string|string[]>
 	 */
 	public static function parse(string $querystring, int|null $urlEncoding = null):array{
 		$querystring = trim($querystring, '?'); // handle leftover question marks (e.g. Twitter API "next_results")
@@ -194,8 +200,8 @@ final class QueryUtil{
 
 		$decode = match($urlEncoding){
 			self::NO_ENCODING => fn(string $str):string => $str,
-			PHP_QUERY_RFC3986 => 'rawurldecode',
-			PHP_QUERY_RFC1738 => 'urldecode',
+			PHP_QUERY_RFC3986 => rawurldecode(...),
+			PHP_QUERY_RFC1738 => urldecode(...),
 			default           => fn(string $value):string => rawurldecode(str_replace('+', ' ', $value)),
 		};
 
@@ -225,6 +231,7 @@ final class QueryUtil{
 	/**
 	 * Recursive rawurlencode
 	 *
+	 * @param string|array<int, scalar|null> $data
 	 * @return string|string[]
 	 * @throws \InvalidArgumentException
 	 */

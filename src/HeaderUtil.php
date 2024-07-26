@@ -7,7 +7,6 @@
  * @copyright    2021 smiley
  * @license      MIT
  */
-
 declare(strict_types=1);
 
 namespace chillerlan\HTTP\Utils;
@@ -16,15 +15,15 @@ use InvalidArgumentException;
 use function array_keys, array_values, count, explode, implode, is_array,
 	is_numeric, is_scalar, is_string, str_replace, strtolower, trim, ucfirst;
 
-/**
- *
- */
 final class HeaderUtil{
 
 	/**
 	 * Normalizes an array of header lines to format ["Name" => "Value (, Value2, Value3, ...)", ...]
 	 * An exception is being made for Set-Cookie, which holds an array of values for each cookie.
 	 * For multiple cookies with the same name, only the last value will be kept.
+	 *
+	 * @param array<int|string, scalar|bool|array<int, scalar|bool|null>|null> $headers
+	 * @return array<string, string>
 	 */
 	public static function normalize(iterable $headers):array{
 		$normalized = [];
@@ -54,7 +53,6 @@ final class HeaderUtil{
 					}
 				}
 				else{
-					/** @phan-suppress-next-line PhanTypeArraySuspicious */
 					$val = self::trimValues([$val])[0];
 
 					$normalized[$key][$name($val)] = $val;
@@ -68,10 +66,6 @@ final class HeaderUtil{
 					$val = [$val];
 				}
 
-				/**
-				 * @noinspection PhpParamsInspection (it is an array...)
-				 * @phan-suppress-next-next-line PhanTypeMismatchArgumentInternal
-				 */
 				$val = implode(', ', array_values(self::trimValues($val)));
 
 				// skip if the header already exists but the current value is empty
@@ -91,6 +85,8 @@ final class HeaderUtil{
 	/**
 	 * Extracts a key:value pair from the given value and returns it as 2-element array.
 	 * If the key cannot be parsed, both array values will be `null`.
+	 *
+	 * @return array{0: string|null, 1: scalar|bool|null}
 	 */
 	protected static function normalizeKV(mixed $value):array{
 
@@ -125,8 +121,11 @@ final class HeaderUtil{
 	 *
 	 * @see https://tools.ietf.org/html/rfc7230#section-3.2.4
 	 * @see https://github.com/advisories/GHSA-wxmh-65f7-jcvw
+	 *
+	 * @param array<int, scalar|null> $values
+	 * @return array<int, string> $values
 	 */
-	public static function trimValues(iterable $values):iterable{
+	public static function trimValues(array $values):array{
 
 		foreach($values as &$value){
 

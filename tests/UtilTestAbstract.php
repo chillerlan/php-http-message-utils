@@ -7,7 +7,6 @@
  * @copyright    2024 smiley
  * @license      MIT
  */
-
 declare(strict_types=1);
 
 namespace chillerlan\HTTPTest\Utils;
@@ -15,11 +14,7 @@ namespace chillerlan\HTTPTest\Utils;
 use chillerlan\PHPUnitHttp\HttpFactoryTrait;
 use PHPUnit\Framework\TestCase;
 use Throwable;
-use function realpath;
 
-/**
- *
- */
 abstract class UtilTestAbstract extends TestCase{
 	use HttpFactoryTrait;
 
@@ -27,7 +22,7 @@ abstract class UtilTestAbstract extends TestCase{
 
 	protected function setUp():void{
 		try{
-			$this->initFactories(realpath($this::CACERT));
+			$this->initFactories($this::CACERT);
 		}
 		catch(Throwable $e){
 			$this->markTestSkipped('unable to init http factories: '.$e->getMessage());

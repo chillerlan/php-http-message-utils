@@ -7,6 +7,7 @@
  * @copyright    2024 smiley
  * @license      MIT
  */
+declare(strict_types=1);
 
 namespace chillerlan\HTTP\Utils;
 
@@ -30,16 +31,10 @@ class Cookie{
 	protected bool                   $httpOnly = false;
 	protected string|null            $sameSite = null;
 
-	/**
-	 *
-	 */
 	public function __construct(string $name, string|null $value = null){
 		$this->withNameAndValue($name, ($value ?? ''));
 	}
 
-	/**
-	 *
-	 */
 	public function __toString():string{
 		$cookie = [sprintf('%s=%s', $this->name, $this->value)];
 
@@ -127,6 +122,7 @@ class Cookie{
 			$expiry < $now                       => $dt->setTimestamp($now + $expiry),
 			// timestamp in the future (incl. now, which will delete the cookie)
 			$expiry >= $now                      => $dt->setTimestamp($expiry),
+			default                              => throw new InvalidArgumentException('invalid expiry value'),
 		};
 
 		$this->maxAge = ($this->expiry->getTimestamp() - $now);
@@ -205,7 +201,7 @@ class Cookie{
 		if($sameSite !== null){
 			$sameSite = strtolower(trim($sameSite));
 
-			if(!in_array($sameSite, ['lax', 'strict', 'none'])){
+			if(!in_array($sameSite, ['lax', 'strict', 'none'], true)){
 				throw new InvalidArgumentException('The same site attribute must be "lax", "strict" or "none"');
 			}
 		}

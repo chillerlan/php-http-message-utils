@@ -7,7 +7,6 @@
  * @copyright    2024 smiley
  * @license      MIT
  */
-
 declare(strict_types=1);
 
 namespace chillerlan\HTTPTest\Utils\Client\Factories;
@@ -26,7 +25,7 @@ final class LoggingClientFactory implements HttpClientFactoryInterface{
 	public function getClient(string $cacert, ResponseFactoryInterface $responseFactory):ClientInterface{
 		$http   = (new GuzzleHttpClientFactory)->getClient($cacert, $responseFactory);
 		$logger = new class () extends AbstractLogger{
-			public function log($level, string|Stringable $message, array $context = []):void{
+			public function log($level, string|Stringable $message, array $context = []):void{ // phpcs:ignore
 				printf("\n[%s][%s] LoggingClientTest: %s", date('Y-m-d H:i:s'), $level, $message);
 			}
 		};
