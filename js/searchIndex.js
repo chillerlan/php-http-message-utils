@@ -496,6 +496,11 @@ Search.appendIndex(
             "summary": "Creates\u0020an\u0020UploadedFile\u0020instance\u0020from\u0020a\u0020\u0024_FILES\u0020specification.",
             "url": "classes/chillerlan-HTTP-Utils-ServerUtil.html#method_createUploadedFileFromSpec"
         },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\ServerUtil\u003A\u003AcreateStreamFromFile\u0028\u0029",
+            "name": "createStreamFromFile",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-ServerUtil.html#method_createStreamFromFile"
+        },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\ServerUtil\u003A\u003AnormalizeNestedFileSpec\u0028\u0029",
             "name": "normalizeNestedFileSpec",
             "summary": "Normalizes\u0020an\u0020array\u0020of\u0020file\u0020specifications.",
