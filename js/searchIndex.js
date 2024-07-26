@@ -236,6 +236,11 @@ Search.appendIndex(
             "summary": "emits\u0020a\u0020part\u0020of\u0020the\u0020body",
             "url": "classes/chillerlan-HTTP-Utils-Emitter-ResponseEmitterAbstract.html#method_emitBodyRange"
         },                {
+            "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\ResponseEmitterAbstract\u003A\u003A\u0024response",
+            "name": "response",
+            "summary": "",
+            "url": "classes/chillerlan-HTTP-Utils-Emitter-ResponseEmitterAbstract.html#property_response"
+        },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\ResponseEmitterAbstract\u003A\u003A\u0024body",
             "name": "body",
             "summary": "",
@@ -261,11 +266,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-HTTP-Utils-Emitter-ResponseEmitterAbstract.html#property_rangeLength"
         },                {
-            "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\ResponseEmitterAbstract\u003A\u003A\u0024response",
-            "name": "response",
-            "summary": "",
-            "url": "classes/chillerlan-HTTP-Utils-Emitter-ResponseEmitterAbstract.html#property_response"
-        },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\ResponseEmitterAbstract\u003A\u003A\u0024bufferSize",
             "name": "bufferSize",
             "summary": "",
@@ -288,7 +288,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\SapiEmitter\u003A\u003Aemit\u0028\u0029",
             "name": "emit",
-            "summary": "",
+            "summary": "Emits\u0020a\u0020PSR\u002D7\u0020response.",
             "url": "classes/chillerlan-HTTP-Utils-Emitter-SapiEmitter.html#method_emit"
         },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\Emitter\\SapiEmitter\u003A\u003AemitHeaders\u0028\u0029",
@@ -418,7 +418,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\QueryUtil\u003A\u003AcleanParams\u0028\u0029",
             "name": "cleanParams",
-            "summary": "Cleans\/normalizes\u0020an\u0020array\u0020of\u0020query\u0020parameters,\u0020booleans\u0020will\u0020be\u0020converted\u0020according\u0020to\u0020the\u0020given\u0020\u0024bool_cast\u0020constant.",
+            "summary": "Cleans\/normalizes\u0020an\u0020array\u0020of\u0020query\u0020parameters",
             "url": "classes/chillerlan-HTTP-Utils-QueryUtil.html#method_cleanParams"
         },                {
             "fqsen": "\\chillerlan\\HTTP\\Utils\\QueryUtil\u003A\u003Abuild\u0028\u0029",

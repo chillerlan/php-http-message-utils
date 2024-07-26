@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/chillerlan.html" class="">chillerlan</a>
@@ -71,7 +71,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -79,14 +79,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -125,11 +125,14 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/MessageUtil.php"><a href="files/src-messageutil.html"><abbr title="src/MessageUtil.php">MessageUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">24</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
     </aside>
 
         
+
+
+
 
 
 
@@ -157,47 +160,47 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_decodeJSON">decodeJSON()</a>
+    <a class="" href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_decodeJSON">decodeJSON()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_decodeXML">decodeXML()</a>
+    <a class="" href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_decodeXML">decodeXML()</a>
     <span>
-                                &nbsp;: <abbr title="\SimpleXMLElement">SimpleXMLElement</abbr>|<abbr title="\stdClass">stdClass</abbr>|mixed    </span>
+                                &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_decompress">decompress()</a>
+    <a class="" href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_decompress">decompress()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Decompresses the message content according to the Content-Encoding header and returns the decompressed data</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_getContents">getContents()</a>
+    <a class="" href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_getContents">getContents()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Read the message body&#039;s content, throws if the content could not be read from the message body</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_getCookiesFromHeader">getCookiesFromHeader()</a>
+    <a class="" href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_getCookiesFromHeader">getCookiesFromHeader()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                                &nbsp;: array&lt;string, string&gt;|null    </span>
 </dt>
 <dd>Attempts to extract and parse a cookie from a &quot;Cookie&quot; (user-agent) header</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_setContentLengthHeader">setContentLengthHeader()</a>
+    <a class="" href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_setContentLengthHeader">setContentLengthHeader()</a>
     <span>
                                 &nbsp;: <abbr title="\Psr\Http\Message\MessageInterface">MessageInterface</abbr>|<abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr>|<abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>|<abbr title="\Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</abbr>    </span>
 </dt>
 <dd>Sets a Content-Length header in the given message in case it does not exist and body size is not null</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_setContentTypeHeader">setContentTypeHeader()</a>
+    <a class="" href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_setContentTypeHeader">setContentTypeHeader()</a>
     <span>
                                 &nbsp;: <abbr title="\Psr\Http\Message\MessageInterface">MessageInterface</abbr>|<abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr>|<abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>|<abbr title="\Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</abbr>    </span>
 </dt>
@@ -205,34 +208,33 @@
 throws if no mime type could be guessed.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_setCookie">setCookie()</a>
+    <a class="" href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_setCookie">setCookie()</a>
     <span>
                                 &nbsp;: <abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>    </span>
 </dt>
 <dd>Adds a Set-Cookie header to a ResponseInterface (convenience)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_toJSON">toJSON()</a>
+    <a class="" href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_toJSON">toJSON()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Returns a JSON representation of an HTTP message.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_toString">toString()</a>
+    <a class="" href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_toString">toString()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Returns the string representation of an HTTP message. (from Guzzle)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_call_decompress_func">call_decompress_func()</a>
+    <a class="" href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_call_decompress_func">call_decompress_func()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 
     </dl>
-
 
 
 
@@ -260,7 +262,7 @@ throws if no mime type could be guessed.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/MessageUtil.php"><a href="files/src-messageutil.html"><abbr title="src/MessageUtil.php">MessageUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">44</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 
     </aside>
 
@@ -271,6 +273,7 @@ throws if no mime type could be guessed.</dd>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -308,6 +311,8 @@ throws if no mime type could be guessed.</dd>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -323,17 +328,18 @@ throws if no mime type could be guessed.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/MessageUtil.php"><a href="files/src-messageutil.html"><abbr title="src/MessageUtil.php">MessageUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">51</span>
+    <span class="phpdocumentor-element-found-in__line">44</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">decodeXML</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\MessageInterface">MessageInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$message</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$assoc</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\SimpleXMLElement">SimpleXMLElement</abbr>|<abbr title="\stdClass">stdClass</abbr>|mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">decodeXML</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\MessageInterface">MessageInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$message</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$assoc</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -355,11 +361,9 @@ throws if no mime type could be guessed.</dd>
 
     
 
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><abbr title="\SimpleXMLElement">SimpleXMLElement</abbr>|<abbr title="\stdClass">stdClass</abbr>|mixed</span>
-            </section>
+    
 
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -375,7 +379,7 @@ throws if no mime type could be guessed.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/MessageUtil.php"><a href="files/src-messageutil.html"><abbr title="src/MessageUtil.php">MessageUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">151</span>
+    <span class="phpdocumentor-element-found-in__line">146</span>
 
     </aside>
 
@@ -387,6 +391,7 @@ throws if no mime type could be guessed.</dd>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -440,6 +445,8 @@ throws if no mime type could be guessed.</dd>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
@@ -460,7 +467,7 @@ throws if no mime type could be guessed.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/MessageUtil.php"><a href="files/src-messageutil.html"><abbr title="src/MessageUtil.php">MessageUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">31</span>
+    <span class="phpdocumentor-element-found-in__line">27</span>
 
     </aside>
 
@@ -472,6 +479,7 @@ throws if no mime type could be guessed.</dd>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -501,6 +509,8 @@ throws if no mime type could be guessed.</dd>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
@@ -521,7 +531,7 @@ throws if no mime type could be guessed.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/MessageUtil.php"><a href="files/src-messageutil.html"><abbr title="src/MessageUtil.php">MessageUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">260</span>
+    <span class="phpdocumentor-element-found-in__line">263</span>
 
     </aside>
 
@@ -529,10 +539,11 @@ throws if no mime type could be guessed.</dd>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getCookiesFromHeader</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\MessageInterface">MessageInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$message</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getCookiesFromHeader</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\MessageInterface">MessageInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$message</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string, string&gt;|null</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -562,9 +573,11 @@ throws if no mime type could be guessed.</dd>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+        <span class="phpdocumentor-signature__response_type">array&lt;string, string&gt;|null</span>
             </section>
 
 </article>
@@ -582,7 +595,7 @@ throws if no mime type could be guessed.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/MessageUtil.php"><a href="files/src-messageutil.html"><abbr title="src/MessageUtil.php">MessageUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">190</span>
+    <span class="phpdocumentor-element-found-in__line">191</span>
 
     </aside>
 
@@ -595,6 +608,7 @@ throws if no mime type could be guessed.</dd>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -605,6 +619,8 @@ throws if no mime type could be guessed.</dd>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -628,7 +644,7 @@ throws if no mime type could be guessed.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/MessageUtil.php"><a href="files/src-messageutil.html"><abbr title="src/MessageUtil.php">MessageUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">208</span>
+    <span class="phpdocumentor-element-found-in__line">209</span>
 
     </aside>
 
@@ -641,6 +657,7 @@ throws if no mime type could be guessed.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -684,6 +701,8 @@ throws if no mime type could be guessed.</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\MessageInterface">MessageInterface</abbr>|<abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr>|<abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>|<abbr title="\Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</abbr></span>
@@ -704,7 +723,7 @@ throws if no mime type could be guessed.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/MessageUtil.php"><a href="files/src-messageutil.html"><abbr title="src/MessageUtil.php">MessageUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">231</span>
+    <span class="phpdocumentor-element-found-in__line">232</span>
 
     </aside>
 
@@ -716,6 +735,7 @@ throws if no mime type could be guessed.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -801,6 +821,8 @@ throws if no mime type could be guessed.</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span>
@@ -821,7 +843,7 @@ throws if no mime type could be guessed.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/MessageUtil.php"><a href="files/src-messageutil.html"><abbr title="src/MessageUtil.php">MessageUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">103</span>
+    <span class="phpdocumentor-element-found-in__line">98</span>
 
     </aside>
 
@@ -833,6 +855,7 @@ throws if no mime type could be guessed.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -851,6 +874,8 @@ throws if no mime type could be guessed.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -874,7 +899,7 @@ throws if no mime type could be guessed.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/MessageUtil.php"><a href="files/src-messageutil.html"><abbr title="src/MessageUtil.php">MessageUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">62</span>
+    <span class="phpdocumentor-element-found-in__line">57</span>
 
     </aside>
 
@@ -886,6 +911,7 @@ throws if no mime type could be guessed.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -904,6 +930,8 @@ throws if no mime type could be guessed.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -927,7 +955,7 @@ throws if no mime type could be guessed.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/MessageUtil.php"><a href="files/src-messageutil.html"><abbr title="src/MessageUtil.php">MessageUtil.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">177</span>
+    <span class="phpdocumentor-element-found-in__line">178</span>
 
     </aside>
 
@@ -938,6 +966,7 @@ throws if no mime type could be guessed.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -972,6 +1001,8 @@ throws if no mime type could be guessed.</p>
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1092,17 +1123,17 @@ throws if no mime type could be guessed.</p>
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_decodeJSON">decodeJSON()</a></li>
-                                            <li><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_decodeXML">decodeXML()</a></li>
-                                            <li><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_decompress">decompress()</a></li>
-                                            <li><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_getContents">getContents()</a></li>
-                                            <li><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_getCookiesFromHeader">getCookiesFromHeader()</a></li>
-                                            <li><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_setContentLengthHeader">setContentLengthHeader()</a></li>
-                                            <li><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_setContentTypeHeader">setContentTypeHeader()</a></li>
-                                            <li><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_setCookie">setCookie()</a></li>
-                                            <li><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_toJSON">toJSON()</a></li>
-                                            <li><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_toString">toString()</a></li>
-                                            <li><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_call_decompress_func">call_decompress_func()</a></li>
+                                            <li class=""><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_decodeJSON">decodeJSON()</a></li>
+                                            <li class=""><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_decodeXML">decodeXML()</a></li>
+                                            <li class=""><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_decompress">decompress()</a></li>
+                                            <li class=""><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_getContents">getContents()</a></li>
+                                            <li class=""><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_getCookiesFromHeader">getCookiesFromHeader()</a></li>
+                                            <li class=""><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_setContentLengthHeader">setContentLengthHeader()</a></li>
+                                            <li class=""><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_setContentTypeHeader">setContentTypeHeader()</a></li>
+                                            <li class=""><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_setCookie">setCookie()</a></li>
+                                            <li class=""><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_toJSON">toJSON()</a></li>
+                                            <li class=""><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_toString">toString()</a></li>
+                                            <li class=""><a href="classes/chillerlan-HTTP-Utils-MessageUtil.html#method_call_decompress_func">call_decompress_func()</a></li>
                                     </ul>
             </li>
                     </ul>

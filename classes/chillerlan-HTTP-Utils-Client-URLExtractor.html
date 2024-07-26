@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/chillerlan.html" class="">chillerlan</a>
@@ -71,7 +71,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -79,14 +79,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -127,11 +127,12 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Client/URLExtractor.php"><a href="files/src-client-urlextractor.html"><abbr title="src/Client/URLExtractor.php">URLExtractor.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">26</span>
 
     </aside>
 
             <p class="phpdocumentor-summary">A client that follows redirects until it reaches a non-30x response, e.g. to extract shortened URLs</p>
+
 
     <section class="phpdocumentor-description"><p>The given HTTP client needs to be set up accordingly:</p>
 <ul>
@@ -139,6 +140,8 @@
 <li>CURLOPT_MAXREDIRS       should be set to a value &gt; 1</li>
 </ul>
 </section>
+
+
 
 
 
@@ -172,19 +175,19 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#property_http">$http</a>
+    <a class="" href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#property_http">$http</a>
     <span>
                         &nbsp;: <abbr title="\Psr\Http\Client\ClientInterface">ClientInterface</abbr>            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#property_requestFactory">$requestFactory</a>
+    <a class="" href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#property_requestFactory">$requestFactory</a>
     <span>
                         &nbsp;: <abbr title="\Psr\Http\Message\RequestFactoryInterface">RequestFactoryInterface</abbr>            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#property_responses">$responses</a>
+    <a class="" href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#property_responses">$responses</a>
     <span>
                         &nbsp;: array&lt;string|int, <abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>&gt;            </span>
 </dt>
@@ -198,33 +201,32 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#method___construct">__construct()</a>
+    <a class="" href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>URLExtractor constructor.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#method_extract">extract()</a>
+    <a class="" href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#method_extract">extract()</a>
     <span>
                                 &nbsp;: string|null    </span>
 </dt>
 <dd>extract the given URL and return the last valid location header</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#method_getResponses">getResponses()</a>
+    <a class="" href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#method_getResponses">getResponses()</a>
     <span>
                                 &nbsp;: array&lt;string|int, <abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>&gt;    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#method_sendRequest">sendRequest()</a>
+    <a class="" href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#method_sendRequest">sendRequest()</a>
     <span>
                                 &nbsp;: <abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>    </span>
 </dt>
 
     </dl>
-
 
 
 
@@ -254,10 +256,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Client/URLExtractor.php"><a href="files/src-client-urlextractor.html"><abbr title="src/Client/URLExtractor.php">URLExtractor.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">36</span>
+    <span class="phpdocumentor-element-found-in__line">30</span>
 
     </aside>
 
+    
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -267,6 +270,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -287,10 +292,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Client/URLExtractor.php"><a href="files/src-client-urlextractor.html"><abbr title="src/Client/URLExtractor.php">URLExtractor.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">31</span>
 
     </aside>
 
+    
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -300,6 +306,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -320,10 +328,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Client/URLExtractor.php"><a href="files/src-client-urlextractor.html"><abbr title="src/Client/URLExtractor.php">URLExtractor.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">30</span>
+    <span class="phpdocumentor-element-found-in__line">29</span>
 
     </aside>
 
+    
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -333,6 +342,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -358,7 +369,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Client/URLExtractor.php"><a href="files/src-client-urlextractor.html"><abbr title="src/Client/URLExtractor.php">URLExtractor.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
@@ -370,6 +381,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -392,6 +404,8 @@
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -407,7 +421,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Client/URLExtractor.php"><a href="files/src-client-urlextractor.html"><abbr title="src/Client/URLExtractor.php">URLExtractor.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">68</span>
+    <span class="phpdocumentor-element-found-in__line">64</span>
 
     </aside>
 
@@ -420,6 +434,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -430,6 +445,8 @@
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -453,7 +470,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Client/URLExtractor.php"><a href="files/src-client-urlextractor.html"><abbr title="src/Client/URLExtractor.php">URLExtractor.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">90</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 
     </aside>
 
@@ -466,6 +483,9 @@
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -488,7 +508,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Client/URLExtractor.php"><a href="files/src-client-urlextractor.html"><abbr title="src/Client/URLExtractor.php">URLExtractor.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">45</span>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 
     </aside>
 
@@ -499,6 +519,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -512,20 +533,8 @@
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#method_sendRequest#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">inheritDoc</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -646,19 +655,19 @@
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#property_http">$http<a href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html"></li>
-                                                    <li><a href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#property_requestFactory">$requestFactory<a href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html"></li>
-                                                    <li><a href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#property_responses">$responses<a href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html"></li>
+                                                    <li class=""><a href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#property_http">$http</a></li>
+                                                    <li class=""><a href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#property_requestFactory">$requestFactory</a></li>
+                                                    <li class=""><a href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#property_responses">$responses</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#method_extract">extract()</a></li>
-                                            <li><a href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#method_getResponses">getResponses()</a></li>
-                                            <li><a href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#method_sendRequest">sendRequest()</a></li>
+                                            <li class=""><a href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#method_extract">extract()</a></li>
+                                            <li class=""><a href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#method_getResponses">getResponses()</a></li>
+                                            <li class=""><a href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html#method_sendRequest">sendRequest()</a></li>
                                     </ul>
             </li>
                     </ul>
