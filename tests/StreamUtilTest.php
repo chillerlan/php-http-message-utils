@@ -175,8 +175,13 @@ final class StreamUtilTest extends UtilTestAbstract{
 	}
 
 	public function testTryGetContentsThrowsExceptionOnInvalidResource():void{
+
+		$expectedMessage = PHP_VERSION_ID < 80500
+			? 'supplied resource is not a valid stream resource'
+			: 'Unable to read stream contents: stream_get_contents(): Argument #1 ($stream) must be an open stream resource';
+
 		$this->expectException(RuntimeException::class);
-		$this->expectExceptionMessage('supplied resource is not a valid stream resource');
+		$this->expectExceptionMessage($expectedMessage);
 
 		$resource = StreamUtil::tryFopen(__DIR__.'/fopen-test.txt', 'r');
 		fclose($resource);
