@@ -136,10 +136,8 @@
 
 
 
-
-
-
-
+    
+    
 <h3 id="toc">
     Table of Contents
     <a href="classes/chillerlan-HTTPTest-Utils-Client-EchoClientTest.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -250,9 +248,8 @@
     
     
 
-    
-
-</article>
+        
+    </article>
             </section>
 
         
@@ -267,14 +264,14 @@
             phpdocumentor-element
             -property
             -protected
-                                                        "
+                                                                    "
 >
     <h4 class="phpdocumentor-element__name" id="property_HTTP_CLIENT_FACTORY">
         $HTTP_CLIENT_FACTORY
         <a href="classes/chillerlan-HTTPTest-Utils-Client-EchoClientTest.html#property_HTTP_CLIENT_FACTORY" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Client/EchoClientTest.php"><a href="files/tests-client-echoclienttest.html"><abbr title="tests/Client/EchoClientTest.php">EchoClientTest.php</abbr></a></abbr>
@@ -286,8 +283,8 @@
     
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">string</span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$HTTP_CLIENT_FACTORY</span>
      = <span class="phpdocumentor-signature__default-value">\chillerlan\HTTPTest\Utils\Client\Factories\EchoClientFactory::class</span></code>
 
@@ -295,7 +292,8 @@
     
     
 
-    
+        
+        
 
 </article>
             </section>
@@ -336,8 +334,8 @@
     
     
 
+        
     
-
     
 </article>
                     <article
@@ -370,8 +368,8 @@
     
     
 
+        
     
-
     
 </article>
                     <article
@@ -404,8 +402,8 @@
     
     
 
+        
     
-
     
 </article>
                     <article
@@ -438,8 +436,8 @@
     
     
 
+        
     
-
     
 </article>
             </section>
@@ -480,6 +478,8 @@
                         if (xhr.status < 400 && xhr.responseText) {
                             code.textContent = xhr.responseText;
                             Prism.highlightElement(code);
+                            d=document.getElementsByClassName("line-numbers");
+                            d[0].scrollTop = d[0].children[1].offsetTop;
                             return;
                         }
 

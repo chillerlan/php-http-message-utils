@@ -137,10 +137,8 @@
 
 
 
-
-
-
-
+    
+    
 <h3 id="toc">
     Table of Contents
     <a href="classes/chillerlan-HTTPTest-Utils-UriUtilTest.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -298,9 +296,8 @@
     
     
 
-    
-
-</article>
+        
+    </article>
             </section>
 
         
@@ -341,8 +338,8 @@
     
     
 
+        
     
-
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;int, array{0: string, 1: array<string,scalar>|null}&gt;</span>
@@ -370,7 +367,7 @@
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">testParseUrl</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$url</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string, scalar&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$expected</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">testParseUrl</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$url</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__type">array&lt;string, scalar&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$expected</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -379,15 +376,15 @@
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$url</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                <span class="phpdocumentor-argument-list__argument__name">$url</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$expected</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string, scalar&gt;|null</span>
+                <span class="phpdocumentor-argument-list__argument__name">$expected</span>
+                : <span class="phpdocumentor-argument-list__argument__type">array&lt;string, scalar&gt;|null</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -396,13 +393,13 @@
 
     
 
-    
-    <section class="phpdocumentor-attributes">
-        <h5 class="phpdocumentor-elements__header" id="attributes">
-            Attributes <a href="classes/chillerlan-HTTPTest-Utils-UriUtilTest.html#method_testParseUrl#attributes" class="headerlink"><i class="fas fa-link"></i></a>
+        
+            <section class="phpdocumentor-attributes">
+            <h5 class="phpdocumentor-elements__header" id="attributes">
+                Attributes <a href="classes/chillerlan-HTTPTest-Utils-UriUtilTest.html#method_testParseUrl#attributes" class="headerlink"><i class="fas fa-link"></i></a>
 
-        </h5>
-                    <dl class="phpdocumentor-argument-list">
+            </h5>
+                            <dl class="phpdocumentor-argument-list">
     <dt class="phpdocumentor-argument-list__entry">
         #[<abbr title="\PHPUnit\Framework\Attributes\DataProvider">DataProvider</abbr>]
     </dt>
@@ -410,8 +407,8 @@
         &#039;parseUrlProvider&#039;
     </dd>
     </dl>
-            </section>
-
+                    </section>
+    
     
 </article>
                     <article
@@ -444,8 +441,8 @@
     
     
 
+        
     
-
     
 </article>
                     <article
@@ -478,8 +475,8 @@
     
     
 
+        
     
-
     
 </article>
                     <article
@@ -512,8 +509,8 @@
     
     
 
+        
     
-
     
 </article>
                     <article
@@ -546,8 +543,8 @@
     
     
 
+        
     
-
     
 </article>
                     <article
@@ -580,8 +577,8 @@
     
     
 
+        
     
-
     
 </article>
                     <article
@@ -614,8 +611,8 @@
     
     
 
+        
     
-
     
 </article>
                     <article
@@ -648,8 +645,8 @@
     
     
 
+        
     
-
     
 </article>
                     <article
@@ -682,8 +679,8 @@
     
     
 
+        
     
-
     
 </article>
                     <article
@@ -716,8 +713,8 @@
     
     
 
+        
     
-
     
 </article>
                     <article
@@ -750,8 +747,8 @@
     
     
 
+        
     
-
     
 </article>
                     <article
@@ -784,8 +781,8 @@
     
     
 
+        
     
-
     
 </article>
                     <article
@@ -818,8 +815,8 @@
     
     
 
+        
     
-
     
 </article>
             </section>
@@ -860,6 +857,8 @@
                         if (xhr.status < 400 && xhr.responseText) {
                             code.textContent = xhr.responseText;
                             Prism.highlightElement(code);
+                            d=document.getElementsByClassName("line-numbers");
+                            d[0].scrollTop = d[0].children[1].offsetTop;
                             return;
                         }
 

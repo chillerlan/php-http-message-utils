@@ -138,13 +138,13 @@
 
 
 
+    
+            <section class="phpdocumentor-attributes">
+            <h5 class="phpdocumentor-elements__header" id="attributes">
+                Attributes <a href="classes/chillerlan-HTTPTest-Utils-Client-URLExtractorTest.html#attributes" class="headerlink"><i class="fas fa-link"></i></a>
 
-    <section class="phpdocumentor-attributes">
-        <h5 class="phpdocumentor-elements__header" id="attributes">
-            Attributes <a href="classes/chillerlan-HTTPTest-Utils-Client-URLExtractorTest.html#attributes" class="headerlink"><i class="fas fa-link"></i></a>
-
-        </h5>
-                    <dl class="phpdocumentor-argument-list">
+            </h5>
+                            <dl class="phpdocumentor-argument-list">
     <dt class="phpdocumentor-argument-list__entry">
         #[<abbr title="\PHPUnit\Framework\Attributes\Group">Group</abbr>]
     </dt>
@@ -152,10 +152,8 @@
         &#039;slow&#039;
     </dd>
     </dl>
-            </section>
-
-
-
+                    </section>
+    
 <h3 id="toc">
     Table of Contents
     <a href="classes/chillerlan-HTTPTest-Utils-Client-URLExtractorTest.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -272,9 +270,8 @@
     
     
 
-    
-
-</article>
+        
+    </article>
             </section>
 
         
@@ -289,14 +286,14 @@
             phpdocumentor-element
             -property
             -public
-                                                        "
+                                                                    "
 >
     <h4 class="phpdocumentor-element__name" id="property_httpClient">
         $httpClient
         <a href="classes/chillerlan-HTTPTest-Utils-Client-URLExtractorTest.html#property_httpClient" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Client/URLExtractorTest.php"><a href="files/tests-client-urlextractortest.html"><abbr title="tests/Client/URLExtractorTest.php">URLExtractorTest.php</abbr></a></abbr>
@@ -308,8 +305,8 @@
     
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type"><a href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html"><abbr title="\chillerlan\HTTP\Utils\Client\URLExtractor">URLExtractor</abbr></a></span>
+        <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__type"><a href="classes/chillerlan-HTTP-Utils-Client-URLExtractor.html"><abbr title="\chillerlan\HTTP\Utils\Client\URLExtractor">URLExtractor</abbr></a></span>
     <span class="phpdocumentor-signature__name">$httpClient</span>
     </code>
 
@@ -317,7 +314,8 @@
     
     
 
-    
+        
+        
 
 </article>
                     <article
@@ -325,14 +323,14 @@
             phpdocumentor-element
             -property
             -protected
-                                                        "
+                                                                    "
 >
     <h4 class="phpdocumentor-element__name" id="property_HTTP_CLIENT_FACTORY">
         $HTTP_CLIENT_FACTORY
         <a href="classes/chillerlan-HTTPTest-Utils-Client-URLExtractorTest.html#property_HTTP_CLIENT_FACTORY" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Client/URLExtractorTest.php"><a href="files/tests-client-urlextractortest.html"><abbr title="tests/Client/URLExtractorTest.php">URLExtractorTest.php</abbr></a></abbr>
@@ -344,8 +342,8 @@
     
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">string</span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$HTTP_CLIENT_FACTORY</span>
      = <span class="phpdocumentor-signature__default-value">\chillerlan\HTTPTest\Utils\Client\Factories\URLExtractorClientFactory::class</span></code>
 
@@ -353,7 +351,8 @@
     
     
 
-    
+        
+        
 
 </article>
             </section>
@@ -394,8 +393,8 @@
     
     
 
+        
     
-
     
 </article>
                     <article
@@ -428,8 +427,8 @@
     
     
 
+        
     
-
     
 </article>
                     <article
@@ -462,8 +461,8 @@
     
     
 
+        
     
-
     
 </article>
                     <article
@@ -496,8 +495,8 @@
     
     
 
+        
     
-
     
 </article>
             </section>
@@ -538,6 +537,8 @@
                         if (xhr.status < 400 && xhr.responseText) {
                             code.textContent = xhr.responseText;
                             Prism.highlightElement(code);
+                            d=document.getElementsByClassName("line-numbers");
+                            d[0].scrollTop = d[0].children[1].offsetTop;
                             return;
                         }
 

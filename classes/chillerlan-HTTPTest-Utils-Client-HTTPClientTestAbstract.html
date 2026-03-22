@@ -138,10 +138,8 @@
 
 
 
-
-
-
-
+    
+    
 <h3 id="toc">
     Table of Contents
     <a href="classes/chillerlan-HTTPTest-Utils-Client-HTTPClientTestAbstract.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -233,9 +231,8 @@
     
     
 
-    
-
-</article>
+        
+    </article>
             </section>
 
         
@@ -276,8 +273,8 @@
     
     
 
+        
     
-
     
 </article>
                     <article
@@ -310,8 +307,8 @@
     
     
 
+        
     
-
     
 </article>
                     <article
@@ -344,8 +341,8 @@
     
     
 
+        
     
-
     
 </article>
             </section>
@@ -386,6 +383,8 @@
                         if (xhr.status < 400 && xhr.responseText) {
                             code.textContent = xhr.responseText;
                             Prism.highlightElement(code);
+                            d=document.getElementsByClassName("line-numbers");
+                            d[0].scrollTop = d[0].children[1].offsetTop;
                             return;
                         }
 
