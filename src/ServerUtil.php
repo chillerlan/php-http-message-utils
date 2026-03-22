@@ -72,6 +72,7 @@ final class ServerUtil{
 			->withCookieParams($_COOKIE)
 			->withQueryParams($_GET)
 			->withParsedBody($_POST)
+			/** @phan-suppress-next-line PhanTypeMismatchArgument */
 			->withUploadedFiles($this->normalizeFiles($_FILES))
 		;
 	}

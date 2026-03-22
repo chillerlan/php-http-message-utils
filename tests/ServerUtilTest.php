@@ -8,6 +8,7 @@
  * @license      MIT
  *
  * @noinspection PhpArrayWriteIsNotUsedInspection
+ * @phan-file-suppress PhanTypeMismatchArgument, PhanTypeArraySuspicious
  */
 declare(strict_types=1);
 
@@ -16,7 +17,7 @@ namespace chillerlan\HTTPTest\Utils;
 use chillerlan\HTTP\Utils\ServerUtil;
 use PHPUnit\Framework\Attributes\DataProvider;
 use InvalidArgumentException, Throwable;
-use function microtime, realpath, time;
+use function array_merge, microtime, time;
 use const UPLOAD_ERR_OK, UPLOAD_ERR_PARTIAL;
 
 final class ServerUtilTest extends UtilTestAbstract{

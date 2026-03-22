@@ -6,6 +6,8 @@
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2023 smiley
  * @license      MIT
+ *
+ * @phan-file-suppress PhanUndeclaredMethod
  */
 declare(strict_types=1);
 
@@ -17,7 +19,7 @@ use chillerlan\HTTPTest\Utils\UtilTestAbstract;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Psr\Http\Message\ResponseInterface;
 use Generator, RuntimeException;
-use function array_column, array_map, array_pop, explode, header, implode, sprintf, strlen, trim;
+use function array_column, array_map, array_pop, explode, implode, sprintf, strlen, trim;
 
 final class SapiEmitterTest extends UtilTestAbstract{
 
@@ -34,6 +36,7 @@ final class SapiEmitterTest extends UtilTestAbstract{
 			protected array $content = [];
 
 			protected function sendHeader(string $header, bool $replace, int $response_code = 0):void{
+				/** @phan-suppress-next-line PhanTypeMismatchProperty */
 				$this->headers[] = ['header' => $header, 'replace' => $replace, 'response_code' => $response_code];
 			}
 

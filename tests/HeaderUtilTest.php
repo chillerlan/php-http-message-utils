@@ -18,6 +18,7 @@ final class HeaderUtilTest extends UtilTestAbstract{
 
 	/**
 	 * @return array<string, array{0: array<string|int, scalar|null>, 1: array<string, string>}>
+	 * @phan-suppress PhanTypeMismatchReturn
 	 */
 	public static function headerDataProvider():array{
 		return [

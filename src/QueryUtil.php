@@ -57,6 +57,7 @@ final class QueryUtil{
 
 			if(is_iterable($value)){
 				// recursion
+				/** @phan-suppress-next-line PhanTypeMismatchArgument */
 				$cleaned[$key] = call_user_func_array(__METHOD__, [$value, $bool_cast, $remove_empty]);
 			}
 			elseif(is_bool($value)){
@@ -231,9 +232,10 @@ final class QueryUtil{
 	/**
 	 * Recursive rawurlencode
 	 *
-	 * @param string|array<int, scalar|null> $data
+	 * @param scalar|array<int, scalar|null> $data
 	 * @return string|string[]
 	 * @throws \InvalidArgumentException
+	 * @phan-suppress PhanTypeMismatchDeclaredParamNullable
 	 */
 	public static function recursiveRawurlencode(mixed $data):array|string{
 

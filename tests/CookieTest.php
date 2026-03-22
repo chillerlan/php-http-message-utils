@@ -154,7 +154,7 @@ final class CookieTest extends TestCase{
 	public function testSameSiteNoneWithoutSecureException():void{
 		$this->expectException(InvalidArgumentException::class);
 		$this->expectExceptionMessage('The same site attribute can only be "none" when secure is set to true');
-
+		/** @phan-suppress-next-line PhanNoopCast */
 		(string)(new Cookie('test', 'samesite'))->withSameSite('none');
 	}
 

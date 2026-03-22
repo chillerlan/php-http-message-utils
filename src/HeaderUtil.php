@@ -124,6 +124,7 @@ final class HeaderUtil{
 	 *
 	 * @param array<int, scalar|null> $values
 	 * @return array<int, string> $values
+	 * @phan-suppress PhanTypeMismatchReturn
 	 */
 	public static function trimValues(array $values):array{
 

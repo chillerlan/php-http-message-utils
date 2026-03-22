@@ -197,6 +197,7 @@ final class StreamUtil{
 			throw $exception;
 		}
 
+		/** @phan-suppress-next-line PhanPossiblyUndeclaredVariable */
 		return $handle;
 	}
 
@@ -222,6 +223,7 @@ final class StreamUtil{
 		set_error_handler($errorHandler);
 
 		try{
+			/** @phan-suppress-next-line PhanTypeMismatchArgumentNullableInternal */
 			$contents = stream_get_contents($stream, $length, $offset);
 
 			if($contents === false){
@@ -239,6 +241,7 @@ final class StreamUtil{
 			throw $exception;
 		}
 
+		/** @phan-suppress-next-line PhanPossiblyUndeclaredVariable */
 		return $contents;
 	}
 

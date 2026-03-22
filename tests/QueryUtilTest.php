@@ -23,6 +23,7 @@ final class QueryUtilTest extends TestCase{
 
 	/**
 	 * @return array<string, array{0: int, 1: bool, 3: array<string, mixed>}>
+	 * @phan-suppress PhanTypeMismatchReturn
 	 */
 	public static function queryParamDataProvider():array{
 		return [
@@ -62,7 +63,7 @@ final class QueryUtilTest extends TestCase{
 	#[DataProvider('queryParamDataProvider')]
 	public function testCleanQueryParams(int $bool_cast, bool $remove_empty, array $expected):void{
 		$data = ['whatever' => null, 'nope' => '   ', 'true' => true, 'false' => false, 'array' => ['value' => false]];
-
+		/** @phan-suppress-next-line PhanTypeMismatchArgument */
 		$this::assertSame($expected, QueryUtil::cleanParams($data, $bool_cast, $remove_empty));
 	}
 
@@ -111,6 +112,7 @@ final class QueryUtilTest extends TestCase{
 
 	/**
 	 * @return array<string, array{0: string, 1: array<string, mixed>}>
+	 * @phan-suppress PhanTypeMismatchReturn
 	 */
 	public static function parseQueryProvider():array{
 		return [
@@ -180,7 +182,7 @@ final class QueryUtilTest extends TestCase{
 	}
 
 	public function testParseDoesTrimQuestionMark():void{
-		$this::assertSame(QueryUtil::parse('?q=a'), ['q' => 'a']);
+		$this::assertSame(['q' => 'a'], QueryUtil::parse('?q=a'));
 	}
 
 	/**
