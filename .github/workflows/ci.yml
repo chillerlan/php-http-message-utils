@@ -12,7 +12,7 @@ on:
       - main
 
 env:
-  PHP_EXTENSIONS: curl, fileinfo, intl, json, mbstring, simplexml, zlib
+  PHP_EXTENSIONS: brotli, curl, fileinfo, intl, json, mbstring, simplexml, zlib, zstd
   PHP_INI_VALUES: memory_limit=-1, error_reporting=-1, display_errors=On
 
 
@@ -21,10 +21,6 @@ jobs:
   static-code-analysis:
     name: "Static Code Analysis"
     runs-on: ubuntu-latest
-
-#    env:
-#      PHAN_ALLOW_XDEBUG: 0
-#      PHAN_DISABLE_XDEBUG_WARN: 1
 
     strategy:
       fail-fast: true
