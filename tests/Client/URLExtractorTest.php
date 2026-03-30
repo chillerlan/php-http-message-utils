@@ -38,7 +38,7 @@ final class URLExtractorTest extends HTTPClientTestAbstract{
 				'',
 			];
 
-			$responses = $this->httpClient->getResponses();
+			$responses = $this->httpClient->responses;
 
 			$this::assertCount(5, $responses);
 

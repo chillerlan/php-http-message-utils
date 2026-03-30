@@ -77,7 +77,7 @@ class SapiEmitter extends ResponseEmitterAbstract{
 	/**
 	 * Allow to intercept header calls in tests
 	 *
-	 * @codeCoverageIgnore (overridden in test)
+	 * @codeCoverageIgnore
 	 */
 	protected function sendHeader(string $header, bool $replace, int $response_code = 0):void{
 		header($header, $replace, $response_code);

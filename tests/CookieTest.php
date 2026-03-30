@@ -45,7 +45,7 @@ final class CookieTest extends TestCase{
 	 * @return array<string, array{0: DateTimeInterface|DateInterval|int, 1: string, 2: int}>
 	 */
 	public static function expiryProvider():array{
-		$dt     = (new DateTimeImmutable)->setTimezone(new DateTimeZone('GMT'));
+		$dt     = new DateTimeImmutable()->setTimezone(new DateTimeZone('GMT'));
 		$now    = $dt->getTimestamp();
 
 		return [
@@ -70,7 +70,7 @@ final class CookieTest extends TestCase{
 
 	#[DataProvider('expiryProvider')]
 	public function testSetExpiry(DateTimeInterface|DateInterval|int $expiry, string $expectedDate, int $expectedMaxAge):void{
-		$cookie = (new Cookie('test', 'expiry'))->withExpiry($expiry);
+		$cookie = new Cookie('test', 'expiry')->withExpiry($expiry);
 
 		try{
 			$this::assertSame(sprintf('test=expiry; Expires=%s; Max-Age=%s', $expectedDate, $expectedMaxAge), (string)$cookie);
@@ -85,7 +85,7 @@ final class CookieTest extends TestCase{
 
 	public function testExpiryWithEmptyValue():void{
 		// an empty value is supposed to delete the cookie - no matter what the expiry says
-		$cookie = (new Cookie('test', ''))->withExpiry(69);
+		$cookie = new Cookie('test', '')->withExpiry(69);
 
 		$this::assertSame('test=; Expires=Thursday, 01-Jan-1970 12:34:56 GMT; Max-Age=0', (string)$cookie);
 	}
@@ -103,7 +103,7 @@ final class CookieTest extends TestCase{
 
 	#[DataProvider('domainProvider')]
 	public function testSetDomain(string $domain, bool $punycode, string $expected):void{
-		$cookie = (new Cookie('test', 'domain'))->withDomain($domain, $punycode);
+		$cookie = new Cookie('test', 'domain')->withDomain($domain, $punycode);
 
 		$this::assertSame(sprintf('test=domain; Domain=%s', $expected), (string)$cookie);
 		// test unset
@@ -123,7 +123,7 @@ final class CookieTest extends TestCase{
 
 	#[DataProvider('pathProvider')]
 	public function testPath(string $path, string $expected):void{
-		$cookie = (new Cookie('test', 'path'))->withPath($path);
+		$cookie = new Cookie('test', 'path')->withPath($path);
 
 		$this::assertSame(sprintf('test=path; Path=%s', $expected), (string)$cookie);
 		// test unset
@@ -148,18 +148,18 @@ final class CookieTest extends TestCase{
 		$this->expectException(InvalidArgumentException::class);
 		$this->expectExceptionMessage('The same site attribute must be "lax", "strict" or "none"');
 
-		(new Cookie('test', 'samesite'))->withSameSite('foo');
+		new Cookie('test', 'samesite')->withSameSite('foo');
 	}
 
 	public function testSameSiteNoneWithoutSecureException():void{
 		$this->expectException(InvalidArgumentException::class);
 		$this->expectExceptionMessage('The same site attribute can only be "none" when secure is set to true');
 		/** @phan-suppress-next-line PhanNoopCast */
-		(string)(new Cookie('test', 'samesite'))->withSameSite('none');
+		(string)new Cookie('test', 'samesite')->withSameSite('none');
 	}
 
 	public function testSameSite():void{
-		$cookie = (new Cookie('test', 'samesite'))->withSameSite('strict');
+		$cookie = new Cookie('test', 'samesite')->withSameSite('strict');
 
 		$this::assertSame('test=samesite; SameSite=strict', (string)$cookie);
 		// test unset

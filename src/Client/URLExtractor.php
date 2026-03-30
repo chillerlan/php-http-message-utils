@@ -26,7 +26,7 @@ use function array_reverse, in_array;
 class URLExtractor implements ClientInterface{
 
 	/** @var \Psr\Http\Message\ResponseInterface[] */
-	protected array                   $responses = [];
+	protected(set) array              $responses = [];
 	protected ClientInterface         $http;
 	protected RequestFactoryInterface $requestFactory;
 
@@ -83,6 +83,7 @@ class URLExtractor implements ClientInterface{
 	/**
 	 * @return \Psr\Http\Message\ResponseInterface[]
 	 */
+	#[\Deprecated(message: 'Use the property URLExtractor::$responses instead.', since: '3.0.0')]
 	public function getResponses():array{
 		return $this->responses;
 	}

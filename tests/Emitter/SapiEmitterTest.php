@@ -7,7 +7,7 @@
  * @copyright    2023 smiley
  * @license      MIT
  *
- * @phan-file-suppress PhanUndeclaredMethod
+ * @phan-file-suppress PhanUndeclaredMethod, PhanUndeclaredProperty
  */
 declare(strict_types=1);
 
@@ -30,10 +30,10 @@ final class SapiEmitterTest extends UtilTestAbstract{
 	 */
 	protected function initEmitter(ResponseInterface $response, int $bufferSize = 8192):ResponseEmitterInterface{
 		return new class ($response, $bufferSize) extends SapiEmitter{
-			/** @var array<string, array{0: string, 1: bool, 2: int}> */
-			protected array $headers = [];
+			/** @var array<int, array{0: string, 1: bool, 2: int}> */
+			protected(set) array $headers = [];
 			/** @var string[] */
-			protected array $content = [];
+			protected(set) array $content = [];
 
 			protected function sendHeader(string $header, bool $replace, int $response_code = 0):void{
 				/** @phan-suppress-next-line PhanTypeMismatchProperty */
@@ -42,16 +42,6 @@ final class SapiEmitterTest extends UtilTestAbstract{
 
 			protected function emitBuffer(string $buffer):void{
 				$this->content[] = $buffer;
-			}
-
-			/** @return array<string, array{0: string, 1: bool, 2: int}> */
-			public function getHeaders():array{
-				return $this->headers;
-			}
-
-			/** @return string[] */
-			public function getBody():array{
-				return $this->content;
 			}
 
 			public function getBodyContent():string{
@@ -75,7 +65,7 @@ final class SapiEmitterTest extends UtilTestAbstract{
 		$this->emitter = $this->initEmitter($response);
 		$this->emitter->emit();
 
-		$headers  = array_column($this->emitter->getHeaders(), 'header');
+		$headers  = array_column($this->emitter->headers, 'header');
 		$status   = array_pop($headers); // status line should be last
 		$expected = [
 			'X-Foo: bar',
@@ -100,7 +90,7 @@ final class SapiEmitterTest extends UtilTestAbstract{
 		$this->emitter = $this->initEmitter($response);
 		$this->emitter->emit();
 
-		$headers = $this->emitter->getHeaders();
+		$headers = $this->emitter->headers;
 
 		$this::assertSame($expected, $this->emitter->getBodyContent());
 		$this::assertSame('Content-Length: '.strlen($expected), $headers[0]['header']);
@@ -164,7 +154,7 @@ final class SapiEmitterTest extends UtilTestAbstract{
 
 		$content = $this->emitter->getBodyContent();
 
-		foreach($this->emitter->getHeaders() as $line){
+		foreach($this->emitter->headers as $line){
 			[$headerName, $headerContent] = array_map(trim(...), explode(':', $line['header'], 2));
 
 			if($headerName === 'Content-Length'){
@@ -193,7 +183,7 @@ final class SapiEmitterTest extends UtilTestAbstract{
 		$this->emitter = $this->initEmitter($response);
 		$this->emitter->emit();
 
-		$headers  = array_column($this->emitter->getHeaders(), 'header');
+		$headers  = array_column($this->emitter->headers, 'header');
 
 		$expected = [
 			'Content-Length: 3',
@@ -214,7 +204,7 @@ final class SapiEmitterTest extends UtilTestAbstract{
 		$this->emitter = $this->initEmitter($response);
 		$this->emitter->emit();
 
-		$headers  = array_column($this->emitter->getHeaders(), 'header');
+		$headers  = array_column($this->emitter->headers, 'header');
 
 		$expected = [
 			'Content-Length: 5',

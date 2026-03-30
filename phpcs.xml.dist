@@ -201,7 +201,7 @@
 	<rule ref="Squiz.PHP.InnerFunctions"/>
 	<rule ref="Squiz.PHP.LowercasePHPFunctions"/>
 	<rule ref="Squiz.PHP.NonExecutableCode"/>
-	<rule ref="Squiz.Scope.MemberVarScope"/>
+	<!--<rule ref="Squiz.Scope.MemberVarScope"/>-->
 	<rule ref="Squiz.Scope.MethodScope"/>
 	<rule ref="Squiz.Scope.StaticThisUsage"/>
 	<rule ref="Squiz.Strings.DoubleQuoteUsage"/>
@@ -220,7 +220,7 @@
 
 
 	<!--
-		Configurable built-in https://github.com/squizlabs/PHP_CodeSniffer/wiki/Customisable-Sniff-Properties
+		Configurable built-in https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Customisable-Sniff-Properties
 	-->
 
 	<rule ref="Generic.ControlStructures.InlineControlStructure">

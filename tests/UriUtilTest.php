@@ -17,21 +17,21 @@ use PHPUnit\Framework\Attributes\DataProvider;
 final class UriUtilTest extends UtilTestAbstract{
 
 	public function testUriIsAbsolute():void{
-		$this::assertTrue(UriUtil::isAbsolute($this->uriFactory->createUri('http://example.org')));
+		$this::assertTrue(UriUtil::isAbsolute($this->uriFactory->createUri('https://example.org')));
 		$this::assertFalse(UriUtil::isAbsolute($this->uriFactory->createUri('//example.org')));
 		$this::assertFalse(UriUtil::isAbsolute($this->uriFactory->createUri('/abs-path')));
 		$this::assertFalse(UriUtil::isAbsolute($this->uriFactory->createUri('rel-path')));
 	}
 
 	public function testUriIsNetworkPathReference():void{
-		$this::assertFalse(UriUtil::isNetworkPathReference($this->uriFactory->createUri('http://example.org')));
+		$this::assertFalse(UriUtil::isNetworkPathReference($this->uriFactory->createUri('https://example.org')));
 		$this::assertTrue(UriUtil::isNetworkPathReference($this->uriFactory->createUri('//example.org')));
 		$this::assertFalse(UriUtil::isNetworkPathReference($this->uriFactory->createUri('/abs-path')));
 		$this::assertFalse(UriUtil::isNetworkPathReference($this->uriFactory->createUri('rel-path')));
 	}
 
 	public function testUriIsAbsolutePathReference():void{
-		$this::assertFalse(UriUtil::isAbsolutePathReference($this->uriFactory->createUri('http://example.org')));
+		$this::assertFalse(UriUtil::isAbsolutePathReference($this->uriFactory->createUri('https://example.org')));
 		$this::assertFalse(UriUtil::isAbsolutePathReference($this->uriFactory->createUri('//example.org')));
 		$this::assertTrue(UriUtil::isAbsolutePathReference($this->uriFactory->createUri('/abs-path')));
 		$this::assertTrue(UriUtil::isAbsolutePathReference($this->uriFactory->createUri('/')));
@@ -39,11 +39,11 @@ final class UriUtilTest extends UtilTestAbstract{
 	}
 
 	public function testUriIsRelativePathReference():void{
-		$this::assertFalse(UriUtil::isRelativePathReference($this->uriFactory->createUri('http://example.org')));
+		$this::assertFalse(UriUtil::isRelativePathReference($this->uriFactory->createUri('https://example.org')));
 		$this::assertFalse(UriUtil::isRelativePathReference($this->uriFactory->createUri('//example.org')));
 		$this::assertFalse(UriUtil::isRelativePathReference($this->uriFactory->createUri('/abs-path')));
 		$this::assertTrue(UriUtil::isRelativePathReference($this->uriFactory->createUri('rel-path')));
-		$this::assertTrue(UriUtil::isRelativePathReference($this->uriFactory->createUri('')));
+		$this::assertTrue(UriUtil::isRelativePathReference($this->uriFactory->createUri()));
 	}
 
 	public function testUriAddAndRemoveQueryValues():void{
@@ -51,7 +51,7 @@ final class UriUtilTest extends UtilTestAbstract{
 
 		$uri = UriUtil::withQueryValue($uri, 'a', 'b');
 		$uri = UriUtil::withQueryValue($uri, 'c', 'd');
-		$uri = UriUtil::withQueryValue($uri, 'e', null);
+		$uri = UriUtil::withQueryValue($uri, 'e');
 		$this::assertSame('a=b&c=d&e', $uri->getQuery());
 
 		$uri = UriUtil::withoutQueryValue($uri, 'c');

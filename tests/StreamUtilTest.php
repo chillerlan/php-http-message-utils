@@ -14,8 +14,6 @@ namespace chillerlan\HTTPTest\Utils;
 use chillerlan\HTTP\Utils\StreamUtil;
 use InvalidArgumentException, RuntimeException;
 use function fclose, fopen, stream_get_meta_data, strlen, substr;
-use function sprintf;
-use const PHP_VERSION_ID;
 
 final class StreamUtilTest extends UtilTestAbstract{
 
@@ -148,13 +146,8 @@ final class StreamUtilTest extends UtilTestAbstract{
 	}
 
 	public function testTryFopenThrowsExceptionInsteadOfValueError():void{
-
-		$expectedMessage = PHP_VERSION_ID < 80400
-			? 'Path cannot be empty'
-			: 'Path must not be empty';
-
 		$this->expectException(RuntimeException::class);
-		$this->expectExceptionMessage(sprintf('Unable to open "" using mode "r": %s', $expectedMessage));
+		$this->expectExceptionMessage('Unable to open "" using mode "r": Path must not be empty');
 
 		StreamUtil::tryFopen('', 'r');
 	}
@@ -175,13 +168,8 @@ final class StreamUtilTest extends UtilTestAbstract{
 	}
 
 	public function testTryGetContentsThrowsExceptionOnInvalidResource():void{
-
-		$expectedMessage = PHP_VERSION_ID < 80500
-			? 'supplied resource is not a valid stream resource'
-			: 'Unable to read stream contents: stream_get_contents(): Argument #1 ($stream) must be an open stream resource';
-
 		$this->expectException(RuntimeException::class);
-		$this->expectExceptionMessage($expectedMessage);
+		$this->expectExceptionMessage('Unable to read stream contents: stream_get_contents(): Argument #1 ($stream) must be an open stream resource'); // phpcs:ignore
 
 		$resource = StreamUtil::tryFopen(__DIR__.'/fopen-test.txt', 'r');
 		fclose($resource);

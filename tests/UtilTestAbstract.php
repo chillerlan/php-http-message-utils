@@ -18,7 +18,7 @@ use Throwable;
 abstract class UtilTestAbstract extends TestCase{
 	use HttpFactoryTrait;
 
-	protected const CACERT = __DIR__.'/cacert.pem';
+	protected const string CACERT = __DIR__.'/cacert.pem';
 
 	protected function setUp():void{
 		try{

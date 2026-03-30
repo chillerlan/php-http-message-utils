@@ -17,7 +17,8 @@ use function array_filter, array_map, explode, implode, parse_url, preg_match,
 
 final class UriUtil{
 
-	public const URI_DEFAULT_PORTS = [
+	/** @var array<string, int> */
+	public const array URI_DEFAULT_PORTS = [
 		'http'   => 80,
 		'https'  => 443,
 		'ftp'    => 21,

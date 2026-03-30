@@ -21,9 +21,11 @@ final class MimeTypeUtil{
 	 * @see https://www.iana.org/assignments/media-types/media-types.xhtml
 	 * @see https://github.com/jshttp/mime-db
 	 * @see https://github.com/patrickmccallum/mimetype-io
+	 *
+	 * @var array<string, string>
 	 */
 	// phpcs:ignore
-	public const MIMETYPES = [
+	public const array MIMETYPES = [
 		'1km' => 'application/vnd.1000minds.decision-model+xml',
 		'3dml' => 'text/vnd.in3d.3dml',
 		'3ds' => 'image/x-3ds',
@@ -1317,8 +1319,7 @@ final class MimeTypeUtil{
 	 * Get the mime type from the given content
 	 */
 	public static function getFromContent(string $content):string|null{
-		$finfo = new finfo(FILEINFO_MIME_TYPE);
-		$mime  = $finfo->buffer($content);
+		$mime  = new finfo(FILEINFO_MIME_TYPE)->buffer($content);
 
 		if($mime === false){
 			return null; // @codeCoverageIgnore

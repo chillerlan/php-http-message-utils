@@ -186,7 +186,7 @@ abstract class ResponseEmitterAbstract implements ResponseEmitterInterface{
 	/**
 	 * emits the given buffer
 	 *
-	 * @codeCoverageIgnore (overridden in test)
+	 * @codeCoverageIgnore
 	 */
 	protected function emitBuffer(string $buffer):void{
 		echo $buffer;

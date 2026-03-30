@@ -116,7 +116,7 @@ final class HeaderUtil{
 	 *
 	 * Spaces and tabs ought to be excluded by parsers when extracting the field value from a header field.
 	 *
-	 * header-field = field-name ":" OWS field-value OWS
+	 * header-field = field-name ":" OWS field-value
 	 * OWS          = *( SP / HTAB )
 	 *
 	 * @see https://tools.ietf.org/html/rfc7230#section-3.2.4

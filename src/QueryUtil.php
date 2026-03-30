@@ -19,12 +19,12 @@ use const PHP_QUERY_RFC1738, PHP_QUERY_RFC3986, SORT_STRING;
 
 final class QueryUtil{
 
-	public const BOOLEANS_AS_BOOL       = 0;
-	public const BOOLEANS_AS_INT        = 1;
-	public const BOOLEANS_AS_STRING     = 2;
-	public const BOOLEANS_AS_INT_STRING = 3;
+	public const int BOOLEANS_AS_BOOL       = 0;
+	public const int BOOLEANS_AS_INT        = 1;
+	public const int BOOLEANS_AS_STRING     = 2;
+	public const int BOOLEANS_AS_INT_STRING = 3;
 
-	public const NO_ENCODING = -1;
+	public const int NO_ENCODING = -1;
 
 	/**
 	 * Cleans/normalizes an array of query parameters

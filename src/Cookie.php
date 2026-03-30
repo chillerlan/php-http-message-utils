@@ -19,7 +19,8 @@ use function idn_to_ascii, implode, in_array, mb_strtolower, rawurlencode, sprin
  */
 class Cookie{
 
-	public const RESERVED_CHARACTERS = ["\t", "\n", "\v", "\f", "\r", "\x0E", ' ', ',', ';', '='];
+	/** @var string[] */
+	public const array RESERVED_CHARACTERS = ["\t", "\n", "\v", "\f", "\r", "\x0E", ' ', ',', ';', '='];
 
 	protected string                 $name;
 	protected string                 $value;

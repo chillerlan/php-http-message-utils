@@ -241,7 +241,7 @@ final class MessageUtil{
 		string|null                             $sameSite = null,
 	):ResponseInterface{
 
-		$cookie = (new Cookie($name, $value))
+		$cookie = new Cookie($name, $value)
 			->withExpiry($expiry)
 			->withDomain($domain)
 			->withPath($path)
