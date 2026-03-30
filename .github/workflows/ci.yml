@@ -45,7 +45,7 @@ jobs:
         run: composer validate --no-interaction --ansi --verbose --with-dependencies
 
       - name: "Install dependencies with composer"
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
 
       - name: "Run PHPCodeSniffer"
         run: php vendor/bin/phpcs
@@ -114,7 +114,7 @@ jobs:
           coverage: pcov
 
       - name: "Install dependencies with composer"
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
 
       - name: "Fetch cacert.pem from curl.se"
         run: curl -o ./tests/cacert.pem https://curl.se/ca/cacert.pem
