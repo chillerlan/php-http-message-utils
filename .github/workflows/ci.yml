@@ -6,10 +6,10 @@ name: "CI"
 on:
   push:
     branches:
-      - main
+      - v2.x-php8.1
   pull_request:
     branches:
-      - main
+      - v2.x-php8.1
 
 env:
   PHP_EXTENSIONS: brotli, curl, fileinfo, intl, json, mbstring, simplexml, zlib, zstd
@@ -55,38 +55,6 @@ jobs:
 
       - name: "Run phan"
         run: php vendor/bin/phan --target-php-version=${{ matrix.php-version }}
-
-#      - name: "Run PHPStan"
-#        run: php vendor/bin/phpstan
-
-
-  build-docs:
-    name: "Build and publish Docs"
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: "Checkout sources"
-        uses: actions/checkout@v6
-
-      - name: "Install PHP"
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: "8.1"
-          extensions: ${{ env.PHP_EXTENSIONS }}
-          ini-values: ${{ env.PHP_INI_VALUES }}
-          coverage: none
-          tools: phpDocumentor
-
-      - name: "Build Docs"
-        run: phpdoc --config=phpdoc.xml.dist
-
-      - name: "Publish Docs to gh-pages"
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages
-          folder: docs
-          clean: true
 
 
   tests:

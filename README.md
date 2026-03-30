@@ -15,15 +15,15 @@ A collection of framework-agnostic utilities for use with [PSR-7 Message impleme
 [packagist-badge]: https://img.shields.io/packagist/v/chillerlan/php-http-message-utils?logo=packagist
 [packagist]: https://packagist.org/packages/chillerlan/php-http-message-utils
 [license-badge]: https://img.shields.io/github/license/chillerlan/php-http-message-utils
-[license]: https://github.com/chillerlan/php-http-message-utils/blob/main/LICENSE
-[coverage-badge]: https://img.shields.io/codecov/c/github/chillerlan/php-http-message-utils?logo=codecov
-[coverage]: https://codecov.io/github/chillerlan/php-http-message-utils
-[codacy-badge]: https://img.shields.io/codacy/grade/70e19515c2734e0a9036d83dbbd1469c?logo=codacy
-[codacy]: https://app.codacy.com/gh/chillerlan/php-http-message-utils/dashboard
+[license]: https://github.com/chillerlan/php-http-message-utils/blob/v2.x-php8.1/LICENSE
+[coverage-badge]: https://img.shields.io/codecov/c/github/chillerlan/php-http-message-utils/v2.x-php8.1?logo=codecov
+[coverage]: https://codecov.io/github/chillerlan/php-http-message-utils/tree/v2.x-php8.1
+[codacy-badge]: https://img.shields.io/codacy/grade/70e19515c2734e0a9036d83dbbd1469c/v2.x-php8.1?logo=codacy
+[codacy]: https://app.codacy.com/gh/chillerlan/php-http-message-utils/dashboard?branch=v2.x-php8.1
 [downloads-badge]: https://img.shields.io/packagist/dt/chillerlan/php-http-message-utils?logo=packagist
 [downloads]: https://packagist.org/packages/chillerlan/php-http-message-utils/stats
-[gh-action-badge]: https://img.shields.io/github/actions/workflow/status/chillerlan/php-http-message-utils/ci.yml?branch=main&logo=github
-[gh-action]: https://github.com/chillerlan/php-http-message-utils/actions/workflows/ci.yml?query=branch%3Amain
+[gh-action-badge]: https://img.shields.io/github/actions/workflow/status/chillerlan/php-http-message-utils/ci.yml?branch=v2.x-php8.1&logo=github
+[gh-action]: https://github.com/chillerlan/php-http-message-utils/actions/workflows/ci.yml?query=branch%3Av2.x-php8.1
 
 
 # Documentation
@@ -37,12 +37,12 @@ A collection of framework-agnostic utilities for use with [PSR-7 Message impleme
 
 **requires [composer](https://getcomposer.org)**
 
-`composer.json` (note: replace `dev-main` with a [version boundary](https://getcomposer.org/doc/articles/versions.md), e.g. `^2.2`)
+`composer.json` (note: replace `dev-v2.x-php8.1` with a [version boundary](https://getcomposer.org/doc/articles/versions.md), e.g. `^2.2`)
 ```json
 {
 	"require": {
 		"php": "^8.1",
-		"chillerlan/php-http-message-utils": "dev-main#<commit_hash>"
+		"chillerlan/php-http-message-utils": "dev-v2.x-php8.1#<commit_hash>"
 	}
 }
 ```
