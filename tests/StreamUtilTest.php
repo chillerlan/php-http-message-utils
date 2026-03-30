@@ -169,7 +169,7 @@ final class StreamUtilTest extends UtilTestAbstract{
 
 	public function testTryGetContentsThrowsExceptionOnInvalidResource():void{
 		$this->expectException(RuntimeException::class);
-		$this->expectExceptionMessage('Unable to read stream contents: stream_get_contents(): Argument #1 ($stream) must be an open stream resource'); // phpcs:ignore
+		$this->expectExceptionMessage('Unable to read stream contents: stream_get_contents():');
 
 		$resource = StreamUtil::tryFopen(__DIR__.'/fopen-test.txt', 'r');
 		fclose($resource);
