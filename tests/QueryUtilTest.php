@@ -144,6 +144,9 @@ final class QueryUtilTest extends TestCase{
 		$this::assertSame($output, QueryUtil::parse($input));
 	}
 
+	/**
+	 * @param array<string, mixed> $output
+	 */
 	#[DataProvider('parseQueryProvider')]
 	public function testParsesAndBuildsQueries(string $input, array $output): void{
 		$result = QueryUtil::parse($input, QueryUtil::NO_ENCODING);
